@@ -1,0 +1,3 @@
+com/journaldev/prime/faces/beans/RegisterEmployee.class
+com/journaldev/spring/service/EmployeeService.class
+com/journaldev/jpa/data/Employee.class
