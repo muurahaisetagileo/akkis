@@ -1,7 +1,0 @@
-127.0.0.1 - - [04/Nov/2015:12:21:35 +0200] "GET / HTTP/1.1" 404 983
-127.0.0.1 - - [04/Nov/2015:12:21:43 +0200] "GET /Primefaces-Hibernate-JPA-Spring-Integration-Sample/ HTTP/1.1" 200 4590
-127.0.0.1 - - [04/Nov/2015:12:21:44 +0200] "GET /Primefaces-Hibernate-JPA-Spring-Integration-Sample/javax.faces.resource/primefaces.js.xhtml;jsessionid=E4A322EA0A26E78BAEADA5EE39B532DC?ln=primefaces&v=5.0 HTTP/1.1" 200 300675
-127.0.0.1 - - [04/Nov/2015:12:21:44 +0200] "GET /Primefaces-Hibernate-JPA-Spring-Integration-Sample/javax.faces.resource/jquery/jquery.js.xhtml;jsessionid=E4A322EA0A26E78BAEADA5EE39B532DC?ln=primefaces&v=5.0 HTTP/1.1" 200 108195
-127.0.0.1 - - [04/Nov/2015:12:21:44 +0200] "GET /Primefaces-Hibernate-JPA-Spring-Integration-Sample/javax.faces.resource/jquery/jquery-plugins.js.xhtml;jsessionid=E4A322EA0A26E78BAEADA5EE39B532DC?ln=primefaces&v=5.0 HTTP/1.1" 200 220756
-127.0.0.1 - - [04/Nov/2015:12:21:44 +0200] "GET /Primefaces-Hibernate-JPA-Spring-Integration-Sample/javax.faces.resource/primefaces.css.xhtml;jsessionid=E4A322EA0A26E78BAEADA5EE39B532DC?ln=primefaces&v=5.0 HTTP/1.1" 200 55953
-127.0.0.1 - - [04/Nov/2015:12:21:44 +0200] "GET /Primefaces-Hibernate-JPA-Spring-Integration-Sample/javax.faces.resource/theme.css.xhtml?ln=primefaces-aristo HTTP/1.1" 200 28780
