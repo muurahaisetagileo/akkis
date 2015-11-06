@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name="USER")
 @NamedQueries({
 	@NamedQuery(name="login", 
-		query="SELECT u FROM User U WHERE u.username = :username AND u.password = :password")	
+		query="SELECT u FROM User u WHERE u.username = :username AND u.password = :password")	
 })
 public class User {
 	@Id
