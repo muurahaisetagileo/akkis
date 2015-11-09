@@ -1,1 +1,8 @@
 /bin/
+build
+target
+Servers
+RemoteSystemsTempFiles
+plugins
+.metadata
+.recommenders
