@@ -1,0 +1,47 @@
+Parempi suunta UML -> luokat vai luokista UML suuntaan?
+
+- UML:llä liikkeelle, mietitään luokkajako
+
+- Sen jälkeen toteuttamaan luokkia
+
+UML:n ei ole pakko (peoduct ownerin näkökulmasta siis mutta halutessaan voi) pysyä ajantasalla. Jos oleellista periytyminen, voi merkitä
+
+Mietitään semmoiset luokat mitä käytetään toisten välillä (rajapintaluokat)
+
+Jokaiselle tulee myöhemmin tarve luoda omia luokkia
+
+Moduuli = rypäs luokkia
+
+Metodeja ei tarvitse merkitä UML:ään
+
+Kaveri joka lähtee toteuttamaan esim user luokkaa, voi miettiä mitä palveluja tarvitaan muilta luokilta. Palveluja toteutaan funktioina.
+
+Voi tehdä apuluokkia toteutukseen mutta näitä ei tarvitse UML:ään
+
+User-luokka edustaa controlleria, viewin voisi merkitä UML:ään.
+
+Millaisia view-kokonaisuuksia (voi olla esim HTML). User view tarvitsee dataa kontrollerikerroksen view:iltä
+
+Tietokantataulujen mallinnus hyvä tehdä UML:ssä. Kontrolleriluokat saattaa olla yksi yhteen tietokantataulujen kanssa.
+
+Jos tehtävänä olisi tehdä user toteutus läpi arkkitehtuuriin, mentäisiin siinä:
+
+- Kantaan
+- Kontrollerikerrokseen
+- Viewiin 
+
+Voi tehdä erilliset diagrammit koko arkkitehtuurista mutta mahtunee samaankin kaavioon
+
+Luokkien rungoista (toteutuksessa)
+
+- Luodaan luokat
+- Minkälaisia palveluja tarjoaa ja mitä tarvii
+- Palvelut funktioiksi ja niihin tyhjä toteutus, mitä funktioita tarvii, pyydetään kaverilta
+- Kuka lähtee tekemään mitäkin luokkia
+- Public
+
+- Yksikkötestit seuraavassa aallossa
+- Yksikkötestejä funktioihin
+
+
+
