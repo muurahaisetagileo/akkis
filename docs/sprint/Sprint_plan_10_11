@@ -1,0 +1,86 @@
+Sprinttisuunnitelma 10.11.2015
+
+
+  Jokaiselle käyttäjäryhmälle näkymä, idea kuulostaa po:n mielestä hyvältä.
+
+  Etsiä stoorit mitä ruveta tekemään, näkee samalla minkä verran UI:ta tarvitaan
+
+  Mistä päästä lähdetään toteuttamaan?
+
+  Työmäärät ensimmäiselle päivälle mietitty
+
+2 viikon jaksosta:
+
+  Priorisoitu lista taskeista näyttää hyvältä, näin product owner itsekin olisi lähtenyt purkamaan
+
+ (Sopimus ja kauppa mutta ei asiakasyritystä?)
+
+
+Aikataulu
+
+Ensimmäinen sprintti
+
+Lopputuloksena kääntyvä paketti jossa rajapinnat, ei tarvitse vielä toiminnallisuutta, luokat selvillä, työnjako luokkiin, ympäristö kunnossa.
+
+Testauksesta
+
+  Jokainen tekee yksikkötestit omille luokilleen
+  Ei kattavuuksia
+  Pyritään yksinkertaiseen
+
+Luokkakaavio, keskenään rajapinnat selväksi, kutsutaan toisten koodia, mitkä keskustelee keskenään
+
+Jokainen tekemään omia luokkia kun luokat suunniteltu, public funktiot, ei private membereitä tai injektointeja
+
+Taskeihin luokkien perusrunkoja
+
+Rajapintojen jälkeen yksikkötestejä
+
+Yksikkötestit uuteen kansioon
+
+Millaisilla hakukriteereillä haetaan?
+
+UI design tehtäviin
+
+- Myyjän hakukriteerit ensimmäiseen vaiheeseen
+- Yksittäistä asiakasta täytyy pystyä hakemaan nimellä
+
+Suhteista?
+
+- Yksi sopimus voi koskea montaa ihmistä
+- Yhdelle kontaktille voi olla useampi sopimus
+- Diili aina kontaktikohtainen
+- Kontaktilla voi olla useampi diili
+
+Luotavat kansiot
+- Docs kansio juureen
+- Docs kansion alle sprint kansio johon sprinttiin liittyvät dokumentit
+- Docs kansion alle UI design kansio johon 1.7 tehtävän tuotokset
+- Yksikkötestit, malli harjoitustehtävistä mihin tulee
+
+
+Perjantaina 13.11
+
+- Toiveena, että rajapintaluokat kääntyisi ja yksikkötestit
+- Ei implementointia
+
+Harri
+
+- Kokonaisnäkemys
+
+Jari-Matti
+
+- Build ja jenkins
+
+Ossi
+
+- Testaus
+- Pääosin UI:ta
+
+
+
+
+
+
+
+
