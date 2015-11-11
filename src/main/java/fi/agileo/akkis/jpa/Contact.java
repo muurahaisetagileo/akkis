@@ -48,7 +48,7 @@ public class Contact {
 	private Contract contract;
 	private User salesPerson;
 	private ContactCompany contactCompany;
-	private List<Deal> deal;
+	private List<Deal> deals;
 	
 	// Public methods
 
@@ -154,12 +154,12 @@ public class Contact {
 		this.contactCompany = contactCompany;
 	}
 
-	public List<Deal> getDeal() {
-		return deal;
+	public List<Deal> getDeals() {
+		return deals;
 	}
 
-	public void setDeal(List<Deal> deal) {
-		this.deal = deal;
+	public void setDeals(List<Deal> deals) {
+		this.deals = deals;
 	}
 
 	@Override
