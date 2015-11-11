@@ -1,0 +1,12 @@
+URL
+
+http://localhost:9080/job/Akkis/
+
+Jenkins käynnistys - ja sammutuskomennot
+
+sudo service jenkins stop
+sudo service jenkins start
+
+Build
+
+Viimeisin succesfull build jenkinsissä: 11.11.2015 klo 13:32
