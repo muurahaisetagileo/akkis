@@ -36,6 +36,9 @@ private String contractstatus;
 @Column(name="PRICE")
 private String price;
 
+@Column(name="NOTES")
+private int notes;
+
 
 public String getContact() 
 {
@@ -88,15 +91,22 @@ public void setPrice(String price) {
 	this.price = price;
 }
 
+// Myyjän tarina 14 h. (N kpl nootteja). 
+
+public int getNotes() {
+	return this.notes;
+	
+}
+
+public void setNotes(int notes) {
+	this.notes = notes;
+}
+
 @Override
 public String toString() {
 	return "Contract [contractId=" + contractId + ", contact=" + contact + ", signdate=" + signdate + ", enddate="
-			+ enddate + ", contractstatus=" + contractstatus + ", price=" + price + "]";
+			+ enddate + ", contractstatus=" + contractstatus + ", price=" + price + ", notes=" + notes + "]";
 }
-
-
-
-
 
 
 
