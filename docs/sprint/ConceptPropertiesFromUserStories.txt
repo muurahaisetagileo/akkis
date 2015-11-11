@@ -1,0 +1,67 @@
+Basic properties
+--------------------------------------------
+
+Contact
+--------------
+Myyjän tarina 1:
+- nimi
+- puhelin
+- sähköposti
+- valokuva ( myöhemmin )
+- maa
+- osoite
+
+Myyjän tarina 4:
+- tila
+
+Myyjän tarina 5:
+- näkyvyys
+
+
+
+Contract
+--------------
+
+
+
+ContactCompany
+---------------
+Myyjän tarina 2:
+- nimi
+- puhelin
+- osoite
+- nettisivu
+- Y-tunnus
+
+
+Relationships
+--------------------------------------------
+
+
+Contact - Company
+-----------------
+Etusivu:
+- asiakasyritys on organisaatio, joka koostuu 1-n asiakkaasta
+
+
+
+User - Contact
+--------------
+Myyjän tarina 2:
+- vastuumyyjä (responsible_salesman)
+
+
+
+User - Deal
+-----------
+
+
+
+Contract - Deal
+----------------
+
+
+
+
+Search criteria
+--------------------------------------------
