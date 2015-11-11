@@ -29,6 +29,12 @@ public class User {
 	
 	@Column(name="TYPE")
 	private int type;
+	
+	@Column(name="FIRSTNAMES")
+	private String firstNames;
+	
+	@Column(name="LASTNAME")
+	private String lastName;
 
 	public long getUserId() {
 		return userId;
@@ -60,6 +66,22 @@ public class User {
 
 	public void setType(int type) {
 		this.type = type;
+	}
+
+	public String getFirstNames() {
+		return firstNames;
+	}
+
+	public void setFirstNames(String firstNames) {
+		this.firstNames = firstNames;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	@Override

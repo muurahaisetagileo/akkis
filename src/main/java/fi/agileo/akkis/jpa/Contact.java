@@ -37,9 +37,12 @@ public class Contact {
 	@Column(name="TYPE")
 	private int type;
 	
+	@Column(name="SALESPERSON")
+	private User salesPerson;
+	
 	@Column(name="PUBLICAVAILABILITY")
 	private boolean publicAvailability;
-	
+
 	public long getContactId()
 	{
 		return this.contactId;
@@ -108,6 +111,14 @@ public class Contact {
 	public void setType(int type)
 	{
 		this.type = type;
+	}
+	
+	public User getSalesPerson() {
+		return salesPerson;
+	}
+
+	public void setSalesPerson(User salesPerson) {
+		this.salesPerson = salesPerson;
 	}
 
 	public boolean isPublicAvailability() {
