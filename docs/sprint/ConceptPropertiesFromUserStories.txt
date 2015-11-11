@@ -21,6 +21,15 @@ Myyjän tarina 5:
 
 Contract
 --------------
+Yleisesti lisätyt alustavat ominaisuudet (oletettavasti tarpeelliset)
+- kontakti 
+- sopimuksen solmimispäivämäärä 
+Myyjän tarina 14:
+- sopimuksen päättymisaika
+- sopimuksen tila (draft, signed, delivered or expired)
+- hinta
+- n.kpl nootteja
+
 
 
 
