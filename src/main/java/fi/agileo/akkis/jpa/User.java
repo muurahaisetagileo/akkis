@@ -1,5 +1,7 @@
 package fi.agileo.akkis.jpa;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,6 +18,9 @@ import javax.persistence.Table;
 		query="SELECT u FROM User u WHERE u.username = :username AND u.password = :password")	
 })
 public class User {
+	
+	// Database columns
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="USER_ID")
@@ -35,6 +40,14 @@ public class User {
 	
 	@Column(name="LASTNAME")
 	private String lastName;
+	
+	// Relationships
+	
+	private List<Contract> contracts;
+	private List<Deal> deals;
+	private List<Contact> contacts;
+	
+	// Public methods
 
 	public long getUserId() {
 		return userId;

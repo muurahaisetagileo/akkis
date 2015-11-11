@@ -28,7 +28,6 @@ Myyjän tarina 14:
 - hinta
 - n.kpl nootteja
 
-
 ContactCompany
 ---------------
 Myyjän tarina 2:

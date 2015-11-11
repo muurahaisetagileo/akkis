@@ -14,6 +14,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="CONTACT")
 public class Contact {
+	
+	// Database columns
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="CONTACT_ID")
@@ -37,11 +40,17 @@ public class Contact {
 	@Column(name="TYPE")
 	private int type;
 	
-	@Column(name="SALESPERSON")
-	private User salesPerson;
-	
 	@Column(name="PUBLICAVAILABILITY")
 	private boolean publicAvailability;
+	
+	// Relationships
+	
+	private Contract contract;
+	private User salesPerson;
+	private ContactCompany contactCompany;
+	private List<Deal> deal;
+	
+	// Public methods
 
 	public long getContactId()
 	{
@@ -127,6 +136,30 @@ public class Contact {
 
 	public void setPublicAvailability(boolean publicAvailability) {
 		this.publicAvailability = publicAvailability;
+	}
+
+	public Contract getContract() {
+		return contract;
+	}
+
+	public void setContract(Contract contract) {
+		this.contract = contract;
+	}
+
+	public ContactCompany getContactCompany() {
+		return contactCompany;
+	}
+
+	public void setContactCompany(ContactCompany contactCompany) {
+		this.contactCompany = contactCompany;
+	}
+
+	public List<Deal> getDeal() {
+		return deal;
+	}
+
+	public void setDeal(List<Deal> deal) {
+		this.deal = deal;
 	}
 
 	@Override
