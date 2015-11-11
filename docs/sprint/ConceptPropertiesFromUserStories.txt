@@ -17,8 +17,6 @@ Myyjän tarina 4:
 Myyjän tarina 5:
 - näkyvyys
 
-
-
 Contract
 --------------
 Yleisesti lisätyt alustavat ominaisuudet (oletettavasti tarpeelliset)
@@ -29,8 +27,6 @@ Myyjän tarina 14:
 - sopimuksen tila (draft, signed, delivered or expired)
 - hinta
 - n.kpl nootteja
-
-
 
 
 ContactCompany
@@ -52,25 +48,34 @@ Contact - Company
 Etusivu:
 - asiakasyritys on organisaatio, joka koostuu 1-n asiakkaasta
 
-
-
 User - Contact
 --------------
 Myyjän tarina 2:
 - vastuumyyjä (responsible_salesman)
 
-
-
 User - Deal
 -----------
-
-
 
 Contract - Deal
 ----------------
 
-
-
-
-Search criteria
+Search criteria (Contact)
 --------------------------------------------
+
+-Tyyppi
+-Vastuumyyjä
+-Maa
+
+User
+--------------
+-Etunimet
+-Sukunimet
+-Käyttäjätunnus
+-Salasana
+-Tyyppi (admin, pomo, ...)
+
+Deal
+--------------
+-Hinta
+-Tyyppi (kk/vuosi/kertamaksu)
+-Ajanjakson pituus (kk)
