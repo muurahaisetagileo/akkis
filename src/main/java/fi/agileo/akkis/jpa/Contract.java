@@ -33,6 +33,9 @@ private String enddate;
 @Column(name="CONTRACTSTATUS")
 private String contractstatus;
 
+@Column(name="PRICE")
+private String price;
+
 
 public String getContact() 
 {
@@ -76,11 +79,23 @@ public void setcontractStatus(String contractstatus) {
 	this.contractstatus = contractstatus;
 }
 
+public String getPrice() {
+	return this.price;
+	
+}
+
+public void setcontractPrice(String price) {
+	this.price = price;
+}
+
 @Override
 public String toString() {
 	return "Contract [contractId=" + contractId + ", contact=" + contact + ", signdate=" + signdate + ", enddate="
-	+ enddate + ", contractstatus=" + contractstatus + "]";
+			+ enddate + ", contractstatus=" + contractstatus + ", price=" + price + "]";
 }
+
+
+
 
 
 //Mäppäytyy edelleen kauppaan
