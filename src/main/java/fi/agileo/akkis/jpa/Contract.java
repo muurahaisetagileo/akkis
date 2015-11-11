@@ -7,109 +7,116 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CONTRACT")
-
+@Table(name = "CONTRACT")
 public class Contract {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "CONTRACT_ID")
+	private long contractId;
+
+	@Column(name = "SIGNDATE")
+	private String signdate;
+
+	@Column(name = "ENDDATE")
+	private String enddate;
+
+	@Column(name = "CONTRACTSTATUS")
+	private String contractstatus;
+
+	@Column(name = "PRICE")
+	private String price;
 	
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name="CONTRACT_ID")
-private long contractId;
+	private List<Contact> contacts;
+	private List<Deal> deals;
+	private ContactCompany contactCompany;
 
-@Column(name="CONTACT")
-private String contact;
+	public long getContractId() {
+		return contractId;
+	}
 
-@Column(name="SIGNDATE")
-private String signdate;
+	public void setContractId(long contractId) {
+		this.contractId = contractId;
+	}
 
-@Column(name="ENDDATE")
-private String enddate;
+	public String getContractstatus() {
+		return contractstatus;
+	}
 
-@Column(name="CONTRACTSTATUS")
-private String contractstatus;
-
-@Column(name="PRICE")
-private String price;
-
-@Column(name="NOTES")
-private int notes;
-
-
-public String getContact() 
-{
-	return this.contact;	
-}
-
-public void setContact(String contact)
-{		
-	this.contact = contact;
-}
-
-// Huom. Suomalaiset kommentit tässä vaiheessa selvennyksinä koodissa, voi poistaa myöhemmin
-// kun alunperin oli kai tarkoitus kommentoida englanniksi
-
-//signDate (Sopimuksen solmimispäivämäärä)
-public String getsignDate() 
-{
-	return this.signdate;	
-}
-
-public void setsignDate(String signdate) {
-	this.signdate = signdate;
-}
-
-//endDate (Sopimuksen päättymispäivämäärä)
-public String getendDate() {
-	return this.enddate;	
-}	
-
-public void setendDate(String enddate) {
-	this.enddate = enddate;
-}
-
-//status draft, signed, delivered or expired (Sopimuksen tila)
-public String getcontractStatus() {
-	return this.contractstatus;
+	public void setContractstatus(String contractstatus) {
+		this.contractstatus = contractstatus;
+	}
 	
-}
+	// Huom. Suomalaiset kommentit tässä vaiheessa selvennyksinä koodissa, voi
+	// poistaa myöhemmin
+	// kun alunperin oli kai tarkoitus kommentoida englanniksi
 
-public void setcontractStatus(String contractstatus) {
-	this.contractstatus = contractstatus;
-}
+	// signDate (Sopimuksen solmimispäivämäärä)
+	public String getSigndate() {
+		return this.signdate;
+	}
 
-public String getPrice() {
-	return this.price;
-	
-}
+	public void setSigndate(String signdate) {
+		this.signdate = signdate;
+	}
 
-public void setPrice(String price) {
-	this.price = price;
-}
+	// endDate (Sopimuksen päättymispäivämäärä)
+	public String getEnddate() {
+		return this.enddate;
+	}
 
-// Myyjän tarina 14 h. (N kpl nootteja). 
+	public void setEnddate(String enddate) {
+		this.enddate = enddate;
+	}
 
-public int getNotes() {
-	return this.notes;
-	
-}
+	// status draft, signed, delivered or expired (Sopimuksen tila)
+	public String getcontractStatus() {
+		return this.contractstatus;
 
-public void setNotes(int notes) {
-	this.notes = notes;
-}
+	}
 
-@Override
-public String toString() {
-	return "Contract [contractId=" + contractId + ", contact=" + contact + ", signdate=" + signdate + ", enddate="
-			+ enddate + ", contractstatus=" + contractstatus + ", price=" + price + ", notes=" + notes + "]";
-}
+	public void setcontractStatus(String contractstatus) {
+		this.contractstatus = contractstatus;
+	}
 
+	public String getPrice() {
+		return this.price;
+	}
 
+	public void setPrice(String price) {
+		this.price = price;
+	}
 
-//Mäppäytyy edelleen kauppaan
+	public List<Contact> getContacts() {
+		return contacts;
+	}
 
+	public void setContacts(List<Contact> contacts) {
+		this.contacts = contacts;
+	}
+
+	public List<Deal> getDeals() {
+		return deals;
+	}
+
+	public void setDeals(List<Deal> deals) {
+		this.deals = deals;
+	}
+
+	public ContactCompany getContactCompany() {
+		return contactCompany;
+	}
+
+	public void setContactCompany(ContactCompany contactCompany) {
+		this.contactCompany = contactCompany;
+	}
+
+	@Override
+	public String toString() {
+		return "Contract [contractId=" + contractId + ", signdate=" + signdate + ", enddate="
+				+ enddate + ", contractstatus=" + contractstatus + ", price=" + price + "]";
+	}
 }
