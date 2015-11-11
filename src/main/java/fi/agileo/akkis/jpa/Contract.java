@@ -44,6 +44,9 @@ public void setContact(String contact)
 	this.contact = contact;
 }
 
+// Huom. Suomalaiset kommentit tässä vaiheessa selvennyksinä koodissa, voi poistaa myöhemmin
+// kun alunperin oli kai tarkoitus kommentoida englanniksi
+
 //signDate (Sopimuksen solmimispäivämäärä)
 public String getsignDate() 
 {
@@ -63,7 +66,7 @@ public void setendDate(String enddate) {
 	this.enddate = enddate;
 }
 
-//status, signed or delivered (Sopimuksen tila)
+//status draft, signed, delivered or expired (Sopimuksen tila)
 public String getcontractStatus() {
 	return this.contractstatus;
 	
@@ -76,7 +79,7 @@ public void setcontractStatus(String contractstatus) {
 @Override
 public String toString() {
 	return "Contract [contractId=" + contractId + ", contact=" + contact + ", signdate=" + signdate + ", enddate="
-			+ enddate + ", contractstatus=" + contractstatus + "]";
+	+ enddate + ", contractstatus=" + contractstatus + "]";
 }
 
 
