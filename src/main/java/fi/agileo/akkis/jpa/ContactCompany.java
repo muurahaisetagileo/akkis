@@ -25,6 +25,7 @@ public class ContactCompany {
 	private String companyIdentifier; // Y-Tunnus
 	
 	private List<Contact> companyContacts;
+	private List<Contract> contracts;
 	
 	public long getId() {
 		return id;
@@ -72,6 +73,14 @@ public class ContactCompany {
 
 	public void setCompanyContacts(List<Contact> companyContacts) {
 		this.companyContacts = companyContacts;
+	}
+
+	public List<Contract> getContracts() {
+		return contracts;
+	}
+
+	public void setContracts(List<Contract> contracts) {
+		this.contracts = contracts;
 	}
 	
 	@Override
