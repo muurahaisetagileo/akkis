@@ -37,8 +37,8 @@ public class Contact {
 	@Column(name="TYPE")
 	private int type;
 	
-	/* @Column(name="CONTRACT")
-	private List<Contract> contracts; */
+	@Column(name="PUBLICAVAILABILITY")
+	private boolean publicAvailability;
 	
 	public long getContactId()
 	{
@@ -109,15 +109,20 @@ public class Contact {
 	{
 		this.type = type;
 	}
-	
-/*	public List<Contract> getContracts()
-	{
-		return this.contracts;
-	} */
-	
-/*	public void setContracts(List<Contract> contracts)
-	{
-		// this.contracts = contracts;
-	}*/
-	
+
+	public boolean isPublicAvailability() {
+		return publicAvailability;
+	}
+
+	public void setPublicAvailability(boolean publicAvailability) {
+		this.publicAvailability = publicAvailability;
+	}
+
+	@Override
+	public String toString() {
+		return "Contact [contactId=" + contactId + 
+				", name=" + name + ", address=" + address + ", phone=" + phone
+				+ ", email=" + email + ", country=" + country + ", type=" + type + ", publicAvailability="
+				+ publicAvailability + "]";
+	}
 }
