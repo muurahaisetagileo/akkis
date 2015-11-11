@@ -55,6 +55,14 @@ Myyjän tarina 2:
 
 User - Deal
 -----------
+Myyjän tarina 14:
+- vastuumyyjä (responsible_salesman)
+- 
+
+User - User
+-----------
+Adminin tarina 1:
+
 
 Contract - Deal
 ----------------
@@ -73,9 +81,12 @@ User
 -Käyttäjätunnus
 -Salasana
 -Tyyppi (admin, pomo, ...)
+-Toiminto: Käyttäjien lisäys (myöhemmin myös poisto)
 
 Deal
 --------------
 -Hinta
 -Tyyppi (kk/vuosi/kertamaksu)
 -Ajanjakson pituus (kk)
+-N kpl asiakkaita
+-Toimitussopimus
