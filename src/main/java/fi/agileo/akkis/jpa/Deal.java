@@ -1,6 +1,5 @@
 package fi.agileo.akkis.jpa;
 
-
 import java.util.List;
 
 import javax.persistence.Column;
@@ -32,6 +31,7 @@ public class Deal {
 	private User user;
 	
 	private List<Contact> contacts;
+
 
 	public long getDealId() {
 		return dealId;
@@ -73,6 +73,14 @@ public class Deal {
 		this.contract = contract;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public List<Contact> getContacts() {
 		return contacts;
 	}
@@ -86,7 +94,5 @@ public class Deal {
 		return "Deal [dealId=" + dealId + ", price=" + price + ", periodType=" + periodType + ", periodLength="
 				+ periodLength + ", contract=" + contract + ", user=" + user + ", contacts=" + contacts + "]";
 	}
-	
-	
 	
 }
