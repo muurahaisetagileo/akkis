@@ -2,11 +2,26 @@ package fi.agileo.akkis.jpa;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CONTACTCOMPANY")
 public class ContactCompany {
+	@Column(name="ID")
 	private long id;
+	
+	@Column(name="NAME")
 	private String name;
+	
+	@Column(name="ADDRESS")
 	private String address;
+	
+	@Column(name="INTERNETADDRESS")
 	private String internetAddress;
+	
+	@Column(name="COMPANYIDENTIFIER")
 	private String companyIdentifier; // Y-Tunnus
 	
 	private List<Contact> companyContacts;
