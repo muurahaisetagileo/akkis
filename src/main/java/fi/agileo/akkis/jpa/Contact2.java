@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="CONTACT")
-public class Contact2 {
+public class Contact {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="CONTACT_ID")
@@ -37,33 +37,87 @@ public class Contact2 {
 	@Column(name="TYPE")
 	private int type;
 	
-	@Column(name="CONTRACT")
-	private List<Contract> contracts;
+	/* @Column(name="CONTRACT")
+	private List<Contract> contracts; */
 	
-	public long getContactId(){return 0;}
-	public void setId(long contactId){}
+	public long getContactId()
+	{
+		return this.contactId;
+	}
 	
-	public String getName(){return null;}
-	public String setName(String name){}
+	public void setContactId(long contactId)
+	{
+		this.contactId = contactId;
+	}
 	
-	public String getAddress(){return null;}
-	public void setAddress(String address){}
+	public String getName()
+	{
+		return this.name;
+	}
 	
-	public String getPhone(return null;){}
-	public void setPhone(){}
+	public void setName(String name)
+	{
+		this.name = name;
+	}
 	
-	public String getEmail(return null;){}
-	public void setEmail(String email){}
+	public String getAddress()
+	{
+		return this.address;
+	}
 	
-	public String getCountry(return null;){}
-	public void setEmail(String country){}
+	public void setAddress(String address)
+	{
+		this.address = address;
+	}
 	
-	public int getType(return 0;){}
-	public void setEmail(int type){}
+	public String getPhone() 
+	{
+		return this.phone;
+	}
+
+	public void setPhone(String phone)
+	{
+		this.phone = phone;
+	}
 	
-	public List<Contract> getContracts(return null;){}
-	public void setContracts(List<Contract> contracts){}
+	public String getEmail()
+	{
+		return this.email;
+	}
 	
-	@Override
-	public String toString() {}
+	public void setEmail(String email)
+	{
+		this.email = email;
+	}
+	
+	public String getCountry()
+	{
+		return this.country;
+	}
+	
+	public void setCountry(String country)
+	{
+		this.country = country;
+	}
+	
+	public int getType()
+	{
+		return this.type;
+	}
+	
+	public void setType(int type)
+	{
+		this.type = type;
+	}
+	
+/*	public List<Contract> getContracts()
+	{
+		return this.contracts;
+	} */
+	
+/*	public void setContracts(List<Contract> contracts)
+	{
+		// this.contracts = contracts;
+	}*/
+	
 }
