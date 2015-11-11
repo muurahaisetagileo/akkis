@@ -84,7 +84,7 @@ public String getPrice() {
 	
 }
 
-public void setcontractPrice(String price) {
+public void setPrice(String price) {
 	this.price = price;
 }
 
@@ -93,6 +93,8 @@ public String toString() {
 	return "Contract [contractId=" + contractId + ", contact=" + contact + ", signdate=" + signdate + ", enddate="
 			+ enddate + ", contractstatus=" + contractstatus + ", price=" + price + "]";
 }
+
+
 
 
 
