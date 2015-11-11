@@ -19,6 +19,6 @@ public class DealService {
 
 	public void setEm(EntityManager em) {
 		this.em = em;
-	}
+	}	
 	
 }

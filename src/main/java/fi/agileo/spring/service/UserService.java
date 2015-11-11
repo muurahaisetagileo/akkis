@@ -24,9 +24,10 @@ public class UserService {
 	}
 
 	@Transactional
-	public void register(User user) {
+	public int register(User user) {
 		// Save employee
 		this.em.persist(user);
+		return 0;
 	}
 	
 	public int login(User user) {
