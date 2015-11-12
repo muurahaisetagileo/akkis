@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="fi.agileo.akkis.jpa.Contact" project="akkis" 
+    file="/akkis/src/main/java/fi/agileo/akkis/jpa/Contact.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="745" width="236" x="-25" y="-250"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="fi.agileo.akkis.jpa.ContactCompany" project="akkis" 
+    file="/akkis/src/main/java/fi/agileo/akkis/jpa/ContactCompany.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="562" y="47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="fi.agileo.akkis.jpa.Contract" project="akkis" 
+    file="/akkis/src/main/java/fi/agileo/akkis/jpa/Contract.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="68" y="341"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="fi.agileo.akkis.jpa.Deal" project="akkis" 
+    file="/akkis/src/main/java/fi/agileo/akkis/jpa/Deal.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="714" y="228"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="fi.agileo.akkis.jpa.User" project="akkis" 
+    file="/akkis/src/main/java/fi/agileo/akkis/jpa/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="428" y="435"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <association id="6">    
+    <bendpoint x="649" y="384"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="7" name="user">        
+        <position height="17" width="29" x="701" y="259"/>      
+      </attribute>      
+      <multiplicity id="8" minimum="0" maximum="1">        
+        <position height="15" width="23" x="705" y="273"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="9">    
+    <bendpoint x="439" y="225"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="10" name="contacts">        
+        <position height="17" width="47" x="577" y="199"/>      
+      </attribute>      
+      <multiplicity id="11" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="182" y="116"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="12">    
+    <bendpoint x="251" y="452"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="13" name="contracts">        
+        <position height="17" width="51" x="319" y="449"/>      
+      </attribute>      
+      <multiplicity id="14" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="334" y="463"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="15">    
+    <bendpoint x="241" y="180"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="16" name="contracts">        
+        <position height="17" width="51" x="444" y="88"/>      
+      </attribute>      
+      <multiplicity id="17" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="461" y="100"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="18">    
+    <bendpoint x="222" y="2"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="19" name="contactCompany">        
+        <position height="17" width="88" x="68" y="50"/>      
+      </attribute>      
+      <multiplicity id="20" minimum="0" maximum="1">        
+        <position height="15" width="23" x="98" y="69"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="21">    
+    <bendpoint x="130" y="218"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="22" name="contracts">        
+        <position height="17" width="51" x="62" y="173"/>      
+      </attribute>      
+      <multiplicity id="23" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="338" y="410"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="24">    
+    <bendpoint x="3" y="221"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="25" name="contacts">        
+        <position height="17" width="47" x="-6" y="285"/>      
+      </attribute>      
+      <multiplicity id="26" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="9" y="300"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="27">    
+    <bendpoint x="522" y="195"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="28" name="contactCompany">        
+        <position height="17" width="88" x="374" y="238"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1">        
+        <position height="15" width="23" x="382" y="254"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="30">    
+    <bendpoint x="305" y="268"/>    
+    <bendpoint x="461" y="309"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="31" name="salesPerson">        
+        <position height="17" width="66" x="246" y="217"/>      
+      </attribute>      
+      <multiplicity id="32" minimum="0" maximum="1">        
+        <position height="15" width="23" x="266" y="232"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="33">    
+    <bendpoint x="533" y="326"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="34" name="deals">        
+        <position height="17" width="33" x="132" y="342"/>      
+      </attribute>      
+      <multiplicity id="35" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="144" y="357"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="36">    
+    <bendpoint x="200" y="294"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="37" name="contacts">        
+        <position height="17" width="47" x="327" y="399"/>      
+      </attribute>      
+      <multiplicity id="38" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="85" y="184"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="39">    
+    <bendpoint x="587" y="352"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="40" name="deals">        
+        <position height="17" width="33" x="479" y="380"/>      
+      </attribute>      
+      <multiplicity id="41" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="493" y="368"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="42">    
+    <bendpoint x="561" y="168"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="43" name="deals">        
+        <position height="17" width="33" x="171" y="104"/>      
+      </attribute>      
+      <multiplicity id="44" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="592" y="214"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="45">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="46" name="contract">        
+        <position height="17" width="46" x="563" y="254"/>      
+      </attribute>      
+      <multiplicity id="47" minimum="0" maximum="1">        
+        <position height="15" width="23" x="573" y="270"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
+    <bendpoint x="362" y="37"/>    
+    <bendpoint x="284" y="46"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="49" name="companyContacts">        
+        <position height="17" width="93" x="393" y="45"/>      
+      </attribute>      
+      <multiplicity id="50" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="426" y="58"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
