@@ -38,7 +38,7 @@ public class CreateDeal {
 	public String saveDeal() {
 		return null;
 		/*
-		 * // Calling Business Service delaService.createDeal(deal); //
+		 * // Calling Business Service dealService.createDeal(deal); //
 		 * Add message FacesContext.getCurrentInstance().addMessage(null, new
 		 * FacesMessage("The deal " + this.deal.getDeal() +
 		 * " is saved successfully")); return "";
