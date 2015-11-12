@@ -19,7 +19,11 @@ Tarvittavia queryjä:
 
 responsible sales man, correct query for searching responsible sales man  ?
 
-Kontaktille semmoinen query jolla ei ole vielä ContactCompanya
+Kontaktille semmoinen query, jolla ei ole vielä ContactCompanya
+
+
+
+@NamedQuery(name = "Contact.findAll", query = "SELECT C FROM Contact c WHERE c.contactcompany = :"") ?
 
 
 })
