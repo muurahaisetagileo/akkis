@@ -6,6 +6,8 @@ Create queries for seeking contacts to persisted classes
 
 ( criterias: type (contact, lead, customer), responsible sales man, country )
 
+Queryt tyypittäin kaikkien kyseisten tyyppien etsimiseen tauluista:
+
 @Entity
 @NamedQueries({
   @NamedQuery(name = "Contact.findAll", query = "SELECT c FROM Contact c"),
@@ -13,7 +15,11 @@ Create queries for seeking contacts to persisted classes
   @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c"),
   @NamedQuery(name = "Country.findAll", query="SELECT c FROM Country c"), 
 
-  responsible sales man, correct query for searching responsible sales man  ?
+Tarvittavia queryjä:
+
+responsible sales man, correct query for searching responsible sales man  ?
+
+Kontaktille semmoinen query jolla ei ole vielä ContactCompanya
 
 
 })
