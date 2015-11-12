@@ -12,5 +12,7 @@ import fi.agileo.spring.service.DealService;
 @ManagedBean
 @SessionScoped
 public class ShowDeal {
+	
+	
 
 }
