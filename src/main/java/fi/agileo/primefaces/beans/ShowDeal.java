@@ -18,6 +18,7 @@ import fi.agileo.spring.service.DealService;
 @ManagedBean
 @SessionScoped
 public class ShowDeal {
+	@ManagedProperty("#{dealService}")
 	private DealService dealService;
 	
 	private Contact contact;
@@ -55,6 +56,14 @@ public class ShowDeal {
 
 	public void setDeal(Deal deal) {
 		this.deal = deal;
+	}
+
+	public List<Deal> getDeals() {
+		return deals;
+	}
+
+	public List<Contact> getContacts() {
+		return contacts;
 	}
 	
 }

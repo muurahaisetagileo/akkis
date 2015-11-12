@@ -2,11 +2,18 @@ package fi.agileo.primefaces.beans;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+
 import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.spring.service.ContactCompanyService;
 
+@ManagedBean
+@SessionScoped
 public class EditContactCompany {
+	@ManagedProperty("#{contactCompanyService}")
 	private ContactCompanyService contactCompanyService;
 	
 	private ContactCompany contactCompany;

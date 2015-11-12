@@ -2,6 +2,8 @@ package fi.agileo.primefaces.beans;
 
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 import fi.agileo.akkis.jpa.Contact;
@@ -11,8 +13,10 @@ import fi.agileo.akkis.jpa.Deal;
 import fi.agileo.akkis.jpa.User;
 import fi.agileo.spring.service.ContractService;
 
+@ManagedBean
 @RequestScoped
 public class ShowContract {
+	@ManagedProperty("#{contractService}")
 	private ContractService contractService;
 	
 	private Contract contract;

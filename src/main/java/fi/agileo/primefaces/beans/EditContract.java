@@ -1,13 +1,20 @@
 package fi.agileo.primefaces.beans;
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+
 import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.akkis.jpa.User;
 import fi.agileo.spring.service.ContractService;
 
+@ManagedBean
+@SessionScoped
 public class EditContract {
+	@ManagedProperty("#{contractService}")
 	private ContractService contractService;
 
 	private User user;
