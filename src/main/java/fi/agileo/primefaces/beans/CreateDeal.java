@@ -22,7 +22,7 @@ public class CreateDeal {
 	public DealService getDealService() {
 		return dealService;
 	}
-	
+
 	public void setDealService(DealService dealService) {
 		this.dealService = dealService;
 	}
@@ -35,4 +35,14 @@ public class CreateDeal {
 		this.deal = deal;
 	}
 
+	public String saveDeal() {
+		return null;
+		/*
+		 * // Calling Business Service delaService.createDeal(deal); //
+		 * Add message FacesContext.getCurrentInstance().addMessage(null, new
+		 * FacesMessage("The deal " + this.deal.getDeal() +
+		 * " is saved successfully")); return "";
+		 */
+
+	}
 }
