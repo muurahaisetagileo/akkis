@@ -1,16 +1,12 @@
 package fi.agileo.spring.service;
 
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
-
-import fi.agileo.akkis.jpa.Deal;
 
 @Component
-public class DealService {
+public class ContactCompanyService {
 	@PersistenceContext
 	private EntityManager em;
 
@@ -20,14 +16,5 @@ public class DealService {
 
 	public void setEm(EntityManager em) {
 		this.em = em;
-	}	
-	
-	@Transactional
-	public String savedeal(Deal deal) {
-		// Save deal
-		this.em.persist(deal);
-		return null;
 	}
-	
-	
 }
