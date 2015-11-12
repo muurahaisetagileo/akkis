@@ -7,7 +7,11 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.akkis.jpa.Deal;
+import fi.agileo.akkis.jpa.User;
+
 
 @Component
 public class DealService {
@@ -23,11 +27,15 @@ public class DealService {
 	}	
 	
 	@Transactional
-	public String savedeal(Deal deal) {
+	public void savedeal(User dealMakerUser, Deal deal, Contract contract, List<Contact> dealMakerContacts) {
 		// Save deal
-		this.em.persist(deal);
-		return null;
+		this.em.persist(deal); 		
+		
 	}
 	
+	@Transactional
+	public void addDealsToContract(Deal deal,
+			List<Deal> dealsToBeAdded) {
+	}
 	
 }
