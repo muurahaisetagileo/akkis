@@ -34,7 +34,7 @@ public class LoginUser {
 	}
 
 	public String login() {
-		System.out.println("managen bean 1ogin");
+		System.out.println("managed bean 1ogin");
 		int type = this.userService.login(user);
 		System.out.println("managed bean, type " + type);
 		if (type == 1)

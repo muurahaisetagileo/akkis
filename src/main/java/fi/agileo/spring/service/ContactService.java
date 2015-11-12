@@ -30,25 +30,24 @@ public class ContactService {
 	}
 	
 	@Transactional
-	public int createContact(Contact contact) {
-		// Save new Contact to DB
+	public int createContact(User user, Contact contact) {
 		this.em.persist(contact);
 		return 0;
 	}
 	
 	@Transactional
-	public List<User> getUsers(User user) {
+	public List<Contact> getContacts(String substring) {
 		
 		/*
 		
-		List<User> users = (List<User>)em.createNamedQuery("getUsers");
+		List<Contact> contacts = (List<Contact>)em.createNamedQuery("getContacts");
 		
-		for (User u : users) {
-			System.out.println(u);
+		for (Contact c : contacts) {
+			System.out.println(c);
 		}
 		
-		if (users.size() == 1) {
-			return users.get(0).getType();
+		if (contacts.size() == 1) {
+			return contacts.get(0).getType();
 		}
 		
 		*/

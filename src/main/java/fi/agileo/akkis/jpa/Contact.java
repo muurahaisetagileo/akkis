@@ -45,7 +45,7 @@ public class Contact {
 	
 	// Relationships
 	
-	private Contract contract;
+	private List<Contract> contracts;
 	private User salesPerson;
 	private ContactCompany contactCompany;
 	private List<Deal> deals;
@@ -138,12 +138,12 @@ public class Contact {
 		this.publicAvailability = publicAvailability;
 	}
 
-	public Contract getContract() {
-		return contract;
+	public List<Contract> getContracts() {
+		return contracts;
 	}
 
-	public void setContract(Contract contract) {
-		this.contract = contract;
+	public void setContracts(List<Contract> contracts) {
+		this.contracts = contracts;
 	}
 
 	public ContactCompany getContactCompany() {
