@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import fi.agileo.akkis.jpa.Deal;
+import fi.agileo.akkis.jpa.User;
 
 @Component
 public class DealService {
@@ -21,5 +22,13 @@ public class DealService {
 	public void setEm(EntityManager em) {
 		this.em = em;
 	}	
+	
+	@Transactional
+	public String savedeal(Deal deal) {
+		// Save deal
+		this.em.persist(deal);
+		return null;
+	}
+	
 	
 }
