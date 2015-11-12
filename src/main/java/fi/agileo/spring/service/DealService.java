@@ -27,11 +27,10 @@ public class DealService {
 	}	
 	
 	@Transactional
-	public String savedeal(User dealMakerUser, Deal deal, Contract contract, List<Contact> dealMakerContacts) {
+	public void savedeal(User dealMakerUser, Deal deal, Contract contract, List<Contact> dealMakerContacts) {
 		// Save deal
 		this.em.persist(deal); 		
 		
-		return null;
 	}
 	
 	@Transactional
