@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.akkis.jpa.Deal;
 import fi.agileo.akkis.jpa.User;
@@ -19,9 +20,10 @@ import fi.agileo.spring.service.DealService;
 public class ShowDeal {
 	private DealService dealService;
 	
+	private Contact contact;
 	private Deal deal;
-	
 	private List<Deal> deals;
+	private List<Contact> contacts;
 	
 	public DealService getDealService() {
 		return dealService;
@@ -37,6 +39,14 @@ public class ShowDeal {
 		   return the view page name */
 		
 		return "";
+	}
+	
+	public Contact getContact() {
+		return contact;
+	}
+	
+	public void setContact(Contact contact) {
+		this.contact = contact;
 	}
 
 	public Deal getDeal() {
