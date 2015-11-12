@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import fi.agileo.akkis.jpa.Deal;
-import fi.agileo.akkis.jpa.User;
 
 @Component
 public class DealService {
