@@ -35,22 +35,15 @@ public class ContactService {
 		return 0;
 	}
 	
-	@Transactional
-	public List<Contact> getContacts(String substring) {
+	public List<Contact> getContacts(int type, 
+			User responsible_salesman, String country) {
 		
 		/*
-		
 		List<Contact> contacts = (List<Contact>)em.createNamedQuery("getContacts");
-		
 		for (Contact c : contacts) {
 			System.out.println(c);
 		}
-		
-		if (contacts.size() == 1) {
-			return contacts.get(0).getType();
-		}
-		
-		*/
+s		*/
 		
 		return null;
 	}
