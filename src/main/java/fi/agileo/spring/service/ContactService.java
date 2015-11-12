@@ -30,6 +30,11 @@ public class ContactService {
 	}
 	
 	@Transactional
+	public void changeToLead(List<Contact> contacts) {
+		
+	}
+	
+	@Transactional
 	public int createContact(User user, Contact contact) {
 		this.em.persist(contact);
 		return 0;
