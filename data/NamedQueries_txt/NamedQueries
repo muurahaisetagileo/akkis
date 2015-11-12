@@ -1,0 +1,19 @@
+Task:
+
+Create queries for seeking contacts to persisted classes  
+
+(JPA named queries) 
+
+( criterias: type (contact, lead, customer), responsible sales man, country )
+
+@Entity
+@NamedQueries({
+  @NamedQuery(name = "Contact.findAll", query = "SELECT c FROM Contact c"),
+  @NamedQuery(name = "Lead.findAll", query = "SELECT l FROM Lead l"),
+  @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c"),
+  @NamedQuery(name = "Country.findAll", query="SELECT c FROM Country c"), 
+
+  responsible sales man  ?
+
+
+})
