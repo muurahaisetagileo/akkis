@@ -38,4 +38,8 @@ public class ContactCompanyService {
 		
 	}
 	
+	public ContactCompanyInformation getContactCompanyInformation(ContactCompany contactCompany) {
+		return null;
+	}
+	
 }
