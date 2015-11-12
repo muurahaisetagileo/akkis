@@ -25,7 +25,7 @@
   	font-size: large;
   	text-align: center;
   	background: #DDDDDD;
-  	width: 200px;
+  	width: 250px;
   	height: 40px;
   	padding-top: 20px;
   	display: block;
@@ -41,7 +41,7 @@
   .view {
   	margin-bottom: 36px;
   	border: 2px solid black;
-  	width: 200px;
+  	width: 250px;
   	display: block;
   }
 
@@ -122,6 +122,10 @@
 				<a href="">Add a new contact</a><br/>
 				<a href="">Add a new contact company</a><br/>
 
+				<a href="">Edit contact company</a><br/>
+
+				<a href="">List contacts</a><br/>
+
 			</div>
 		</div>
 	<br><br>
@@ -184,14 +188,19 @@
 	<button>Search</button>
 	<p />
 	<table>
-		<tr><td>Contact 1 <input type="checkbox" name="vehicle" value="Bike" /></td></tr>
-		<tr><td>Contact 2 <input type="checkbox" name="vehicle" value="Bike" /></td></tr>
-		<tr><td>Contact 3 <input type="checkbox" name="vehicle" value="Bike" /></td></tr>
+		<tr><td>Contact 1 <input type="checkbox" /></td></tr>
+		<tr><td>Contact 2 <input type="checkbox" /></td></tr>
+		<tr><td>Contact 3 <input type="checkbox" /></td></tr>
 	</table>
 	<br>
 	
 	<button>Change selected contact(s) to lead(s)</button>
-	
+	<br><br>
+	<button>Set the company of selected contacts</button>
+	<select>
+		<option>Company 1</option>
+	</select>
+
 </div>
 
 <div class="view">
@@ -277,6 +286,49 @@
 	<br><br>
 	<button>Back</button>
 
+</div>
+
+<div class="view">
+	<span class="title">CreateContactCompany</span>
+
+	<p>Name:</p>
+	<input type="text" />
+
+	<p>Address:</p>
+	<input type="text" />
+
+	<p>Web page:</p>
+	<input type="text" />
+
+	<p>Company identifier (Y-tunnus):</p>
+	<input type="text" />
+	<p><button>Submit</button></p>
+</div>
+
+<div class="view">
+	<span class="title">EditContactCompany</span>
+
+	<p>Name:</p>
+	<input type="text" value="Muurahaiset Oy" />
+
+	<p>Address:</p>
+	<input type="text" value="Muurahaispolku 1"/>
+
+	<p>Web page:</p>
+	<input type="text" value="www.muurahaiset.fi" />
+
+	<p>Company identifier (Y-tunnus):</p>
+	<input type="text" value="1234567-8"/>
+	<br>
+	<br>
+	<button>Add contact...</button>
+	<br>
+	<br>
+	<button>Add contract...</button>
+	
+
+
+	<p><button>Submit</button></p>
 </div>
 
 </body>
