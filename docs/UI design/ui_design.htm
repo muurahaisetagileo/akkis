@@ -7,10 +7,180 @@
   <title>UI Design for Akkis</title>
   <meta name="author" content="Muurahaiset">
 
-  <link rel="stylesheet" href="css/styles.css">
+  <style>
+
+  .title {
+  	font-weight: bold;
+  	font-size: large;
+  	text-align: center;
+  	background: #DDDDDD;
+  	width: 200px;
+  	height: 40px;
+  	padding-top: 20px;
+  	display: block;
+  }
+
+  .view {
+  	margin-right: 20px;
+  	border: 2px solid black;
+  	width: 200px;
+  	display: inline-block;
+  }
+
+  </style>
 
 </head>
 
 <body>
+
+<div class="view">
+	<span class="title">RegisterUser</span>
+	<p>Username:</p>
+	<input type="text" />
+	<p>Password:</p>
+	<input type="text" />
+	<p><button>Register</button></p>
+</div>
+
+<div class="view">
+	<span class="title">LoginUser</span>
+	<p>Username:</p>
+	<input type="text" />
+	<p>Password:</p>
+	<input type="text" />
+	<p><button>Login</button></p>
+</div>
+
+<div class="view">
+	<span class="title">CreateContact</span>
+	<p>Name:</p>
+	<input type="text" />
+	<p>Address:</p>
+	<input type="text" />
+	<p>Phone:</p>
+	<input type="text" />
+	<p>Email:</p>
+	<input type="text" />
+	<p>Country:</p>
+	<input type="text" />
+	<p><button>Submit</button></p>
+</div>
+
+<div class="view">
+	<span class="title">ListContacts</span>
+	<p>Name:</p>
+	<input type="text" />
+	<p>Country:</p>
+	<input type="text" />
+	<p>Type:</p>
+	<select>
+		<option>Contact</option>
+		<option>Lead</option>
+		<option>Customer</option>
+	</select>
+	<p>Company:</p>
+	<select>
+		<option>Muurahaiset Oy</option>
+	</select>
+	<p>Responsible salesman:</p>
+	<select>
+		<option>Kaino Kallela</option>
+	</select>
+	<br><br>
+	<button>Search</button>
+	<p />
+	<table>
+		<tr><td>Contact 1</td></tr>
+		<tr><td>Contact 2</td></tr>
+		<tr><td>Contact 3</td></tr>
+	</table>
+	
+</div>
+
+<div class="view">
+	<span class="title">CreateContract</span>
+
+	<p>Sign date:</p>
+	<input type="text" />
+	<p>End date:</p>
+	<input type="text" />
+	
+	<p>Customer(s):</p>
+	<select>
+		<option>Eetu Repo</option>
+	</select>
+	<br>
+	<select>
+		<option>-</option>
+	</select>
+	<br>
+	<select>
+		<option>-</option>
+	</select>
+	<p>Company:</p>
+	<select>
+		<option>Muurahaiset Oy</option>
+	</select>
+	<br>
+	<p><button>Submit</button></p>
+</div>
+
+<div class="view">
+	<span class="title">EditContract</span>
+</div>
+
+<div class="view">
+	<span class="title">ShowContract</span>
+	<b><p>Sign date:</p></b>
+	<p>23.11.2015</p>
+	<b><p>End date:</p></b>
+	<p>4.2.2016</p>
+	<b><p>Customer(s):</p></b>
+	<p>Eetu Repo</p>
+	<b><p>Company:</p></b>
+	<p>Muurahaiset Oy</p>
+	<button>Back</button>
+</div>
+
+<div class="view">
+	<span class="title">CreateDeal</span>
+
+	<p>Price:</p>
+	<input type="text" />
+
+	<p>Type:</p>
+	<select>
+		<option>Monthly</option>
+		<option>Yearly</option>
+		<option>Single payment</option>
+	</select>
+
+	<p>Period length (months):</p>
+	<input type="text" />
+
+	<br>
+	<p><button>Submit</button></p>
+</div>
+
+<div class="view">
+	<span class="title">ShowDeal</span>
+
+	<b><p>Price:</p></b>
+	10,000 €
+
+	<b><p>Type:</p></b>
+	<select>
+		<option>Monthly</option>
+		<option>Yearly</option>
+		<option>Single payment</option>
+	</select>
+
+	<b><p>Period length (months):</p></b>
+	<input type="text" />
+	<br><br>
+	<button>Back</button>
+
+</div>
+
 </body>
 </html>
