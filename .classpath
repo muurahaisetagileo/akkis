@@ -42,5 +42,6 @@
 	<classpathentry kind="lib" path="target/Akkis.muurahaiset/WEB-INF/lib/spring-web-4.0.3.RELEASE.jar"/>
 	<classpathentry kind="lib" path="target/Akkis.muurahaiset/WEB-INF/lib/spring-webmvc-4.0.3.RELEASE.jar"/>
 	<classpathentry kind="lib" path="target/Akkis.muurahaiset/WEB-INF/lib/xml-apis-1.0.b2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
