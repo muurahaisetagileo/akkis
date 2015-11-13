@@ -1,0 +1,126 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>UI Design for Akkis</title>
+  <meta name="author" content="Muurahaiset">
+
+  <style>
+
+  .title_index {
+  	font-weight: bold;
+  	font-size: large;
+  	text-align: center;
+  	background: #DDDDDD;
+  	width: 500px;
+  	height: 40px;
+  	padding-top: 20px;
+  	display: block;
+  }
+
+  .title {
+  	font-weight: bold;
+  	font-size: large;
+  	text-align: center;
+  	background: #DDDDDD;
+  	width: 250px;
+  	height: 40px;
+  	padding-top: 20px;
+  	display: block;
+  }
+
+  .view_index {
+  	margin-bottom: 36px;
+  	border: 2px solid black;
+  	width: 500px;
+  	display: block;	
+  }
+
+  .view {
+  	margin-bottom: 36px;
+  	border: 2px solid black;
+  	width: 250px;
+  	display: block;
+  }
+
+  h1 {
+  	text-align: center;
+  }
+
+  .container {
+  	width: 400px;
+  	border: 2px solid black;
+  	text-align: center;
+  	margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+  }
+
+  .logged {
+  	float: left;
+  	font-size: 10pt;
+  }
+
+  .actionbox {
+  	text-align: center;
+  	margin-left: auto;
+    margin-right: auto;
+  }
+
+  </style>
+
+</head>
+
+<!-- Rekisteröinti: pomo ja admin -->
+
+<body>
+
+<div class="view">
+	<span class="title">ListContacts</span>
+	<p>Name:</p>
+	<input type="text" />
+	<p>Country:</p>
+	<input type="text" />
+	<p>Type:</p>
+	<select>
+		<option>Contact</option>
+		<option>Lead</option>
+		<option>Customer</option>
+	</select>
+	<p>Company:</p>
+	<select>
+		<option>Muurahaiset Oy</option>
+	</select>
+	<p>Responsible salesman:</p>
+	<select>
+		<option>Kaino Kallela</option>
+	</select>
+	<br><br>
+	<button>Search</button>
+	<p />
+	<table>
+		<tr><td>Contact 1 <input type="checkbox" /></td></tr>
+		<tr><td>Contact 2 <input type="checkbox" /></td></tr>
+		<tr><td>Contact 3 <input type="checkbox" /></td></tr>
+	</table>
+	<br>
+	
+	<button>Change selected contact(s) to lead(s)</button>
+	<br><br>
+	<button>Set the company of selected contacts</button>
+	<select>
+		<option>Company 1</option>
+	</select>
+
+<br>
+<br>
+	<form action="index_sales.htm">
+		<input type="submit" value="Back" />
+	</form>
+
+</div>
+
+</body>
+</html>
