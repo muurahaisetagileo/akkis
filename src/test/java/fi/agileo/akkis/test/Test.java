@@ -1,4 +1,4 @@
-package fi.agileo.akkis.test;
+/*package fi.agileo.akkis.test;
 
 import static org.junit.Assert.*;
 
@@ -9,4 +9,4 @@ public class Test {
 		fail("Not yet implemented");
 	}
 
-}
+} */
