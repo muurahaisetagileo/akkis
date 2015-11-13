@@ -7,69 +7,7 @@
   <title>UI Design for Akkis</title>
   <meta name="author" content="Muurahaiset">
 
-  <style>
-
-  .title_index {
-  	font-weight: bold;
-  	font-size: large;
-  	text-align: center;
-  	background: #DDDDDD;
-  	width: 500px;
-  	height: 40px;
-  	padding-top: 20px;
-  	display: block;
-  }
-
-  .title {
-  	font-weight: bold;
-  	font-size: large;
-  	text-align: center;
-  	background: #DDDDDD;
-  	width: 250px;
-  	height: 40px;
-  	padding-top: 20px;
-  	display: block;
-  }
-
-  .view_index {
-  	margin-bottom: 36px;
-  	border: 2px solid black;
-  	width: 500px;
-  	display: block;	
-  }
-
-  .view {
-  	margin-bottom: 36px;
-  	border: 2px solid black;
-  	width: 250px;
-  	display: block;
-  }
-
-  h1 {
-  	text-align: center;
-  }
-
-  .container {
-  	width: 400px;
-  	border: 2px solid black;
-  	text-align: center;
-  	margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-  }
-
-  .logged {
-  	float: left;
-  	font-size: 10pt;
-  }
-
-  .actionbox {
-  	text-align: center;
-  	margin-left: auto;
-    margin-right: auto;
-  }
-
-  </style>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 
 </head>
 
@@ -80,6 +18,10 @@
 <div class="view_index">
 	<span class="title_index">IndexPage (SalesUser)</span>
 	<h1>Akkis</h1>
+		<div class="news">
+		Ajankohtaisia asioita näkyvillä tässä
+		</div>
+		<br>
 		<div class="container">
 		<span class="logged">Logged in as Eino.jokinen (SalesUser)</span>
 		<br>
@@ -87,12 +29,12 @@
 		<br/><br/>
 		<h3>Actions:<h3>
 			<div class="actionbox">
-				<a href="">Add a new contact</a><br/>
-				<a href="">Add a new contact company</a><br/>
+				<a href="add_contact.htm">Add a new contact</a><br/>
+				<a href="add_company.htm">Add a new contact company</a><br/>
 
-				<a href="">Edit contact company</a><br/>
+				<a href="edit_company.htm">Edit contact company</a><br/>
 
-				<a href="">List contacts</a><br/>
+				<a href="list_contacts.htm">List contacts</a><br/>
 
 			</div>
 		</div>
