@@ -7,69 +7,7 @@
   <title>UI Design for Akkis</title>
   <meta name="author" content="Muurahaiset">
 
-  <style>
-
-  .title_index {
-  	font-weight: bold;
-  	font-size: large;
-  	text-align: center;
-  	background: #DDDDDD;
-  	width: 500px;
-  	height: 40px;
-  	padding-top: 20px;
-  	display: block;
-  }
-
-  .title {
-  	font-weight: bold;
-  	font-size: large;
-  	text-align: center;
-  	background: #DDDDDD;
-  	width: 250px;
-  	height: 40px;
-  	padding-top: 20px;
-  	display: block;
-  }
-
-  .view_index {
-  	margin-bottom: 36px;
-  	border: 2px solid black;
-  	width: 500px;
-  	display: block;	
-  }
-
-  .view {
-  	margin-bottom: 36px;
-  	border: 2px solid black;
-  	width: 250px;
-  	display: block;
-  }
-
-  h1 {
-  	text-align: center;
-  }
-
-  .container {
-  	width: 400px;
-  	border: 2px solid black;
-  	text-align: center;
-  	margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-  }
-
-  .logged {
-  	float: left;
-  	font-size: 10pt;
-  }
-
-  .actionbox {
-  	text-align: center;
-  	margin-left: auto;
-    margin-right: auto;
-  }
-
-  </style>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 
 </head>
 
@@ -79,6 +17,11 @@
 
 <div class="view">
 	<span class="title">ListContacts</span>
+
+	<div class="content_area">
+
+	<div class="dotted">
+
 	<p>Name:</p>
 	<input type="text" />
 	<p>Country:</p>
@@ -100,6 +43,8 @@
 	<br><br>
 	<button>Search</button>
 	<p />
+	</div>
+	<div class="dotted">
 	<table>
 		<tr><td>Contact 1 <input type="checkbox" /></td></tr>
 		<tr><td>Contact 2 <input type="checkbox" /></td></tr>
@@ -107,18 +52,23 @@
 	</table>
 	<br>
 	
-	<button>Change selected contact(s) to lead(s)</button>
+	<button>Change to lead</button>
 	<br><br>
-	<button>Set the company of selected contacts</button>
+	<button>Set company</button>
 	<select>
-		<option>Company 1</option>
+		<option>Muro Oy</option>
 	</select>
+	
+	</div>
 
 <br>
 <br>
+
 	<form action="index_sales.htm">
 		<input type="submit" value="Back" />
 	</form>
+
+	</div>
 
 </div>
 
