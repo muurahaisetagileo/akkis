@@ -64,6 +64,18 @@
 			<artifactId>jstl</artifactId>
 			<version>1.1.2</version>
 		</dependency>
+		<!-- Hibernate 4.3.6 core library library -->
+	 	<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.6.Final</version>
+		</dependency>
+		<!-- Hibernate 4.3.6 JPA support -->
+	  	<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.6.Final</version>
+		</dependency>		
 		<!-- MySQL driver connector library -->
 		<dependency>
 			<groupId>mysql</groupId>
