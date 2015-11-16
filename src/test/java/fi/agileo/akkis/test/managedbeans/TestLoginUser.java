@@ -3,7 +3,7 @@ package fi.agileo.akkis.test.managedbeans;
 import org.junit.Test;
 
 import fi.agileo.akkis.jpa.User;
-import fi.agileo.primefaces.beans.LoginUser;
+import fi.agileo.primefaces.beans.user.LoginUser;
 import fi.agileo.spring.service.UserService;
 
 import static org.junit.Assert.*;

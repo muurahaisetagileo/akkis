@@ -1,36 +1,29 @@
-package fi.agileo.primefaces.beans;
+package fi.agileo.primefaces.beans.contract;
+
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.Contract;
+import fi.agileo.akkis.jpa.Deal;
 import fi.agileo.akkis.jpa.User;
 import fi.agileo.spring.service.ContractService;
 
 @ManagedBean
-@SessionScoped
-public class EditContract {
+@RequestScoped
+public class ShowContract {
 	@ManagedProperty("#{contractService}")
 	private ContractService contractService;
-
-	private User user;
+	
 	private Contract contract;
+	private User user;
 	private ContactCompany contactCompany;
-	private List<Contact> currentContacts;
-	private List<Contact> contactsToBeAdded;
-	private List<Contact> notAddedContactCompanyContacts;
-	
-	public String toEditContract() {
-		return "";
-	}
-	
-	public String saveModifiedContract() {
-		return "";
-	}
+	private List<Contact> contacts;
+	private List<Deal> deals;
 
 	public ContractService getContractService() {
 		return contractService;
@@ -38,6 +31,15 @@ public class EditContract {
 
 	public void setContractService(ContractService contractService) {
 		this.contractService = contractService;
+	}
+	
+	
+	public String viewContract() {
+		/* fetch contract information into ContractInformation object 
+		   and set its properties to members of this managed bean and 
+		   return the view page name */
+		
+		return "";
 	}
 
 	public Contract getContract() {
@@ -47,7 +49,7 @@ public class EditContract {
 	public void setContract(Contract contract) {
 		this.contract = contract;
 	}
-
+	
 	public User getUser() {
 		return user;
 	}
@@ -56,19 +58,11 @@ public class EditContract {
 		return contactCompany;
 	}
 
-	public List<Contact> getCurrentContacts() {
-		return currentContacts;
+	public List<Contact> getContacts() {
+		return contacts;
 	}
 
-	public List<Contact> getNotAddedContactCompanyContacts() {
-		return notAddedContactCompanyContacts;
-	}
-
-	public List<Contact> getContactsToBeAdded() {
-		return contactsToBeAdded;
-	}
-
-	public void setContactsToBeAdded(List<Contact> contactsToBeAdded) {
-		this.contactsToBeAdded = contactsToBeAdded;
+	public List<Deal> getDeals() {
+		return deals;
 	}
 }

@@ -1,4 +1,6 @@
-package fi.agileo.primefaces.beans;
+package fi.agileo.primefaces.beans.contact;
+
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -11,7 +13,7 @@ import fi.agileo.spring.service.ContactService;
 
 @ManagedBean
 @SessionScoped
-public class CreateContact {
+public class ListContacts {
 
 	@ManagedProperty("#{contactService}")
 	private ContactService contactService;
@@ -34,7 +36,7 @@ public class CreateContact {
 		this.contact = contact;
 	}
 
-	public String saveContact() {
+	public List<Contact> getContactList() {
 		return null;
 		/*
 		// Calling Business Service

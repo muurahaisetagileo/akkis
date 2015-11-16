@@ -1,4 +1,4 @@
-package fi.agileo.primefaces.beans;
+package fi.agileo.primefaces.beans.contract;
 
 import java.util.List;
 
