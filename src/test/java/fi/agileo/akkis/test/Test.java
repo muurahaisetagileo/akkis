@@ -12,4 +12,10 @@ public class Test {
 		assertEquals("Ossi", "");
 	}
 
+	@Ignore
+	@org.junit.Test
+	public void otherIgnored() {
+		
+	}
+	
 }
