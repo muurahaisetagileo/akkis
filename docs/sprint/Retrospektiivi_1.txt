@@ -1,0 +1,14 @@
+Muurahaiset - retrospektiivi sprintistä 1
+--------------------------------------------------
+
+-Taskit ja tehtävänjako saisi olla vielä paremmin suunniteltu
+
+-Taskeja ja suuntaa jouduttiin muuttamaan hieman liian kanssa kesken sprintin
+ *Tarkempi selvitys product ownerilta tavoitteista
+
+-Sprintin tavoite oli ylioptimistinen, viikko oli liian lyhyt aika
+ *Tulee melkein aina jotain ylimääräistä säätämistä, jota ei olettanut
+
+-Oltaisiin säästetty aikaa jos ObjectAID oltaisiin saatu heti alussa toimintaan
+
+-Tekijöiden lähtötaso ja vahvuudet/heikkoudet olisi ollut hyvä selvittää paremmin
