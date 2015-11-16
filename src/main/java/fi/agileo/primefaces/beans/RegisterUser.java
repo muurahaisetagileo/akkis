@@ -36,12 +36,18 @@ public class RegisterUser {
 
 	public String register() {
 		// Calling Business Service
-		userService.register(user);
+		int i = userService.register(user);
+		String msg = " could not be registered";
+		
+		if (i == 1) {
+			msg = " is registered successfully";
+		}
+		
 		// Add message
 		FacesContext.getCurrentInstance().addMessage(null, 
 				new FacesMessage("The user " + 
 					this.user.getUsername()+
-					" is registered successfully"));
+					msg));
 		return "";
 	}
 }
