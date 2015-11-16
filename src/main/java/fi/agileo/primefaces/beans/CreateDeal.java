@@ -1,5 +1,8 @@
 package fi.agileo.primefaces.beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -18,7 +21,7 @@ public class CreateDeal {
 	private DealService dealService;
 	
 	private Contract contract = new Contract();
-	private Contact contact = new Contact();
+	private List<Contact> contacts = new ArrayList<Contact>();
 
 	private Deal deal = new Deal();
 
@@ -46,12 +49,12 @@ public class CreateDeal {
 		this.contract = contract;
 	}
 	
-	public Contact getContact() {
-		return contact;
+	public List<Contact> getContacts() {
+		return contacts;
 	}
 	
-	public void setContact(Contact contact) {
-		this.contact = contact;
+	public void setContacts(List<Contact> contacts) {
+		this.contacts = contacts;
 	}
 	
 
