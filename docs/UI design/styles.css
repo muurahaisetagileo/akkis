@@ -20,6 +20,17 @@
   	display: block;
   }
 
+  .title_search {
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    background: #DDDDDD;
+    width: 640px;
+    height: 40px;
+    padding-top: 20px;
+    display: block;
+  }
+
   .view_index {
     margin-left: auto;
     margin-right: auto;
@@ -35,6 +46,15 @@
     margin-bottom: 36px;
     border: 2px solid black;
     width: 250px;
+    display: block;
+  }
+
+  .view_search {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 36px;
+    border: 2px solid black;
+    width: 640px;
     display: block;
   }
 
@@ -80,4 +100,8 @@
     padding: 10px;
     border: 1px dotted black;
     margin-bottom: 10px;
+  }
+
+  .search_item {
+    display: inline-block;
   }
