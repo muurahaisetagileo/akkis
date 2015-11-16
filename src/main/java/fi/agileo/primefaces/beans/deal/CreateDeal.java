@@ -1,4 +1,4 @@
-package fi.agileo.primefaces.beans;
+package fi.agileo.primefaces.beans.deal;
 
 import java.util.ArrayList;
 import java.util.List;

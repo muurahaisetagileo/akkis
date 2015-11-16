@@ -1,4 +1,4 @@
-package fi.agileo.primefaces.beans;
+package fi.agileo.primefaces.beans.user;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;

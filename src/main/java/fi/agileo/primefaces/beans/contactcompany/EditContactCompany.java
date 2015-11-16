@@ -1,4 +1,4 @@
-package fi.agileo.primefaces.beans;
+package fi.agileo.primefaces.beans.contactcompany;
 
 import java.util.List;
 
