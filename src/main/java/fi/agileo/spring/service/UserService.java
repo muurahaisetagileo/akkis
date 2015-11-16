@@ -26,6 +26,12 @@ public class UserService {
 	public int register(User user) {
 		// Save employee
 		this.em.persist(user);
+		
+		List<User> regUsers = (List<User>)em.createNamedQuery("login").
+				setParameter("username", user.getUsername()).
+				setParameter("password", user.getPassword()).getResultList();
+		if (regUsers.size() > 0)
+			return 1;
 		return 0;
 	}
 	

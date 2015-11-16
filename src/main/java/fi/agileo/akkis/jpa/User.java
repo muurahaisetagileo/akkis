@@ -53,10 +53,10 @@ public class User {
 		return userId;
 	}
 
-	public void setEmployeeId(long userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-
+	
 	public String getUsername() {
 		return this.username;
 	}
@@ -97,9 +97,34 @@ public class User {
 		this.lastName = lastName;
 	}
 
+	public List<Contract> getContracts() {
+		return contracts;
+	}
+
+	public void setContracts(List<Contract> contracts) {
+		this.contracts = contracts;
+	}
+
+	public List<Deal> getDeals() {
+		return deals;
+	}
+
+	public void setDeals(List<Deal> deals) {
+		this.deals = deals;
+	}
+
+	public List<Contact> getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(List<Contact> contacts) {
+		this.contacts = contacts;
+	}
+	
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", username=" + 
 				username + ", password=" + password + ", type=" + type + "]";
 	}
+
 }
