@@ -14,6 +14,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name="CONTACT")
 public class Contact {
+
+/* Lisättäviä properteja taskiin 
+"Create persisted entity class and its properties for contact"	
+liittyen: 
+
+Tämä lienee aika valmis propertien osalta?
+
+Yhden parametrin transaktiokerros spring kerrokseen, jotta näkee tallentuuko kantaan?
+
+Väliaikainen CreateContact ContactServiceen?
+
+*/
+	
+	
 	
 	// Database columns
 	
