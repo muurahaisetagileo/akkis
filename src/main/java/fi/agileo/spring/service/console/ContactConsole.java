@@ -18,7 +18,8 @@ public class ContactConsole {
 
 	public static void main(String[] args) {
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("fi/agileo/spring/service/console/consoleApplicationContext.xml");
+		ClassPathXmlApplicationContext context = 
+			new ClassPathXmlApplicationContext("consoleApplicationContext.xml");;
 		
 		// Create test contact
 		
