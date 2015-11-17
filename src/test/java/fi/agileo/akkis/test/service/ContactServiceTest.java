@@ -15,7 +15,7 @@ import javax.persistence.*;
 import fi.agileo.akkis.jpa.User;
 import fi.agileo.spring.service.UserService;
 
-public class UserServiceTest {
+public class ContactServiceTest {
 	@Test
 	public void testCreation() {
 		

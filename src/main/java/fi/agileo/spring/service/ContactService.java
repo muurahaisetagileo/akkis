@@ -52,17 +52,14 @@ public class ContactService {
 		 return 0;
 	 }
 	
-	public List<Contact> getContacts(int type, 
-			User responsible_salesman, String country) {
+	public List<Contact> getContacts(Contact c, int type, User responsible_salesman, String country) {
 		
-		/*
-		List<Contact> contacts = (List<Contact>)em.createNamedQuery("getContacts");
-		for (Contact c : contacts) {
-			System.out.println(c);
-		}
-s		*/
+		List<Contact> seekedContacts = (List<Contact>)em.createNamedQuery("getContacts").
+				setParameter("type", c.getType()).
+				setParameter("salesman", c.getSalesPerson()).
+				setParameter("country", c.getCountry()).getResultList();
 		
-		return null;
+		return seekedContacts;
 	}
 	
 }

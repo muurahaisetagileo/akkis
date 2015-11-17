@@ -35,7 +35,7 @@ public class UserService {
 		// Save employee
 		this.em.persist(user);
 		
-		List<User> regUsers = (List<User>)em.createNamedQuery("register").
+		List<User> regUsers = (List<User>)em.createNamedQuery("findByUsername").
 				setParameter("username", user.getUsername()).
 				getResultList();
 		if (regUsers.size() > 0)
