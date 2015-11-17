@@ -24,17 +24,16 @@ public class UserService {
 
 	@Transactional
 	public int register(User user) {
-		/*
+		
 		List<User> oldUsersBySameUsername = 
 				(List<User>)em.createNamedQuery("findByUsername").
 				setParameter("username", user.getUsername()).
 				getResultList();
 		if (oldUsersBySameUsername.size() > 0)
 			return -1;
-		*/
+		
 		// Save employee
-		User u = new User();
-		this.em.persist(u);
+		this.em.persist(user);
 		
 		List<User> regUsers = (List<User>)em.createNamedQuery("register").
 				setParameter("username", user.getUsername()).
