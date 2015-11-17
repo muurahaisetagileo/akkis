@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -47,6 +48,8 @@ public class User {
 	
 	private List<Contract> contracts;
 	private List<Deal> deals;
+	
+	@OneToMany(mappedBy="salesPerson")
 	private List<Contact> contacts;
 	
 	// Public methods
