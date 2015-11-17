@@ -1,5 +1,6 @@
 package fi.agileo.spring.service.console;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import fi.agileo.akkis.jpa.User;
@@ -9,6 +10,9 @@ import fi.agileo.spring.service.UserService;
 public class UserConsole {
 
 	public static void main(String[] args) {
+		
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("fi/agileo/spring/service/console/consoleApplicationContext.xml");
+		
 		
 		int result = 0;
 		
