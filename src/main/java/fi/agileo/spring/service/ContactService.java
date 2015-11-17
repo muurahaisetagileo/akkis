@@ -62,4 +62,12 @@ public class ContactService {
 		return seekedContacts;
 	}
 	
+	@Transactional
+	public void setContactsToType(List<Contact> contacts, int type) {
+		for(Contact c: contacts) {
+			c.setType(type);
+			em.merge(c);
+		}
+	}
+	
 }
