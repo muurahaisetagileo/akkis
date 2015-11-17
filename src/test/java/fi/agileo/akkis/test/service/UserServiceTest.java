@@ -1,6 +1,7 @@
 package fi.agileo.akkis.test.service;
 
 import static org.mockito.Mockito.*;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import javax.persistence.*;
 import fi.agileo.akkis.jpa.User;
 import fi.agileo.spring.service.UserService;
 
-import static org.junit.Assert.*;
+
 
 public class UserServiceTest {
 	@Test
