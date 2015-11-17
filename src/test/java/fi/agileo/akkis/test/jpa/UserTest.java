@@ -1,7 +1,6 @@
 package fi.agileo.akkis.test.jpa;
 
 import org.junit.*;
-
 import java.util.List;
 import java.util.ArrayList;
 

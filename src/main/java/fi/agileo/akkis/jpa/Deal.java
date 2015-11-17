@@ -10,28 +10,35 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="DEAL")
+@Table(name = "DEAL")
+
 public class Deal {
+
+	// Database columns
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="DEAL_ID")
+	@Column(name = "DEAL_ID")
 	private long dealId;
-	
-	@Column(name="PRICE")
+
+	@Column(name = "PRICE")
 	private double price;
-	
-	@Column(name="PERIODTYPE")
+
+	@Column(name = "PERIODTYPE")
 	private int periodType;
-	
-	@Column(name="PERIODLENGTH")
+
+	@Column(name = "PERIODLENGTH")
 	private int periodLength;
-	
+
 	private Contract contract;
-	
+
 	private User user;
-	
+
+	// Relationships
+
 	private List<Contact> contacts;
 
+	// Public methods
 
 	public long getDealId() {
 		return dealId;
@@ -94,5 +101,5 @@ public class Deal {
 		return "Deal [dealId=" + dealId + ", price=" + price + ", periodType=" + periodType + ", periodLength="
 				+ periodLength + ", contract=" + contract + ", user=" + user + ", contacts=" + contacts + "]";
 	}
-	
+
 }

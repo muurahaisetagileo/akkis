@@ -27,8 +27,6 @@ Väliaikainen CreateContact ContactServiceen?
 
 */
 	
-	
-	
 	// Database columns
 	
 	@Id
