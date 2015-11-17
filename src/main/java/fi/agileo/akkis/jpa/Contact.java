@@ -23,8 +23,7 @@ import javax.persistence.Table;
 })*/
 
 @Table(name="CONTACT")
-
-@NamedQuery(name="Contact.findByLead", query="SELECT c FROM Contact c WHERE c.lead = :lead")
+@NamedQuery(name="Contact.findByLead", query="SELECT c FROM Contact c")
 public class Contact {
 
 /* Lisättäviä properteja taskiin 
