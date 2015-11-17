@@ -7,7 +7,7 @@ Deal-luokasta ja deal-testeistä:
 
 - DealTest.java on JPA-kerroksen testinä. Kahta muuta kerrosta en vielä tiennyt miten toteuttaa.
 
-Create persisted entity class and its properties for contact-taskiin liittyen
+Create persisted entity class and its properties for contact-taskiin liittyen:
 
 - 	"Joo on tuo osittain kunnossa, mutta siellä pitäisi laittaa myös User talteen contact:lle, siis contact.setUser(user). 
 	Ja sitten console applikaatiossa varmistaa, että myös tuossa tapauksessa user löytyy contact:lta. Tuon rinnalle tarvitaan toinen CreateContact -metodi, jolla on vain Contact -parametri perusominaisuuksien testausta varten, siis signaturella public int createContact(Contact contact), missä on tuo sisältö, mitä tuossa tämänhetkisessä methodissa on."
