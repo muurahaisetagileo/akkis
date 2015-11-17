@@ -1,5 +1,6 @@
 package fi.agileo.akkis.test.managedbeans;
 
+
 import org.junit.Test;
 
 import fi.agileo.akkis.jpa.User;
@@ -9,6 +10,7 @@ import fi.agileo.spring.service.UserService;
 import static org.junit.Assert.*;
 
 public class TestLoginUser {
+	
 	@Test
 	public void testCreation() {
 		LoginUser lu = new LoginUser();
@@ -21,7 +23,4 @@ public class TestLoginUser {
 		assertEquals(lu.getUserService(), us);
 	}
 	
-	@Test
-	public void testLogin() {
-	}
 }

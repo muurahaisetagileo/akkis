@@ -4,6 +4,11 @@
 	version="2.0">
 	<!-- Will be referenced in Spring Context File -->
 	<persistence-unit name="jpa-persistence" transaction-type="RESOURCE_LOCAL">
+	
+		<class>fi.agileo.akkis.jpa.Contact</class>
+		<class>fi.agileo.akkis.jpa.ContactCompany</class>
+		<class>fi.agileo.akkis.jpa.Contract</class>
+		<class>fi.agileo.akkis.jpa.Deal</class>
 		<class>fi.agileo.akkis.jpa.User</class>
 		
 		<properties>

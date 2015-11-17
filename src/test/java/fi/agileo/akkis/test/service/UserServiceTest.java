@@ -15,14 +15,11 @@ import javax.persistence.*;
 import fi.agileo.akkis.jpa.User;
 import fi.agileo.spring.service.UserService;
 
-
-
 public class UserServiceTest {
 	@Test
 	public void testCreation() {
 		
 	}
-	
 	
 	@Test
 	public void testLoginSuccess() {
@@ -134,7 +131,7 @@ public class UserServiceTest {
 	
 	
 	@Test
-	public void testReqister() {
+	public void testRegister() {
 		
 	}
 }
