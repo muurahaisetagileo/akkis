@@ -12,7 +12,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+// NamedQueries
 @Table(name="CONTACT")
+
+@NamedQuery(name="Contact.findByLead", query="SELECT c FROM Contact c WHERE c.lead = :lead")
 public class Contact {
 
 /* Lisättäviä properteja taskiin 

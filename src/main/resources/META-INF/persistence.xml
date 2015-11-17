@@ -3,6 +3,20 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
 	<!-- Will be referenced in Spring Context File -->
+	
+	<!-- more proper transaction type "JTA" not yet working -->
+	<!-- 
+		only with this got
+	
+	 	Internal Exception: Exception [EclipseLink-28010] (Eclipse Persistence Services - 2.5.0.v20130425-368d603): org.eclipse.persistence.exceptions.EntityManagerSetupException
+		Exception Description: PersistenceUnitInfo jpa-persistence has transactionType JTA, but does not have a jtaDataSource defined.
+		
+		when startup of server to server console
+		
+		for further exploration may be:
+		
+		https://www.eclipse.org/forums/index.php/t/125718/
+	 -->
 	<persistence-unit name="jpa-persistence" transaction-type="RESOURCE_LOCAL">
 	
 		<class>fi.agileo.akkis.jpa.Contact</class>
@@ -23,4 +37,24 @@
 				value="database" />			
 		</properties>
 	</persistence-unit>
+	
+	<persistence-unit name="console-persistence" transaction-type="RESOURCE_LOCAL">
+		<class>fi.agileo.akkis.jpa.User</class>
+		<class>fi.agileo.akkis.jpa.Contact</class>
+		<class>fi.agileo.akkis.jpa.ContactCompany</class>
+		<class>fi.agileo.akkis.jpa.Contract</class>
+		<class>fi.agileo.akkis.jpa.Deal</class>
+		
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/akkis" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.password" value="root66" />
+			
+			<property name="eclipselink.logging.level" value="ALL" />
+ 			<property name="eclipselink.ddl-generation" value="create-or-extend-tables" /> 
+			<property name="eclipselink.ddl-generation.output-mode"
+				value="database" />			
+		</properties>
+	</persistence-unit>	
 </persistence>

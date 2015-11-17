@@ -4,12 +4,17 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="CONTACTCOMPANY")
 public class ContactCompany {
-	@Column(name="ID")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID")	
 	private long id;
 	
 	@Column(name="NAME")
@@ -24,7 +29,10 @@ public class ContactCompany {
 	@Column(name="COMPANYIDENTIFIER")
 	private String companyIdentifier; // Y-Tunnus
 	
+	
 	private List<Contact> companyContacts;
+	
+	
 	private List<Contract> contracts;
 	
 	public long getId() {

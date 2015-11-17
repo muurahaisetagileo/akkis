@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "CONTRACT")
@@ -20,9 +22,11 @@ public class Contract {
 	private long contractId;
 
 	@Column(name = "SIGNDATE")
+	@Temporal(TemporalType.DATE)
 	private Date signdate;
 
 	@Column(name = "ENDDATE")
+	@Temporal(TemporalType.DATE)	
 	private Date enddate;
 
 	@Column(name = "CONTRACTSTATUS")

@@ -1,5 +1,6 @@
 package fi.agileo.spring.service.console;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import fi.agileo.akkis.jpa.Contact;
@@ -16,6 +17,9 @@ import fi.agileo.primefaces.beans.user.RegisterUser;
 public class ContactConsole {
 
 	public static void main(String[] args) {
+		
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("fi/agileo/spring/service/console/consoleApplicationContext.xml");
+		
 		// Create test contact
 		
 		Contact c = new Contact();
