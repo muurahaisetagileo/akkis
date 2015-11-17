@@ -18,7 +18,7 @@ import javax.persistence.Table;
 // NamedQueries
 
 /*@NamedQueries({
-  @NamedQuery(name="Contact.findByType", query="SELECT c FROM Contact c WHERE c.type = :type"),
+ @NamedQuery(name="Contact.findByType", query="SELECT c FROM Contact c WHERE c.type = :type")
 	
 })*/
 
@@ -29,13 +29,9 @@ public class Contact {
 /* Lisättäviä properteja taskiin 
 "Create persisted entity class and its properties for contact"	
 liittyen: 
-
 Tämä lienee aika valmis propertien osalta?
-
 Yhden parametrin transaktiokerros spring kerrokseen, jotta näkee tallentuuko kantaan?
-
 Väliaikainen CreateContact ContactServiceen?
-
 */
 	
 	// Database columns
