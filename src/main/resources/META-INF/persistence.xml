@@ -24,10 +24,6 @@
 		<class>fi.agileo.akkis.jpa.Contract</class>
 		<class>fi.agileo.akkis.jpa.Deal</class>
 		<class>fi.agileo.akkis.jpa.User</class>
-		<class>fi.agileo.akkis.jpa.Contact</class>
-		<class>fi.agileo.akkis.jpa.ContactCompany</class>
-		<class>fi.agileo.akkis.jpa.Contract</class>
-		<class>fi.agileo.akkis.jpa.Deal</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/akkis" />
