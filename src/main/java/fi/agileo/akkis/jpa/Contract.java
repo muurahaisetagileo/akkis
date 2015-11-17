@@ -5,9 +5,14 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,12 +38,22 @@ public class Contract {
 	private String contractstatus;
 
 	@Column(name = "PRICE")
-	private String price;
+	private double price;
 	
+	@ManyToMany(mappedBy="contracts")
 	private List<Contact> contacts;
+	
+	@OneToMany(mappedBy="contract")
 	private List<Deal> deals;
+	
+	@ManyToOne(optional=false, fetch=FetchType.EAGER)
+	@JoinColumn(name="CONTACTCOMPANYID")
 	private ContactCompany contactCompany;
 
+	@ManyToOne(optional=false, fetch=FetchType.EAGER)
+	@JoinColumn(name="USERID")
+	private User user;
+	
 	public long getContractId() {
 		return contractId;
 	}
@@ -87,11 +102,11 @@ public class Contract {
 		this.contractstatus = contractstatus;
 	}
 
-	public String getPrice() {
+	public double getPrice() {
 		return this.price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -123,5 +138,13 @@ public class Contract {
 	public String toString() {
 		return "Contract [contractId=" + contractId + ", signdate=" + signdate + ", enddate="
 				+ enddate + ", contractstatus=" + contractstatus + ", price=" + price + "]";
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 }

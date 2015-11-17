@@ -33,6 +33,7 @@ public class ContactCompany {
 	@OneToMany(mappedBy="contactCompany")
 	private List<Contact> companyContacts;
 	
+	@OneToMany(mappedBy="contactCompany")
 	private List<Contract> contracts;
 	
 	public long getId() {

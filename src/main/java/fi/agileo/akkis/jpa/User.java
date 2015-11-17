@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -45,8 +46,10 @@ public class User {
 	private String lastName;
 	
 	// Relationships
-	
+	@OneToMany(mappedBy="user")
 	private List<Contract> contracts;
+	
+	@OneToMany(mappedBy="user")
 	private List<Deal> deals;
 	
 	@OneToMany(mappedBy="salesPerson")

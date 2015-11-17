@@ -9,10 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.JoinTable;
 
 @Entity
 
@@ -64,7 +66,8 @@ Väliaikainen CreateContact ContactServiceen?
 	private boolean publicAvailability;
 	
 	// Relationships
-	
+	@ManyToMany
+	@JoinTable(name="CONTRACTS_CONTACTS")
 	private List<Contract> contracts;
 	
 	@ManyToOne(optional=false, fetch=FetchType.EAGER)
@@ -75,6 +78,7 @@ Väliaikainen CreateContact ContactServiceen?
 	@JoinColumn(name="CONTACTCOMPANY")
 	private ContactCompany contactCompany;
 	
+	@ManyToMany(mappedBy="contacts")
 	private List<Deal> deals;
 	
 	// Public methods
