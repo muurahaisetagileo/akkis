@@ -41,6 +41,8 @@ public class RegisterUser {
 		
 		if (i == 1) {
 			msg = " is registered successfully";
+		} else if (i == -1){
+			msg = " already exists";
 		}
 		
 		// Add message

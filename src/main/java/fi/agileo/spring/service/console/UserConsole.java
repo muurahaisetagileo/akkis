@@ -1,9 +1,10 @@
 package fi.agileo.spring.service.console;
 
 import fi.agileo.akkis.jpa.User;
+
 import fi.agileo.spring.service.UserService;
-import fi.agileo.primefaces.beans.LoginUser;
-import fi.agileo.primefaces.beans.RegisterUser;
+import fi.agileo.primefaces.beans.user.LoginUser;
+import fi.agileo.primefaces.beans.user.RegisterUser;
 
 public class UserConsole {
 
