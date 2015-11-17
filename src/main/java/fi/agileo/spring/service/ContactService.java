@@ -40,6 +40,18 @@ public class ContactService {
 		return 0;
 	}
 	
+	/* Skype-chatista (toteutusta alla)
+	  Tuon rinnalle tarvitaan toinen CreateContact -metodi, 
+	  jolla on vain Contact -parametri perusominaisuuksien testausta varten, 
+	  siis signaturella public int createContact(Contact contact), 
+	  missä on tuo sisältö, mitä tuossa tämänhetkisessä methodissa on.*/
+	
+	@Transactional
+	 public int createContact(Contact contact) {
+		 this.em.persist(contact);
+		 return 0;
+	 }
+	
 	public List<Contact> getContacts(int type, 
 			User responsible_salesman, String country) {
 		
