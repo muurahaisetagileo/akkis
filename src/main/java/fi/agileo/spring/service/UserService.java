@@ -24,13 +24,24 @@ public class UserService {
 
 	@Transactional
 	public int register(User user) {
-		// Save employee
+		
+		// Check that the username doesn't already exist in database
+		
+		List<User> checkUsers = (List<User>)em.createNamedQuery("register").
+				setParameter("username", user.getUsername()).getResultList();
+		if (checkUsers.size() == 1) {
+			return -1;
+		}
+		
+		// No duplicate found - save the user
+		
 		this.em.persist(user);
 		
-		List<User> regUsers = (List<User>)em.createNamedQuery("login").
-				setParameter("username", user.getUsername()).
-				setParameter("password", user.getPassword()).getResultList();
-		if (regUsers.size() > 0)
+		// Check that the user was successfully saved
+		
+		List<User> regUsers = (List<User>)em.createNamedQuery("register").
+				setParameter("username", user.getUsername()).getResultList();
+		if (regUsers.size() == 1)
 			return 1;
 		return 0;
 	}

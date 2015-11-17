@@ -35,6 +35,9 @@ public class CreateContact {
 	}
 
 	public String saveContact() {
+		
+		System.out.println(contact);
+		
 		return null;
 		/*
 		// Calling Business Service

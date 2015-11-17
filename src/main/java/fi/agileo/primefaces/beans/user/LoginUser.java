@@ -38,8 +38,7 @@ public class LoginUser {
 		int type = this.userService.login(user);
 		System.out.println("managed bean, type " + type);
 		if (type == 1)
-			//return "adminindex";
-			return "registeruser";
+			return "admin_index";
 		System.out.println("login failed -> message");
 		FacesContext.getCurrentInstance().addMessage(null, 
 				new FacesMessage("Login failed!"));
