@@ -23,4 +23,7 @@ Create persisted entity class and its properties for contact-taskiin liittyen
 
 Console-luokista:
 
-- Rakennettu DealConsolea muiden konsoliluokkien pohjalta 
+- Rakennettu DealConsolea muiden konsoliluokkien pohjalta. Ajettavissa Run as Java Application. Kontaktin tiedot tulostuu.
+- Tarvitsisi vielä transaktio -kerroksen kautta tietojen hakua.
+
+ 
