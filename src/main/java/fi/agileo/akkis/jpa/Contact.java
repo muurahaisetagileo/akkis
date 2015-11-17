@@ -8,9 +8,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -20,21 +22,19 @@ import javax.persistence.JoinTable;
 
 // NamedQueries
 
-/*@NamedQueries({
- @NamedQuery(name="Contact.findByType", query="SELECT c FROM Contact c WHERE c.type = :type")
-	
-})*/
-
 @Table(name="CONTACT")
-
 public class Contact {
 
 /* Lisättäviä properteja taskiin 
 "Create persisted entity class and its properties for contact"	
 liittyen: 
+
 Tämä lienee aika valmis propertien osalta?
+
 Yhden parametrin transaktiokerros spring kerrokseen, jotta näkee tallentuuko kantaan?
+
 Väliaikainen CreateContact ContactServiceen?
+
 */
 	
 	// Database columns
@@ -71,13 +71,13 @@ Väliaikainen CreateContact ContactServiceen?
 	private List<Contract> contracts;
 	
 	@ManyToOne(optional=false, fetch=FetchType.EAGER)
-	@JoinColumn(name="SALESPERSON")
+	@JoinColumn(name="USERID")
 	private User salesPerson;
-
-	@ManyToOne(optional=true, fetch=FetchType.EAGER)
-	@JoinColumn(name="CONTACTCOMPANY")
-	private ContactCompany contactCompany;
 	
+	@ManyToOne(optional=false, fetch=FetchType.EAGER)
+	@JoinColumn(name="CONTACTCOMPANYID")
+	private ContactCompany contactCompany;
+
 	@ManyToMany(mappedBy="contacts")
 	private List<Deal> deals;
 	
