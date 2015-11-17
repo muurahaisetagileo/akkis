@@ -15,15 +15,7 @@ import javax.persistence.Table;
 
 // NamedQueries
 
-/*@NamedQueries({
-  @NamedQuery(name = "Contact.findAll", query = "SELECT c FROM Contact c"),
-  @NamedQuery(name="Contact.findByLead", query="SELECT c FROM Contact c WHERE c.lead = :lead"),
-  @NamedQuery(name="Contact.findByCustomer", query="SELECT c FROM Contact c WHERE c.customer = :customer"),
-	
-})*/
-
 @Table(name="CONTACT")
-@NamedQuery(name="Contact.findByLead", query="SELECT c FROM Contact c")
 public class Contact {
 
 /* Lisättäviä properteja taskiin 
