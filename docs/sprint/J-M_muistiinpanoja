@@ -26,4 +26,10 @@ Console-luokista:
 - Rakennettu DealConsolea muiden konsoliluokkien pohjalta. Ajettavissa Run as Java Application. Kontaktin tiedot tulostuu.
 - Tarvitsisi vielä transaktio -kerroksen kautta tietojen hakua.
 
+NamedQueryistä:
+
+Lisättävänä:
+
+- contact :n etsinnät eri tiedoilla ja LIKE  -sanaa käyttävällä kyselyllä ( myyjän tarina )...
+
  
