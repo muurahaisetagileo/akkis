@@ -37,8 +37,6 @@ public class ContactConsole {
 		cc.setName("Rekso Oy");
 		
 		Contract cr = new Contract();
-		cr.setSigndate("1.1.2016");
-		cr.setEnddate("31.12.2016");
 		
 		Deal d = new Deal();
 		d.setPrice(4999.99);
