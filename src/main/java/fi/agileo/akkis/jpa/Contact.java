@@ -20,7 +20,8 @@ import javax.persistence.Table;
 
 /*@NamedQueries({
  @NamedQuery(name="Contact.findByType", query="SELECT c FROM Contact c WHERE c.type = :type")
-	
+ @NamedQuery(name="Contact.findByType", query="SELECT c FROM Contact c WHERE c.lisättävä LIKE.lisättävä"
+ AND c.lisättävä LIKE.lisättävä")  
 })*/
 
 @Table(name="CONTACT")
