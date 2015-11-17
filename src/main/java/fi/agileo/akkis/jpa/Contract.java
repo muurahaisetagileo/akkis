@@ -1,5 +1,6 @@
 package fi.agileo.akkis.jpa;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -19,10 +20,10 @@ public class Contract {
 	private long contractId;
 
 	@Column(name = "SIGNDATE")
-	private String signdate;
+	private Date signdate;
 
 	@Column(name = "ENDDATE")
-	private String enddate;
+	private Date enddate;
 
 	@Column(name = "CONTRACTSTATUS")
 	private String contractstatus;
@@ -55,20 +56,20 @@ public class Contract {
 	// kun alunperin oli kai tarkoitus kommentoida englanniksi
 
 	// signDate (Sopimuksen solmimispäivämäärä)
-	public String getSigndate() {
+	public Date getSigndate() {
 		return this.signdate;
 	}
 
-	public void setSigndate(String signdate) {
+	public void setSigndate(Date signdate) {
 		this.signdate = signdate;
 	}
 
 	// endDate (Sopimuksen päättymispäivämäärä)
-	public String getEnddate() {
+	public Date getEnddate() {
 		return this.enddate;
 	}
 
-	public void setEnddate(String enddate) {
+	public void setEnddate(Date enddate) {
 		this.enddate = enddate;
 	}
 
