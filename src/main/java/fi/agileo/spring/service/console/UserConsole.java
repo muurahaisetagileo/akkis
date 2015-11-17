@@ -11,7 +11,8 @@ public class UserConsole {
 
 	public static void main(String[] args) {
 		
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("fi/agileo/spring/service/console/consoleApplicationContext.xml");
+		ClassPathXmlApplicationContext context = 
+				new ClassPathXmlApplicationContext("consoleApplicationContext.xml");
 		
 		
 		int result = 0;

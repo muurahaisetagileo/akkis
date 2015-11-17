@@ -17,13 +17,12 @@
 		
 		https://www.eclipse.org/forums/index.php/t/125718/
 	 -->
-	<persistence-unit name="jpa-persistence" transaction-type="RESOURCE_LOCAL">
-	
+	<persistence-unit name="console-persistence" transaction-type="RESOURCE_LOCAL">
+		<class>fi.agileo.akkis.jpa.User</class>
 		<class>fi.agileo.akkis.jpa.Contact</class>
 		<class>fi.agileo.akkis.jpa.ContactCompany</class>
 		<class>fi.agileo.akkis.jpa.Contract</class>
 		<class>fi.agileo.akkis.jpa.Deal</class>
-		<class>fi.agileo.akkis.jpa.User</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/akkis" />
@@ -36,5 +35,5 @@
 			<property name="eclipselink.ddl-generation.output-mode"
 				value="database" />			
 		</properties>
-	</persistence-unit>
+	</persistence-unit>	
 </persistence>

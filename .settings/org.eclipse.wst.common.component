@@ -7,6 +7,7 @@
         <wb-resource deploy-path="/WEB-INF/classes/META-INF" source-path="/src/main/resources/META-INF"/>
         <wb-resource deploy-path="/WEB-INF/lib" source-path="/target/Akkis.muurahaiset/WEB-INF/lib"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/META-INF"/>
         <property name="java-output-path" value="/Primefaces-Hibernate-JPA-Spring-Integration-Sample/bin"/>
         <property name="context-root" value="akkis"/>
     </wb-module>

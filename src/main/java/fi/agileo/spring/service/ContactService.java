@@ -1,5 +1,6 @@
 package fi.agileo.spring.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -36,6 +37,13 @@ public class ContactService {
 	
 	@Transactional
 	public int createContact(User user, Contact contact) {
+		List<Contact> userContacts = user.getContacts();
+		if (userContacts == null)
+			userContacts = new ArrayList<Contact>();
+		userContacts.add(contact);
+		user.setContacts(userContacts);
+		contact.setSalesPerson(user);
+		em.merge(user);
 		this.em.persist(contact);
 		return 0;
 	}

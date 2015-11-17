@@ -4,9 +4,13 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,12 +34,14 @@ public class Deal {
 	@Column(name = "PERIODLENGTH")
 	private int periodLength;
 
+	@ManyToOne(optional=false, fetch=FetchType.EAGER)
 	private Contract contract;
 
+	@ManyToOne(optional=false, fetch=FetchType.EAGER)	
 	private User user;
 
-	// Relationships
-
+	@ManyToMany
+	@JoinTable(name="DEALS_CONTACTS")
 	private List<Contact> contacts;
 
 	// Public methods
