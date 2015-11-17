@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -66,11 +67,14 @@ Väliaikainen CreateContact ContactServiceen?
 	
 	private List<Contract> contracts;
 	
-	@ManyToOne(optional=false)
+	@ManyToOne(optional=false, fetch=FetchType.EAGER)
 	@JoinColumn(name="SALESPERSON")
 	private User salesPerson;
-	
+
+	@ManyToOne(optional=true, fetch=FetchType.EAGER)
+	@JoinColumn(name="CONTACTCOMPANY")
 	private ContactCompany contactCompany;
+	
 	private List<Deal> deals;
 	
 	// Public methods
