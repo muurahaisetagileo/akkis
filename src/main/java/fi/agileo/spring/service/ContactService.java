@@ -52,7 +52,7 @@ public class ContactService {
 		 return 0;
 	 }
 	
-	public List<Contact> getContacts(Contact c, int type, User responsible_salesman, String country) {
+	public List<Contact> seekContacts(Contact c) {
 		
 		List<Contact> seekedContacts = (List<Contact>)em.createNamedQuery("getContacts").
 				setParameter("type", c.getType()).

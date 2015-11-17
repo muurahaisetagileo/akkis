@@ -10,149 +10,87 @@ import org.junit.Test;
 
 import javax.persistence.*;
 
-
-
+import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.akkis.jpa.User;
-import fi.agileo.spring.service.UserService;
+import fi.agileo.spring.service.ContactService;
 
 public class ContactServiceTest {
+	
 	@Test
 	public void testCreation() {
 		
 	}
 	
 	@Test
-	public void testLoginSuccess() {
+	public void testSeeking(){
+		
+		/*
+		
 		EntityManager em = mock(EntityManager.class);
 		
-		List<User> users = new ArrayList<User>();
-		User u = new User();
-		u.setUsername("admin");
-		u.setPassword("admin");
-		u.setType(1);
-		users.add(u);
+		List<Contact> contacts = new ArrayList<Contact>();
 		
-        Query mockedQuery = mock(Query.class);
-        Query mockedQuery2 = mock(Query.class);
-        Query mockedQuery3 = mock(Query.class);
-        when(mockedQuery.setParameter("username","admin")).thenReturn(mockedQuery2);
-        when(mockedQuery2.setParameter("password","admin")).thenReturn(mockedQuery3);
-        when(mockedQuery3.getResultList()).thenReturn(users);
-        when(em.createNamedQuery("login")).thenReturn(mockedQuery);
-
-        UserService us = new UserService();
-        us.setEm(em);
-        
-        User ucall = new User();
-        ucall.setUsername("admin");
-        ucall.setPassword("admin");
-        assertEquals(us.login(ucall), 1);
-     
-	}
-	
-	@Test
-	public void testLoginFail_error_password() {
-		EntityManager em = mock(EntityManager.class);
-		List<User> users = new ArrayList<User>();
-		
-        Query mockedQuery = mock(Query.class);
-        Query mockedQuery2 = mock(Query.class);
-        Query mockedQuery3 = mock(Query.class);
-        when(mockedQuery.setParameter("username","admin")).thenReturn(mockedQuery2);
-        when(mockedQuery2.setParameter("password","a")).thenReturn(mockedQuery3);
-        when(mockedQuery3.getResultList()).thenReturn(users);
-        when(em.createNamedQuery("login")).thenReturn(mockedQuery);
-
-        UserService us = new UserService();
-        us.setEm(em);
-        
-        User ucall = new User();
-        ucall.setUsername("admin");
-        ucall.setPassword("a");
-        assertEquals(us.login(ucall), 0);		
-	}
-	
-	@Test
-	public void testLoginFail_error_username() {
-		EntityManager em = mock(EntityManager.class);
-		List<User> users = new ArrayList<User>();
-		
-        Query mockedQuery = mock(Query.class);
-        Query mockedQuery2 = mock(Query.class);
-        Query mockedQuery3 = mock(Query.class);
-        when(mockedQuery.setParameter("username","a")).thenReturn(mockedQuery2);
-        when(mockedQuery2.setParameter("password","admin")).thenReturn(mockedQuery3);
-        when(mockedQuery3.getResultList()).thenReturn(users);
-        when(em.createNamedQuery("login")).thenReturn(mockedQuery);
-
-        UserService us = new UserService();
-        us.setEm(em);
-        
-        User ucall = new User();
-        ucall.setUsername("a");
-        ucall.setPassword("admin");
-        assertEquals(us.login(ucall), 0);		
-	}
-
-	@Test
-	public void testLoginFail_duplicate_identical_user_and_password() {
-		EntityManager em = mock(EntityManager.class);
-		List<User> users = new ArrayList<User>();
-
-		User u = new User();
-		u.setUsername("u");
-		u.setPassword("u");
-		u.setType(1);
-		users.add(u);
-		
+		User u1 = new User();
+		u1.setFirstNames("Matti");
+		u1.setFirstNames("Vainio");
 		User u2 = new User();
-		u.setUsername("u");
-		u.setPassword("u");
-		u.setType(1);
-		users.add(u2);
+		u2.setFirstNames("Ulla");
+		u2.setFirstNames("Pietilä");
+		User u3 = new User();
+		u3.setFirstNames("Raimo");
+		u3.setFirstNames("Karppinen");
+		
+		Contact c1 = new Contact();
+		c1.setType(5);
+		c1.setSalesPerson(u1);
+		c1.setCountry("Espanja");
+		
+		Contact c2 = new Contact();
+		c2.setType(1);
+		c2.setSalesPerson(u2);
+		c2.setCountry("Ruotsi");
+		
+		Contact c3 = new Contact();
+		c3.setType(1);
+		c3.setSalesPerson(u3);
+		c3.setCountry("Suomi");
+		
+		Contact c4 = new Contact();
+		c4.setType(2);
+		c4.setSalesPerson(u3);
+		c4.setCountry("Suomi");
+		
+		contacts.add(c1);
+		contacts.add(c2);
+		contacts.add(c3);
+		contacts.add(c4);
 		
         Query mockedQuery = mock(Query.class);
         Query mockedQuery2 = mock(Query.class);
         Query mockedQuery3 = mock(Query.class);
-        when(mockedQuery.setParameter("username","u")).thenReturn(mockedQuery2);
-        when(mockedQuery2.setParameter("password","u")).thenReturn(mockedQuery3);
-        when(mockedQuery3.getResultList()).thenReturn(users);
-        when(em.createNamedQuery("login")).thenReturn(mockedQuery);
+        Query mockedQuery4 = mock(Query.class);
+        when(mockedQuery.setParameter("type",1)).thenReturn(mockedQuery2);
+        when(mockedQuery2.setParameter("salesman",u3)).thenReturn(mockedQuery3);
+        when(mockedQuery2.setParameter("country","Suomi")).thenReturn(mockedQuery4);
+        when(mockedQuery3.getResultList()).thenReturn(contacts);
+        when(em.createNamedQuery("seekContacts")).thenReturn(mockedQuery);
 
-        UserService us = new UserService();
-        us.setEm(em);
+        ContactService cs = new ContactService();
+        cs.setEm(em);
         
-        User ucall = new User();
-        ucall.setUsername("u");
-        ucall.setPassword("u");
-        assertEquals(us.login(ucall), 0);		
+        Contact seekContact = new Contact();
+        seekContact.setType(1);
+        seekContact.setSalesPerson(u3);
+        seekContact.setCountry("Suomi");
+        
+        List<Contact> wantedResult = new ArrayList();
+        
+        wantedResult.add(c3);
+       
+        assertEquals(cs.seekContacts(seekContact), wantedResult);
+        
+        */
+        
 	}
 	
-	/*
-	@Test
-	public void testRegisterSuccess() {
-		
-		EntityManager em = mock(EntityManager.class);
-		
-		List<User> users = new ArrayList<User>();
-		User u = new User();
-		u.setUsername("Kalle");
-		u.setType(1);
-		users.add(u);
-		
-        Query mockedQuery = mock(Query.class);
-        Query mockedQuery2 = mock(Query.class);
-        when(mockedQuery.setParameter("username","Kalle")).thenReturn(mockedQuery2);
-        when(mockedQuery2.getResultList()).thenReturn(users);
-        when(em.createNamedQuery("findByUsername")).thenReturn(mockedQuery);
-        when(em).persist(User.class).thenReturn(mockedQuery);
-
-        UserService us = new UserService();
-        us.setEm(em);
-        
-        User ucall = new User();
-        ucall.setUsername("Pelle");
-        assertEquals(us.register(ucall), 1);
-	}
-	*/
 }
