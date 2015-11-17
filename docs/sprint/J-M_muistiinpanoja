@@ -19,3 +19,8 @@ Create persisted entity class and its properties for contact-taskiin liittyen
 		 this.em.persist(contact);
 		 return 0;
 	 }
+
+
+Console-luokista:
+
+- Rakennettu DealConsolea muiden konsoliluokkien pohjalta 
