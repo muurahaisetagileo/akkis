@@ -6,7 +6,9 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import fi.agileo.primefaces.beans.user.LoginUser;
 import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.User;
 import fi.agileo.spring.service.ContactService;
 
 @ManagedBean
@@ -35,19 +37,10 @@ public class CreateContact {
 	}
 
 	public String saveContact() {
-		
-		System.out.println(contact);
-		
+		LoginUser lu = (LoginUser)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUser");
+		User currentUser = lu.getUser();
+		System.out.println(currentUser.getUsername());
+		this.contactService.createContact(currentUser, contact);
 		return null;
-		/*
-		// Calling Business Service
-		contactService.createContact(contact);
-		// Add message
-		FacesContext.getCurrentInstance().addMessage(null, 
-				new FacesMessage("The contact " + 
-					this.contact.getName() +
-					" is saved successfully"));
-		return "";
-		*/
 	}
 }

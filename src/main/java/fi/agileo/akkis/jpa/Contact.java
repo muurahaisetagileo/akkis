@@ -8,24 +8,32 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.JoinTable;
 
 @Entity
 
 // NamedQueries
 
 /*@NamedQueries({
- @NamedQuery(name="Contact.findByType", query="SELECT c FROM Contact c WHERE c.type = :type")
- @NamedQuery(name="Contact.findByType", query="SELECT c FROM Contact c WHERE c.lisättävä LIKE.lisättävä"
- AND c.lisättävä LIKE.lisättävä")  
+@NamedQuery(name="Contact.findByType", query="SELECT c FROM Contact c WHERE c.type = :type")
+@NamedQuery(name="Contact.findForSearch", query="SELECT c FROM Contact c WHERE c.kentta1 LIKE :kentta1haku
+ AND c.kentta2 LIKE :kentta2haku)  
+@NamedQuery(name="Contact.findForSearch", query="SELECT c FROM Contact c WHERE c.lead LIKE :lead
+ AND c.customer LIKE :customer) 
+ @NamedQuery(name="Contact.findForSearch", query="SELECT c FROM Contact c WHERE c.country LIKE :country)     
+ 
 })*/
 
-@Table(name="CONTACT")
 
+@Table(name="CONTACT")
 public class Contact {
 
 /* Lisättäviä properteja taskiin 
@@ -65,17 +73,19 @@ Väliaikainen CreateContact ContactServiceen?
 	private boolean publicAvailability;
 	
 	// Relationships
-	
+	@ManyToMany
+	@JoinTable(name="CONTRACTS_CONTACTS")
 	private List<Contract> contracts;
 	
 	@ManyToOne(optional=false, fetch=FetchType.EAGER)
-	@JoinColumn(name="SALESPERSON")
+	@JoinColumn(name="USERID")
 	private User salesPerson;
-
-	@ManyToOne(optional=true, fetch=FetchType.EAGER)
-	@JoinColumn(name="CONTACTCOMPANY")
-	private ContactCompany contactCompany;
 	
+	@ManyToOne(optional=false, fetch=FetchType.EAGER)
+	@JoinColumn(name="CONTACTCOMPANYID")
+	private ContactCompany contactCompany;
+
+	@ManyToMany(mappedBy="contacts")
 	private List<Deal> deals;
 	
 	// Public methods
