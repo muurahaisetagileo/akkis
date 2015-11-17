@@ -4,17 +4,15 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< HEAD
 
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-=======
->>>>>>> d74cd1ace097caa99feacfd2ed31d5ab07e0abba
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -71,7 +69,6 @@ Väliaikainen CreateContact ContactServiceen?
 	@ManyToMany
 	@JoinTable(name="CONTRACTS_CONTACTS")
 	private List<Contract> contracts;
-<<<<<<< HEAD
 	
 	@ManyToOne(optional=false, fetch=FetchType.EAGER)
 	@JoinColumn(name="USERID")
@@ -82,10 +79,6 @@ Väliaikainen CreateContact ContactServiceen?
 	private ContactCompany contactCompany;
 
 	@ManyToMany(mappedBy="contacts")
-=======
-	private User salesPerson;
-	private ContactCompany contactCompany;
->>>>>>> d74cd1ace097caa99feacfd2ed31d5ab07e0abba
 	private List<Deal> deals;
 	
 	// Public methods
