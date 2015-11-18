@@ -74,7 +74,13 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.0.3.RELEASE</version>
+			<version>${org.springframework-version}</version>
+			<!-- <version>4.2.2.RELEASE</version> -->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
 		</dependency>
 		<!-- Spring Web -->
 		<dependency>
@@ -82,24 +88,24 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.0.3.RELEASE</version>
 		</dependency>
-		<!-- Dependencies for Eclipse JPA Persistence API -->
-		<!-- <dependency>
+		<!-- Dependencies for Eclipse JPA Persistence API 
+		   <dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
-			<version>2.5.0-RC1</version> -->
-		<!--</dependency> -->
-			<!-- Hibernate 4.3.6 core library library -->
+			<version>2.5.0-RC1</version> 
+		    </dependency> -->
+			<!-- Hibernate 4.3.11 core library library -->
 	 	<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.3.6.Final</version>
+			<version>4.3.11.Final</version>
 		</dependency>
-		<!-- Hibernate 4.3.6 JPA support -->
-	  	<dependency>
+		<!-- Hibernate 4.3.11 JPA support -->
+	  		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.6.Final</version>
-		</dependency> 		
+			<version>4.3.11.Final</version>
+		</dependency>		
 	</dependencies>
 	<build>
 		<plugins>
