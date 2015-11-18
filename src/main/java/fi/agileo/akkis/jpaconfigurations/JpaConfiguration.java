@@ -2,7 +2,7 @@ package fi.agileo.akkis.jpaconfigurations;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/*
 import org.hibernate.cache.HashtableCacheProvider;
 import org.hibernate.dialect.MySQL5Dialect;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,12 +14,12 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
-
+*/
 /* Javalla tehty Spring-konfiguraatiotiedosto. 
  * Kaikkien Metodien palautusarvona on @Bean, joita voi käyttää Springissä.
  */
 
-@Configuration
+// @Configuration
 public class JpaConfiguration {
 	
 	/*
@@ -50,7 +50,7 @@ public class JpaConfiguration {
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("compositePu", props);
 
 	 */
-
+/*
 	@Value("#{dataSource}")
 	private javax.sql.DataSource dataSource;
 
@@ -84,5 +84,5 @@ public class JpaConfiguration {
 		lef.setJpaVendorAdapter(this.jpaVendorAdapter());
 		return lef;
 	}
-
+*/
 }
