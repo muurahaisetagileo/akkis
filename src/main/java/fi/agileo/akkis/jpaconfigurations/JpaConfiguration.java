@@ -21,6 +21,35 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 public class JpaConfiguration {
+	
+	/*
+	 Example 5-23 Using composite-unit.properties in a Property Map
+
+	Map props1 = new HashMap();
+ 
+   props1.put("javax.persistence.jdbc.user", "user1");
+   props1.put("javax.persistence.jdbc.password", "password1");
+   props1.put("javax.persistence.jdbc.driver", "oracle.jdbc.OracleDriver");
+   props1.put("javax.persistence.jdbc.url", "jdbc:oracle:thin:@oracle_db_url:1521:db");
+ 
+	Map props2 = new HashMap();
+ 
+   props2.put("javax.persistence.jdbc.user", "user2");
+   props2.put("javax.persistence.jdbc.password", "password2");
+   props2.put("javax.persistence.jdbc.driver", "com.mysql.jdbc.Driver");
+   props2.put("javax.persistence.jdbc.url", " jdbc:mysql://my_sql_db_url:3306/user2");
+ 
+	Map memberProps = new HashMap();
+   memberProps.put("memberPu1", props1);
+   memberProps.put("memberPu2", props2);
+ 
+	Map props = new HashMap();
+   props.put("eclipselink.logging.level", "FINEST");
+   props.put("eclipselink.composite-unit.properties", memberProps);
+ 
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("compositePu", props);
+
+	 */
 
 	@Value("#{dataSource}")
 	private javax.sql.DataSource dataSource;
