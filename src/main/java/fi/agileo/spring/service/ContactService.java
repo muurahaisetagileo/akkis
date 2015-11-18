@@ -62,7 +62,7 @@ public class ContactService {
 	
 	public List<Contact> seekContacts(Contact c) {
 		
-		List<Contact> seekedContacts = (List<Contact>)em.createNamedQuery("getContacts").
+		List<Contact> seekedContacts = (List<Contact>)em.createNamedQuery("seekContacts").
 				setParameter("type", c.getType()).
 				setParameter("salesman", c.getSalesPerson()).
 				setParameter("country", c.getCountry()).getResultList();
