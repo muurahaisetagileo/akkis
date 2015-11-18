@@ -5,24 +5,34 @@
 		xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<script name="jquery/jquery.js" library="primefaces"></script>
-		<title>Register user</title>
+		<title>Akkis - Add new user</title>
 	</h:head>
+
 	<h:body>
-	<h:form>
-		<p:growl id="messages"></p:growl>
-		
-		<p:panelGrid columns="2">
-			<p:outputLabel value="Enter first name(s):"></p:outputLabel>
-			<p:inputText value="#{registerUser.user.firstNames}"></p:inputText>
-			<p:outputLabel value="Enter last name:"></p:outputLabel>
-			<p:inputText value="#{registerUser.user.lastName}"></p:inputText>
-			<p:outputLabel value="Enter user name:"></p:outputLabel>
-			<p:inputText value="#{registerUser.user.username}"></p:inputText>
-			<p:outputLabel value="Enter password:"></p:outputLabel>
-			<p:password value="#{registerUser.user.password}"></p:password>
-		</p:panelGrid>
-		
-		<p:commandButton value="Register" action="#{registerUser.register}" update="messages"></p:commandButton>
-	</h:form>
+		<ui:composition template="templates/template_action.xhtml">
+		<ui:param name="title" value="Add new user" />
+			<ui:define name="content">
+			
+				<h:form>
+					<p:growl id="messages"></p:growl>
+
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Enter first name(s):"></p:outputLabel>
+						<p:inputText value="#{registerUser.user.firstNames}"></p:inputText>
+						<p:outputLabel value="Enter last name:"></p:outputLabel>
+						<p:inputText value="#{registerUser.user.lastName}"></p:inputText>
+						<p:outputLabel value="Enter user name:"></p:outputLabel>
+						<p:inputText value="#{registerUser.user.username}"></p:inputText>
+						<p:outputLabel value="Enter password:"></p:outputLabel>
+						<p:password value="#{registerUser.user.password}"></p:password>
+					</p:panelGrid>
+
+					<p:commandButton value="Submit" action="#{registerUser.register}"
+						update="messages"></p:commandButton>
+				</h:form>
+
+			</ui:define>
+		</ui:composition>
 	</h:body>
+
 	</html>

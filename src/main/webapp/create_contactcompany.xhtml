@@ -5,49 +5,63 @@
 		xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<script name="jquery/jquery.js" library="primefaces"></script>
-		<title>Create Contact Company</title>
+		<title>Akkis - Add new company</title>
 	</h:head>
+
 	<h:body>
-	<h:form>
-		<p:growl id="messages"></p:growl>
-		
-		<h1>Create Contact Company</h1>
-		
-		<p:panelGrid columns="2">
-			<p:outputLabel value="Enter name:"></p:outputLabel>
-			<p:inputText value="#{createContactCompany.contactCompany.name}"></p:inputText>
-			<p:outputLabel value="Enter address:"></p:outputLabel>
-			<p:inputText value="#{createContactCompany.contactCompany.address}"></p:inputText>
-			<p:outputLabel value="Enter web page:"></p:outputLabel>
-			<p:inputText value="#{createContactCompany.contactCompany.internetAddress}"></p:inputText>
-			<p:outputLabel value="Enter email:"></p:outputLabel>
-			<p:inputText value="#{createContactCompany.contactCompany.companyIdentifier}"></p:inputText>
-		</p:panelGrid>
-		
-		<p/>
-		
-		<p:dataTable value="#{ListContacts.contactList}" id="contacts" var="c" rowKey="#{c.contactId}" selection="#{createContactCompany.contactsToSetForContactCompany}" selectionMode="multiple">
-               <f:facet name="header">
+		<ui:composition template="templates/template_action.xhtml">
+		<ui:param name="title" value="Add new company" />
+			<ui:define name="content">
+
+			<h:form>
+				<p:growl id="messages"></p:growl>
+
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Enter name:"></p:outputLabel>
+					<p:inputText value="#{createContactCompany.contactCompany.name}"></p:inputText>
+					<p:outputLabel value="Enter address:"></p:outputLabel>
+					<p:inputText value="#{createContactCompany.contactCompany.address}"></p:inputText>
+					<p:outputLabel value="Enter web page:"></p:outputLabel>
+					<p:inputText
+						value="#{createContactCompany.contactCompany.internetAddress}"></p:inputText>
+					<p:outputLabel value="Enter email:"></p:outputLabel>
+					<p:inputText
+						value="#{createContactCompany.contactCompany.companyIdentifier}"></p:inputText>
+				</p:panelGrid>
+
+				<p />
+
+				<p:dataTable value="#{ListContacts.contactList}" id="contacts"
+					var="c" rowKey="#{c.contactId}"
+					selection="#{createContactCompany.contactsToSetForContactCompany}"
+					selectionMode="multiple">
+					<f:facet name="header">
                    Select contacts for this company
                </f:facet>
-               <p:column  style="width:18px" />
-               <p:column headerText="Name">
+					<p:column style="width:18px" />
+					<p:column headerText="Name">
                    #{c.name}  
                </p:column>
-               <p:column headerText="Phone">
+					<p:column headerText="Phone">
                    #{c.phone}  
                </p:column>
-               <p:column headerText="Address">
+					<p:column headerText="Address">
                    #{c.address}  
-               </p:column>  
-               <p:column headerText="Country">
+               </p:column>
+					<p:column headerText="Country">
                    #{c.country}  
                </p:column>
-               <f:facet name="footer"></f:facet>  
-           </p:dataTable>
-		
-		<p:commandButton value="Submit" action="#{createContactCompany.saveContactCompany}" update="messages"></p:commandButton>
-		
-	</h:form>
+					<f:facet name="footer"></f:facet>
+				</p:dataTable>
+
+				<p:commandButton value="Submit"
+					action="#{createContactCompany.saveContactCompany}"
+					update="messages"></p:commandButton>
+
+			</h:form>
+
+		</ui:define>
+		</ui:composition>
 	</h:body>
+
 	</html>

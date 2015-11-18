@@ -5,26 +5,36 @@
 		xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<script name="jquery/jquery.js" library="primefaces"></script>
-		<title>Create contact</title>
+		<title>Akkis - Add new contact</title>
 	</h:head>
+
 	<h:body>
-	<h:form>
-		<p:growl id="messages"></p:growl>
-		
-		<p:panelGrid columns="2">
-			<p:outputLabel value="Enter name:"></p:outputLabel>
-			<p:inputText value="#{createContact.contact.name}"></p:inputText>
-			<p:outputLabel value="Enter address:"></p:outputLabel>
-			<p:inputText value="#{createContact.contact.address}"></p:inputText>
-			<p:outputLabel value="Enter phone number:"></p:outputLabel>
-			<p:inputText value="#{createContact.contact.phone}"></p:inputText>
-			<p:outputLabel value="Enter email:"></p:outputLabel>
-			<p:password value="#{createContact.contact.email}"></p:password>
-			<p:outputLabel value="Enter country:"></p:outputLabel>
-			<p:password value="#{createContact.contact.country}"></p:password>
-		</p:panelGrid>
-		
-		<p:commandButton value="Submit" action="#{createContact.saveContact}" update="messages"></p:commandButton>
-	</h:form>
+		<ui:composition template="templates/template_action.xhtml">
+		<ui:param name="title" value="Add new contact" />
+			<ui:define name="content">
+
+			<h:form>
+				<p:growl id="messages"></p:growl>
+
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Enter name:"></p:outputLabel>
+					<p:inputText value="#{createContact.contact.name}"></p:inputText>
+					<p:outputLabel value="Enter address:"></p:outputLabel>
+					<p:inputText value="#{createContact.contact.address}"></p:inputText>
+					<p:outputLabel value="Enter phone number:"></p:outputLabel>
+					<p:inputText value="#{createContact.contact.phone}"></p:inputText>
+					<p:outputLabel value="Enter email:"></p:outputLabel>
+					<p:password value="#{createContact.contact.email}"></p:password>
+					<p:outputLabel value="Enter country:"></p:outputLabel>
+					<p:password value="#{createContact.contact.country}"></p:password>
+				</p:panelGrid>
+
+				<p:commandButton value="Submit"
+					action="#{createContact.saveContact}" update="messages"></p:commandButton>
+			</h:form>
+
+		</ui:define>
+		</ui:composition>
 	</h:body>
+
 	</html>
