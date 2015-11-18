@@ -46,6 +46,9 @@ public class User {
 	@Column(name="LASTNAME")
 	private String lastName;
 	
+	@Column(name="WHOLENAME")
+	private String wholename;
+	
 	// Relationships
 	@OneToMany(mappedBy="user")
 	private List<Contract> contracts;
@@ -130,9 +133,13 @@ public class User {
 		this.contacts = contacts;
 	}
 	
-	@Transient
 	public String getWholename() {
-		return this.lastName + " " + this.firstNames;
+		this.wholename = this.lastName + " " + this.firstNames;
+		return this.wholename;
+	}
+	
+	public void setWholename(String wholename) {
+		this.wholename = this.lastName + " " + this.firstNames;		
 	}
 	
 	@Override
