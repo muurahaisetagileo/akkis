@@ -3,8 +3,8 @@ package fi.agileo.akkis.jpaconfigurations;
 import java.util.HashMap;
 import java.util.Map;
 
-//import org.hibernate.cache.HashtableCacheProvider;
-//import org.hibernate.dialect.MySQL5Dialect;
+import org.hibernate.cache.HashtableCacheProvider;
+import org.hibernate.dialect.MySQL5Dialect;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
