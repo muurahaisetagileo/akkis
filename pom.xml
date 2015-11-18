@@ -83,22 +83,10 @@
 			<version>4.0.3.RELEASE</version>
 		</dependency>
 		<!-- Dependencies for Eclipse JPA Persistence API -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
-			<version>2.5.0-RC1</version> -->
-		<!--</dependency> -->
-			<!-- Hibernate 4.3.6 core library library -->
-	 	<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>4.3.6.Final</version>
-		</dependency>
-		<!-- Hibernate 4.3.6 JPA support -->
-	  	<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.6.Final</version>
+			<version>2.5.0-RC1</version>
 		</dependency> 		
 	</dependencies>
 	<build>
