@@ -1,7 +1,6 @@
 package fi.agileo.spring.service;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -42,5 +41,14 @@ public class ContractService {
 
 	public ContractInformation getContractPropertiesForView(Contract contract) {
 		return null;
+	}
+	
+	/* Create a method that gets contract information. 
+	Also a way to get contacts of contract. ( Spring ) 
+	(Contract.getContacts, tuolla hakisi suoraan kontaktin alta) */
+	
+	public Contract getContacts(Contract contract) {
+		contract.getContacts();
+	    return contract;		
 	}
 }
