@@ -31,13 +31,20 @@ public class ContractService {
 			User contractMakerUser, 
 			ContactCompany contactCompany,
 			List<Contact> contractMakerContacts) {
+			//List<Contract> ContractCompany)
 	}
 	
 	@Transactional
 	public void addContactsToContract(Contract contract,
 			List<Contact> contactsToBeAdded) {
-		
+			List<Contact> existingcontacts=contract.getContacts();
+			// Loop through list contactsToBeAdded
+			for (int i = 0; i < contactsToBeAdded.size(); i++) {
+				System.out.println("");
+			}
+		// Prioriteetti 6 alin taski. Käydä läpi contacts to be added
 	}
+	
 
 	public ContractInformation getContractPropertiesForView(Contract contract) {
 		return null;
