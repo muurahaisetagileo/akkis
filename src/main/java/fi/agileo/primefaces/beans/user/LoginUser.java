@@ -49,7 +49,7 @@ public class LoginUser {
 			return "";
 		}
 		System.out.println("toMainPage, user.getType()" + user.getType());
-		String page = "../" + mainPage(user.getType());
+		String page = "/" + mainPage(user.getType());
 		System.out.println("page " + page);
 		return page;
 	}
