@@ -32,17 +32,35 @@ public class LoginUser {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	public String login() {
-		System.out.println("managed bean 1ogin");
-		int type = this.userService.login(user);
-		System.out.println("managed bean, type " + type);
+	
+	private String mainPage(int type) {
 		if (type == 1) {
 			return "admin_index";
 		}
 		else if (type == 3) {
 			return "user_index";
 		}
+		return "";
+	}
+	
+	public String toMainPage() {
+		if (user == null) {
+			System.out.println("user is null when returning to main page");
+			return "";
+		}
+		System.out.println("toMainPage, user.getType()" + user.getType());
+		String page = "../" + mainPage(user.getType());
+		System.out.println("page " + page);
+		return page;
+	}
+
+	public String login() {
+		System.out.println("managed bean 1ogin");
+		int type = this.userService.login(user);
+		System.out.println("managed bean, type " + type);
+		user.setType(type);
+		if (type > 0)
+			return mainPage(type);
 		System.out.println("login failed -> message");
 		FacesContext.getCurrentInstance().addMessage(null, 
 				new FacesMessage("Login failed!"));
