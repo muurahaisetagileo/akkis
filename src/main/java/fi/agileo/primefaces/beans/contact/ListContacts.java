@@ -28,7 +28,6 @@ public class ListContacts {
 	private String countrySearch;
 	private Integer[] seekedContactTypes;
 	
-	
 	public SelectItem[] getContactTypeOptions() {
 		SelectItem[] contactTypeOptions = new SelectItem[3];
 		contactTypeOptions[0] = new SelectItem(0, "Contact");
@@ -36,7 +35,6 @@ public class ListContacts {
 		contactTypeOptions[2] = new SelectItem(2, "Customer");
 		return contactTypeOptions;
 	}
-	
 	
 	public ContactService getContactService() {
 		return contactService;
