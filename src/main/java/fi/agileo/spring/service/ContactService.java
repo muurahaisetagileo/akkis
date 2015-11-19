@@ -84,14 +84,6 @@ public class ContactService {
 		return seekedContacts;
 	}
 	
-	public List<Contact> seekAllContacts() {
-		
-		List<Contact> seekedContacts = (List<Contact>)em.createNamedQuery("seekAllContacts")
-				.getResultList();
-		
-		return seekedContacts;
-	}
-	
 	@Transactional
 	public void setContactsToType(List<Contact> contacts, int type) {
 		for(Contact c: contacts) {
