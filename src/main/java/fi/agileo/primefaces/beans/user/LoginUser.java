@@ -56,11 +56,11 @@ public class LoginUser {
 
 	public String login() {
 		System.out.println("managed bean 1ogin");
-		int type = this.userService.login(user);
-		System.out.println("managed bean, type " + type);
-		user.setType(type);
-		if (type > 0)
-			return mainPage(type);
+		User foundUser = this.userService.login(user);
+		if (foundUser != null) {
+			this.user = foundUser;
+			return mainPage(this.user.getType());
+		}
 		System.out.println("login failed -> message");
 		FacesContext.getCurrentInstance().addMessage(null, 
 				new FacesMessage("Login failed!"));

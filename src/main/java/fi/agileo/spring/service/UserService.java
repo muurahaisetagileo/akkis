@@ -43,15 +43,15 @@ public class UserService {
 		return 0;
 	}
 	
-	public int login(User user) {
+	public User login(User user) {
 		System.out.println("login");
 		List<User> loginUsers = (List<User>)em.createNamedQuery("login").
 				setParameter("username", user.getUsername()).
 				setParameter("password", user.getPassword()).getResultList();
 		System.out.println("user count " + loginUsers.size());
 		if (loginUsers.size() == 1)
-			return loginUsers.get(0).getType();
-		return 0;
+			return loginUsers.get(0);
+		return null;
 	}
 
 }

@@ -46,7 +46,7 @@ public class UserServiceTest {
         User ucall = new User();
         ucall.setUsername("admin");
         ucall.setPassword("admin");
-        assertEquals(us.login(ucall), 1);
+        assertEquals(us.login(ucall).getType(), 1);
      
 	}
 	
@@ -69,7 +69,7 @@ public class UserServiceTest {
         User ucall = new User();
         ucall.setUsername("admin");
         ucall.setPassword("a");
-        assertEquals(us.login(ucall), 0);		
+        assertEquals(us.login(ucall), null);		
 	}
 	
 	@Test
@@ -91,7 +91,7 @@ public class UserServiceTest {
         User ucall = new User();
         ucall.setUsername("a");
         ucall.setPassword("admin");
-        assertEquals(us.login(ucall), 0);		
+        assertEquals(us.login(ucall), null);		
 	}
 
 	@Test
@@ -125,7 +125,7 @@ public class UserServiceTest {
         User ucall = new User();
         ucall.setUsername("u");
         ucall.setPassword("u");
-        assertEquals(us.login(ucall), 0);		
+        assertEquals(us.login(ucall), null);		
 	}
 	
 	/*
