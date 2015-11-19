@@ -28,7 +28,13 @@ public class ContactCompanyService {
 	@Transactional
 	public void createContactCompanyAndContactsToIt(
 			ContactCompany contactCompany, 
-			List<Contact> contacts) {
+			List<Contact> contacts) {		
+		contactCompany.setCompanyContacts(contacts);
+		for (Contact c : contacts) {
+			c.setContactCompany(contactCompany);
+			em.merge(c);
+		}
+		em.persist(contactCompany);
 	}
 	
 	@Transactional

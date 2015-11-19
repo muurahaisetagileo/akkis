@@ -63,17 +63,8 @@ public class CreateContactCompany {
 		this.contactWithoutContactCompany = contactWithoutContactCompany;
 	}
 	
-	public String saveContactCompany() {
-		/*
-		LoginUser lu = (LoginUser)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUser");
-		User currentUser = lu.getUser();
-		System.out.println(currentUser);
-		*/
-		System.out.println(contactCompany);
-		for (Contact c : contactsToSetForContactCompany) {
-			System.out.println(c);
-		}
-		//this.contactService.createContact(currentUser, contactCompany, contactsToSetForContactCompany);
+	public String saveContactCompany() {		
+		contactCompanyService.createContactCompanyAndContactsToIt(contactCompany, contactsToSetForContactCompany);
 		return null;
 	}
 	
