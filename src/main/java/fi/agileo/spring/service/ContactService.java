@@ -62,10 +62,24 @@ public class ContactService {
 	
 	public List<Contact> seekContacts(List<Integer> types, String salesManSearch, String countrySearch) {
 		
-		List<Contact> seekedContacts = (List<Contact>)em.createNamedQuery("seekContacts").
+		if (types == null || types.size() == 0)
+			return new ArrayList<Contact>();
+		
+		String salesManSearchExpr;
+		String countrySearchExpr;
+		if (salesManSearch == "")
+			salesManSearchExpr = "%";
+		else 
+			salesManSearchExpr = "%" + salesManSearch + "%";
+		if (countrySearch == "")
+			countrySearchExpr = "%";
+		else 
+			countrySearchExpr = "%" + countrySearch + "%";
+
+		List<Contact> seekedContacts = (List<Contact>)em.createNamedQuery("Contact.findForSearch").
 				setParameter("seekedTypes", types).
-				setParameter("salesManSearch", salesManSearch).
-				setParameter("countrySearch", countrySearch).getResultList();
+				setParameter("salesManSearch", salesManSearchExpr).
+				setParameter("countrySearch", countrySearchExpr).getResultList();
 		
 		return seekedContacts;
 	}

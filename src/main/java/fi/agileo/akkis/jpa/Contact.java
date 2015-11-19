@@ -18,13 +18,22 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.JoinTable;
 
+/* problems: */
+/* c.salesPerson IS NOT NULL AND c.salesPerson.wholename LIKE :salesManSearch */
+
+/* to be checked */	
+/* c.type IN :seekedTypes AND */
+
 @Entity
+
+
 
 @NamedQueries({
 	@NamedQuery(name="Contact.findByType", query="SELECT c FROM Contact c WHERE c.type = :type"),
 	@NamedQuery(name="Contact.findForSearch", 
-				query="SELECT c FROM Contact c WHERE c.type IN (:seekedTypes) AND c.country LIKE :countrySearch AND " + 
-					  " c.salesPerson IS NOT NULL AND c.salesPerson.wholename LIKE :salesManSearch")
+				query="SELECT c FROM Contact c WHERE c.country LIKE :countrySearch AND " +
+						"c.type IN :seekedTypes AND"
+						+ " c.salesPerson IS NOT NULL AND c.salesPerson.wholename LIKE :salesManSearch")
 })
 @Table(name="CONTACT")
 public class Contact {
