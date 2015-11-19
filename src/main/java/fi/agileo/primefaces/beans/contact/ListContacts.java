@@ -42,6 +42,8 @@ public class ListContacts {
 		
 		// Mokkitietoja testausta varten
 		
+		/*
+		
 		Contact c = new Contact();
 		c.setContactId(1);
 		c.setName("Kalle");
@@ -63,6 +65,9 @@ public class ListContacts {
 		l.add(c3);
 		
 		return l;
+		*/
+		
+		return contactService.seekAllContacts();
 		
 		//return null;
 		/*

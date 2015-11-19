@@ -21,6 +21,7 @@ import javax.persistence.JoinTable;
 @Entity
 
 @NamedQueries({
+	@NamedQuery(name="seekAllContacts", query="SELECT c FROM Contact c"),
 	@NamedQuery(name="Contact.findByType", query="SELECT c FROM Contact c WHERE c.type = :type"),
 	@NamedQuery(name="Contact.findForSearch", 
 				query="SELECT c FROM Contact c WHERE c.type IN (:seekedTypes) AND c.country LIKE :countrySearch AND " + 
