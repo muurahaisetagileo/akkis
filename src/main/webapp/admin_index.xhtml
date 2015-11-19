@@ -12,8 +12,11 @@
 		<ui:param name="title" value="Admin index page" />
 		<ui:param name="news" value="Ajankohtaista asiaa tässä..." />
 		<ui:define name="content">
-		<p/>
-			<h:link value="Add new user" outcome="user/register_user" /><p/>
+			<p/>
+			<h:link value="Add new user" outcome="register_user" />
+			<p/>
+			<h:link value="List contacts" outcome="contact_list" />
+			<p/>
 		</ui:define>
 	</ui:composition>
 </h:body>
