@@ -194,6 +194,16 @@ Väliaikainen CreateContact ContactServiceen?
 	}
 
 	@Override
+	public boolean equals(Object o) {
+		if (!(o instanceof Contact))
+			return false;
+		Contact c = (Contact) o;
+		if (c.getContactId() == this.getContactId())
+			return true;
+		return false;
+	}
+	
+	@Override
 	public String toString() {
 		return "Contact [contactId=" + contactId + 
 				", name=" + name + ", address=" + address + ", phone=" + phone

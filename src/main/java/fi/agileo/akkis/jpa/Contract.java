@@ -133,6 +133,16 @@ public class Contract {
 	public void setContactCompany(ContactCompany contactCompany) {
 		this.contactCompany = contactCompany;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (!(o instanceof Contract))
+			return false;
+		Contract c = (Contract) o;
+		if (c.getContractId() == this.getContractId())
+			return true;
+		return false;
+	}
 
 	@Override
 	public String toString() {
