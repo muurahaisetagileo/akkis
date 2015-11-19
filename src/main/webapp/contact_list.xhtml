@@ -1,0 +1,58 @@
+	<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+		<title>Akkis - Search contacts</title>
+	</h:head>
+
+	<h:body>
+		<ui:composition template="templates/template_action.xhtml">
+		<ui:param name="title" value="Add new company" />
+			<ui:define name="content">
+
+			<h:form>
+				<p:growl id="messages"></p:growl>
+
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Search with salesman name:"></p:outputLabel>
+					<p:inputText value="#{ListContacts.searchSalesmanName}"></p:inputText>
+					<p:outputLabel value="Search with contact state:"></p:outputLabel>
+					<p:selectManyCheckbox value="#{ListContacts.seekedContactTypes}">
+						<f:selectItems value="#{ListContacts.contactTypeOptions}"/>
+					</p:selectManyCheckbox>
+					<p:outputLabel value="Search with country"></p:outputLabel>
+					<p:inputText value="#{ListContacts.countrySearch}"></p:inputText>
+					<p:commandButton value="Submit"
+						action="#{ListContacts.seekContacts}"
+						update="contacts"></p:commandButton>
+				</p:panelGrid>
+			</h:form>
+			<p:dataTable value="#{ListContacts.contactList}" id="contacts"
+					var="c" rowKey="#{c.contactId}"
+					selection="#{createContactCompany.contactsToSetForContactCompany}"
+					selectionMode="multiple">
+					<f:facet name="header">
+                   Select contacts to be set to lead
+               </f:facet>
+					<p:column style="width:18px" />
+					<p:column headerText="Name">
+                   #{c.name}  
+               </p:column>
+					<p:column headerText="Phone">
+                   #{c.phone}  
+               </p:column>
+					<p:column headerText="Address">
+                   #{c.address}  
+               </p:column>
+					<p:column headerText="Country">
+                   #{c.country}  
+               </p:column>
+					<f:facet name="footer"></f:facet>
+			</p:dataTable>
+		</ui:define>
+		</ui:composition>
+	</h:body>
+</html>

@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 
 import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.spring.service.ContactService;
@@ -21,7 +22,22 @@ public class ListContacts {
 	private ContactService contactService;
 
 	private Contact contact = new Contact();
+	private List<Contact> searchedContacts = new ArrayList<Contact>();
 
+	private String searchSalesmanName;
+	private String countrySearch;
+	private Integer[] seekedContactTypes;
+	
+	
+	public SelectItem[] getContactTypeOptions() {
+		SelectItem[] contactTypeOptions = new SelectItem[3];
+		contactTypeOptions[0] = new SelectItem(0, "Contact");
+		contactTypeOptions[1] = new SelectItem(1, "Lead");
+		contactTypeOptions[2] = new SelectItem(2, "Customer");
+		return contactTypeOptions;
+	}
+	
+	
 	public ContactService getContactService() {
 		return contactService;
 	}
@@ -30,55 +46,47 @@ public class ListContacts {
 		this.contactService = contactService;
 	}
 
-	public Contact getContact() {
-		return contact;
-	}
-
-	public void setContact(Contact contact) {
-		this.contact = contact;
-	}
-
 	public List<Contact> getContactList() {
-		
-		// Mokkitietoja testausta varten
-		
-		/*
-		
-		Contact c = new Contact();
-		c.setContactId(1);
-		c.setName("Kalle");
-		c.setAddress("ad1");
-		
-		Contact c2 = new Contact();
-		c2.setContactId(2);
-		c2.setName("Ile");
-		c2.setAddress("ad2");
-		
-		Contact c3 = new Contact();
-		c3.setContactId(3);
-		c3.setName("Essi");
-		c3.setAddress("ad3");
-		
-		ArrayList<Contact> l = new ArrayList<Contact>();
-		l.add(c);
-		l.add(c2);
-		l.add(c3);
-		
-		return l;
-		*/
-		
-		return contactService.seekAllContacts();
-		
-		//return null;
-		/*
-		// Calling Business Service
-		contactService.createContact(contact);
-		// Add message
-		FacesContext.getCurrentInstance().addMessage(null, 
-				new FacesMessage("The contact " + 
-					this.contact.getName() +
-					" is saved successfully"));
-		return "";
-		*/
+		return this.searchedContacts;
 	}
+	
+	public String getSearchSalesmanName() {
+		return this.searchSalesmanName;
+	}
+	
+	public void setSearchSalesmanName(String searchSalesmanName) {
+		this.searchSalesmanName = searchSalesmanName;
+	}
+	
+	public String getCountrySearch() {
+		return this.countrySearch;
+	}
+	
+	public void setCountrySearch(String countrySearch) {
+		this.countrySearch = countrySearch;
+	}
+
+	public Integer[] getSeekedContactTypes() {
+		return this.seekedContactTypes;
+	}
+	
+	public void setSeekedContactTypes(Integer[] seekedContactTypes) {
+		this.seekedContactTypes = seekedContactTypes;
+	}
+	
+	public String seekContacts() {
+		List<Integer> listSeekedContactTypes = new ArrayList<Integer>();
+		for(Integer seekedContactType: seekedContactTypes)
+			listSeekedContactTypes.add(seekedContactType);
+		this.searchedContacts = 
+				contactService.seekContacts(
+						listSeekedContactTypes, 
+						this.getSearchSalesmanName(),
+						this.getCountrySearch());
+		System.out.println("SEEKED CONTACTS");
+		for(Contact c: searchedContacts)
+			System.out.println(c);
+		return "";
+	}
+	
 }
