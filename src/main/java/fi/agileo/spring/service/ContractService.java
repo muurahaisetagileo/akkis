@@ -41,10 +41,12 @@ public class ContractService {
 			
 			// Loop through list contactsToBeAdded
 			for (int i = 0; i < contactsToBeAdded.size(); i++) {
-				//contract.setCustomers();
-				// To database
-				this.em.persist(contract);
+				Contact c = contactsToBeAdded.get(i);
+				if (existingcontacts.contains(c))
+					contactsToBeAdded.remove(c);
 			}
+			
+			
 		// Prioriteetti 6 alin taski. Käydä läpi contacts to be added
 	}
 	

@@ -93,6 +93,16 @@ public class ContactCompany {
 	}
 	
 	@Override
+	public boolean equals(Object o) {
+		if (!(o instanceof ContactCompany))
+			return false;
+		ContactCompany c = (ContactCompany) o;
+		if (c.getId() == this.getId())
+			return true;
+		return false;
+	}
+	
+	@Override
 	public String toString() {
 		return "ContactCompany [id=" + id + ", name=" + name + 
 				", address=" + address + ", internetAddress="

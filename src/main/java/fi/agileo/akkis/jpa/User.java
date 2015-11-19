@@ -143,6 +143,16 @@ public class User {
 	}
 	
 	@Override
+	public boolean equals(Object o) {
+		if (!(o instanceof User))
+			return false;
+		User u = (User) o;
+		if (u.getUserId() == this.getUserId())
+			return true;
+		return false;
+	}
+	
+	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", username=" + 
 				username + ", password=" + password + ", type=" + type + "]";
