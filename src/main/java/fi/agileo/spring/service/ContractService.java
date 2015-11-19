@@ -25,6 +25,7 @@ public class ContractService {
 		this.em = em;
 	}
 	
+
 	@Transactional
 	public void createContract(
 			Contract contract,
@@ -33,6 +34,19 @@ public class ContractService {
 			List<Contact> contractMakerContacts) {
 			//List<Contract> ContractCompany)
 	}
+	
+	/*Task Create business logic/transaction level for adding contract 
+	  and contactcompany for it (Spring) */
+
+	@Transactional
+	public void addContactCompanyToContract(
+			Contract contract,
+			List<Contract> contactCompany) {
+}
+
+	
+	
+
 	
 	@Transactional
 	public void addContactsToContract(Contract contract,
@@ -51,7 +65,6 @@ public class ContractService {
 			em.merge(contract);
 			for(Contact c : contactsToBeAdded)
 				em.persist(c);
-		// Prioriteetti 6 alin taski. Käydä läpi contacts to be added
 	}
 	
 
@@ -59,7 +72,7 @@ public class ContractService {
 		return null;
 	}
 	
-	/* Create a method that gets contract information. 
+	/* A method that gets contract information. 
 	Also a way to get contacts of contract.*/
 	
 	public Contract getContacts(Contract contract) {
