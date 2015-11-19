@@ -38,9 +38,12 @@ public class ContractService {
 	public void addContactsToContract(Contract contract,
 			List<Contact> contactsToBeAdded) {
 			List<Contact> existingcontacts=contract.getContacts();
+			
 			// Loop through list contactsToBeAdded
 			for (int i = 0; i < contactsToBeAdded.size(); i++) {
-				System.out.println("");
+				//contract.setCustomers();
+				// To database
+				this.em.persist(contract);
 			}
 		// Prioriteetti 6 alin taski. Käydä läpi contacts to be added
 	}
@@ -51,8 +54,7 @@ public class ContractService {
 	}
 	
 	/* Create a method that gets contract information. 
-	Also a way to get contacts of contract. ( Spring ) 
-	(Contract.getContacts, tuolla hakisi suoraan kontaktin alta) */
+	Also a way to get contacts of contract.*/
 	
 	public Contract getContacts(Contract contract) {
 		contract.getContacts();
