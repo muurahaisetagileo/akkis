@@ -46,7 +46,7 @@ public class User {
 	@Column(name="LASTNAME")
 	private String lastName;
 	
-	@Column(name="WHOLENAME")
+	
 	private String wholename;
 	
 	// Relationships
@@ -133,6 +133,7 @@ public class User {
 		this.contacts = contacts;
 	}
 	
+	@Column(name="WHOLENAME")
 	public String getWholename() {
 		this.wholename = this.lastName + " " + this.firstNames;
 		return this.wholename;
