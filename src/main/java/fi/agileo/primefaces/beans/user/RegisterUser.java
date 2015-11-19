@@ -35,6 +35,12 @@ public class RegisterUser {
 	}
 
 	public String register() {
+		
+		// Can only register normal users
+		// Admin and boss are added manually
+		
+		user.setType(3);
+		
 		// Calling Business Service
 		int i = userService.register(user);
 		String msg = " could not be registered";
