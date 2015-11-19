@@ -9,10 +9,10 @@
 </h:head>
 <h:body>
 	<ui:insert name="header_main">
-		<ui:include src="header_main.xhtml">
-		</ui:include>
-	</ui:insert>
-	<ui:insert name="content">
-	</ui:insert>
+		<h1>Akkis</h1>
+		<h3>#{title}</h3>
+     	<div class="news"> #{news} </div>
+	</ui:insert> 
+	<ui:insert name="content" />
 </h:body>
 </html>
