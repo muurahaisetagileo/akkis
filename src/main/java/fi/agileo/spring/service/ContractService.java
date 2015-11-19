@@ -32,17 +32,9 @@ public class ContractService {
 			User contractMakerUser, 
 			ContactCompany contactCompany,
 			List<Contact> contractMakerContacts) {
-			//List<Contract> contactCompany)
+			List<Contract> contactCompany)
 	}
 	
-	/*Task Create business logic/transaction level for adding contract 
-	  and contactcompany for it (Spring) */
-
-	@Transactional
-	public void addContactCompanyToContract(
-			Contract contract,
-			List<Contract> contactCompany) {
-	}
 
 	@Transactional
 	public void addContactsToContract(Contract contract,
