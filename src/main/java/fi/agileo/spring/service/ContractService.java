@@ -45,8 +45,12 @@ public class ContractService {
 				if (existingcontacts.contains(c))
 					contactsToBeAdded.remove(c);
 			}
-			
-			
+			// Set customers to the contract
+			// existingcontacts.addAll(contactsToBeAdded);
+			contract.getContacts().addAll(contactsToBeAdded);
+			em.merge(contract);
+			for(Contact c : contactsToBeAdded)
+				em.persist(c);
 		// Prioriteetti 6 alin taski. Käydä läpi contacts to be added
 	}
 	
