@@ -39,7 +39,7 @@ public class ContractService {
 			List<Contact> contactsToBeAdded) {
 			List<Contact> existingcontacts=contract.getContacts();
 			
-			// Loop through list contactsToBeAdded
+			// Loop through list contactsToBeAdded to check and remove existing contacts
 			for (int i = 0; i < contactsToBeAdded.size(); i++) {
 				Contact c = contactsToBeAdded.get(i);
 				if (existingcontacts.contains(c))
