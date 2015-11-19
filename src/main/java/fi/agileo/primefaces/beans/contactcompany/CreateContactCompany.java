@@ -21,7 +21,7 @@ public class CreateContactCompany {
 	
 	private ContactCompany contactCompany = new ContactCompany();
 	private List<Contact> contactsToSetForContactCompany;
-	private List<Contact> contactWithoutContactCompany;
+	private List<Contact> contactsWithoutContactCompany;
 
 	public String toCreateContactCompany() {
 		return "";
@@ -55,12 +55,12 @@ public class CreateContactCompany {
 		this.contactsToSetForContactCompany = contactsToSetForContactCompany;
 	}
 
-	public List<Contact> getContactWithoutContactCompany() {
-		return contactWithoutContactCompany;
+	public List<Contact> getContactsWithoutContactCompany() {
+		return contactsWithoutContactCompany;
 	}
 
-	public void setContactWithoutContactCompany(List<Contact> contactWithoutContactCompany) {
-		this.contactWithoutContactCompany = contactWithoutContactCompany;
+	public void setContactsWithoutContactCompany(List<Contact> contactsWithoutContactCompany) {
+		this.contactsWithoutContactCompany = contactsWithoutContactCompany;
 	}
 	
 	public String saveContactCompany() {		
