@@ -30,9 +30,9 @@ public class ContractService {
 	public void createContract(
 			Contract contract,
 			User contractMakerUser, 
-			ContactCompany contactCompany,
+			ContactCompany contactCompany, 
 			List<Contact> contractMakerContacts) {
-			List<Contract> contactCompany)
+			contract.setContactCompany(contactCompany);
 	}
 	
 
