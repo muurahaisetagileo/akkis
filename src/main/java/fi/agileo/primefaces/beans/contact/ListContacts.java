@@ -21,8 +21,8 @@ public class ListContacts {
 	@ManagedProperty("#{contactService}")
 	private ContactService contactService;
 
-	private Contact contact = new Contact();
 	private List<Contact> searchedContacts = new ArrayList<Contact>();
+	private List<Contact> selectedContacts = new ArrayList<Contact>();
 
 	private String searchSalesmanName;
 	private String countrySearch;
@@ -46,6 +46,17 @@ public class ListContacts {
 
 	public List<Contact> getContactList() {
 		return this.searchedContacts;
+	}
+	
+	public List<Contact> getSelectedContacts() {
+		return this.selectedContacts;
+	}
+	
+	public void setSelectedContacts(List<Contact> selectedContacts) {
+		System.out.println("setSelectedContacts");
+		for(Contact sc : selectedContacts)
+			System.out.println(sc);
+		this.selectedContacts = selectedContacts;
 	}
 	
 	public String getSearchSalesmanName() {
@@ -84,6 +95,24 @@ public class ListContacts {
 		System.out.println("SEEKED CONTACTS");
 		for(Contact c: searchedContacts)
 			System.out.println(c);
+		return "";
+	}
+	
+	public String setContactsToLead() {
+		System.out.println("setContactsToLead");
+		for(Contact sc : this.selectedContacts)
+			System.out.println("selectedContact " + sc);
+		
+		contactService.setContactsToType(this.getSelectedContacts(), 1);
+		
+		List<Integer> listSeekedContactTypes = new ArrayList<Integer>();
+		for(Integer seekedContactType: seekedContactTypes)
+			listSeekedContactTypes.add(seekedContactType);
+		this.searchedContacts = 
+				contactService.seekContacts(
+						listSeekedContactTypes, 
+						this.getSearchSalesmanName(),
+						this.getCountrySearch());
 		return "";
 	}
 	

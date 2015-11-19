@@ -87,6 +87,9 @@ public class ContactService {
 	@Transactional
 	public void setContactsToType(List<Contact> contacts, int type) {
 		for(Contact c: contacts) {
+			if (c.getType() >= type)
+				continue;
+			System.out.println("Setting type " + type + " to contact " + c);
 			c.setType(type);
 			em.merge(c);
 		}

@@ -9,7 +9,7 @@
 	</h:head>
 
 	<h:body>
-		<ui:composition template="templates/template_action.xhtml">
+		<ui:composition template="../templates/template_action.xhtml">
 		<ui:param name="title" value="Add new company" />
 			<ui:define name="content">
 
@@ -29,13 +29,12 @@
 						action="#{ListContacts.seekContacts}"
 						update="contacts"></p:commandButton>
 				</p:panelGrid>
-			</h:form>
 			<p:dataTable value="#{ListContacts.contactList}" id="contacts"
 					var="c" rowKey="#{c.contactId}"
-					selection="#{createContactCompany.contactsToSetForContactCompany}"
+					selection="#{ListContacts.selectedContacts}"
 					selectionMode="multiple">
 					<f:facet name="header">
-                   Select contacts to be set to lead
+                   Seeked contacts, select contacts to be set to lead
                </f:facet>
 					<p:column style="width:18px" />
 					<p:column headerText="Name">
@@ -52,6 +51,10 @@
                </p:column>
 					<f:facet name="footer"></f:facet>
 			</p:dataTable>
+			<p:commandButton value="Submit"
+				action="#{ListContacts.setContactsToLead}"
+				update="contacts"></p:commandButton>
+			</h:form>
 		</ui:define>
 		</ui:composition>
 	</h:body>
