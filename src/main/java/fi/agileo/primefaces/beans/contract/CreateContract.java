@@ -32,6 +32,7 @@ public class CreateContract {
 	private User user;
 	private ContactCompany contactCompany;
 	private List<Contact> contacts;
+	private boolean contactCompanySelected;
 	
 	public String doCreateContract() {
 		/* Create got properties to database through service layer */
@@ -80,10 +81,11 @@ public class CreateContract {
 	public void setSelectedContactCompanyId(long contactCompanyId) {
 		Long l = new Long(contactCompanyId);
 		this.contactCompany = allContactCompaniesById.get(l);
+		contactCompanySelected = true;
 	}
-
-	public void setContactCompany(ContactCompany contactCompany) {
-		this.contactCompany = contactCompany;
+	
+	public boolean isContactCompanySelected() {
+		return contactCompanySelected;
 	}
 
 	public List<Contact> getContacts() {
