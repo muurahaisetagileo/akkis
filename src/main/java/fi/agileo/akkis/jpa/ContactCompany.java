@@ -14,6 +14,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="CONTACTCOMPANY")
+@NamedQueries({
+	@NamedQuery(
+			name="ContactCompany.allAlphabeticallyByName",
+			query="SELECT cc FROM ContactCompany cc ORDER BY cc.name")
+})
 public class ContactCompany {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
