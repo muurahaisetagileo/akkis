@@ -71,6 +71,10 @@ public class ContactService {
 		return contactsWithoutCompany;
 	}
 	
+/*	public List<Contact> getContactsOfContactCompany() {
+		
+	}*/
+	
 	public List<Contact> seekContacts(List<Integer> types, String salesManSearch, String countrySearch) {
 		
 		if (types == null || types.size() == 0)

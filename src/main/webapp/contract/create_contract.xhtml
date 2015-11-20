@@ -1,4 +1,4 @@
-	<html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:ui="http://java.sun.com/jsf/facelets"
 		xmlns:h="http://java.sun.com/jsf/html"
 		xmlns:f="http://java.sun.com/jsf/core"
@@ -11,65 +11,72 @@
 	<h:body>
 		<ui:composition template="../templates/template_action.xhtml">
 		<ui:param name="title" value="Add new contract" />
-			<ui:define name="content">
-			
-			<p:panelGrid rendered="#{not CreateContacts.contactCompanySelected}">
-			<h1> Select company for which you are creating contract </h1>
-			<h:form>
-			<p:selectOneListbox value="#{CreateContacts.selectedContactCompanyId}">
-						<f:selectItems value="#{CreateContacts.contactCompanies}"/>
-					</p:selectOneListbox>
-			<p:commandButton value="Choose company"
-					action="#{createContract.selectContactCompany}"></p:commandButton>		
+			<ui:define name="content">x
+			<h:outputText value="#{CreateContract.contactCompanySelected}" />x
+			<h:outputText value="#{CreateContract.user}" />x
+			<h:outputText value="#{CreateContract.contactCompanies}" /> 
+			<p:panelGrid rendered="#{not CreateContract.contactCompanySelected}">
+			<h1> rrrrxyzwrz Select company for which you are creating contract </h1>
+			<h:form>                                 ContactCompanies
+				<p:dataTable value="#{CreateContract.contactCompanies}" id="companies"
+					var="cc" rowKey="#{cc.id}" selectionMode="single" 
+					selection="#{CreateContract.selectedContactCompany}">
+					<p:column headerText="Company name">
+						<h:outputText value="#{cc.name}"></h:outputText>
+					</p:column>
+				</p:dataTable>
+				<p:commandButton value="Choose company"
+					action="#{CreateContract.selectContactCompany}">
+				</p:commandButton>		
 			</h:form>
 			</p:panelGrid>
 			
-			<p:panelGrid rendered="#{CreateContacts.contactCompanySelected}">>
+			<p:panelGrid rendered="#{CreateContract.contactCompanySelected}">>
 			<h:form>
 				<p:growl id="messages"></p:growl>
 
 				<p:panelGrid columns="2">
 					<p:outputLabel value="Enter signdate:"></p:outputLabel>
-					<p:inputText value="#{createContact.contract.signdate}"></p:inputText>
+					<p:inputText value="#{CreateContract.contract.signdate}"></p:inputText>
 					<p:outputLabel value="Enter enddate:"></p:outputLabel>
-					<p:inputText value="#{createContact.contract.enddate}"></p:inputText>
+					<p:inputText value="#{CreateContract.contract.enddate}"></p:inputText>
 					<p:outputLabel value="Enter status:"></p:outputLabel>
-					<p:inputText value="#{createContact.contract.contractstatus}"></p:inputText>
+					<p:inputText value="#{CreateContract.contract.contractstatus}"></p:inputText>
 					<p:outputLabel value="Enter price:"></p:outputLabel>
-					<p:inputText value="#{createContact.contract.price}"></p:inputText>
+					<p:inputText value="#{CreateContract.contract.price}"></p:inputText>
 					
 				</p:panelGrid>
 								
 				
-					<p:dataTable value="#{ListContacts.contactList}" id="contacts"
-					var="c" rowKey="#{c.contactId}"
-					selection="#{ListContacts.selectedContacts}"
-					selectionMode="multiple">
-					<f:facet name="header">
-                   Seeked contacts, select contacts to be set to lead
-               </f:facet>
-					<p:column style="width:18px" />
-					<p:column headerText="Name">
-                   #{c.name}  
-               </p:column>
-					<p:column headerText="Phone">
-                   #{c.phone}  
-               </p:column>
-					<p:column headerText="Address">
-                   #{c.address}  
-               </p:column>
-					<p:column headerText="Country">
-                   #{c.country}  
-               </p:column>
-					<f:facet name="footer"></f:facet>
-			</p:dataTable>
+					<p:dataTable value="#{CreateContract.contactcompanyContacts}" id="contacts"
+						var="c" rowKey="#{c.contactId}"
+						selection="#{ListContacts.selectedContacts}"
+						selectionMode="multiple">
+						<f:facet name="header">
+        	           Seeked contacts, select contacts to be set to lead
+            	   		</f:facet>
+						<p:column style="width:18px" />
+						<p:column headerText="Name">
+                   			#{c.name}  
+               			</p:column>
+						<p:column headerText="Phone">
+                  		 	#{c.phone}  
+               			</p:column>
+						<p:column headerText="Address">
+                   			#{c.address}  
+               			</p:column>
+						<p:column headerText="Country">
+                   			#{c.country}  
+               			</p:column>
+						<f:facet name="footer"></f:facet>
+					</p:dataTable>
 
-				<p:commandButton value="Submit"
-					action="#{createContract.saveContract}" update="messages"></p:commandButton>
-			</h:form>
-			<h:form>
-				<p:commandButton value="Return to main page" action="#{loginUser.toMainPage}"/>
-			</h:form>
+					<p:commandButton value="Submit"
+						action="#{CreateContract.saveContract}" update="messages"></p:commandButton>
+				</h:form>
+				<h:form>
+					<p:commandButton value="Return to main page" action="#{loginUser.toMainPage}"/>
+				</h:form>
 			</p:panelGrid>
 		</ui:define>
 		</ui:composition>

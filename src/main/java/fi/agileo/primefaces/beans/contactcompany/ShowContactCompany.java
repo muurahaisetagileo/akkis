@@ -36,7 +36,7 @@ public class ShowContactCompany {
 
 
 	public String toShowContactCompany() {
-		return "";
+		return "/contactcompany/showcontacompany";
 	}
 
 	public ContactCompanyService getContactCompanyService() {

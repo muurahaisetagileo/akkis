@@ -48,32 +48,6 @@
                </p:column>
 					<f:facet name="footer"></f:facet>
 			</p:dataTable>
-			
-			<p:dataTable value="#{ShowContactCompany.contactCompany.contracts}" 
-				id="contact2"	var="c">
-					<f:facet name="header">
-                   Contracts of contact company
-               		</f:facet>
-				<p:column headerText="Signdate">
-                   #{c.signdate}  
-                </p:column>
-				<p:column headerText="Enddate">
-                   #{c.enddate}  
-               </p:column>
-				<p:column headerText="Status">
-                   #{c.contractstatus}  
-               </p:column>
-				<p:column headerText="Price">
-                   #{c.price}  
-               </p:column>
-               <p:column headerText="Show detailed contract info">
-               		<h:form>
-               			<p:commandButton value="Show" action="#{ShowContract.viewContract(c)"/>
-               		</h:form>
-               </p:column>
-					<f:facet name="footer"></f:facet>
-			</p:dataTable>
-			
 			<h:form>
 				<p:commandButton value="Return to main page" action="#{loginUser.toMainPage}"/>
 			</h:form>

@@ -66,22 +66,25 @@ public class CreateContract {
 	public ContactCompany getContactCompany() {
 		return contactCompany;
 	}
-	
-	public SelectItem[] getContactCompanies() {
+						   // contactCompanies
+	public List<ContactCompany> getContactCompanies() {
+		System.out.println("getContactCompanies");
 		this.allContactCompanies = contactCompanyService.getAllContactCompanies();
-		SelectItem[] selectItems = new SelectItem[allContactCompanies.size()];
-		int i = 0;
-		for(ContactCompany cc : allContactCompanies) {
-			allContactCompaniesById.put(new Long(cc.getId()), cc);
-			selectItems[i] = new SelectItem(cc.getId(), cc.getName());
-		}
-		return selectItems;
+		return this.allContactCompanies;
+	}
+	
+	public void setSelectedContactCompany(ContactCompany cc) {
+		this.contactCompany = cc;
 	}
 	
 	public void setSelectedContactCompanyId(long contactCompanyId) {
 		Long l = new Long(contactCompanyId);
 		this.contactCompany = allContactCompaniesById.get(l);
 		contactCompanySelected = true;
+	}
+	
+	public List<Contact> getContactcompanyContacts() {
+		return this.contactCompany.getCompanyContacts();
 	}
 	
 	public String selectContactCompany() {
