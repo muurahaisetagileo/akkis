@@ -13,17 +13,18 @@
 		<ui:param name="title" value="Add new contract" />
 			<ui:define name="content">
 			
-			<p:panelGrid>
+			<p:panelGrid rendered="#{not CreateContacts.contactCompanySelected}">
 			<h1> Select company for which you are creating contract </h1>
 			<h:form>
 			<p:selectOneListbox value="#{CreateContacts.selectedContactCompanyId}">
 						<f:selectItems value="#{CreateContacts.contactCompanies}"/>
 					</p:selectOneListbox>
 			<p:commandButton value="Choose company"
-					action="#{createContract.saveContract}"></p:commandButton>		
+					action="#{createContract.selectContactCompany}"></p:commandButton>		
 			</h:form>
 			</p:panelGrid>
-
+			
+			<p:panelGrid rendered="#{CreateContacts.contactCompanySelected}">>
 			<h:form>
 				<p:growl id="messages"></p:growl>
 
@@ -69,6 +70,7 @@
 			<h:form>
 				<p:commandButton value="Return to main page" action="#{loginUser.toMainPage}"/>
 			</h:form>
+			</p:panelGrid>
 		</ui:define>
 		</ui:composition>
 	</h:body>
