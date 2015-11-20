@@ -23,13 +23,13 @@
 					<p:inputText value="#{createContactCompany.contactCompany.address}"></p:inputText>
 					<p:outputLabel value="Enter web page:"></p:outputLabel>
 					<p:inputText value="#{createContactCompany.contactCompany.internetAddress}"></p:inputText>
-					<p:outputLabel value="Enter email:"></p:outputLabel>
+					<p:outputLabel value="Enter company identifier:"></p:outputLabel>
 					<p:inputText value="#{createContactCompany.contactCompany.companyIdentifier}"></p:inputText>
 				</p:panelGrid>
 
 				<p />
 
-				<p:dataTable value="#{ListContacts.contactList}" id="contacts"
+				<p:dataTable value="#{createContactCompany.contactsWithoutContactCompany}" id="contacts"
 					var="c" rowKey="#{c.contactId}"
 					selection="#{createContactCompany.contactsToSetForContactCompany}"
 					selectionMode="multiple">
@@ -45,9 +45,9 @@
 					<p:column headerText="Address">
                    #{c.address}  
                </p:column>
-					<p:column headerText="Country">
+				<p:column headerText="Country">
                    #{c.country}  
-               </p:column>
+               	</p:column>
 					<f:facet name="footer"></f:facet>
 				</p:dataTable>
 

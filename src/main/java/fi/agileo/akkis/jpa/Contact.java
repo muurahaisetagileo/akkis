@@ -25,16 +25,15 @@ import javax.persistence.JoinTable;
 /* c.type IN :seekedTypes AND */
 
 @Entity
-
-
-
 @NamedQueries({
 	@NamedQuery(name="Contact.findByType", query="SELECT c FROM Contact c WHERE c.type = :type"),
+	@NamedQuery(name="Contact.findContactsWithoutCompany", query="SELECT c FROM Contact c WHERE c.contactCompany IS NULL"),
 	@NamedQuery(name="Contact.findForSearch", 
 				query="SELECT c FROM Contact c WHERE c.country LIKE :countrySearch AND " +
 						"c.type IN :seekedTypes AND"
 						+ " c.salesPerson IS NOT NULL AND c.salesPerson.wholename LIKE :salesManSearch")
 })
+
 @Table(name="CONTACT")
 public class Contact {
 
