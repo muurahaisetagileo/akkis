@@ -12,6 +12,17 @@
 		<ui:composition template="../templates/template_action.xhtml">
 		<ui:param name="title" value="Add new contract" />
 			<ui:define name="content">
+			
+			<p:panelGrid>
+			<h1> Select company for which you are creating contract </h1>
+			<h:form>
+			<p:selectOneListbox value="#{CreateContacts.selectedContactCompanyId}">
+						<f:selectItems value="#{CreateContacts.contactCompanies}"/>
+					</p:selectOneListbox>
+			<p:commandButton value="Choose company"
+					action="#{createContract.saveContract}"></p:commandButton>		
+			</h:form>
+			</p:panelGrid>
 
 			<h:form>
 				<p:growl id="messages"></p:growl>
@@ -25,10 +36,32 @@
 					<p:inputText value="#{createContact.contract.contractstatus}"></p:inputText>
 					<p:outputLabel value="Enter price:"></p:outputLabel>
 					<p:inputText value="#{createContact.contract.price}"></p:inputText>
-					<p:selectOneListbox value="#{CreateContacts.selectedContactCompanyId}">
-						<f:selectItems value="#{CreateContacts.contactCompanies}"/>
-					</p:selectOneListbox>
+					
 				</p:panelGrid>
+								
+				
+					<p:dataTable value="#{ListContacts.contactList}" id="contacts"
+					var="c" rowKey="#{c.contactId}"
+					selection="#{ListContacts.selectedContacts}"
+					selectionMode="multiple">
+					<f:facet name="header">
+                   Seeked contacts, select contacts to be set to lead
+               </f:facet>
+					<p:column style="width:18px" />
+					<p:column headerText="Name">
+                   #{c.name}  
+               </p:column>
+					<p:column headerText="Phone">
+                   #{c.phone}  
+               </p:column>
+					<p:column headerText="Address">
+                   #{c.address}  
+               </p:column>
+					<p:column headerText="Country">
+                   #{c.country}  
+               </p:column>
+					<f:facet name="footer"></f:facet>
+			</p:dataTable>
 
 				<p:commandButton value="Submit"
 					action="#{createContract.saveContract}" update="messages"></p:commandButton>
