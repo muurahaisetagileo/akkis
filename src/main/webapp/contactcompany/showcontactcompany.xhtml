@@ -1,0 +1,79 @@
+	<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+		<title>Akkis - Show contact company</title>
+	</h:head>
+
+	<h:body>
+		<ui:composition template="../templates/template_action.xhtml">
+		<ui:param name="title" value="Show contact company" />
+			<ui:define name="content">
+				<p:panelGrid columns="2">
+					<h:outputText value="Company name:"></h:outputText>
+					<h:outputText value="#{showContactCompany.contactCompany.name}"></h:outputText>
+					<h:outputText value="Company address:"></h:outputText>
+					<h:outputText value="#{showContactCompany.contactCompany.address}"></h:outputText>
+					<h:outputText value="Company internetaddress:"></h:outputText>
+					<h:outputText value="#{showContactCompany.contactCompany.internetAddress}"></h:outputText>
+					<h:outputText value="Company identifier:"></h:outputText>
+					<h:outputText value="#{showContactCompany.contactCompany.companyIdentifier}"></h:outputText>
+				</p:panelGrid>
+				
+			<p:dataTable value="#{ShowContactCompany.contactCompany.contacts}" 
+				id="contact"	var="c">
+					<f:facet name="header">
+                   Contacts of contact company
+               		</f:facet>
+					<p:column style="width:18px" />
+					<p:column headerText="Name">
+                   #{c.name}  
+               </p:column>
+					<p:column headerText="Phone">
+                   #{c.phone}  
+               </p:column>
+					<p:column headerText="Address">
+                   #{c.address}  
+               </p:column>
+					<p:column headerText="Country">
+                   #{c.country}  
+               </p:column>
+					<f:facet name="footer"></f:facet>
+			</p:dataTable>
+			
+			<p:dataTable value="#{ShowContactCompany.contactCompany.contracts}" 
+				id="contact"	var="c">
+					<f:facet name="header">
+                   Contracts of contact company
+               		</f:facet>
+				<p:column style="width:18px" />
+				<p:column headerText="Signdate">
+                   #{c.signdate}  
+                </p:column>
+				<p:column headerText="Enddate">
+                   #{c.enddate}  
+               </p:column>
+				<p:column headerText="Status">
+                   #{c.contractstatus}  
+               </p:column>
+				<p:column headerText="Price">
+                   #{c.price}  
+               </p:column>
+               <p:column headerText="Show detailed contract info">
+               		<h:form>
+               			<p:commandButton value="Show" action="#{ShowContract.viewContract(c)"/>
+               		</h:form>
+               </p:column>
+					<f:facet name="footer"></f:facet>
+			</p:dataTable>
+			
+			<h:form>
+				<p:commandButton value="Return to main page" action="#{loginUser.toMainPage}"/>
+			</h:form>
+		</ui:define>
+		</ui:composition>
+	</h:body>
+</html>

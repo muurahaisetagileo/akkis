@@ -84,6 +84,10 @@ public class CreateContract {
 		contactCompanySelected = true;
 	}
 	
+	public String selectContactCompany() {
+		return "";
+	}
+	
 	public boolean isContactCompanySelected() {
 		return contactCompanySelected;
 	}
@@ -101,7 +105,7 @@ public class CreateContract {
 		LoginUser lu = (LoginUser)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUser");
 		User currentUser = lu.getUser();
 		System.out.println(currentUser.getUsername());
-		//this.contractService.createContract(currentUser, contract);
+		this.contractService.createContract(contract, currentUser, contactCompany, contacts);
 		return null;
 	}
 }

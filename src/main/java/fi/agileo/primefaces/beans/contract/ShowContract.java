@@ -34,12 +34,13 @@ public class ShowContract {
 	}
 	
 	
-	public String viewContract() {
+	public String viewContract(Contract contract) {
+		this.contract = contractService.getContractPropertiesForView(contract);
 		/* fetch contract information into ContractInformation object 
 		   and set its properties to members of this managed bean and 
 		   return the view page name */
 		
-		return "";
+		return "/contracts/showContract";
 	}
 
 	public Contract getContract() {
