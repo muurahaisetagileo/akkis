@@ -12,12 +12,16 @@ import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.User;
 import fi.agileo.primefaces.beans.user.LoginUser;
 import fi.agileo.spring.service.ContactCompanyService;
+import fi.agileo.spring.service.ContactService;
 
 @ManagedBean
 @SessionScoped
 public class CreateContactCompany {
 	@ManagedProperty("#{contactCompanyService}")
 	private ContactCompanyService contactCompanyService;
+	
+	@ManagedProperty("#{contactService}")
+	private ContactService contactService;
 	
 	private ContactCompany contactCompany = new ContactCompany();
 	private List<Contact> contactsToSetForContactCompany;
@@ -29,6 +33,14 @@ public class CreateContactCompany {
 	
 	public String doCreateContactCompany() {
 		return "";
+	}
+	
+	public ContactService getContactService() {
+		return this.contactService;
+	}
+	
+	public void setContactService(ContactService contactService) {
+		this.contactService = contactService;
 	}
 
 	public ContactCompanyService getContactCompanyService() {
@@ -56,6 +68,7 @@ public class CreateContactCompany {
 	}
 
 	public List<Contact> getContactsWithoutContactCompany() {
+		setContactsWithoutContactCompany(contactService.getContactsWithoutCompany());
 		return contactsWithoutContactCompany;
 	}
 

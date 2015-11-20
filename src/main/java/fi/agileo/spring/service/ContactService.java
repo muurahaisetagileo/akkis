@@ -60,6 +60,17 @@ public class ContactService {
 		 return 0;
 	 }
 	
+	public List<Contact> getContactsWithoutCompany(){
+		List<Contact> contactsWithoutCompany = (List<Contact>)em.createNamedQuery("Contact.findContactsWithoutCompany")
+				.getResultList();
+		for (Contact c : contactsWithoutCompany) {
+			System.out.println(" ***** ");
+			System.out.println(c);
+			System.out.println(" ***** ");
+		}
+		return contactsWithoutCompany;
+	}
+	
 	public List<Contact> seekContacts(List<Integer> types, String salesManSearch, String countrySearch) {
 		
 		if (types == null || types.size() == 0)
