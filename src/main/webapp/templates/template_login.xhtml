@@ -9,14 +9,8 @@
 	<h:outputStylesheet name="css/styles.css"  />
 </h:head>
 <h:body>
-	<div id="logout_link">
-		<h1>Akkis</h1>
-		<form id="logout" method="post">
-			<p:commandLink value="Logout" action="#{loginUser.logout}">
-			</p:commandLink>
-		</form>
-	</div>
 	<ui:insert name="header_action">
+		<h1>Akkis</h1>
 		<h3>#{title}</h3>
 	</ui:insert>
 	<ui:insert name="content" />
