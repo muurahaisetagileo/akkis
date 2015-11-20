@@ -75,7 +75,7 @@ public class CreateContract {
 		LoginUser lu = (LoginUser)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUser");
 		User currentUser = lu.getUser();
 		System.out.println(currentUser.getUsername());
-		this.contractService.createContract(currentUser, contract);
+		//this.contractService.createContract(currentUser, contract);
 		return null;
 	}
 }
