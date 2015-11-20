@@ -67,8 +67,12 @@ public class ContractService {
 	}
 	
 
-	public ContractInformation getContractPropertiesForView(Contract contract) {
-		return null;
+	public Contract getContractPropertiesForView(Contract contract) {
+		em.refresh(contract);
+		contract.getContacts();
+		contract.getContactCompany();
+		contract.getUser();
+		return contract;
 	}
 	
 	/* A method that gets contract information. 
