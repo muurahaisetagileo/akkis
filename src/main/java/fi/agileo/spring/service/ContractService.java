@@ -33,6 +33,17 @@ public class ContractService {
 			ContactCompany contactCompany, 
 			List<Contact> contractMakerContacts) {
 			contract.setContactCompany(contactCompany);
+			contract.setContacts(contractMakerContacts);
+			contract.setUser(contractMakerUser);
+			contractMakerUser.getContracts().add(contract);
+			contactCompany.getContracts().add(contract);
+			em.persist(contract);
+			em.merge(contactCompany);
+			em.merge(contractMakerUser);
+			for(Contact c : contractMakerContacts) {
+				c.getContracts().add(contract);
+				em.merge(c);
+			}
 	}
 	
 

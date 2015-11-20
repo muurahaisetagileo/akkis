@@ -12,6 +12,7 @@ import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.akkis.jpa.User;
 import fi.agileo.primefaces.beans.user.LoginUser;
+import fi.agileo.spring.service.ContactCompanyService;
 import fi.agileo.spring.service.ContractService;
 
 @ManagedBean
@@ -19,6 +20,9 @@ import fi.agileo.spring.service.ContractService;
 public class CreateContract {
 	@ManagedProperty("#{contractService}")
 	private ContractService contractService;
+
+	@ManagedProperty("#{contactCompanyService}")
+	private ContactCompanyService contactCompanyService;
 	
 	private Contract contract;
 	private User user;
@@ -56,6 +60,10 @@ public class CreateContract {
 
 	public ContactCompany getContactCompany() {
 		return contactCompany;
+	}
+	
+	public SelectItem[] getContactCompanies() {
+		
 	}
 
 	public void setContactCompany(ContactCompany contactCompany) {

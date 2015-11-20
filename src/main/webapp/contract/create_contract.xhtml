@@ -25,6 +25,9 @@
 					<p:inputText value="#{createContact.contract.contractstatus}"></p:inputText>
 					<p:outputLabel value="Enter price:"></p:outputLabel>
 					<p:inputText value="#{createContact.contract.price}"></p:inputText>
+					<p:selectOneListbox value="#{ListContacts.selectedContactCompanyId}">
+						<f:selectItems value="#{CreateContacts.contactCompanies}"/>
+					</p:selectOneListbox>
 				</p:panelGrid>
 
 				<p:commandButton value="Submit"
