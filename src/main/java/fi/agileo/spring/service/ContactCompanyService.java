@@ -47,6 +47,12 @@ public class ContactCompanyService {
 		
 	}
 	
+	public List<ContactCompany> getAllContactCompanies() {
+		return (List<ContactCompany>)em.createNamedQuery(
+				"ContactCompany.allAlphabeticallyByName").
+				getResultList();
+	}
+	
 	public ContactCompanyInformation getContactCompanyInformation(ContactCompany contactCompany) {
 		return null;
 	}

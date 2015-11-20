@@ -1,11 +1,13 @@
 package fi.agileo.primefaces.beans.contract;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 
 import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.akkis.jpa.ContactCompany;
@@ -24,6 +26,8 @@ public class CreateContract {
 	@ManagedProperty("#{contactCompanyService}")
 	private ContactCompanyService contactCompanyService;
 	
+	private List<ContactCompany> allContactCompanies;
+	private HashMap<Long,ContactCompany> allContactCompaniesById;
 	private Contract contract;
 	private User user;
 	private ContactCompany contactCompany;
@@ -63,7 +67,19 @@ public class CreateContract {
 	}
 	
 	public SelectItem[] getContactCompanies() {
-		
+		this.allContactCompanies = contactCompanyService.getAllContactCompanies();
+		SelectItem[] selectItems = new SelectItem[allContactCompanies.size()];
+		int i = 0;
+		for(ContactCompany cc : allContactCompanies) {
+			allContactCompaniesById.put(new Long(cc.getId()), cc);
+			selectItems[i] = new SelectItem(cc.getId(), cc.getName());
+		}
+		return selectItems;
+	}
+	
+	public void setSelectedContactCompanyId(long contactCompanyId) {
+		Long l = new Long(contactCompanyId);
+		this.contactCompany = allContactCompaniesById.get(l);
 	}
 
 	public void setContactCompany(ContactCompany contactCompany) {
