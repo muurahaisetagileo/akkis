@@ -5,6 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import fi.agileo.akkis.jpa.User;
 import fi.agileo.spring.service.UserService;
@@ -66,6 +67,17 @@ public class LoginUser {
 				new FacesMessage("Login failed!"));
 		System.out.println("Login failed return");
 		return "";
+	}
+	
+	public String logout() {
+		System.out.println("logout");
+		HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+		if (session != null) {
+			session.invalidate();
+			System.out.println("session invalidated");
+		}
+		System.out.println("to signout");
+		return "/signed_out";
 	}
 
 }

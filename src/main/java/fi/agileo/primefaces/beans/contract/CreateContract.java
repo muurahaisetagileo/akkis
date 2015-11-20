@@ -5,11 +5,13 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.akkis.jpa.User;
+import fi.agileo.primefaces.beans.user.LoginUser;
 import fi.agileo.spring.service.ContractService;
 
 @ManagedBean
@@ -66,5 +68,14 @@ public class CreateContract {
 
 	public void setContacts(List<Contact> contacts) {
 		this.contacts = contacts;
+	}
+	
+	// Save contract to be updated
+	public String saveContract() {
+		LoginUser lu = (LoginUser)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUser");
+		User currentUser = lu.getUser();
+		System.out.println(currentUser.getUsername());
+		//this.contractService.createContract(currentUser, contract);
+		return null;
 	}
 }
