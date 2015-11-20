@@ -25,7 +25,6 @@ public class ContractService {
 		this.em = em;
 	}
 	
-
 	@Transactional
 	public void createContract(
 			Contract contract,
