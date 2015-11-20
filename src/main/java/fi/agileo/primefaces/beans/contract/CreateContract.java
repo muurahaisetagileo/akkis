@@ -70,6 +70,7 @@ public class CreateContract {
 		this.contacts = contacts;
 	}
 	
+	// Save contract to be updated
 	public String saveContract() {
 		LoginUser lu = (LoginUser)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUser");
 		User currentUser = lu.getUser();
