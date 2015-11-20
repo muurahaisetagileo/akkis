@@ -57,4 +57,8 @@ public class ListContactCompanies {
 		return this.contactCompanyService.getAllContactCompanies();
 	}
 	
+	public String showSelectedContactCompany() {
+		return "showcontactcompany";
+	}
+	
 }

@@ -3,6 +3,11 @@
 		xmlns:h="http://java.sun.com/jsf/html"
 		xmlns:f="http://java.sun.com/jsf/core"
 		xmlns:p="http://primefaces.org/ui">
+		
+	<f:metadata>
+        <f:viewParam name="contactCompanyId" value="#{showContactCompany.contactCompany.id}" />
+    </f:metadata>
+	
 	<h:head>
 		<script name="jquery/jquery.js" library="primefaces"></script>
 		<title>Akkis - Show contact company</title>
@@ -12,6 +17,7 @@
 		<ui:composition template="../templates/template_action.xhtml">
 		<ui:param name="title" value="Show contact company" />
 			<ui:define name="content">
+			
 				<p:panelGrid columns="2">
 					<h:outputText value="Company name:"></h:outputText>
 					<h:outputText value="#{showContactCompany.contactCompany.name}"></h:outputText>
@@ -28,7 +34,6 @@
 					<f:facet name="header">
                    Contacts of contact company
                		</f:facet>
-					<p:column style="width:18px" />
 					<p:column headerText="Name">
                    #{c.name}  
                </p:column>
@@ -45,11 +50,10 @@
 			</p:dataTable>
 			
 			<p:dataTable value="#{ShowContactCompany.contactCompany.contracts}" 
-				id="contact"	var="c">
+				id="contact2"	var="c">
 					<f:facet name="header">
                    Contracts of contact company
                		</f:facet>
-				<p:column style="width:18px" />
 				<p:column headerText="Signdate">
                    #{c.signdate}  
                 </p:column>

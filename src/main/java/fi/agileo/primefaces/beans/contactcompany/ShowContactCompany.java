@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 import fi.agileo.akkis.jpa.Contact;
@@ -12,15 +13,28 @@ import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.spring.service.ContactCompanyService;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class ShowContactCompany {
 	@ManagedProperty("#{contactCompanyService}")
 	private ContactCompanyService contactCompanyService;
+	
+	@ManagedProperty(value = "#{param.contactCompanyId}")
+    private long contactCompanyId;
 	
 	private ContactCompany contactCompany;
 	private List<Contact> contacts;
 	private List<Contract> contracts;
 	
+	public long getContactCompanyId() {
+		return contactCompanyId;
+	}
+
+	public void setContactCompanyId(long contactCompanyId) {
+		this.contactCompanyId = contactCompanyId;
+	}
+
+
+
 	public String toShowContactCompany() {
 		return "";
 	}
