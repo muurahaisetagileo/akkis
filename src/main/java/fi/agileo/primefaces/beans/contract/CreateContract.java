@@ -2,9 +2,11 @@ package fi.agileo.primefaces.beans.contract;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import fi.agileo.akkis.jpa.ContactCompany;
 
@@ -15,8 +17,6 @@ import fi.agileo.spring.service.ContractService;
 @ManagedBean
 @SessionScoped
 public class CreateContract {
-	private String x = "hello";
-	
 	@ManagedProperty("#{contractService}")
 	private ContractService contractService;
 
@@ -36,6 +36,11 @@ public class CreateContract {
 		this.contactCompanyService = contactCompanyService;
 	}
 
+    @PostConstruct
+    public void init() {
+    	this.allContactCompanies = contactCompanyService.getAllContactCompanies();    	
+    }
+	
 	public ContractService getContractService() {
 		System.out.println("getContractService");
 		return contractService;
@@ -46,31 +51,39 @@ public class CreateContract {
 		this.contractService = contractService;
 	}
 	
+	/* Problem: this gets called too often */
 	public List<ContactCompany> getContactCompanies() {
 		System.out.println("getContactCompanies");
-		this.allContactCompanies = contactCompanyService.getAllContactCompanies();
 		return this.allContactCompanies;
 	}	
 	
-	public void setSelectedContactCompany(ContactCompany cc) {
-		this.selectedContactCompany = cc;
-		System.out.println("Set Selected contactCompany " + cc);
+	/* this gets too easily null value */
+	public void setSelectedContactCompany(ContactCompany selectedContactCompany) {
+		this.selectedContactCompany = selectedContactCompany;
+		if (selectedContactCompany != null) {
+			System.out.println("Setting selected contact company not null");
+			contactCompanySelected = true;
+		}
+		System.out.println("Setx Selected contactCompany ");
 	}
 	
 	public ContactCompany getSelectedContactCompany() {
-		System.out.println("Get Selected contactCompany " + selectedContactCompany);
+		System.out.println("Getx Selected contactCompany");
 		return this.selectedContactCompany;
 	}
 
 	public String selectContactCompany() {
-		System.out.println("selectContactCompany");
+		System.out.println("selectContactCompanyx");
+/*		System.out.println("Selected contact company " + 
+				this.selectedContactCompany);*/
 		contactCompanySelected = true;
-		return "";
+		return "/contract/create_contract";
 	}
 
 	public boolean isContactCompanySelected() {
-		System.out.println("isContactCompanySelected, returns " +
-			contactCompanySelected);
+		System.out.println("isContactCompanySelected");
+/*		System.out.println("isContactCompanySelected, returns " +
+			contactCompanySelected);*/
 		return this.contactCompanySelected;
 	}
 	

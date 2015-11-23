@@ -9,29 +9,50 @@
 
 	<h:body>
 		<ui:composition template="../templates/template_action.xhtml">
-		<ui:param name="title" value="Add new RX contract" />
+			<ui:param name="title" value="Add new contract" />
 			<ui:define name="content">
-			<p:panelGrid rendered="#{not createContract.contactCompanySelected}">
-			<h1>X Choose contact company to which create contract</h1>
-			<h:form>
-				<p:dataTable value="#{createContract.contactCompanies}" id="companies"
-					var="cc" rowKey="#{cc.id}" selectionMode="single" 
-					selection="#{createContract.selectedContactCompany}">
-					<p:column headerText="Company name">
-						<h:outputText value="#{cc.name}"></h:outputText>
-					</p:column>
-				</p:dataTable>
-				<p:commandButton value="Choose company X"
-					action="#{createContract.selectContactCompany()}">
-				</p:commandButton>		
-			</h:form>
-			</p:panelGrid>
-<!-- 		<p:panelGrid rendered="#{createContract.contactCompanySelected}">>
-				<h1>Contact company selected</h1>
-				<h:outputText value="#{createContract.selectedContactCompany.name}">
-				</h:outputText>
-			</p:panelGrid> -->
-		</ui:define>
+				<p:panelGrid id="total_create_contract">
+				<h:form>
+					<p:panelGrid rendered="#{not createContract.contactCompanySelected}">
+						<h1>Choose contact company to which create contract</h1>
+						
+							<!-- check http://www.primefaces.org/showcase/ui/data/datatable/selection.xhtml car2 -->
+							<p:dataTable  
+								id="companies"
+								var="cc"
+								value="#{createContract.contactCompanies}"
+								selectionMode="single" 
+								selection="#{createContract.selectedContactCompany}"
+								rowKey="#{cc.id}" >
+								<p:column headerText="Id">
+									<h:outputText value="#{cc.id}">
+									</h:outputText>						
+								</p:column>
+								<p:column headerText="Company name">
+									<h:outputText value="#{cc.name}">
+									</h:outputText>
+								</p:column>
+								<f:facet name="footer">
+									<p:commandButton value="Choose company"
+										process="companies"										
+										action="/contract/create_contract" >
+									</p:commandButton>		
+								</f:facet>
+							</p:dataTable>
+							<!-- update="total_create_contract" -> creates multiple tables of companies -->
+					</p:panelGrid>
+	 				<p:panelGrid id="afterContactCompanySelection" rendered="#{createContract.contactCompanySelected}">
+						<h1>Contact company selected</h1>
+				
+						<h:outputText value="#{createContract.selectedContactCompany.name}" rendered="#{createContract.selectedContactCompany != null}">
+						</h:outputText>
+				
+						<h:outputText value="null" rendered="#{createContract.selectedContactCompany == null}" >
+						</h:outputText>
+					</p:panelGrid>
+					</h:form>
+				</p:panelGrid>
+			</ui:define>
 		</ui:composition>
 	</h:body>
 </html>
