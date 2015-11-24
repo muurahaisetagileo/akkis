@@ -38,10 +38,21 @@
 					var="contract" rowKey="#{contract.contractId}" selection="#{showContract.contract}"
 					selectionMode="single" >
 					<f:facet name="header">
-                   	List of all contracts
-    	           </f:facet>
+                   	List of contracts of contact company
+    	            </f:facet>
+    	            <p:column headerText="Sign date">
+    	            	<h:outputText value="#{contract.signdate}"></h:outputText>
+    	            </p:column>
+    	            <p:column headerText="End date">
+    	            	<h:outputText value="#{contract.enddate}"></h:outputText>
+    	            </p:column>
+    	            <p:column headerText="Status">
+    	            	<h:outputText value="#{contract.contractstatus}"></h:outputText>
+    	            </p:column>
+    	            <p:column headerText="Price">
+    	            	<h:outputText value="#{contract.price}"></h:outputText>
+    	            </p:column>
 			</p:dataTable>
- 
 			<h:form>
 				<p:commandButton value="Add contract" action="#{createContractWhenCompanyPreSelected.toCreateContract}">
 					<f:setPropertyActionListener target="#{createContractWhenCompanyPreSelected.contactCompany}" 
