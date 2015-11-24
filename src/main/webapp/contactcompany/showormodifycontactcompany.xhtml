@@ -1,0 +1,58 @@
+	<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+		<title>Akkis - Show or modify contact company</title>
+	</h:head>
+
+	<h:body>
+		<ui:composition template="../templates/template_action.xhtml">
+		<ui:param name="title" value="Show contact company" />
+			<ui:define name="content">
+
+				<p:panelGrid columns="2">
+					<h:outputText value="Company name:"></h:outputText>
+					<h:outputText value="#{showOrModifyContactCompany.contactCompany.name}"></h:outputText>
+					<h:outputText value="Company address:"></h:outputText>
+					<h:outputText value="#{showOrModifyContactCompany.contactCompany.address}"></h:outputText>
+					<h:outputText value="Company internetaddress:"></h:outputText>
+					<h:outputText value="#{showOrModifyContactCompany.contactCompany.internetAddress}"></h:outputText>
+					<h:outputText value="Company identifier:"></h:outputText>
+					<h:outputText value="#{showOrModifyContactCompany.contactCompany.companyIdentifier}"></h:outputText>
+				</p:panelGrid>
+			<p:dataTable value="#{showOrModifyContactCompany.contactCompany.companyContacts}" 
+				id="contact" var="c">
+					<f:facet name="header">
+                   Contacts of contact company
+               		</f:facet>
+					<p:column headerText="Name">#{c.name}</p:column>
+					<p:column headerText="Phone">#{c.phone}</p:column>
+					<p:column headerText="Address">#{c.address}</p:column>
+					<p:column headerText="Country">#{c.country}</p:column>
+					<f:facet name="footer"></f:facet>
+			</p:dataTable>
+	 		<p:dataTable value="#{showOrModifyContactCompany.contactCompany.contracts}" id="contracts"
+					var="contract" rowKey="#{contract.contractId}" selection="#{showContract.contract}"
+					selectionMode="single" >
+					<f:facet name="header">
+                   	List of all contracts
+    	           </f:facet>
+			</p:dataTable>
+ 
+			<h:form>
+				<p:commandButton value="Add contract" action="#{createContractWhenCompanyPreSelected.toCreateContract}">
+					<f:setPropertyActionListener target="#{createContractWhenCompanyPreSelected.contactCompany}" 
+					value="#{showOrModifyContactCompany.contactCompany}" />
+				</p:commandButton>
+			</h:form>
+			
+			<h:form>
+				<p:commandButton value="Return to main page" action="#{loginUser.toMainPage}"/>
+			</h:form>
+		</ui:define>
+		</ui:composition>
+	</h:body>
+</html>

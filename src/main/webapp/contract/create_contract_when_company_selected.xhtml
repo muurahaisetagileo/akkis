@@ -1,0 +1,32 @@
+	<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+		<title>Akkis - Create contract for company</title>
+	</h:head>
+
+	<h:body>
+		<ui:composition template="../templates/template_action.xhtml">
+			<ui:param name="title" value="Create new contract for company" />
+			<ui:define name="content">
+				<p:panelGrid columns="2">
+					<h:outputText value="Company name:"></h:outputText>
+					<h:outputText value="#{createContractWhenCompanyPreSelected.contactCompany.name}"></h:outputText>
+					<h:outputText value="Company address:"></h:outputText>
+					<h:outputText value="#{createContractWhenCompanyPreSelected.contactCompany.address}"></h:outputText>
+					<h:outputText value="Company internetaddress:"></h:outputText>
+					<h:outputText value="#{createContractWhenCompanyPreSelected.contactCompany.internetAddress}"></h:outputText>
+					<h:outputText value="Company identifier:"></h:outputText>
+					<h:outputText value="#{createContractWhenCompanyPreSelected.contactCompany.companyIdentifier}"></h:outputText>
+				</p:panelGrid>
+				
+				<h:form>
+					<p:commandButton value="Return to main page" action="#{loginUser.toMainPage}"/>
+				</h:form>		
+			</ui:define>
+		</ui:composition>
+	</h:body>
+</html>
