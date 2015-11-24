@@ -1,0 +1,28 @@
+Build #20 (Nov 16, 2015 3:11:50 PM)
+add description
+	Changes
+
+    hibernate removed from pom and byuuild path (commit: 0efbbef66b3d455c6fce7e1ad36fb24e5ec3e323) (detail / githubweb)
+    Final version of UI design (commit: 7d489efdbc0a9a53f1de8c4fb71002a7f5fb51b1) (detail / githubweb)
+    Test2.java (commit: 0bc25d8155f0416d97e61eff648377935586a21b) (detail / githubweb)
+    extra jat removed from classpath, example of ignoring unneeded or not so (commit: 9c7800d93b9fc8d89b247d302697c926c372aa7c) (detail / githubweb)
+    another ignore test added to check how ignored tests can be found with (commit: 6b50b68c88fe4bbd1ad334ed4fccf4d5dc45117e) (detail / githubweb)
+    sprint 2 initial version for task sharing (commit: 1c50a9a25834821a8493b05c6c4ccae0f64dabac) (detail / githubweb)
+    CreateDeal.java (commit: b426a7bfe3d857b1c08043108734c6895b2a28b8) (detail / githubweb)
+    list of contacts to deal, not only one (commit: 83791bc5f28025cfeffc21a9d89e3e71046ac782) (detail / githubweb)
+    gitignore (commit: 714e068803ce2aee04cc0cec9f830f9c0707ee68) (detail / githubweb)
+    retrospective on sprint 1 added (commit: fe16b923eb4a80f7bbe15de52027a4d75e058f51) (detail / githubweb)
+    gitignore (commit: 2fdc761e0237af69759a4fe83992dba4a5e1b07b) (detail / githubweb)
+    Contact.java updated with comments related to property-task (commit: 3964fd61c74905c409a5d4ac152f4ae20bba56fc) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: 3964fd61c74905c409a5d4ac152f4ae20bba56fc
+
+    refs/remotes/origin/master
+
+	Test Result (no failures)
+
+Module Builds
+Success Akkis muurahaiset	20 sec

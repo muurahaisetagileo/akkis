@@ -1,0 +1,22 @@
+Build #29 (Nov 19, 2015 4:50:33 PM)
+add description
+	Changes
+
+    Small updates to CreateContactCompany bean (commit: 6358438142f939b7c923d7c170d2510528bdb99d) (detail / githubweb)
+    admin index add new contact link added (commit: 21a3d6b883b931477ffa5d8739015a22a788b4e5) (detail / githubweb)
+    Passworded fields changed to normal input fields in Contact creation (commit: 27086b9f73b38df27fd24c183df909bc4ce15f21) (detail / githubweb)
+    Add new user-linkki XHTML:ssä korjatti (commit: ff7a6b5eb5e9386e5fd30d96b5a3c5c88afced16) (detail / githubweb)
+    more fixes to creatE_contact.xml (commit: e0ac71784be1b0ae3f6eff71276f8215538c976e) (detail / githubweb)
+    updated persistence.xml (commit: 69c71a8db66a3adfddf70867958c7fcf21e132ea) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: 69c71a8db66a3adfddf70867958c7fcf21e132ea
+
+    refs/remotes/origin/master
+
+	Test Result (no failures)
+
+Module Builds
+Success Akkis muurahaiset	22 sec

@@ -1,0 +1,50 @@
+ Build #24 (Nov 19, 2015 9:29:16 AM)
+add description
+	Changes
+
+    added incomplete version of ContactServiceTest (commented for now) (commit: eb347a3f09609edccc4a6899b56a6359d57a1e8e) (detail / githubweb)
+    relationship of contact and user (commit: 6f64c40f030d222c60ba5e7fde16f34af23dcf74) (detail / githubweb)
+    Contact.java updated NamedQuery (commit: 6a69e3a8044d3c6604cb23fa855fd62461063bee) (detail / githubweb)
+    Contact.java updated NamedQuery (commit: 047455eb20fc24e00eb690df839f9c63a18c11d4) (detail / githubweb)
+    multiple contacts set to type operation added (commit: 8727fa5e2e3a3a817052a938350ea00c146b5564) (detail / githubweb)
+    relationship between contact and contactcompany and on contact side (commit: 86c4dc8863e633074a431afb4fd20bba773e61df) (detail / githubweb)
+    J-M_muistiinpanoja (commit: a9b550745c2767abed95d4612ceea51cc8958b0e) (detail / githubweb)
+    Updated the saveContact method in CreateContact bean (commit: 414ed8a947ca64347212345097f9d4151737bfc5) (detail / githubweb)
+    Contact.java commented NamedQuery base (commit: 1c170bfc1d9e087e91a74869b6b602a088552fa1) (detail / githubweb)
+    JPA relationships done so that startup of server works (commit: 3df716b82d497c39102896352770bca6eff6ed65) (detail / githubweb)
+    relationships merged (commit: b540635b832fb1f7690725c9ae8d329aab8695fd) (detail / githubweb)
+    document merged (commit: df87fc7b8c67d59cfbfdf075b90db9f7a9ea6fbe) (detail / githubweb)
+    merged some managed beans (commit: 225cf505ef0efce882989ca93cef96b5a6e3da67) (detail / githubweb)
+    company service test added, quite initial version (commit: 3d9a1c6b26370ef89ddc465ac2491e96bd694143) (detail / githubweb)
+    relationships done (commit: 86b984d0c299353d06fae1e38217095f737dc872) (detail / githubweb)
+    also user saved with contact (commit: 02e077accb2ff77984d274cc606e6569d1bebb3a) (detail / githubweb)
+    console application context moved to better location, persistence.xml (commit: 52c35943443290f4e974021dbad3285a35e13ec5) (detail / githubweb)
+    console apps referring to better location application context (commit: 1baa97cfb572b4e0784c38d360e7bdbb6630a2c7) (detail / githubweb)
+    console app persistence unit moved to separate file (commit: c5c64a2ae9f3ba1be5539cafad2ef82c2a9f668f) (detail / githubweb)
+    META-INF directory to project settings (commit: 1acbadd73160e0333c11803ebbd1f2d738320b89) (detail / githubweb)
+    persistenceUnit name fixed, still not working (commit: 94c26a5df9f870b704e648c0b7f19792de97e014) (detail / githubweb)
+    ContractService.java updated with spring-related task (commit: e57ad6c4ed013beb4010f89406806ba9b5aa6332) (detail / githubweb)
+    query for seeking contacts added (commit: 28a009ad44cbfb03256e21e339739470edd5893f) (detail / githubweb)
+    jpaconfigurations (commit: 690f29473cbc541dad51021c5550147ab602886c) (detail / githubweb)
+    jpaconfigurations.java (commit: 7caf962ca2b2e8d13f9189787a097d69a40195d2) (detail / githubweb)
+    EclipseLink -> Hibernate (commit: 5a3e1372ea682fd030dc110c7ac8eb8a0c4bcaec) (detail / githubweb)
+    Added UI for Creating Contact Company (commit: f39e2dcc86d861c586885262608db04f60dbd56b) (detail / githubweb)
+    pom.xml updated (commit: 4c53c00e21a9129c49fda1f0e83d997b0f92dbab) (detail / githubweb)
+    pom.xml updated (commit: b9ad5f43f514b42076caabb831fb72dfa8e66a3a) (detail / githubweb)
+    pom.xml updated (commit: 69b0f327c17bd2ee524fa8a431e5853af3efd080) (detail / githubweb)
+    All UIs updated to use templates, added user_index.xhtml for navigating (commit: 4d326e6d2392310204d0297e53a4f6fff69d027f) (detail / githubweb)
+    pom references to use new versions and with properties (commit: ab62197c251868e607eedbf34dcfe3bef6cef4fd) (detail / githubweb)
+    Java configurations committed, got back to xml configuration, no JTA and (commit: 0a0a500d7e5084a6083441c7a9bd27d7154f7da1) (detail / githubweb)
+    query made passing, maybe not fully working (commit: 9921d9368b9e4fdc5e79353a37f7b950f3b54a37) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: 9921d9368b9e4fdc5e79353a37f7b950f3b54a37
+
+    refs/remotes/origin/master
+
+	Test Result (no failures)
+
+Module Builds
+Success Akkis muurahaiset	1 min 39 sec

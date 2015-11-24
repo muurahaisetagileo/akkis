@@ -1,0 +1,25 @@
+Build #26 (Nov 19, 2015 12:49:16 PM)
+add description
+	Changes
+
+    ContractService.java in progress (commit: 9215095c867193817d76ff96a87b96f6c87c11de) (detail / githubweb)
+    ContractService.java in progress (commit: 230b0860106434945ccbe7d21d30724df577d3a2) (detail / githubweb)
+    Equals checks added (commit: a07a69c32453c78555e47abae55b3df2941be166) (detail / githubweb)
+    Equals checks added (commit: 79c3ccb655f9dfa8f885483526514d773f059089) (detail / githubweb)
+    Separate folders for XHTML files (except index files), simplified (commit: 67d720cbb0434af0d837808486e3c95dd73c4361) (detail / githubweb)
+    Adde proper redirection to login code, removed empty column from (commit: c47555bdd0b55b78df89a8c3eab0d7d8f9b30660) (detail / githubweb)
+    wholename fetching moved to getter to keep values more current (commit: a3f423f02179724d367bc83d570e6f2abc7dbae5) (detail / githubweb)
+    contact service contact list method updated to use more properly the (commit: fc18dc4fcbcc0bea6ec17b2d0ef07b51f4816d0c) (detail / githubweb)
+    tried to add link to contact list to admin index (commit: 39fd3a2e6d91b7efd893557317ad612a5cb092f0) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: 39fd3a2e6d91b7efd893557317ad612a5cb092f0
+
+    refs/remotes/origin/master
+
+	Test Result (no failures)
+
+Module Builds
+Success Akkis muurahaiset	53 sec

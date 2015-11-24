@@ -1,0 +1,26 @@
+ Build #22 (Nov 17, 2015 3:23:41 PM)
+add description
+	Changes
+
+    jenkins file updated (commit: a5efcc4a858a934e2d91adff63be81708cc3b142) (detail / githubweb)
+    Some fixes to user classes (commit: 9b51a39b1e5f07771f71f22a7be9ed739a5e9d2e) (detail / githubweb)
+    DealServiceTest imports and other code for beginning added (commit: 8189112408f761dfa51f52770a9e87d58a668109) (detail / githubweb)
+    new JPA classes included, direction to more proper transaction type and (commit: 9acc36c3e51ed896eceb0607d649097ed89c0e51) (detail / githubweb)
+    jpa classes made usable in persistence.xml (commit: bd2923854e0d24400ab9f7c0f30ae7f0354e5d16) (detail / githubweb)
+    separate config for console apps (commit: a723b21d4b93a1a8e27274b9bc0a5aa08403fd4e) (detail / githubweb)
+    duplicate entities removed (commit: 23345c5502f2b0844a48e43754d70f2364765628) (detail / githubweb)
+    DealConsole.java added ClassPathXml line (commit: b9ef99dbc3e7515d1c6794cf86d1c2cb17a3a422) (detail / githubweb)
+    ContactConsole.java added ClassPathXml line (commit: 84e312655300c1771ccb31a46e9980b85697dc52) (detail / githubweb)
+    Contact.java with some currently commented NamedQueries added (commit: e3e4f859edb74c08c8838687a47db9825bc228e5) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: e3e4f859edb74c08c8838687a47db9825bc228e5
+
+    refs/remotes/origin/master
+
+	Test Result (no failures)
+
+Module Builds
+Success Akkis muurahaiset	19 sec

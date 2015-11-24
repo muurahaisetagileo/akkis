@@ -1,0 +1,24 @@
+Build #27 (Nov 19, 2015 2:36:02 PM)
+add description
+	Changes
+
+    ContractService (commit: 7a6c3400d792b8e93c4ec958c385cfd00ffc99e5) (detail / githubweb)
+    ContractService updated (commit: 8887b46943c3a6bd9eff0ac055ec245902eb8bcc) (detail / githubweb)
+    Updated CreateCompanyContact bean and ContactCompanyService, saving (commit: 664309cdce32cff4c441e91fbdae183333a33a98) (detail / githubweb)
+    ContractService updated (commit: 6b7c8d4088e93be3e661dcfdba593ce7f73dc062) (detail / githubweb)
+    ContractService updated (commit: 0636cea4a442883eb5f4fc9bcf2b874dcd7a4c1d) (detail / githubweb)
+    ContractService updated (commit: a6d3c883682606ad9df378ced61726a286d9a945) (detail / githubweb)
+    ContractService updated (commit: 3c2a36463364c8b3ec86cf3539c47abb015344fe) (detail / githubweb)
+    contact search implemented (commit: 3dda197f8d34fe93af6afc0e13d46b3738f2ed8c) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: 3dda197f8d34fe93af6afc0e13d46b3738f2ed8c
+
+    refs/remotes/origin/master
+
+	Test Result (no failures)
+
+Module Builds
+Success Akkis muurahaiset	27 sec

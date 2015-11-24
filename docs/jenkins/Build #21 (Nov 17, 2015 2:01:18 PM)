@@ -1,0 +1,38 @@
+Build #21 (Nov 17, 2015 2:01:18 PM)
+add description
+	Changes
+
+    User registration view added, some updates to registerUser and (commit: 2f5ea3009a77fed17fb22601ed346825e2723715) (detail / githubweb)
+    jenkins file updated (commit: 3dbfd0eb891f7b0ccd95d45441f4bda2233eec02) (detail / githubweb)
+    sprint 2 definition (commit: 339ba3f872b2c63e4ee2a8a05f45f64a9c2783d4) (detail / githubweb)
+    tests added (commit: d5926b536feefa64371582b1a5198afabdee2d6c) (detail / githubweb)
+    sprint 2 definition added (commit: 94dfce3b11543f03ddef97c15487c10bab8f6777) (detail / githubweb)
+    deleted lock file (commit: cf8c0bd147c00466fd51008ec4dcaa2a81d36114) (detail / githubweb)
+    working ignore for spring xls file lock files (commit: 31397a5e3057e9651a58b6611bda59bdc5fbc9ce) (detail / githubweb)
+    managed beans organized organized java packages according to jpa class (commit: ec97d6ba7de48a2e805b2cd6d97bc313c358826d) (detail / githubweb)
+    UserConsole class added (commit: cb1ba0c8dc2dfb5e961bf7fcf797291fcf08305d) (detail / githubweb)
+    Added UI for creating contacts (commit: 84305c848a128535aae95403c8f07028faeced94) (detail / githubweb)
+    register operation prevented to create another user with same username. (commit: b674936c6f9dc5c94a89c37e73dcd90380ce71bc) (detail / githubweb)
+    register operation prevented to create multiple users with same (commit: 1536289af74bd10467d65fd061701ee18b4ca0af) (detail / githubweb)
+    better way to check user persist taken back to user registration (commit: 418f87ff155eeed9a28764d1805c49c3c21792dd) (detail / githubweb)
+    DealTest.java (commit: 8e3352d35785fe84ab01f8f3d8506ba10bbae9e7) (detail / githubweb)
+    DealServiceTest.java beginning and J-M_muistiinpanoja document (commit: 17f1d94565c9bd25be43146b41d6c441ff2348d6) (detail / githubweb)
+    date fields set to date type (commit: 13a0c030ee13593e7cacccb94dc482d47d937390) (detail / githubweb)
+    ContactService.java updated (commit: 0a6019a67047102f1674da0bd3734a675a0dce3d) (detail / githubweb)
+    large maybe too far going jpa test for contact company created (commit: 5aaf7a818462dfbf5350597a5f2a718e2231c3f5) (detail / githubweb)
+    large maybe too far going jpa test for contact company created (commit: 218944b1e0ef0f1dc0ac69f5af4047ec78fe2e67) (detail / githubweb)
+    J-M muistiinpanoja (commit: 9d3319577a8560d6a770d8a48b1600fb5875c925) (detail / githubweb)
+    Console application testing for ContactConsole and UserConsole (commit: 84e08e26dd0ca2ea319f160a3b03cb2250e00c2a) (detail / githubweb)
+    Changes to ContactConsole (commit: ca65da508cf24a6c66a1ee3624120af0529d625e) (detail / githubweb)
+    DealConsole.java first version (commit: abbbae95bed51d03d7a4e15c6bfe8d4d739195d7) (detail / githubweb)
+    DealConsole.java updated with printing contact (commit: 1687f51571de6cd00be31cf6a6871fced8a5b08d) (detail / githubweb)
+    J-M muistiinpanoja (commit: c4c81b2c7093fa2d576e3b502b93268049487ac9) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: c4c81b2c7093fa2d576e3b502b93268049487ac9
+
+    refs/remotes/origin/master
+
+	Test Result (no failures)

@@ -1,0 +1,22 @@
+Build #28 (Nov 19, 2015 3:30:41 PM)
+add description
+	Changes
+
+    firstname, lastname and wholename should not be null (commit: 39b9e71f360d70dd4f04f3c4a5b4901aaa8928ac) (detail / githubweb)
+    Updated ListContacts bean and the service/JPA layers that the seeking of (commit: 01c1c1b4e298154b39d391ecd6c7c2d74fecffcb) (detail / githubweb)
+    merge contact/contactservice (commit: 098babb93c165faed964b7b01bda01118f44bd30) (detail / githubweb)
+    setting to lead and refreshing of seek result implemented (commit: 25c24ac6420baa7ab2c3b9a0f5ff34bb15fc6707) (detail / githubweb)
+    contact list moved to correct location (commit: af44706457a1c7f798d2bcfe2bd440f66227e5f4) (detail / githubweb)
+    ? (commit: 063bc44bb7ac7245715f9f6bdce5d53f929dfa51) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: 5f6f05fe29c7e59afa76e052d188989d7f179c9a
+
+    refs/remotes/origin/master
+
+	Test Result (no failures)
+
+Module Builds
+Success Akkis muurahaiset	20 sec

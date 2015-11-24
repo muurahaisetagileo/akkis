@@ -1,0 +1,18 @@
+ Build #23 (Nov 17, 2015 4:03:43 PM)
+add description
+	Changes
+
+    Added some tests for Contact classes (commit: 90854b1d873dbcbad0cc99322166f7a8dd024fb8) (detail / githubweb)
+    Contact.java with some currently commented NamedQueries added (commit: 7c1ae2d955046f8ee8def0b59583d8a5206132b5) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: 7c1ae2d955046f8ee8def0b59583d8a5206132b5
+
+    refs/remotes/origin/master
+
+	Test Result (no failures)
+
+Module Builds
+Success Akkis muurahaiset	20 sec
