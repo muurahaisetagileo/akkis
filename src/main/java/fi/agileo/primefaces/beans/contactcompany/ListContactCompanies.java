@@ -15,7 +15,7 @@ import fi.agileo.primefaces.beans.user.LoginUser;
 import fi.agileo.spring.service.ContactCompanyService;
 import fi.agileo.spring.service.ContactService;
 
-@ManagedBean(name="ListContactCompanies")
+@ManagedBean
 @SessionScoped
 public class ListContactCompanies {
 	@ManagedProperty("#{contactCompanyService}")

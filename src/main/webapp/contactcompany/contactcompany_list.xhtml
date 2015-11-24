@@ -17,8 +17,8 @@
 			<h:form>
 				<p:growl id="messages"></p:growl>
 				
-			<p:dataTable value="#{ListContactCompanies.contactCompanies}" id="contactCompanies"
-					var="cc" rowKey="#{cc.id}" selection="#{ShowContactCompany.contactCompany}"
+			<p:dataTable value="#{listContactCompanies.contactCompanies}" id="contactCompanies"
+					var="cc" rowKey="#{cc.id}" selection="#{showOrModifyContactCompany.contactCompany}"
 					selectionMode="single" >
 					<f:facet name="header">
                    	List of all contact companies
@@ -36,9 +36,9 @@
                    #{cc.companyIdentifier}  
                	</p:column>
                	
-<!-- 				<f:facet name="footer">
-					<p:commandButton value="Show contact company" action="#{ShowContactCompany.toShowContactCompany}"></p:commandButton>
-				</f:facet> -->
+ 				<f:facet name="footer">
+					<p:commandButton value="Show contact company" action="#{showOrModifyContactCompany.toShowContactCompany}"></p:commandButton>
+				</f:facet> 
 			</p:dataTable>
 			
 			</h:form>

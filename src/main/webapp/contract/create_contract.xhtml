@@ -4,82 +4,58 @@
 		xmlns:f="http://java.sun.com/jsf/core"
 		xmlns:p="http://primefaces.org/ui">
 	<h:head>
-		<script name="jquery/jquery.js" library="primefaces"></script>
 		<title>Akkis - Add new contract</title>
 	</h:head>
 
 	<h:body>
 		<ui:composition template="../templates/template_action.xhtml">
-		<ui:param name="title" value="Add new contract" />
-			<ui:define name="content">x
-			<h:outputText value="#{CreateContract.contactCompanySelected}" />x
-			<h:outputText value="#{CreateContract.user}" />x
-			<h:outputText value="#{CreateContract.contactCompanies}" /> 
-			<p:panelGrid rendered="#{not CreateContract.contactCompanySelected}">
-			<h1> rrrrxyzwrz Select company for which you are creating contract </h1>
-			<h:form>                                 ContactCompanies
-				<p:dataTable value="#{CreateContract.contactCompanies}" id="companies"
-					var="cc" rowKey="#{cc.id}" selectionMode="single" 
-					selection="#{CreateContract.selectedContactCompany}">
-					<p:column headerText="Company name">
-						<h:outputText value="#{cc.name}"></h:outputText>
-					</p:column>
-				</p:dataTable>
-				<p:commandButton value="Choose company"
-					action="#{CreateContract.selectContactCompany}">
-				</p:commandButton>		
-			</h:form>
-			</p:panelGrid>
-			
-			<p:panelGrid rendered="#{CreateContract.contactCompanySelected}">>
-			<h:form>
-				<p:growl id="messages"></p:growl>
-
-				<p:panelGrid columns="2">
-					<p:outputLabel value="Enter signdate:"></p:outputLabel>
-					<p:inputText value="#{CreateContract.contract.signdate}"></p:inputText>
-					<p:outputLabel value="Enter enddate:"></p:outputLabel>
-					<p:inputText value="#{CreateContract.contract.enddate}"></p:inputText>
-					<p:outputLabel value="Enter status:"></p:outputLabel>
-					<p:inputText value="#{CreateContract.contract.contractstatus}"></p:inputText>
-					<p:outputLabel value="Enter price:"></p:outputLabel>
-					<p:inputText value="#{CreateContract.contract.price}"></p:inputText>
-					
-				</p:panelGrid>
-								
+			<ui:param name="title" value="Add new contract" />
+			<ui:define name="content">
+				<p:panelGrid id="total_create_contract">
+				<h:form id="total_form">
+					<p:panelGrid rendered="#{not createContract.contactCompanySelected}">
+						<h1>Choose contact company to which create contract</h1>
+						
+							<!-- check http://www.primefaces.org/showcase/ui/data/datatable/selection.xhtml car2 -->
+							<p:dataTable  
+								rendered="#{not createContract.contactCompanySelected}"
+								id="companies"
+								var="cc"
+								value="#{createContract.contactCompanies}"
+								selectionMode="single" 
+								selection="#{createContract.selectedContactCompany}"
+								rowKey="#{cc.id}" >
+								<p:column headerText="Id">
+									<h:outputText value="#{cc.id}">
+									</h:outputText>
+								</p:column>
+								<p:column headerText="Company name">
+									<h:outputText value="#{cc.name}">
+									</h:outputText>
+								</p:column>
+								<!-- process="companies" must be to get something processed -->
+								<f:facet name="footer">
+									<p:commandButton value="Choose company"
+										process="total_form"
+										update="total_form companies"											
+										action="/contract/create_contract" >
+									</p:commandButton>		
+								</f:facet>
+							</p:dataTable>
+							<!-- update="total_create_contract" -> creates multiple tables of companies -->
+					</p:panelGrid>
+	 				<p:panelGrid id="afterContactCompanySelection" rendered="#{createContract.contactCompanySelected}">
+						<h1>Contact company selected</h1>
 				
-					<p:dataTable value="#{CreateContract.contactcompanyContacts}" id="contacts"
-						var="c" rowKey="#{c.contactId}"
-						selection="#{ListContacts.selectedContacts}"
-						selectionMode="multiple">
-						<f:facet name="header">
-        	           Seeked contacts, select contacts to be set to lead
-            	   		</f:facet>
-						<p:column style="width:18px" />
-						<p:column headerText="Name">
-                   			#{c.name}  
-               			</p:column>
-						<p:column headerText="Phone">
-                  		 	#{c.phone}  
-               			</p:column>
-						<p:column headerText="Address">
-                   			#{c.address}  
-               			</p:column>
-						<p:column headerText="Country">
-                   			#{c.country}  
-               			</p:column>
-						<f:facet name="footer"></f:facet>
-					</p:dataTable>
-
-					<p:commandButton value="Submit"
-						action="#{CreateContract.saveContract}" update="messages"></p:commandButton>
-				</h:form>
-				<h:form>
-					<p:commandButton value="Return to main page" action="#{loginUser.toMainPage}"/>
-				</h:form>
-			</p:panelGrid>
-		</ui:define>
+						<h:outputText value="#{createContract.selectedContactCompany.name}" rendered="#{createContract.selectedContactCompany != null}">
+						</h:outputText>
+				
+						<h:outputText value="null" rendered="#{createContract.selectedContactCompany == null}" >
+						</h:outputText>
+					</p:panelGrid>
+					</h:form>
+				</p:panelGrid>
+			</ui:define>
 		</ui:composition>
 	</h:body>
-
-	</html>
+</html>

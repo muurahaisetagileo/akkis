@@ -1,21 +1,18 @@
 package fi.agileo.primefaces.beans.contract;
 
-import java.util.HashMap;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.faces.model.SelectItem;
+import javax.faces.bean.ViewScoped;
 
-import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.akkis.jpa.ContactCompany;
-import fi.agileo.akkis.jpa.Contract;
-import fi.agileo.akkis.jpa.User;
-import fi.agileo.primefaces.beans.user.LoginUser;
+
 import fi.agileo.spring.service.ContactCompanyService;
 import fi.agileo.spring.service.ContractService;
+
 
 @ManagedBean
 @SessionScoped
@@ -24,91 +21,70 @@ public class CreateContract {
 	private ContractService contractService;
 
 	@ManagedProperty("#{contactCompanyService}")
-	private ContactCompanyService contactCompanyService;
-	
+	private ContactCompanyService contactCompanyService; 
+
 	private List<ContactCompany> allContactCompanies;
-	private HashMap<Long,ContactCompany> allContactCompaniesById;
-	private Contract contract;
-	private User user;
-	private ContactCompany contactCompany;
-	private List<Contact> contacts;
-	private boolean contactCompanySelected;
+	private ContactCompany selectedContactCompany = new ContactCompany();
+
+	private boolean contactCompanySelected = false; 
 	
-	public String doCreateContract() {
-		/* Create got properties to database through service layer */
-		return "";
+	public ContactCompanyService getContactCompanyService() {
+		return contactCompanyService;
 	}
 
+	public void setContactCompanyService(ContactCompanyService contactCompanyService) {
+		this.contactCompanyService = contactCompanyService;
+	}
+
+    @PostConstruct
+    public void init() {
+    	this.allContactCompanies = contactCompanyService.getAllContactCompanies();    	
+    }
+	
 	public ContractService getContractService() {
+		System.out.println("getContractService");
 		return contractService;
 	}
 
 	public void setContractService(ContractService contractService) {
+		System.out.println("setContractService");
 		this.contractService = contractService;
 	}
-
-	public Contract getContract() {
-		return contract;
-	}
-
-	public void setContract(Contract contract) {
-		this.contract = contract;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public ContactCompany getContactCompany() {
-		return contactCompany;
-	}
-						   // contactCompanies
+	
+	/* Problem: this gets called too often */
 	public List<ContactCompany> getContactCompanies() {
 		System.out.println("getContactCompanies");
-		this.allContactCompanies = contactCompanyService.getAllContactCompanies();
 		return this.allContactCompanies;
+	}	
+	
+	/* this gets too easily null value */
+	public void setSelectedContactCompany(ContactCompany selectedContactCompany) {
+		this.selectedContactCompany = selectedContactCompany;
+		if (selectedContactCompany != null) {
+			System.out.println("Setting selected contact company not null");
+			contactCompanySelected = true;
+		}
+		System.out.println("Setx Selected contactCompany ");
 	}
 	
-	public void setSelectedContactCompany(ContactCompany cc) {
-		this.contactCompany = cc;
+	public ContactCompany getSelectedContactCompany() {
+		System.out.println("Getx Selected contactCompany");
+		return this.selectedContactCompany;
 	}
-	
-	public void setSelectedContactCompanyId(long contactCompanyId) {
-		Long l = new Long(contactCompanyId);
-		this.contactCompany = allContactCompaniesById.get(l);
-		contactCompanySelected = true;
-	}
-	
-	public List<Contact> getContactcompanyContacts() {
-		return this.contactCompany.getCompanyContacts();
-	}
-	
+
 	public String selectContactCompany() {
-		return "";
+		System.out.println("selectContactCompanyx");
+/*		System.out.println("Selected contact company " + 
+				this.selectedContactCompany);*/
+		contactCompanySelected = true;
+		return "/contract/create_contract";
 	}
-	
+
 	public boolean isContactCompanySelected() {
-		return contactCompanySelected;
-	}
-
-	public List<Contact> getContacts() {
-		return contacts;
-	}
-
-	public void setContacts(List<Contact> contacts) {
-		this.contacts = contacts;
+		System.out.println("isContactCompanySelected");
+/*		System.out.println("isContactCompanySelected, returns " +
+			contactCompanySelected);*/
+		return this.contactCompanySelected;
 	}
 	
-	// Save contract to be updated
-	public String saveContract() {
-		LoginUser lu = (LoginUser)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUser");
-		User currentUser = lu.getUser();
-		System.out.println(currentUser.getUsername());
-		this.contractService.createContract(contract, currentUser, contactCompany, contacts);
-		return null;
-	}
 }

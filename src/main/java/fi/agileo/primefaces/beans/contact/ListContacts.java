@@ -14,7 +14,7 @@ import javax.faces.model.SelectItem;
 import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.spring.service.ContactService;
 
-@ManagedBean(name="ListContacts")
+@ManagedBean
 @SessionScoped
 public class ListContacts {
 
