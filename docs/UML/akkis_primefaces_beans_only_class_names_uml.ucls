@@ -88,8 +88,9 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="fi.agileo.primefaces.beans.contactcompany.ShowContactCompany" project="akkis" 
-    file="/akkis/src/main/java/fi/agileo/primefaces/beans/contactcompany/ShowContactCompany.java" binary="false" 
+  <class id="10" language="java" name="fi.agileo.primefaces.beans.contactcompany.ShowOrModifyContactCompany" 
+    project="akkis" 
+    file="/akkis/src/main/java/fi/agileo/primefaces/beans/contactcompany/ShowOrModifyContactCompany.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="97" y="425"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
