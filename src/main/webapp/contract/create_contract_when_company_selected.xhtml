@@ -24,6 +24,47 @@
 				</p:panelGrid>
 				
 				<h:form>
+					<p:growl id="messages"></p:growl>
+
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Enter signdate:"></p:outputLabel>
+						<p:calendar value="#{createContractWhenCompanyPreSelected.contract.signdate}"></p:calendar>
+						<p:outputLabel value="Enter enddate:"></p:outputLabel>
+						<p:calendar value="#{createContractWhenCompanyPreSelected.contract.enddate}"></p:calendar>
+						<p:outputLabel value="Enter status:"></p:outputLabel>
+						<p:inputText value="#{createContractWhenCompanyPreSelected.contract.contractstatus}"></p:inputText>
+						<p:outputLabel value="Enter price:"></p:outputLabel>
+						<p:inputText value="#{createContractWhenCompanyPreSelected.contract.price}"></p:inputText>
+					</p:panelGrid>
+				
+					<p:dataTable 
+						value="#{createContractWhenCompanyPreSelected.contactCompany.companyContacts}" 
+						id="contacts"
+						var="c" rowKey="#{c.contactId}"
+						selection="#{createContractWhenCompanyPreSelected.selectedContacts}"
+						selectionMode="multiple">
+						<f:facet name="header">
+        	                Choose contacts that are making the contract
+            	   		</f:facet>
+						<p:column style="width:18px" />
+						<p:column headerText="Name">
+                   			#{c.name}  
+               			</p:column>
+						<p:column headerText="Phone">
+                  		 	#{c.phone}  
+               			</p:column>
+						<p:column headerText="Address">
+                   			#{c.address}  
+               			</p:column>
+						<p:column headerText="Country">
+                   			#{c.country}  
+               			</p:column>
+						<f:facet name="footer"></f:facet>
+					</p:dataTable>
+					<p:commandButton value="Submit"
+						action="#{createContractWhenCompanyPreSelected.saveContract}" update="messages"></p:commandButton>
+				</h:form>
+				<h:form>
 					<p:commandButton value="Return to main page" action="#{loginUser.toMainPage}"/>
 				</h:form>		
 			</ui:define>
