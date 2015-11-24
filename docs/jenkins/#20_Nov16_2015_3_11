@@ -1,0 +1,99 @@
+SuccessConsole Output
+
+Started by user anonymous
+Building in workspace /var/lib/jenkins/jobs/Akkis/workspace
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/muurahaisetagileo/akkis.git # timeout=10
+Fetching upstream changes from https://github.com/muurahaisetagileo/akkis.git
+ > git --version # timeout=10
+using .gitcredentials to set credentials
+ > git config --local credential.username jmseppala # timeout=10
+ > git config --local credential.helper store --file=/tmp/git2914965292896471575.credentials # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/muurahaisetagileo/akkis.git +refs/heads/*:refs/remotes/origin/*
+ > git config --local --remove-section credential # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 3964fd61c74905c409a5d4ac152f4ae20bba56fc (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 3964fd61c74905c409a5d4ac152f4ae20bba56fc
+ > git rev-list aeb22ad51c07bfbb8efc1db06fc6dbe08c6eba7c # timeout=10
+Parsing POMs
+Modules changed, recalculating dependency graph
+[workspace] $ /usr/lib/jvm/java-8-oracle/bin/java -cp /var/lib/jenkins/plugins/maven-plugin/WEB-INF/lib/maven31-agent-1.5.jar:/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven_3/boot/plexus-classworlds-2.5.2.jar:/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven_3/conf/logging jenkins.maven3.agent.Maven31Main /var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven_3 /var/cache/jenkins/war/WEB-INF/lib/remoting-2.52.jar /var/lib/jenkins/plugins/maven-plugin/WEB-INF/lib/maven31-interceptor-1.5.jar /var/lib/jenkins/plugins/maven-plugin/WEB-INF/lib/maven3-interceptor-commons-1.5.jar 52722
+<===[JENKINS REMOTING CAPACITY]===>channel started
+Executing Maven:  -B -f /var/lib/jenkins/jobs/Akkis/workspace/pom.xml install
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for fi.agileo.akkis:Akkis.muurahaiset:war:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 94, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Akkis muurahaiset 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ Akkis.muurahaiset ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ Akkis.muurahaiset ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 24 source files to /var/lib/jenkins/jobs/Akkis/workspace/target/classes
+[WARNING] /var/lib/jenkins/jobs/Akkis/workspace/src/main/java/fi/agileo/spring/service/UserService.java: /var/lib/jenkins/jobs/Akkis/workspace/src/main/java/fi/agileo/spring/service/UserService.java uses unchecked or unsafe operations.
+[WARNING] /var/lib/jenkins/jobs/Akkis/workspace/src/main/java/fi/agileo/spring/service/UserService.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ Akkis.muurahaiset ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/jobs/Akkis/workspace/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ Akkis.muurahaiset ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 2 source files to /var/lib/jenkins/jobs/Akkis/workspace/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ Akkis.muurahaiset ---
+[INFO] Surefire report directory: /var/lib/jenkins/jobs/Akkis/workspace/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.agileo.akkis.test.Test2
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.07 sec
+Running fi.agileo.akkis.test.Test
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.001 sec
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 3
+
+[JENKINS] Recording test results
+[INFO] 
+[INFO] --- maven-war-plugin:2.4:war (default-war) @ Akkis.muurahaiset ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [Akkis.muurahaiset] in [/var/lib/jenkins/jobs/Akkis/workspace/target/Akkis.muurahaiset]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/var/lib/jenkins/jobs/Akkis/workspace/src/main/webapp]
+[INFO] Webapp assembled in [258 msecs]
+[INFO] Building war: /var/lib/jenkins/jobs/Akkis/workspace/target/akkis.war
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ Akkis.muurahaiset ---
+[INFO] Installing /var/lib/jenkins/jobs/Akkis/workspace/target/akkis.war to /var/lib/jenkins/.m2/repository/fi/agileo/akkis/Akkis.muurahaiset/0.0.1-SNAPSHOT/Akkis.muurahaiset-0.0.1-SNAPSHOT.war
+[INFO] Installing /var/lib/jenkins/jobs/Akkis/workspace/pom.xml to /var/lib/jenkins/.m2/repository/fi/agileo/akkis/Akkis.muurahaiset/0.0.1-SNAPSHOT/Akkis.muurahaiset-0.0.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 21.057 s
+[INFO] Finished at: 2015-11-16T15:12:27+02:00
+[INFO] Final Memory: 26M/184M
+[INFO] ------------------------------------------------------------------------
+Waiting for Jenkins to finish collecting data
+[JENKINS] Archiving /var/lib/jenkins/jobs/Akkis/workspace/pom.xml to fi.agileo.akkis/Akkis.muurahaiset/0.0.1-SNAPSHOT/Akkis.muurahaiset-0.0.1-SNAPSHOT.pom
+[JENKINS] Archiving /var/lib/jenkins/jobs/Akkis/workspace/target/akkis.war to fi.agileo.akkis/Akkis.muurahaiset/0.0.1-SNAPSHOT/Akkis.muurahaiset-0.0.1-SNAPSHOT.war
+channel stopped
+Finished: SUCCESS
