@@ -20,7 +20,9 @@ import javax.persistence.Transient;
 	@NamedQuery(name="findByUsername",
 		query="SELECT u FROM User u WHERE u.username = :username"),
 	@NamedQuery(name="login", 
-		query="SELECT u FROM User u WHERE u.username = :username AND u.password = :password")
+		query="SELECT u FROM User u WHERE u.username = :username AND u.password = :password"),
+	@NamedQuery(name="User.findAll", 
+	query="SELECT u FROM User u")
 })
 public class User {
 	

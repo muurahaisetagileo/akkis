@@ -1,5 +1,6 @@
 package fi.agileo.spring.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -7,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.akkis.jpa.User;
 
 @Component
@@ -53,5 +55,13 @@ public class UserService {
 			return loginUsers.get(0);
 		return null;
 	}
+	
+	public List<User> findAllUsers() {
+		List<User> allUsers = new ArrayList<User>();
+		allUsers = (List<User>)em.createNamedQuery("User.findAll").getResultList();
+		
+		return allUsers;
+	}
+
 
 }
