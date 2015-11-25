@@ -29,7 +29,7 @@ public class UserServiceTest {
 		User u = new User();
 		u.setUsername("admin");
 		u.setPassword("admin");
-		u.setType(1);
+		u.setRole("ADMIN");
 		users.add(u);
 		
         Query mockedQuery = mock(Query.class);
@@ -46,7 +46,7 @@ public class UserServiceTest {
         User ucall = new User();
         ucall.setUsername("admin");
         ucall.setPassword("admin");
-        assertEquals(us.login(ucall).getType(), 1);
+        assertEquals(us.login(ucall).getRole(), "ADMIN");
      
 	}
 	
@@ -102,13 +102,13 @@ public class UserServiceTest {
 		User u = new User();
 		u.setUsername("u");
 		u.setPassword("u");
-		u.setType(1);
+		u.setRole("ADMIN");
 		users.add(u);
 		
 		User u2 = new User();
 		u.setUsername("u");
 		u.setPassword("u");
-		u.setType(1);
+		u.setRole("ADMIN");
 		users.add(u2);
 		
         Query mockedQuery = mock(Query.class);

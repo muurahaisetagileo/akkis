@@ -99,8 +99,8 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="fi.agileo.primefaces.beans.contract.ShowContract" project="akkis" 
-    file="/akkis/src/main/java/fi/agileo/primefaces/beans/contract/ShowContract.java" binary="false" 
+  <class id="11" language="java" name="fi.agileo.primefaces.beans.contract.ShowOrModifyContract" project="akkis" 
+    file="/akkis/src/main/java/fi/agileo/primefaces/beans/contract/ShowOrModifyContract.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="393" y="150"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

@@ -15,7 +15,7 @@
 
 			<h:form>
 				<p:growl id="messages"></p:growl>
-					<p:commandButton value="Submit"
+					<p:commandButton value="Search"
 						action="#{userSearch.allUsers}"
 						update="userList"></p:commandButton>
 
@@ -35,6 +35,9 @@
 					<p:column headerText="Lastname">
 					    #{u.lastName}  
 					</p:column>
+					<p:column headerText="User Role">
+					    #{u.role}  
+					</p:column>					
 				<f:facet name="footer"></f:facet>
 			</p:dataTable>
 			<p:commandButton value="Submit"

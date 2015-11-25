@@ -19,13 +19,13 @@ public class UserTest {
 		u.setFirstNames("Kalle Matti");
 		u.setLastName("Heikkinen");
 		u.setPassword("sala");
-		u.setType(1);
+		u.setRole("ADMIN");
 		
 		assertEquals(u.getUserId(), 10);
 		assertEquals(u.getFirstNames(), "Kalle Matti");
 		assertEquals(u.getLastName(), "Heikkinen");
 		assertEquals(u.getPassword(), "sala");
-		assertEquals(u.getType(), 1);
+		assertEquals(u.getRole(), "ADMIN");
 	}
 	
 	@Test

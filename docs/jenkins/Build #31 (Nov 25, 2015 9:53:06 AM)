@@ -1,0 +1,26 @@
+Build #31 (Nov 25, 2015 9:53:06 AM)
+add description
+	Changes
+
+    some changes due to code changes etc (commit: 2e25b618bd5acc31bcdd6c0d7cec78490c6bd542) (detail / githubweb)
+    contact company showing and parameter passing toward contract creation (commit: 6f111a183df315058927e7f98f781c2994b741d4) (detail / githubweb)
+    docs/jenkins (commit: d99924ffdb9eb21dbc7bcb212d14636ca386defd) (detail / githubweb)
+    docs/jenkins update (commit: 7e5c977e8eb664b5ea0a8e4bfcb176e3505079cb) (detail / githubweb)
+    docs/jenkins update (commit: eeb9577f5053b46d1b6773a32af852caf89195f5) (detail / githubweb)
+    docs/jenkins update (commit: dddabc5d77feecfcff6e3870bb232902ffee0aa7) (detail / githubweb)
+    duplicate jenkins files removed (commit: aba5f2744c4375297f9f332b373733ef5a5fcc43) (detail / githubweb)
+    last build added (commit: 94365210543258461c1b08483228c3b3aa41c458) (detail / githubweb)
+    contract creation succeeds now to database (commit: 5d7288d9dd298f51ff3ff8b73cb917b1f8994569) (detail / githubweb)
+    contracts shown when showing contact company in the table of contracts (commit: c6c0a0695f4b9e3afbc6c8e3f35858b1dc232fda) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: c6c0a0695f4b9e3afbc6c8e3f35858b1dc232fda
+
+    refs/remotes/origin/master
+
+	Test Result (no failures)
+
+Module Builds
+Success Akkis muurahaiset	18 sec

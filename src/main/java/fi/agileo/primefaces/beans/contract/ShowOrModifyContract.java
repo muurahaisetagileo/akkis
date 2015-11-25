@@ -1,29 +1,29 @@
 package fi.agileo.primefaces.beans.contract;
 
-import java.util.List;
+// import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
-import fi.agileo.akkis.jpa.Contact;
-import fi.agileo.akkis.jpa.ContactCompany;
+/* import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactCompany; */
 import fi.agileo.akkis.jpa.Contract;
-import fi.agileo.akkis.jpa.Deal;
-import fi.agileo.akkis.jpa.User;
+/* import fi.agileo.akkis.jpa.Deal;
+import fi.agileo.akkis.jpa.User; */
 import fi.agileo.spring.service.ContractService;
 
 @ManagedBean
-@RequestScoped
-public class ShowContract {
+@SessionScoped
+public class ShowOrModifyContract {
 	@ManagedProperty("#{contractService}")
 	private ContractService contractService;
 	
 	private Contract contract;
-	private User user;
+/*	private User user;
 	private ContactCompany contactCompany;
 	private List<Contact> contacts;
-	private List<Deal> deals;
+	private List<Deal> deals;*/
 
 	public ContractService getContractService() {
 		return contractService;
@@ -31,16 +31,17 @@ public class ShowContract {
 
 	public void setContractService(ContractService contractService) {
 		this.contractService = contractService;
+		System.out.println("ShowOrModifyContract, setContractService");
 	}
 	
 	
-	public String viewContract(Contract contract) {
-		this.contract = contractService.getContractPropertiesForView(contract);
+	public String toShowContract() {
+//		this.contract = contractService.getContractPropertiesForView(contract);
 		/* fetch contract information into ContractInformation object 
 		   and set its properties to members of this managed bean and 
 		   return the view page name */
-		
-		return "/contracts/showContract";
+		System.out.println("toShowContract");
+		return "/contract/showormodifycontract";
 	}
 
 	public Contract getContract() {
@@ -48,10 +49,11 @@ public class ShowContract {
 	}
 
 	public void setContract(Contract contract) {
+		System.out.println("ShowOrModifyContract, setContract, contract " + contract);
 		this.contract = contract;
 	}
 	
-	public User getUser() {
+/*	public User getUser() {
 		return user;
 	}
 
@@ -65,5 +67,5 @@ public class ShowContract {
 
 	public List<Deal> getDeals() {
 		return deals;
-	}
+	}*/
 }

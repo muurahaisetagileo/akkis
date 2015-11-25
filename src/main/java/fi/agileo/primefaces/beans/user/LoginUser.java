@@ -34,13 +34,33 @@ public class LoginUser {
 		this.user = user;
 	}
 	
-	private String mainPage(int type) {
-		if (type == 1) {
+	private String mainPage(String role) {
+		System.out.println("PÖÖÖÖÖÖÖÖ1");
+		if (role.equals("ADMIN")) {	
+			System.out.println("PÖÖÖÖÖÖÖÖ2");
 			return "admin_index";
 		}
-		else if (type == 3) {
+		else if (role.equals("USER")) {
 			return "user_index";
 		}
+		else if (role.equals("SALESPERSON")) {
+			return "salesperson_index";
+		}
+		else if (role.equals("SECRETARY")) {
+			return "secretary_index";
+		}
+		else if (role.equals("BILLER")) {
+			return "biller_index";
+		}
+		else if (role.equals("CUSTOMERSERVICE")) {
+			return "customerService_index";
+		}
+		else if (role.equals("TECHNICIAN")) {
+			return "technician_index";
+		}
+		else if (role.equals("BOSS")) {
+			return "boss_index";
+		}		
 		return "";
 	}
 	
@@ -49,8 +69,8 @@ public class LoginUser {
 			System.out.println("user is null when returning to main page");
 			return "";
 		}
-		System.out.println("toMainPage, user.getType()" + user.getType());
-		String page = "/" + mainPage(user.getType());
+		System.out.println("toMainPage, user.getRole()" + user.getRole());
+		String page = "/" + mainPage(user.getRole());
 		System.out.println("page " + page);
 		return page;
 	}
@@ -59,8 +79,9 @@ public class LoginUser {
 		System.out.println("managed bean 1ogin");
 		User foundUser = this.userService.login(user);
 		if (foundUser != null) {
+			System.out.println("Logged user: " + foundUser);
 			this.user = foundUser;
-			return mainPage(this.user.getType());
+			return mainPage(this.user.getRole());
 		}
 		System.out.println("login failed -> message");
 		FacesContext.getCurrentInstance().addMessage(null, 

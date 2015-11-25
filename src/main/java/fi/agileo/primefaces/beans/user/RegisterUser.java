@@ -1,10 +1,16 @@
 package fi.agileo.primefaces.beans.user;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.persistence.Transient;
 
 import fi.agileo.akkis.jpa.User;
 import fi.agileo.spring.service.UserService;
@@ -17,6 +23,20 @@ public class RegisterUser {
 	private UserService userService;
 
 	private User user = new User();
+	private List<String> roles; 
+	
+    @PostConstruct
+    public void init() {
+        roles = new ArrayList<String>();
+        roles.add("USER");
+        roles.add("SALESPERSON");
+        roles.add("SECRETARY");
+        roles.add("BILLER");
+        roles.add("CUSTOMERSERVICE");
+        roles.add("TECHNICIAN");
+        roles.add("BOSS");
+        roles.add("ADMIN");
+    }	
 
 	public UserService getUserService() {
 		return userService;
@@ -34,12 +54,20 @@ public class RegisterUser {
 		this.user = user;
 	}
 
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+
 	public String register() {
 		
 		// Can only register normal users
 		// Admin and boss are added manually
 		
-		user.setType(3);
+		//user.setRole("USER");
 		
 		// Calling Business Service
 		int i = userService.register(user);

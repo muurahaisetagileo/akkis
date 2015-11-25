@@ -1,5 +1,6 @@
 package fi.agileo.akkis.jpa;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -22,7 +23,10 @@ import javax.persistence.Transient;
 	@NamedQuery(name="login", 
 		query="SELECT u FROM User u WHERE u.username = :username AND u.password = :password"),
 	@NamedQuery(name="User.findAll", 
-	query="SELECT u FROM User u")
+	query="SELECT u FROM User u"),
+	@NamedQuery(name="User.search",
+	query="SELECT u FROM User u WHERE u.firstNames = :firstNames AND u.lastName = :lastName" +
+	" AND u.username = :username AND u.role IN :roles")
 })
 public class User {
 	
@@ -39,8 +43,8 @@ public class User {
 	@Column(name="PASSWORD")
 	private String password;
 	
-	@Column(name="TYPE")
-	private int type;
+	@Column(name="ROLE")
+	private String role;
 	
 	@Column(name="FIRSTNAMES")
 	private String firstNames;
@@ -49,7 +53,7 @@ public class User {
 	private String lastName;
 	
 	@Column(name="WHOLENAME")
-	private String wholename;
+	private String wholename;	
 	
 	// Relationships
 	@OneToMany(mappedBy="user")
@@ -87,12 +91,12 @@ public class User {
 		this.password = password;
 	}
 
-	public int getType() {
-		return type;
+	public String getRole() {
+		return role;
 	}
 
-	public void setType(int type) {
-		this.type = type;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public String getFirstNames() {
@@ -109,6 +113,15 @@ public class User {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public String getWholename() {
+		this.wholename = this.lastName + " " + this.firstNames;
+		return this.wholename;
+	}
+	
+	public void setWholename(String wholename) {
+		this.wholename = this.lastName + " " + this.firstNames;		
 	}
 
 	public List<Contract> getContracts() {
@@ -135,15 +148,6 @@ public class User {
 		this.contacts = contacts;
 	}
 	
-	public String getWholename() {
-		this.wholename = this.lastName + " " + this.firstNames;
-		return this.wholename;
-	}
-	
-	public void setWholename(String wholename) {
-		this.wholename = this.lastName + " " + this.firstNames;		
-	}
-	
 	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof User))
@@ -157,7 +161,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", username=" + 
-				username + ", password=" + password + ", type=" + type + "]";
+				username + ", password=" + password + ", type=" + role + "]";
 	}
 
 }
