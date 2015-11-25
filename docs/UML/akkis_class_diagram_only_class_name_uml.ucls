@@ -187,8 +187,8 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="fi.agileo.primefaces.beans.contract.ShowContract" project="akkis" 
-    file="/akkis/src/main/java/fi/agileo/primefaces/beans/contract/ShowContract.java" binary="false" 
+  <class id="21" language="java" name="fi.agileo.primefaces.beans.contract.ShowOrModifyContract" project="akkis" 
+    file="/akkis/src/main/java/fi/agileo/primefaces/beans/contract/ShowOrModifyContract.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2436" y="568"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -218,61 +218,62 @@
     </display>  
   </class>  
   <association id="24">    
-    <bendpoint x="616" y="426"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="25" name="user">        
-        <position height="17" width="29" x="724" y="-113"/>      
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="25" name="contacts">        
+        <position height="17" width="47" x="235" y="20"/>      
       </attribute>      
-      <multiplicity id="26" minimum="0" maximum="1">        
-        <position height="15" width="23" x="546" y="724"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="27">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="28" name="dealService">        
-        <position height="17" width="63" x="2225" y="877"/>      
-      </attribute>      
-      <multiplicity id="29" minimum="0" maximum="1">        
-        <position height="15" width="23" x="2239" y="892"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="30">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="31" name="contactCompany">        
-        <position height="17" width="88" x="521" y="-157"/>      
-      </attribute>      
-      <multiplicity id="32" minimum="0" maximum="1">        
+      <multiplicity id="26" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="27">    
+    <bendpoint x="575" y="924"/>    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="28" name="deal">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="30">    
+    <bendpoint x="756" y="870"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="31" name="deal">        
+        <position height="17" width="28" x="1757" y="771"/>      
+      </attribute>      
+      <multiplicity id="32" minimum="0" maximum="1">        
+        <position height="15" width="23" x="1790" y="769"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="33">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="34" name="contracts">        
-        <position height="17" width="51" x="363" y="581"/>      
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="34" name="contactsToSetForContactCompany">        
+        <position height="17" width="175" x="330" y="9"/>      
       </attribute>      
       <multiplicity id="35" minimum="0" maximum="2147483647">        
-        <position height="15" width="21" x="223" y="657"/>      
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="36">    
-    <bendpoint x="273" y="35"/>    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="37" name="contact">        
-        <position height="17" width="42" x="191" y="-32"/>      
+    <bendpoint x="307" y="399"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="37" name="contactsToBeAdded">        
+        <position height="17" width="103" x="2281" y="268"/>      
       </attribute>      
-      <multiplicity id="38" minimum="0" maximum="1">        
+      <multiplicity id="38" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
@@ -280,59 +281,57 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="39">    
-    <bendpoint x="267" y="779"/>    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="40" name="contract">        
-        <position height="17" width="46" x="302" y="742"/>      
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="40" name="contacts">        
+        <position height="17" width="47" x="460" y="714"/>      
       </attribute>      
-      <multiplicity id="41" minimum="0" maximum="1">        
-        <position height="15" width="23" x="212" y="763"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="42">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="43" name="contacts">        
-        <position height="17" width="47" x="235" y="20"/>      
-      </attribute>      
-      <multiplicity id="44" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="41" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="459" y="704"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="45">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="46" name="user">        
+  <association id="42">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="43" name="user">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="47" minimum="0" maximum="1">        
+      <multiplicity id="44" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="48">    
-    <bendpoint x="99" y="-28"/>    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="49" name="contacts">        
-        <position height="17" width="47" x="125" y="128"/>      
+  <association id="45">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="46" name="contractService">        
+        <position height="17" width="81" x="2665" y="513"/>      
       </attribute>      
-      <multiplicity id="50" minimum="0" maximum="2147483647">        
-        <position height="15" width="21" x="100" y="206"/>      
+      <multiplicity id="47" minimum="0" maximum="1">        
+        <position height="15" width="23" x="2723" y="525"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="49" name="contactCompanyService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="50" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="51">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="52" name="currentContacts">        
-        <position height="17" width="84" x="170" y="67"/>      
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="52" name="contacts">        
+        <position height="17" width="47" x="44" y="-78"/>      
       </attribute>      
       <multiplicity id="53" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
@@ -342,34 +341,34 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="54">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="55" name="contactCompany">        
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="55" name="user">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="56" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="57">    
-    <bendpoint x="222" y="494"/>    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="58" name="contacts">        
-        <position height="17" width="47" x="-55" y="221"/>      
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="58" name="contracts">        
+        <position height="17" width="51" x="363" y="581"/>      
       </attribute>      
       <multiplicity id="59" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="15" width="21" x="223" y="657"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="60">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="61" name="contactWithoutContactCompany">        
-        <position height="17" width="161" x="345" y="57"/>      
+    <bendpoint x="222" y="494"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="61" name="contacts">        
+        <position height="17" width="47" x="-55" y="221"/>      
       </attribute>      
       <multiplicity id="62" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
@@ -379,85 +378,81 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="63">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="64" name="contract">        
-        <position height="17" width="46" x="912" y="621"/>      
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="64" name="contactCompany">        
+        <position height="17" width="88" x="509" y="-172"/>      
       </attribute>      
       <multiplicity id="65" minimum="0" maximum="1">        
-        <position height="15" width="23" x="922" y="633"/>      
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="66">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="67" name="dealService">        
+        <position height="17" width="63" x="2225" y="877"/>      
+      </attribute>      
+      <multiplicity id="68" minimum="0" maximum="1">        
+        <position height="15" width="23" x="2239" y="892"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
     <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="67" name="notAddedContactCompanyContacts">        
+      <attribute id="70" name="notAddedContactCompanyContacts">        
         <position height="17" width="179" x="2095" y="336"/>      
       </attribute>      
-      <multiplicity id="68" minimum="0" maximum="2147483647">        
+      <multiplicity id="71" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="69">    
-    <bendpoint x="995" y="824"/>    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="70" name="deals">        
-        <position height="17" width="33" x="1005" y="644"/>      
-      </attribute>      
-      <multiplicity id="71" minimum="0" maximum="2147483647">        
-        <position height="15" width="21" x="1782" y="806"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <association id="72">    
-    <bendpoint x="414" y="385"/>    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="73" name="currentContacts">        
-        <position height="17" width="84" x="373" y="-17"/>      
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="73" name="contracts">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="74" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="75">    
-    <bendpoint x="480" y="367"/>    
-    <end type="SOURCE" refId="2" navigable="false">      
+    <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="76" name="contracts">        
-        <position height="17" width="51" x="393" y="488"/>      
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="77" minimum="0" maximum="2147483647">        
-        <position height="15" width="21" x="209" y="694"/>      
+        <position height="15" width="21" x="22" y="617"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="78">    
-    <bendpoint x="164" y="895"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="79" name="contract">        
-        <position height="17" width="46" x="183" y="682"/>      
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="79" name="currentContacts">        
+        <position height="17" width="84" x="170" y="67"/>      
       </attribute>      
-      <multiplicity id="80" minimum="0" maximum="1">        
-        <position height="15" width="23" x="1617" y="671"/>      
+      <multiplicity id="80" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="81">    
-    <end type="SOURCE" refId="10" navigable="false">      
+    <end type="SOURCE" refId="22" navigable="false">      
       <attribute id="82" name="user">        
-        <position height="17" width="29" x="544" y="709"/>      
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="83" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
@@ -479,434 +474,438 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="87">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="88" name="contactCompanyService">        
-        <position height="17" width="123" x="2317" y="395"/>      
+    <bendpoint x="273" y="35"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="88" name="contact">        
+        <position height="17" width="42" x="191" y="-32"/>      
       </attribute>      
       <multiplicity id="89" minimum="0" maximum="1">        
-        <position height="15" width="23" x="2372" y="322"/>      
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="90">    
-    <bendpoint x="379" y="317"/>    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="91" name="contact">        
-        <position height="17" width="42" x="178" y="27"/>      
-      </attribute>      
-      <multiplicity id="92" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="93">    
-    <bendpoint x="88" y="489"/>    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="94" name="deals">        
-        <position height="17" width="33" x="79" y="500"/>      
-      </attribute>      
-      <multiplicity id="95" minimum="0" maximum="2147483647">        
-        <position height="15" width="21" x="92" y="513"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="96">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="97" name="contactCompanyService">        
-        <position height="17" width="123" x="2248" y="159"/>      
-      </attribute>      
-      <multiplicity id="98" minimum="0" maximum="1">        
-        <position height="15" width="23" x="2376" y="161"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="99">    
-    <bendpoint x="245" y="428"/>    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="100" name="contacts">        
-        <position height="17" width="47" x="-65" y="170"/>      
-      </attribute>      
-      <multiplicity id="101" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="102">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="103" name="user">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="104" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="105">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="106" name="contactService">        
-        <position height="17" width="77" x="2243" y="12"/>      
-      </attribute>      
-      <multiplicity id="107" minimum="0" maximum="1">        
-        <position height="15" width="23" x="2291" y="28"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="108">    
-    <bendpoint x="575" y="924"/>    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="109" name="deal">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="110" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="111">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="112" name="user">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="113" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="114">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="115" name="contacts">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="116" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="117">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="118" name="contactCompanyService">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="119" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="120">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="121" name="userService">        
-        <position height="17" width="64" x="2203" y="-141"/>      
-      </attribute>      
-      <multiplicity id="122" minimum="0" maximum="1">        
-        <position height="15" width="23" x="2238" y="-128"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="123">    
-    <bendpoint x="756" y="870"/>    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="124" name="deal">        
-        <position height="17" width="28" x="1757" y="771"/>      
-      </attribute>      
-      <multiplicity id="125" minimum="0" maximum="1">        
-        <position height="15" width="23" x="1790" y="769"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="126">    
-    <bendpoint x="130" y="458"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="127" name="contacts">        
-        <position height="17" width="47" x="109" y="221"/>      
-      </attribute>      
-      <multiplicity id="128" minimum="0" maximum="2147483647">        
-        <position height="15" width="21" x="125" y="88"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="129">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="130" name="contactCompany">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="131" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="132">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="133" name="contacts">        
-        <position height="17" width="47" x="460" y="714"/>      
-      </attribute>      
-      <multiplicity id="134" minimum="0" maximum="2147483647">        
-        <position height="15" width="21" x="459" y="704"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="135">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="136" name="userService">        
-        <position height="17" width="64" x="2199" y="-84"/>      
-      </attribute>      
-      <multiplicity id="137" minimum="0" maximum="1">        
-        <position height="15" width="23" x="2222" y="-71"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="138">    
-    <bendpoint x="2122" y="928"/>    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="139" name="dealService">        
-        <position height="17" width="63" x="1482" y="875"/>      
-      </attribute>      
-      <multiplicity id="140" minimum="0" maximum="1">        
-        <position height="15" width="23" x="1544" y="870"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="141">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="142" name="contactsToSetForContactCompany">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="143" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="144">    
-    <bendpoint x="663" y="908"/>    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="145" name="deals">        
-        <position height="17" width="33" x="1748" y="805"/>      
-      </attribute>      
-      <multiplicity id="146" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="147">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="148" name="contactCompany">        
-        <position height="17" width="88" x="509" y="-172"/>      
-      </attribute>      
-      <multiplicity id="149" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="150">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="151" name="contracts">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="152" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="153">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="154" name="contactCompany">        
-        <position height="17" width="88" x="412" y="-77"/>      
-      </attribute>      
-      <multiplicity id="155" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="156">    
-    <bendpoint x="746" y="362"/>    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="157" name="deals">        
-        <position height="17" width="33" x="788" y="58"/>      
-      </attribute>      
-      <multiplicity id="158" minimum="0" maximum="2147483647">        
-        <position height="15" width="21" x="793" y="47"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="159">    
-    <bendpoint x="267" y="204"/>    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="160" name="contactCompany">        
-        <position height="17" width="88" x="-65" y="-139"/>      
-      </attribute>      
-      <multiplicity id="161" minimum="0" maximum="1">        
-        <position height="15" width="23" x="53" y="-93"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="162">    
-    <bendpoint x="23" y="-165"/>    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="163" name="contactCompany">        
-        <position height="17" width="88" x="284" y="-182"/>      
-      </attribute>      
-      <multiplicity id="164" minimum="0" maximum="1">        
-        <position height="15" width="23" x="339" y="-163"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="165">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="166" name="contactCompany">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="167" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="168">    
-    <bendpoint x="184" y="32"/>    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="169" name="salesPerson">        
-        <position height="17" width="66" x="653" y="-157"/>      
-      </attribute>      
-      <multiplicity id="170" minimum="0" maximum="1">        
-        <position height="15" width="23" x="694" y="-138"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="171">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="172" name="contactCompany">        
-        <position height="17" width="88" x="274" y="-123"/>      
-      </attribute>      
-      <multiplicity id="173" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="174">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="175" name="contactService">        
-        <position height="17" width="77" x="2242" y="-48"/>      
-      </attribute>      
-      <multiplicity id="176" minimum="0" maximum="1">        
-        <position height="15" width="23" x="2294" y="-31"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="177">    
-    <bendpoint x="307" y="399"/>    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="178" name="contactsToBeAdded">        
-        <position height="17" width="103" x="2281" y="268"/>      
-      </attribute>      
-      <multiplicity id="179" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="180">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="181" name="contractService">        
-        <position height="17" width="81" x="2665" y="513"/>      
-      </attribute>      
-      <multiplicity id="182" minimum="0" maximum="1">        
-        <position height="15" width="23" x="2723" y="525"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="183">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="184" name="contacts">        
-        <position height="17" width="47" x="44" y="-78"/>      
-      </attribute>      
-      <multiplicity id="185" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="186">    
     <bendpoint x="167" y="956"/>    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="187" name="deals">        
+      <attribute id="91" name="deals">        
         <position height="17" width="33" x="2212" y="820"/>      
       </attribute>      
-      <multiplicity id="188" minimum="0" maximum="2147483647">        
+      <multiplicity id="92" minimum="0" maximum="2147483647">        
         <position height="15" width="21" x="2248" y="820"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="189">    
+  <association id="93">    
+    <bendpoint x="995" y="824"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="94" name="deals">        
+        <position height="17" width="33" x="1005" y="644"/>      
+      </attribute>      
+      <multiplicity id="95" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="1782" y="806"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="96">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="97" name="userService">        
+        <position height="17" width="64" x="2203" y="-141"/>      
+      </attribute>      
+      <multiplicity id="98" minimum="0" maximum="1">        
+        <position height="15" width="23" x="2238" y="-128"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="99">    
+    <bendpoint x="267" y="779"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="100" name="contract">        
+        <position height="17" width="46" x="302" y="742"/>      
+      </attribute>      
+      <multiplicity id="101" minimum="0" maximum="1">        
+        <position height="15" width="23" x="212" y="763"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="102">    
+    <bendpoint x="480" y="367"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="103" name="contracts">        
+        <position height="17" width="51" x="393" y="488"/>      
+      </attribute>      
+      <multiplicity id="104" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="209" y="694"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="105">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="106" name="contract">        
+        <position height="17" width="46" x="912" y="621"/>      
+      </attribute>      
+      <multiplicity id="107" minimum="0" maximum="1">        
+        <position height="15" width="23" x="922" y="633"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="108">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="109" name="contactCompany">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="110" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="111">    
+    <bendpoint x="245" y="428"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="112" name="contacts">        
+        <position height="17" width="47" x="-65" y="170"/>      
+      </attribute>      
+      <multiplicity id="113" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="114">    
+    <bendpoint x="99" y="-28"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="115" name="contacts">        
+        <position height="17" width="47" x="125" y="128"/>      
+      </attribute>      
+      <multiplicity id="116" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="100" y="206"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="117">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="118" name="contacts">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="119" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="120">    
     <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="190" name="contactsToSetForContactCompany">        
-        <position height="17" width="175" x="330" y="9"/>      
+      <attribute id="121" name="contactWithoutContactCompany">        
+        <position height="17" width="161" x="345" y="57"/>      
+      </attribute>      
+      <multiplicity id="122" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="123">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="124" name="contactCompany">        
+        <position height="17" width="88" x="521" y="-157"/>      
+      </attribute>      
+      <multiplicity id="125" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="126">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="127" name="user">        
+        <position height="17" width="29" x="544" y="709"/>      
+      </attribute>      
+      <multiplicity id="128" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="129">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="130" name="contactCompanyService">        
+        <position height="17" width="123" x="2248" y="159"/>      
+      </attribute>      
+      <multiplicity id="131" minimum="0" maximum="1">        
+        <position height="15" width="23" x="2376" y="161"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="132">    
+    <bendpoint x="45" y="-105"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="133" name="companyContacts">        
+        <position height="17" width="93" x="156" y="94"/>      
+      </attribute>      
+      <multiplicity id="134" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="172" y="135"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="135">    
+    <bendpoint x="746" y="362"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="136" name="deals">        
+        <position height="17" width="33" x="788" y="58"/>      
+      </attribute>      
+      <multiplicity id="137" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="793" y="47"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="138">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="139" name="contactService">        
+        <position height="17" width="77" x="2242" y="-48"/>      
+      </attribute>      
+      <multiplicity id="140" minimum="0" maximum="1">        
+        <position height="15" width="23" x="2294" y="-31"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="141">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="142" name="contactCompany">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="143" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="144">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="145" name="contactsToSetForContactCompany">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="146" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="147">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="148" name="contactService">        
+        <position height="17" width="77" x="2243" y="12"/>      
+      </attribute>      
+      <multiplicity id="149" minimum="0" maximum="1">        
+        <position height="15" width="23" x="2291" y="28"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="150">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="151" name="contactCompany">        
+        <position height="17" width="88" x="412" y="-77"/>      
+      </attribute>      
+      <multiplicity id="152" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="153">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="154" name="contactCompanyService">        
+        <position height="17" width="123" x="2317" y="395"/>      
+      </attribute>      
+      <multiplicity id="155" minimum="0" maximum="1">        
+        <position height="15" width="23" x="2372" y="322"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="156">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="157" name="contactCompany">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="158" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="159">    
+    <bendpoint x="414" y="385"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="160" name="currentContacts">        
+        <position height="17" width="84" x="373" y="-17"/>      
+      </attribute>      
+      <multiplicity id="161" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="162">    
+    <bendpoint x="869" y="789"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="163" name="deals">        
+        <position height="17" width="33" x="676" y="701"/>      
+      </attribute>      
+      <multiplicity id="164" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="1009" y="659"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="165">    
+    <bendpoint x="164" y="895"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="166" name="contract">        
+        <position height="17" width="46" x="183" y="682"/>      
+      </attribute>      
+      <multiplicity id="167" minimum="0" maximum="1">        
+        <position height="15" width="23" x="1617" y="671"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="168">    
+    <bendpoint x="2122" y="928"/>    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="169" name="dealService">        
+        <position height="17" width="63" x="1482" y="875"/>      
+      </attribute>      
+      <multiplicity id="170" minimum="0" maximum="1">        
+        <position height="15" width="23" x="1544" y="870"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="171">    
+    <bendpoint x="267" y="204"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="172" name="contactCompany">        
+        <position height="17" width="88" x="-65" y="-139"/>      
+      </attribute>      
+      <multiplicity id="173" minimum="0" maximum="1">        
+        <position height="15" width="23" x="53" y="-93"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="174">    
+    <bendpoint x="616" y="426"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="175" name="user">        
+        <position height="17" width="29" x="724" y="-113"/>      
+      </attribute>      
+      <multiplicity id="176" minimum="0" maximum="1">        
+        <position height="15" width="23" x="546" y="724"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="177">    
+    <bendpoint x="181" y="812"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="178" name="contract">        
+        <position height="17" width="46" x="1601" y="658"/>      
+      </attribute>      
+      <multiplicity id="179" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="180">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="181" name="userService">        
+        <position height="17" width="64" x="2199" y="-84"/>      
+      </attribute>      
+      <multiplicity id="182" minimum="0" maximum="1">        
+        <position height="15" width="23" x="2222" y="-71"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="183">    
+    <bendpoint x="88" y="489"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="184" name="deals">        
+        <position height="17" width="33" x="79" y="500"/>      
+      </attribute>      
+      <multiplicity id="185" minimum="0" maximum="2147483647">        
+        <position height="15" width="21" x="92" y="513"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="186">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="187" name="user">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="188" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="189">    
+    <bendpoint x="130" y="458"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="190" name="contacts">        
+        <position height="17" width="47" x="109" y="221"/>      
       </attribute>      
       <multiplicity id="191" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="15" width="21" x="125" y="88"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
@@ -925,66 +924,67 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="195">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="196" name="contracts">        
-        <position height="0" width="0" x="0" y="0"/>      
+    <bendpoint x="663" y="908"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="196" name="deals">        
+        <position height="17" width="33" x="1748" y="805"/>      
       </attribute>      
       <multiplicity id="197" minimum="0" maximum="2147483647">        
-        <position height="15" width="21" x="22" y="617"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="198">    
-    <bendpoint x="45" y="-105"/>    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="199" name="companyContacts">        
-        <position height="17" width="93" x="156" y="94"/>      
-      </attribute>      
-      <multiplicity id="200" minimum="0" maximum="2147483647">        
-        <position height="15" width="21" x="172" y="135"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="201">    
-    <bendpoint x="869" y="789"/>    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="202" name="deals">        
-        <position height="17" width="33" x="676" y="701"/>      
-      </attribute>      
-      <multiplicity id="203" minimum="0" maximum="2147483647">        
-        <position height="15" width="21" x="1009" y="659"/>      
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="204">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="205" name="user">        
+  <association id="198">    
+    <bendpoint x="23" y="-165"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="199" name="contactCompany">        
+        <position height="17" width="88" x="284" y="-182"/>      
+      </attribute>      
+      <multiplicity id="200" minimum="0" maximum="1">        
+        <position height="15" width="23" x="339" y="-163"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="201">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="202" name="contactCompany">        
+        <position height="17" width="88" x="274" y="-123"/>      
+      </attribute>      
+      <multiplicity id="203" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="204">    
+    <bendpoint x="379" y="317"/>    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="205" name="contact">        
+        <position height="17" width="42" x="178" y="27"/>      
       </attribute>      
       <multiplicity id="206" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="207">    
-    <bendpoint x="181" y="812"/>    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="208" name="contract">        
-        <position height="17" width="46" x="1601" y="658"/>      
+    <bendpoint x="184" y="32"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="208" name="salesPerson">        
+        <position height="17" width="66" x="653" y="-157"/>      
       </attribute>      
       <multiplicity id="209" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+        <position height="15" width="23" x="694" y="-138"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
