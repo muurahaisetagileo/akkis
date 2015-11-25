@@ -1,0 +1,72 @@
+	<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+		<title>Akkis - Show or modify contract</title>
+	</h:head>
+
+	<h:body>
+		<ui:composition template="../templates/template_action.xhtml">
+		<ui:param name="title" value="Show or modify contract" />
+			<ui:define name="content">
+				<p:panelGrid columns="2">
+					<h:outputText value="Customer company making contract:"></h:outputText>
+					<h:inputText 
+						value="#{showOrModifyContract.contract.contactCompany.name}"
+						readonly="readonly">
+					</h:inputText>
+					<h:outputText value="Signdate:"></h:outputText>
+					<h:inputText 
+						value="#{showOrModifyContract.contract.signdate}" 
+						readonly="readonly">
+					</h:inputText>
+					<h:outputText value="Enddate:"></h:outputText>
+					<h:inputText 
+						value="#{showOrModifyContract.contract.enddate}"
+						readonly="readonly">
+					</h:inputText>
+					<h:outputText value="Status:"></h:outputText>
+					<h:inputText 
+						value="#{showOrModifyContract.contract.contractstatus}"
+						readonly="readonly">
+					</h:inputText>
+					<h:outputText value="Price:"></h:outputText>
+					<h:inputText 
+						value="#{showContract.contract.price}"
+						readonly="readonly">
+					</h:inputText>
+				</p:panelGrid>
+				
+				<p:dataTable value="#{ShowContract.contract.contacts}" 
+					id="contact"	
+					var="c">
+					<f:facet name="header">
+                   		Customers that have participated contract
+               		</f:facet>
+					<p:column style="width:18px" />
+					<p:column headerText="Name">
+                   		#{c.name}  
+               		</p:column>
+					<p:column headerText="Phone">
+                   		#{c.phone}  
+               		</p:column>
+					<p:column headerText="Address">
+                   		#{c.address}  
+               		</p:column>
+					<p:column headerText="Country">
+                   		#{c.country}  
+               		</p:column>
+					<f:facet name="footer"></f:facet>
+				</p:dataTable>
+				<h:form>
+					<p:commandButton 
+						value="Return to main page" 
+						action="#{loginUser.toMainPage}"/>
+				</h:form>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+</html>

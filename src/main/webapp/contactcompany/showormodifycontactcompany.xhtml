@@ -34,8 +34,11 @@
 					<p:column headerText="Country">#{c.country}</p:column>
 					<f:facet name="footer"></f:facet>
 			</p:dataTable>
-	 		<p:dataTable value="#{showOrModifyContactCompany.contactCompany.contracts}" id="contracts"
-					var="contract" rowKey="#{contract.contractId}" selection="#{showContract.contract}"
+			<h:form>
+	 			<p:dataTable value="#{showOrModifyContactCompany.contactCompany.contracts}" id="contracts"
+					var="contract" 
+					rowKey="#{contract.contractId}" 
+					selection="#{showOrModifyContract.contract}"
 					selectionMode="single" >
 					<f:facet name="header">
                    	List of contracts of contact company
@@ -52,7 +55,14 @@
     	            <p:column headerText="Price">
     	            	<h:outputText value="#{contract.price}"></h:outputText>
     	            </p:column>
-			</p:dataTable>
+	 				<f:facet name="footer">
+						<p:commandButton 
+							value="Show or modify contract" 
+							action="#{showOrModifyContract.toShowContract}">
+						</p:commandButton>
+					</f:facet> 
+				</p:dataTable>
+			</h:form>
 			<h:form>
 				<p:commandButton value="Add contract" action="#{createContractWhenCompanyPreSelected.toCreateContract}">
 					<f:setPropertyActionListener target="#{createContractWhenCompanyPreSelected.contactCompany}" 
