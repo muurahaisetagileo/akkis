@@ -3,18 +3,17 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<h:outputStylesheet name="css/styles.css"  />
 </h:head>
 <h:body>
-	<h:graphicImage library="images" name="akkis_logo.jpg" />	
-	<ui:include src="#{loginUser.menuInclude}"></ui:include>
-
-	<ui:insert name="header_action">
+	<h:graphicImage library="images" name="akkis_logo.jpg" />
+	<ui:insert name = "navigation_bar"></ui:insert>
+	<ui:insert name="header_main">
 		<h3>#{title}</h3>
-	</ui:insert>
+     	<div class="news"> #{news} </div>
+	</ui:insert> 
 	<ui:insert name="content" />
 </h:body>
 </html>

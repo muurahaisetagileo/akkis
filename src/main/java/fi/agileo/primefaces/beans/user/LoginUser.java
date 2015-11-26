@@ -35,9 +35,7 @@ public class LoginUser {
 	}
 	
 	private String mainPage(String role) {
-		System.out.println("PÖÖÖÖÖÖÖÖ1");
 		if (role.equals("ADMIN")) {	
-			System.out.println("PÖÖÖÖÖÖÖÖ2");
 			return "admin_index";
 		}
 		else if (role.equals("USER")) {
@@ -99,6 +97,35 @@ public class LoginUser {
 		}
 		System.out.println("to signout");
 		return "/signed_out";
+	}
+	
+	public String getMenuInclude() {
+		String ur = user.getRole();
+		if (ur.equals("ADMIN")) {	
+			return "../admin_navi.xhtml";
+		}
+		else if (ur.equals("USER")) {
+			return "../user_navi.xhtml";
+		}
+		else if (ur.equals("SALESPERSON")) {
+			return "../salesperson_navi.xhtml";
+		}
+		else if (ur.equals("SECRETARY")) {
+			return "../secretary_navi.xhtml";
+		}
+		else if (ur.equals("BILLER")) {
+			return "../biller_navi.xhtml";
+		}
+		else if (ur.equals("CUSTOMERSERVICE")) {
+			return "../customerService_navi.xhtml";
+		}
+		else if (ur.equals("TECHNICIAN")) {
+			return "../technician_navi.xhtml";
+		}
+		else if (ur.equals("BOSS")) {
+			return "../boss_navi.xhtml";
+		}			
+		return "";
 	}
 
 }

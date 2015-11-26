@@ -8,7 +8,37 @@
 	<title>Akkis - Index (user)</title>
 </h:head>
 <h:body>
-	<ui:composition template="templates/template_main.xhtml">
+	<ui:composition template="templates/template_user.xhtml">
+		<ui:define name="navigation_bar">
+
+<h:form>  
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+    	<p:menuitem value="Main Page" outcome="user_index" icon="ui-icon-home" />     
+         
+         <p:submenu label="Users" icon="ui-icon-person">
+            <p:menuitem icon="ui-icon-search" value="User Search" outcome="user/user_search" />
+            <p:menuitem icon="ui-icon-plus" value="Add New User" outcome="user/register_user" />
+        </p:submenu>   
+        
+         <p:submenu label="Client Companies" icon="ui-icon-contact">
+            <p:menuitem icon="ui-icon-search" value="Client Company Search" outcome="contactcompany/contactcompany_list" />
+            <p:menuitem icon="ui-icon-plus" value="Add New Company" outcome="contactcompany/create_contactcompany" />
+        </p:submenu>                
+ 
+         <p:submenu label="Contacts" icon="ui-icon-person">
+            <p:menuitem icon="ui-icon-search" value="Contact Search" outcome="contact/contact_list" />
+            <p:menuitem icon="ui-icon-plus" value="Add New Contact" outcome="contact/create_contact" />
+        </p:submenu>              
+ 
+        <f:facet name="options">
+            <p:commandButton value="Logout" action="#{loginUser.logout}" icon="ui-icon-power" />
+        </f:facet>
+    </p:menubar>
+</h:form>
+
+    	</ui:define>
 		<ui:param name="title" value="User index page" />
 		<ui:param name="news" value="Ajankohtaista asiaa tässä..." />
 		<ui:define name="content">
