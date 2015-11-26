@@ -50,6 +50,7 @@ public class ShowOrModifyContract {
 
 	public void setContract(Contract contract) {
 		System.out.println("ShowOrModifyContract, setContract, contract " + contract);
+		contract = contractService.getContractPropertiesForView(contract);
 		this.contract = contract;
 	}
 	

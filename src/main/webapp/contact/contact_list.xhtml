@@ -17,8 +17,10 @@
 				<p:growl id="messages"></p:growl>
 
 				<p:panelGrid columns="2">
-					<p:outputLabel value="Search with salesman name:"></p:outputLabel>
-					<p:inputText value="#{listContacts.searchSalesmanName}"></p:inputText>
+					<p:outputLabel value="Search with salesman first names:"></p:outputLabel>
+					<p:inputText value="#{listContacts.searchSalesmanFirstNames}"></p:inputText>
+					<p:outputLabel value="Search with salesman last name:"></p:outputLabel>
+					<p:inputText value="#{listContacts.searchSalesmanLastName}"></p:inputText>
 					<p:outputLabel value="Search with contact state:"></p:outputLabel>
 					<p:selectManyCheckbox value="#{listContacts.seekedContactTypes}">
 						<f:selectItems value="#{listContacts.contactTypeOptions}"/>

@@ -30,8 +30,10 @@ import javax.persistence.JoinTable;
 	@NamedQuery(name="Contact.findContactsWithoutCompany", query="SELECT c FROM Contact c WHERE c.contactCompany IS NULL"),
 	@NamedQuery(name="Contact.findForSearch", 
 				query="SELECT c FROM Contact c WHERE c.country LIKE :countrySearch AND " +
-						"c.type IN :seekedTypes AND"
-						+ " c.salesPerson IS NOT NULL AND c.salesPerson.wholename LIKE :salesManSearch")
+					  "c.type IN :seekedTypes AND " + 
+					  "c.salesPerson IS NOT NULL AND " +
+					  "c.salesPerson.firstNames LIKE :salesManFirstNamesSearch AND " +
+					  "c.salesPerson.lastName LIKE :salesManLastNameSearch")
 })
 
 @Table(name="CONTACT")

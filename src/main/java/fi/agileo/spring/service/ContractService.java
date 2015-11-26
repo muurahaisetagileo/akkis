@@ -66,7 +66,10 @@ public class ContractService {
 	}
 	
 
+	@Transactional
 	public Contract getContractPropertiesForView(Contract contract) {
+		contract = em.find(Contract.class, contract.getContractId());
+		// em.merge(contract);
 		em.refresh(contract);
 		contract.getContacts();
 		contract.getContactCompany();

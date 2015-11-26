@@ -1,14 +1,11 @@
 package fi.agileo.primefaces.beans.contact;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 import fi.agileo.akkis.jpa.Contact;
@@ -24,7 +21,9 @@ public class ListContacts {
 	private List<Contact> searchedContacts = new ArrayList<Contact>();
 	private List<Contact> selectedContacts = new ArrayList<Contact>();
 
-	private String searchSalesmanName;
+	private String searchSalesmanFirstNames;
+	private String searchSalesmanLastName;
+	
 	private String countrySearch;
 	private Integer[] seekedContactTypes;
 	
@@ -59,12 +58,20 @@ public class ListContacts {
 		this.selectedContacts = selectedContacts;
 	}
 	
-	public String getSearchSalesmanName() {
-		return this.searchSalesmanName;
+	public String getSearchSalesmanFirstNames() {
+		return this.searchSalesmanFirstNames;
 	}
 	
-	public void setSearchSalesmanName(String searchSalesmanName) {
-		this.searchSalesmanName = searchSalesmanName;
+	public void setSearchSalesmanFirstNames(String searchSalesmanFirstNames) {
+		this.searchSalesmanFirstNames = searchSalesmanFirstNames;
+	}
+	
+	public String getSearchSalesmanLastName() {
+		return this.searchSalesmanLastName;
+	}
+	
+	public void setSearchSalesmanLastName(String searchSalesmanLastName) {
+		this.searchSalesmanLastName = searchSalesmanLastName;
 	}
 	
 	public String getCountrySearch() {
@@ -90,7 +97,8 @@ public class ListContacts {
 		this.searchedContacts = 
 				contactService.seekContacts(
 						listSeekedContactTypes, 
-						this.getSearchSalesmanName(),
+						this.getSearchSalesmanFirstNames(),
+						this.getSearchSalesmanLastName(),
 						this.getCountrySearch());
 		System.out.println("SEEKED CONTACTS");
 		for(Contact c: searchedContacts)
@@ -111,7 +119,8 @@ public class ListContacts {
 		this.searchedContacts = 
 				contactService.seekContacts(
 						listSeekedContactTypes, 
-						this.getSearchSalesmanName(),
+						this.getSearchSalesmanFirstNames(),
+						this.getSearchSalesmanLastName(),
 						this.getCountrySearch());
 		return "";
 	}

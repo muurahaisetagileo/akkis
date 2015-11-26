@@ -1,6 +1,5 @@
 package fi.agileo.akkis.jpa;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -8,12 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name="USER")
@@ -51,9 +48,6 @@ public class User {
 	
 	@Column(name="LASTNAME")
 	private String lastName;
-	
-	@Column(name="WHOLENAME")
-	private String wholename;	
 	
 	// Relationships
 	@OneToMany(mappedBy="user")
@@ -113,15 +107,6 @@ public class User {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public String getWholename() {
-		this.wholename = this.lastName + " " + this.firstNames;
-		return this.wholename;
-	}
-	
-	public void setWholename(String wholename) {
-		this.wholename = this.lastName + " " + this.firstNames;		
 	}
 
 	public List<Contract> getContracts() {

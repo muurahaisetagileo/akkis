@@ -71,30 +71,46 @@ public class ContactService {
 		return contactsWithoutCompany;
 	}
 	
+	private String getQueryLikeString(String fieldString) {
+		if (fieldString == "")
+			return "%";
+		return "%" + fieldString + "%";
+	}
+	
 /*	public List<Contact> getContactsOfContactCompany() {
 		
 	}*/
 	
-	public List<Contact> seekContacts(List<Integer> types, String salesManSearch, String countrySearch) {
+	public List<Contact> seekContacts(
+			List<Integer> types, 
+			String salesManFirstNamesSearch, 
+			String salesManLastNameSearch, 
+			String countrySearch) {
+
+		String salesManFirstNameSearchExpr;
+		String salesManLastNameSearchExpr;
+		String countrySearchExpr;
 		
 		if (types == null || types.size() == 0)
 			return new ArrayList<Contact>();
 		
-		String salesManSearchExpr;
-		String countrySearchExpr;
-		if (salesManSearch == "")
-			salesManSearchExpr = "%";
-		else 
-			salesManSearchExpr = "%" + salesManSearch + "%";
-		if (countrySearch == "")
-			countrySearchExpr = "%";
-		else 
-			countrySearchExpr = "%" + countrySearch + "%";
+		salesManFirstNameSearchExpr = 
+				getQueryLikeString(salesManFirstNamesSearch);
+		salesManLastNameSearchExpr = 
+				getQueryLikeString(salesManLastNameSearch);
+		countrySearchExpr = 
+				getQueryLikeString(countrySearch);
 
-		List<Contact> seekedContacts = (List<Contact>)em.createNamedQuery("Contact.findForSearch").
+		List<Contact> seekedContacts = 
+			(List<Contact>)em.createNamedQuery(
+					"Contact.findForSearch").
 				setParameter("seekedTypes", types).
-				setParameter("salesManSearch", salesManSearchExpr).
-				setParameter("countrySearch", countrySearchExpr).getResultList();
+				setParameter("salesManFirstNamesSearch", 
+						salesManFirstNameSearchExpr).
+				setParameter("salesManLastNameSearch", 
+						salesManLastNameSearchExpr).
+				setParameter("countrySearch", 
+						countrySearchExpr).getResultList();
 		
 		return seekedContacts;
 	}
