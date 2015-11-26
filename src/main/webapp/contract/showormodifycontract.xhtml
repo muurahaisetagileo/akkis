@@ -35,12 +35,12 @@
 					</h:inputText>
 					<h:outputText value="Price:"></h:outputText>
 					<h:inputText 
-						value="#{showContract.contract.price}"
+						value="#{showOrModifyContract.contract.price}"
 						readonly="readonly">
 					</h:inputText>
 				</p:panelGrid>
 				
-				<p:dataTable value="#{ShowContract.contract.contacts}" 
+				<p:dataTable value="#{showOrModifyContract.contract.contacts}" 
 					id="contact"	
 					var="c">
 					<f:facet name="header">
