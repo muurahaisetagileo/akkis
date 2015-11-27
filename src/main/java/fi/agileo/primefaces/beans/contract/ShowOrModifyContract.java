@@ -1,13 +1,14 @@
 package fi.agileo.primefaces.beans.contract;
 
-// import java.util.List;
+import java.util.List;
+import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-/* import fi.agileo.akkis.jpa.Contact;
-import fi.agileo.akkis.jpa.ContactCompany; */
+import fi.agileo.akkis.jpa.Contact;
+
 import fi.agileo.akkis.jpa.Contract;
 /* import fi.agileo.akkis.jpa.Deal;
 import fi.agileo.akkis.jpa.User; */
@@ -21,6 +22,7 @@ public class ShowOrModifyContract {
 	
 	private Contract contract;
 	private boolean modifyBasics = false;
+	private List<Contact> contactsToBeAdded = new ArrayList<Contact>();
 
 	public ContractService getContractService() {
 		return contractService;
@@ -54,8 +56,28 @@ public class ShowOrModifyContract {
 		return null;
 	}
 	
+	public List<Contact> getContactsInContactCompanyButNotInContract() {
+		List<Contact> notChosenCompanyContacts = 
+			contract.getContactCompany().getCompanyContacts();
+		notChosenCompanyContacts.removeAll(contract.getContacts());
+		return notChosenCompanyContacts;
+	}
+	
 	public String saveModifiedContract() {
 		contractService.modifyContractBasicInfo(contract);
+		return null;
+	}
+
+	public List<Contact> getContactsToBeAdded() {
+		return contactsToBeAdded;
+	}
+
+	public void setContactsToBeAdded(List<Contact> contactsToBeAdded) {
+		this.contactsToBeAdded = contactsToBeAdded;
+	}
+	
+	public String toAddContactsToContract() {
+		contractService.addContactsToContract(contract, contactsToBeAdded);
 		return null;
 	}
 }

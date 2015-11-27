@@ -60,9 +60,11 @@ public class ContractService {
 			// Set customers to the contract
 			// existingcontacts.addAll(contactsToBeAdded);
 			contract.getContacts().addAll(contactsToBeAdded);
+			for(Contact c : contactsToBeAdded) {
+				c.getContracts().add(contract);
+				em.merge(c);
+			}
 			em.merge(contract);
-			for(Contact c : contactsToBeAdded)
-				em.persist(c);
 	}
 	
 

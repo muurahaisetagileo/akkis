@@ -96,6 +96,7 @@
 						
 					</p:panelGrid>
 				</h:form>
+				<h:form id="contractcontacts">
 				<p:dataTable value="#{showOrModifyContract.contract.contacts}" 
 					id="contact"	
 					var="c">
@@ -117,6 +118,35 @@
                		</p:column>
 					<f:facet name="footer"></f:facet>
 				</p:dataTable>
+				
+					<h4>Add contacts to contracts</h4>
+	 				<p:dataTable 
+	 					value="#{showOrModifyContract.contactsInContactCompanyButNotInContract}" 
+	 					id="contactsOfCompanyNotInContract"
+						var="c" 
+						rowKey="#{c.contactId}" 
+						selection="#{showOrModifyContract.contactsToBeAdded}"
+						selectionMode="multiple" >
+						<f:facet name="header">
+                   			List of contacts in contact company but not in contract
+    	            	</f:facet>
+    	            	
+						<p:column headerText="Name">#{c.name}</p:column>
+						<p:column headerText="Phone">#{c.phone}</p:column>
+						<p:column headerText="Address">#{c.address}</p:column>
+						<p:column headerText="Country">#{c.country}</p:column>
+						
+	 					<f:facet name="footer">
+							<p:commandButton 
+								value="Add to contract" 
+								action="#{showOrModifyContract.toAddContactsToContract}"
+								update="contractcontacts">
+							</p:commandButton>
+						</f:facet> 
+					</p:dataTable>
+				
+				
+				</h:form>
 				<h:form>
 					<p:commandButton 
 						value="Return to main page" 
