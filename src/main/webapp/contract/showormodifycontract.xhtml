@@ -12,34 +12,90 @@
 		<ui:composition template="../templates/template_action.xhtml">
 		<ui:param name="title" value="Show or modify contract" />
 			<ui:define name="content">
+				<h4>Contact company that has made contract</h4>
 				<p:panelGrid columns="2">
-					<h:outputText value="Customer company making contract:"></h:outputText>
-					<h:inputText 
-						value="#{showOrModifyContract.contract.contactCompany.name}"
-						readonly="readonly">
-					</h:inputText>
-					<h:outputText value="Signdate:"></h:outputText>
-					<h:inputText 
-						value="#{showOrModifyContract.contract.signdate}" 
-						readonly="readonly">
-					</h:inputText>
-					<h:outputText value="Enddate:"></h:outputText>
-					<h:inputText 
-						value="#{showOrModifyContract.contract.enddate}"
-						readonly="readonly">
-					</h:inputText>
-					<h:outputText value="Status:"></h:outputText>
-					<h:inputText 
-						value="#{showOrModifyContract.contract.contractstatus}"
-						readonly="readonly">
-					</h:inputText>
-					<h:outputText value="Price:"></h:outputText>
-					<h:inputText 
-						value="#{showOrModifyContract.contract.price}"
-						readonly="readonly">
-					</h:inputText>
+					<h:outputText value="Company name:"></h:outputText>
+					<h:outputText 
+						value="#{showOrModifyContract.contract.contactCompany.name}">
+					</h:outputText>
+					<h:outputText value="Company address:"></h:outputText>
+					<h:outputText 
+						value="#{showOrModifyContract.contract.contactCompany.address}">
+					</h:outputText>
+					<h:outputText value="Company internetaddress:"></h:outputText>
+					<h:outputText 
+						value="#{showOrModifyContract.contract.contactCompany.internetAddress}">
+					</h:outputText>
+					<h:outputText value="Company identifier:"></h:outputText>
+					<h:outputText 
+						value="#{showOrModifyContract.contract.contactCompany.companyIdentifier}">
+					</h:outputText>
 				</p:panelGrid>
-				
+			
+				<h:form id="basicinfo">
+					<h4>Show or modify basic contract information</h4>
+					<p:panelGrid columns="2">
+						<h:outputText value="Signdate:"></h:outputText>
+						<p:calendar 
+							value="#{showOrModifyContract.contract.signdate}" 
+							rendered="#{showOrModifyContract.modifyBasics}">
+						</p:calendar>
+						<h:outputText 
+							value="#{showOrModifyContract.contract.signdate}" 
+							rendered="#{not showOrModifyContract.modifyBasics}">
+						</h:outputText>
+					
+						<h:outputText value="Enddate:"></h:outputText>
+						<p:calendar 
+							value="#{showOrModifyContract.contract.enddate}"
+							rendered="#{showOrModifyContract.modifyBasics}">
+						</p:calendar>
+						<h:outputText 
+							value="#{showOrModifyContract.contract.enddate}" 
+							rendered="#{not showOrModifyContract.modifyBasics}">
+						</h:outputText>
+					
+						<h:outputText value="Status:"></h:outputText>
+						<h:inputText 
+							value="#{showOrModifyContract.contract.contractstatus}"
+							rendered="#{showOrModifyContract.modifyBasics}">
+						</h:inputText>
+						<h:outputText 
+							value="#{showOrModifyContract.contract.contractstatus}"
+							rendered="#{not showOrModifyContract.modifyBasics}">
+						</h:outputText>
+					
+						<h:outputText value="Price:"></h:outputText>
+						<h:inputText 
+							value="#{showOrModifyContract.contract.price}"
+							rendered="#{showOrModifyContract.modifyBasics}">
+						</h:inputText>
+						<h:outputText 
+							value="#{showOrModifyContract.contract.price}"
+							rendered="#{not showOrModifyContract.modifyBasics}">
+						</h:outputText>
+						<p:commandButton 
+							value="Modify contract" 
+							action="#{showOrModifyContract.toModifyBasics}"
+							rendered="#{not showOrModifyContract.modifyBasics}"
+							update="basicinfo">
+							<f:setPropertyActionListener  
+								target="#{showOrModifyContract.modifyBasics}"
+								value="true"/>
+						</p:commandButton>			
+						<p:commandButton 
+							value="Save contract" 
+							action="#{showOrModifyContract.saveModifiedContract}"
+							rendered="#{showOrModifyContract.modifyBasics}"
+							update="basicinfo">
+							<f:setPropertyActionListener  
+								target="#{showOrModifyContract.modifyBasics}"
+								value="false"/>
+						</p:commandButton>
+						
+						
+					</p:panelGrid>
+				</h:form>
 				<p:dataTable value="#{showOrModifyContract.contract.contacts}" 
 					id="contact"	
 					var="c">

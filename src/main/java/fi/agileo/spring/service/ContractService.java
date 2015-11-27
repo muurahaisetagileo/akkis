@@ -84,4 +84,9 @@ public class ContractService {
 		contract.getContacts();
 	    return contract;		
 	}
+	
+	@Transactional
+	public void modifyContractBasicInfo(Contract contract) {
+		em.merge(contract);
+	}
 }

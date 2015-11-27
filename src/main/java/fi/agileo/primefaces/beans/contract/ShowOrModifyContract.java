@@ -20,10 +20,7 @@ public class ShowOrModifyContract {
 	private ContractService contractService;
 	
 	private Contract contract;
-/*	private User user;
-	private ContactCompany contactCompany;
-	private List<Contact> contacts;
-	private List<Deal> deals;*/
+	private boolean modifyBasics = false;
 
 	public ContractService getContractService() {
 		return contractService;
@@ -31,16 +28,9 @@ public class ShowOrModifyContract {
 
 	public void setContractService(ContractService contractService) {
 		this.contractService = contractService;
-		System.out.println("ShowOrModifyContract, setContractService");
 	}
 	
-	
 	public String toShowContract() {
-//		this.contract = contractService.getContractPropertiesForView(contract);
-		/* fetch contract information into ContractInformation object 
-		   and set its properties to members of this managed bean and 
-		   return the view page name */
-		System.out.println("toShowContract");
 		return "/contract/showormodifycontract";
 	}
 
@@ -49,24 +39,23 @@ public class ShowOrModifyContract {
 	}
 
 	public void setContract(Contract contract) {
-		System.out.println("ShowOrModifyContract, setContract, contract " + contract);
-		// contract = contractService.getContractPropertiesForView(contract);
 		this.contract = contract;
 	}
+
+	public boolean isModifyBasics() {
+		return modifyBasics;
+	}
+
+	public void setModifyBasics(boolean modifyBasics) {
+		this.modifyBasics = modifyBasics;
+	}
 	
-/*	public User getUser() {
-		return user;
+	public String toModifyBasics() {
+		return null;
 	}
-
-	public ContactCompany getContactCompany() {
-		return contactCompany;
+	
+	public String saveModifiedContract() {
+		contractService.modifyContractBasicInfo(contract);
+		return null;
 	}
-
-	public List<Contact> getContacts() {
-		return contacts;
-	}
-
-	public List<Deal> getDeals() {
-		return deals;
-	}*/
 }
