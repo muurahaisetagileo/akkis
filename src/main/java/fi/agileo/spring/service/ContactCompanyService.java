@@ -41,6 +41,11 @@ public class ContactCompanyService {
 	}
 	
 	@Transactional
+	public void modifyBasicContactCompanyProperties(ContactCompany contactCompany) {
+		em.merge(contactCompany);
+	}
+	
+	@Transactional
 	public void addContactsToContactCompany(
 			ContactCompany contactCompany,
 			List<Contact> contacts) {

@@ -1,12 +1,11 @@
 package fi.agileo.primefaces.beans.contactcompany;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 
 import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.akkis.jpa.ContactCompany;
@@ -22,6 +21,7 @@ public class ShowOrModifyContactCompany {
 	private ContactCompany contactCompany;
 	private List<Contact> contacts;
 	private List<Contract> contracts;
+	private boolean modifyBasics = false;
 	
 	public String toShowContactCompany() {
 		System.out.println("toShowContactCompany");
@@ -50,5 +50,26 @@ public class ShowOrModifyContactCompany {
 
 	public List<Contract> getContracts() {
 		return contracts;
+	}
+
+	public boolean isModifyBasics() {
+		return modifyBasics;
+	}
+
+	public void setModifyBasics(boolean modifyBasics) {
+		this.modifyBasics = modifyBasics;
+	}
+
+	public String toModifyBasics() {
+		return null;
+	}
+	
+	public Date getNowTime() {
+		return new Date();
+	}
+	
+	public String saveModifiedContactCompany() {
+		contactCompanyService.modifyBasicContactCompanyProperties(this.getContactCompany());
+		return null;
 	}
 }

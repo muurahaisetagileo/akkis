@@ -12,68 +12,127 @@
 		<ui:composition template="../templates/template_action.xhtml">
 		<ui:param name="title" value="Show contact company" />
 			<ui:define name="content">
+				<h:form id="basicinfo">
+					<h4>Show or modify basic contact company information</h4>
+					<p:panelGrid columns="2">
+						<h:outputText value="Company name:"></h:outputText>
+						<h:inputText 
+							value="#{showOrModifyContactCompany.contactCompany.name}"
+							rendered="#{showOrModifyContactCompany.modifyBasics}">
+						</h:inputText>
+						<h:outputText 
+							value="#{showOrModifyContactCompany.contactCompany.name}"
+					 		rendered="#{not showOrModifyContactCompany.modifyBasics}">
+						</h:outputText>
+						
+						<h:outputText value="Company address:"></h:outputText>
+						<h:inputText 
+							value="#{showOrModifyContactCompany.contactCompany.address}"
+							rendered="#{showOrModifyContactCompany.modifyBasics}">
+						</h:inputText>
+						<h:outputText 
+							value="#{showOrModifyContactCompany.contactCompany.address}"
+							rendered="#{not showOrModifyContactCompany.modifyBasics}">
+						</h:outputText>
+						
+						<h:outputText value="Company internetaddress:"></h:outputText>
+						<h:inputText 
+							value="#{showOrModifyContactCompany.contactCompany.internetAddress}"
+							rendered="#{showOrModifyContactCompany.modifyBasics}">
+						</h:inputText>
+						<h:outputText 
+							value="#{showOrModifyContactCompany.contactCompany.internetAddress}"
+							rendered="#{not showOrModifyContactCompany.modifyBasics}">
+						</h:outputText>
+						
+						<h:outputText value="Company identifier:"></h:outputText>
+						<h:inputText 
+							value="#{showOrModifyContactCompany.contactCompany.companyIdentifier}"
+							rendered="#{showOrModifyContactCompany.modifyBasics}">
+						</h:inputText>
+						<h:outputText 
+							value="#{showOrModifyContactCompany.contactCompany.companyIdentifier}"
+							rendered="#{not showOrModifyContactCompany.modifyBasics}">
+						</h:outputText>
+						
+						<p:commandButton 
+							value="Modify contact company" 
+							action="#{showOrModifyContactCompany.toModifyBasics}"
+							rendered="#{not showOrModifyContactCompany.modifyBasics}"
+							update="basicinfo">
+							<f:setPropertyActionListener  
+								target="#{showOrModifyContactCompany.modifyBasics}"
+								value="true"/>
+						</p:commandButton>			
+						<p:commandButton 
+							value="Save contact company" 
+							action="#{showOrModifyContactCompany.saveModifiedContactCompany}"
+							rendered="#{showOrModifyContactCompany.modifyBasics}"
+							update="basicinfo">
+							<f:setPropertyActionListener  
+								target="#{showOrModifyContactCompany.modifyBasics}"
+								value="false"/>
+						</p:commandButton>
+					</p:panelGrid>
+				</h:form>
 
-				<p:panelGrid columns="2">
-					<h:outputText value="Company name:"></h:outputText>
-					<h:outputText value="#{showOrModifyContactCompany.contactCompany.name}"></h:outputText>
-					<h:outputText value="Company address:"></h:outputText>
-					<h:outputText value="#{showOrModifyContactCompany.contactCompany.address}"></h:outputText>
-					<h:outputText value="Company internetaddress:"></h:outputText>
-					<h:outputText value="#{showOrModifyContactCompany.contactCompany.internetAddress}"></h:outputText>
-					<h:outputText value="Company identifier:"></h:outputText>
-					<h:outputText value="#{showOrModifyContactCompany.contactCompany.companyIdentifier}"></h:outputText>
-				</p:panelGrid>
-			<p:dataTable value="#{showOrModifyContactCompany.contactCompany.companyContacts}" 
-				id="contact" var="c">
+				<br/><br/><br/>
+				
+				<p:dataTable 
+					value="#{showOrModifyContactCompany.contactCompany.companyContacts}" 
+					id="contact" var="c">
 					<f:facet name="header">
-                   Contacts of contact company
+                   		Contacts of contact company
                		</f:facet>
 					<p:column headerText="Name">#{c.name}</p:column>
 					<p:column headerText="Phone">#{c.phone}</p:column>
 					<p:column headerText="Address">#{c.address}</p:column>
 					<p:column headerText="Country">#{c.country}</p:column>
 					<f:facet name="footer"></f:facet>
-			</p:dataTable>
-			<h:form>
-	 			<p:dataTable value="#{showOrModifyContactCompany.contactCompany.contracts}" id="contracts"
-					var="contract" 
-					rowKey="#{contract.contractId}" 
-					selection="#{showOrModifyContract.contract}"
-					selectionMode="single" >
-					<f:facet name="header">
-                   	List of contracts of contact company
-    	            </f:facet>
-    	            <p:column headerText="Sign date">
-    	            	<h:outputText value="#{contract.signdate}"></h:outputText>
-    	            </p:column>
-    	            <p:column headerText="End date">
-    	            	<h:outputText value="#{contract.enddate}"></h:outputText>
-    	            </p:column>
-    	            <p:column headerText="Status">
-    	            	<h:outputText value="#{contract.contractstatus}"></h:outputText>
-    	            </p:column>
-    	            <p:column headerText="Price">
-    	            	<h:outputText value="#{contract.price}"></h:outputText>
-    	            </p:column>
-	 				<f:facet name="footer">
-						<p:commandButton 
-							value="Show or modify contract" 
-							action="#{showOrModifyContract.toShowContract}">
-						</p:commandButton>
-					</f:facet> 
 				</p:dataTable>
-			</h:form>
-			<h:form>
-				<p:commandButton value="Add contract" action="#{createContractWhenCompanyPreSelected.toCreateContract}">
-					<f:setPropertyActionListener target="#{createContractWhenCompanyPreSelected.contactCompany}" 
-					value="#{showOrModifyContactCompany.contactCompany}" />
-				</p:commandButton>
-			</h:form>
-			
-			<h:form>
-				<p:commandButton value="Return to main page" action="#{loginUser.toMainPage}"/>
-			</h:form>
-		</ui:define>
+				
+				<br/><br/><br/>
+				
+				<h:form>
+	 				<p:dataTable value="#{showOrModifyContactCompany.contactCompany.contracts}" id="contracts"
+						var="contract" 
+						rowKey="#{contract.contractId}" 
+						selection="#{showOrModifyContract.contract}"
+						selectionMode="single" >
+						<f:facet name="header">
+                   		List of contracts of contact company
+    	            	</f:facet>
+    	            	<p:column headerText="Sign date">
+    	            		<h:outputText value="#{contract.signdate}"></h:outputText>
+    	            	</p:column>
+    	            	<p:column headerText="End date">
+    	            		<h:outputText value="#{contract.enddate}"></h:outputText>
+    	            	</p:column>
+    	            	<p:column headerText="Status">
+    	            		<h:outputText value="#{contract.contractstatus}"></h:outputText>
+    	            	</p:column>
+    	            	<p:column headerText="Price">
+    	            		<h:outputText value="#{contract.price}"></h:outputText>
+    	            	</p:column>
+	 					<f:facet name="footer">
+							<p:commandButton 
+								value="Show or modify contract" 
+								action="#{showOrModifyContract.toShowContract}">
+							</p:commandButton>
+						</f:facet> 
+					</p:dataTable>
+				</h:form>
+				
+				<br/><br/>
+				
+				<h:form>
+					<p:commandButton value="Add contract" action="#{createContractWhenCompanyPreSelected.toCreateContract}">
+						<f:setPropertyActionListener 
+							target="#{createContractWhenCompanyPreSelected.contactCompany}" 
+							value="#{showOrModifyContactCompany.contactCompany}" />
+					</p:commandButton>
+				</h:form>
+			</ui:define>
 		</ui:composition>
 	</h:body>
 </html>
