@@ -6,7 +6,7 @@ xmlns:p="http://primefaces.org/ui">
 	<h:form>  
     <p:growl id="messages"/>
  
-    <p:menubar>
+    <p:menubar style="height:32px">
     	<p:menuitem value="Main Page" outcome="/admin_index" icon="ui-icon-home" />     
          
          <p:submenu label="Users" icon="ui-icon-person">
@@ -14,8 +14,8 @@ xmlns:p="http://primefaces.org/ui">
             <p:menuitem icon="ui-icon-plus" value="Add New User" outcome="/user/register_user" />
         </p:submenu>   
         
-         <p:submenu label="Client Companies" icon="ui-icon-contact">
-            <p:menuitem icon="ui-icon-search" value="Client Company Search" outcome="/contactcompany/contactcompany_list" />
+         <p:submenu label="Contact Companies" icon="ui-icon-contact">
+            <p:menuitem icon="ui-icon-search" value="Company Search" outcome="/contactcompany/contactcompany_list" />
             <p:menuitem icon="ui-icon-plus" value="Add New Company" outcome="/contactcompany/create_contactcompany" />
         </p:submenu>                
  
@@ -25,7 +25,7 @@ xmlns:p="http://primefaces.org/ui">
         </p:submenu>              
  
         <f:facet name="options">
-            <p:commandButton value="Logout" action="#{loginUser.logout}" icon="ui-icon-power" />
+            <p:commandButton value="Logout" action="#{loginUser.logout}" icon="ui-icon-power" style="height:30px; font-size:12px" />
         </f:facet>
     </p:menubar>
 	</h:form>

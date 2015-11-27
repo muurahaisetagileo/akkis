@@ -8,8 +8,9 @@
 	<h:outputStylesheet name="css/styles.css"  />
 </h:head>
 <h:body>
+	<h:graphicImage library="images" name="akkis_logo.jpg" />	
+	<ui:include src="#{loginUser.menuInclude}"></ui:include>
 	<ui:insert name="header_main">
-		<h1>Akkis</h1>
 		<h3>#{title}</h3>
      	<div class="news"> #{news} </div>
 	</ui:insert> 

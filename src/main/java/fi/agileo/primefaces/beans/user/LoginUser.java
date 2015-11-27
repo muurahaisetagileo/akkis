@@ -102,28 +102,28 @@ public class LoginUser {
 	public String getMenuInclude() {
 		String ur = user.getRole();
 		if (ur.equals("ADMIN")) {	
-			return "../admin_navi.xhtml";
+			return "/admin_navi.xhtml";
 		}
 		else if (ur.equals("USER")) {
-			return "../user_navi.xhtml";
+			return "/user_navi.xhtml";
 		}
 		else if (ur.equals("SALESPERSON")) {
-			return "../salesperson_navi.xhtml";
+			return "/salesperson_navi.xhtml";
 		}
 		else if (ur.equals("SECRETARY")) {
-			return "../secretary_navi.xhtml";
+			return "/secretary_navi.xhtml";
 		}
 		else if (ur.equals("BILLER")) {
-			return "../biller_navi.xhtml";
+			return "/biller_navi.xhtml";
 		}
 		else if (ur.equals("CUSTOMERSERVICE")) {
-			return "../customerService_navi.xhtml";
+			return "/customerService_navi.xhtml";
 		}
 		else if (ur.equals("TECHNICIAN")) {
-			return "../technician_navi.xhtml";
+			return "/technician_navi.xhtml";
 		}
 		else if (ur.equals("BOSS")) {
-			return "../boss_navi.xhtml";
+			return "/boss_navi.xhtml";
 		}			
 		return "";
 	}
