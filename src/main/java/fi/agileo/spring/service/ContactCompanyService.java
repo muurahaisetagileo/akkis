@@ -49,7 +49,12 @@ public class ContactCompanyService {
 	public void addContactsToContactCompany(
 			ContactCompany contactCompany,
 			List<Contact> contacts) {
-		
+		contactCompany.getCompanyContacts().addAll(contacts);
+		for(Contact contact : contacts) {
+			contact.setContactCompany(contactCompany);
+			em.merge(contact);
+		}
+		em.merge(contactCompany);
 	}
 	
 	public List<ContactCompany> getAllContactCompanies() {

@@ -91,7 +91,15 @@
 					<f:facet name="footer"></f:facet>
 				</p:dataTable>
 				
-				<br/><br/><br/>
+				<br/>
+				<h:form>
+					<p:commandButton value="Add contacts to contact company" action="#{addContactsToContactCompany.toAddContacts}">
+						<f:setPropertyActionListener 
+							target="#{addContactsToContactCompany.contactCompany}" 
+							value="#{showOrModifyContactCompany.contactCompany}" />
+					</p:commandButton>
+				</h:form>
+				<br/>
 				
 				<h:form>
 	 				<p:dataTable value="#{showOrModifyContactCompany.contactCompany.contracts}" id="contracts"

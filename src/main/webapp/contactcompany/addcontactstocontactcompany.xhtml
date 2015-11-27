@@ -1,0 +1,88 @@
+	<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+		<title>Akkis - Add contacts to contact company</title>
+	</h:head>
+
+	<h:body>
+		<ui:composition template="../templates/template_action.xhtml">
+		<ui:param name="title" value="Add contacts to contact company" />
+			<ui:define name="content">
+				<h4>Add contacts to contact company information with</h4>
+				<p:panelGrid columns="2">
+					<h:outputText value="Company name:"></h:outputText>
+					<h:outputText 
+						value="#{addContactsToContactCompany.contactCompany.name}">
+					</h:outputText>
+					<h:outputText value="Company address:"></h:outputText>
+					<h:outputText 
+						value="#{addContactsToContactCompany.contactCompany.address}">
+					</h:outputText>
+					<h:outputText value="Company internetaddress:"></h:outputText>
+					<h:outputText 
+						value="#{addContactsToContactCompany.contactCompany.internetAddress}">
+					</h:outputText>
+					<h:outputText value="Company identifier:"></h:outputText>
+					<h:outputText 
+						value="#{addContactsToContactCompany.contactCompany.companyIdentifier}">
+					</h:outputText>
+				</p:panelGrid>
+
+				<br/><br/>
+				
+				<h:form id="contactsadding">
+					<p:dataTable 
+						value="#{addContactsToContactCompany.contactCompany.companyContacts}" 
+						id="contacts" var="c">
+						<f:facet name="header">
+                   			Current contacts of contact company
+               			</f:facet>
+						<p:column headerText="Name">#{c.name}</p:column>
+						<p:column headerText="Phone">#{c.phone}</p:column>
+						<p:column headerText="Address">#{c.address}</p:column>
+						<p:column headerText="Country">#{c.country}</p:column>
+						<f:facet name="footer"></f:facet>
+					</p:dataTable>
+				
+					<br/>
+				
+	 				<p:dataTable 
+	 					value="#{addContactsToContactCompany.contactsWithoutCompany}" 
+	 					id="contactsWithoutCompany"
+						var="c" 
+						rowKey="#{c.contactId}" 
+						selection="#{addContactsToContactCompany.contactsToBeAdded}"
+						selectionMode="multiple" >
+						<f:facet name="header">
+                   			List of contacts without contact company
+    	            	</f:facet>
+    	            	
+						<p:column headerText="Name">#{c.name}</p:column>
+						<p:column headerText="Phone">#{c.phone}</p:column>
+						<p:column headerText="Address">#{c.address}</p:column>
+						<p:column headerText="Country">#{c.country}</p:column>
+						
+	 					<f:facet name="footer">
+							<p:commandButton 
+								value="Add to contact company" 
+								action="#{addContactsToContactCompany.toAddContactsToContactCompany}"
+								update="contactsadding">
+							</p:commandButton>
+						</f:facet> 
+					</p:dataTable>
+				</h:form>
+				
+				<br/><br/>
+				
+				<h:form>
+					<p:commandButton value="Back to company information"
+					 	action="/contactcompany/showormodifycontactcompany"/>
+				</h:form>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+</html>
