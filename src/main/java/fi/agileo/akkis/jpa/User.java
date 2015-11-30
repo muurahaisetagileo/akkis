@@ -1,6 +1,8 @@
 package fi.agileo.akkis.jpa;
 
+import javax.persistence.Transient;
 import java.util.List;
+import java.util.Base64;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -57,7 +59,10 @@ public class User {
 	private List<Deal> deals;
 	
 	@OneToMany(mappedBy="salesPerson")
-	private List<Contact> contacts;
+	private List<Contact> contacts;	
+	
+	@Transient 
+	private String confirmPassword;
 	
 	// Public methods
 
@@ -77,12 +82,14 @@ public class User {
 		this.username = username;
 	}
 
-	public String getPassword() {
+	public String getPassword() {		
 		return password;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		byte[] passwordBytes = password.getBytes();
+		String encodedPassword = Base64.getEncoder().encodeToString(passwordBytes);
+		this.password = encodedPassword;
 	}
 
 	public String getRole() {
@@ -133,6 +140,14 @@ public class User {
 		this.contacts = contacts;
 	}
 	
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof User))

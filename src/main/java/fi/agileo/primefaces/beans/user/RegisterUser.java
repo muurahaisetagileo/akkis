@@ -1,7 +1,9 @@
 package fi.agileo.primefaces.beans.user;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -63,27 +65,41 @@ public class RegisterUser {
 	}
 
 	public String register() {
-		
-		// Can only register normal users
-		// Admin and boss are added manually
-		
-		//user.setRole("USER");
-		
-		// Calling Business Service
-		int i = userService.register(user);
-		String msg = " could not be registered";
-		
-		if (i == 1) {
-			msg = " is registered successfully";
-		} else if (i == -1){
-			msg = " already exists";
+		String decodedPassword = "";
+		try {
+			byte[] bytesPW =  Base64.getDecoder().decode(user.getPassword());
+			decodedPassword = new String(bytesPW, "utf-8");
+		} catch(UnsupportedEncodingException e) {
+			System.out.println("Error :" + e.getMessage());
 		}
 		
-		// Add message
-		FacesContext.getCurrentInstance().addMessage(null, 
-				new FacesMessage("The user " + 
-					this.user.getUsername()+
-					msg));
+		if(!decodedPassword.equals(user.getConfirmPassword())) {
+			// Message: Username must be at least 4 characters
+			FacesContext.getCurrentInstance().addMessage(null, 
+					new FacesMessage("Passwords don't match"));	
+		} else if(user.getUsername().length()<4) {
+			FacesContext.getCurrentInstance().addMessage(null, 
+					new FacesMessage("Username length must be at least 4 characters"));	
+		}
+		
+		else {
+			// Calling Business Service
+			int i = userService.register(user);
+			String msg = " could not be registered";
+			
+			if (i == 1) {
+				msg = " is registered successfully";
+			} else if (i == -1){
+				msg = " already exists";
+			}
+			
+			// Add message
+			FacesContext.getCurrentInstance().addMessage(null, 
+					new FacesMessage("The user " + 
+						this.user.getUsername()+
+						msg));
+		}
+		
 		return "";
 	}
 }

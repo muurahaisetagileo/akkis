@@ -34,7 +34,7 @@ public class UserService {
 		if (oldUsersBySameUsername.size() > 0)
 			return -1;
 		
-		// Save employee
+		// Save user
 		this.em.persist(user);
 		
 		List<User> regUsers = (List<User>)em.createNamedQuery("findByUsername").
