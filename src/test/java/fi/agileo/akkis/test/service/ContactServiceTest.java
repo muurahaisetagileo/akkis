@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.persistence.*;
@@ -24,7 +25,7 @@ public class ContactServiceTest {
 	@Test
 	public void testSeeking(){
 		
-		/*
+	
 		
 		EntityManager em = mock(EntityManager.class);
 		
@@ -32,13 +33,15 @@ public class ContactServiceTest {
 		
 		User u1 = new User();
 		u1.setFirstNames("Matti");
-		u1.setFirstNames("Vainio");
+		u1.setLastName("Vainio");
+		
 		User u2 = new User();
 		u2.setFirstNames("Ulla");
-		u2.setFirstNames("Pietilä");
+		u2.setLastName("Pietilä");
+		
 		User u3 = new User();
 		u3.setFirstNames("Raimo");
-		u3.setFirstNames("Karppinen");
+		u3.setLastName("Karppinen");
 		
 		Contact c1 = new Contact();
 		c1.setType(5);
@@ -60,8 +63,6 @@ public class ContactServiceTest {
 		c4.setSalesPerson(u3);
 		c4.setCountry("Suomi");
 		
-		contacts.add(c1);
-		contacts.add(c2);
 		contacts.add(c3);
 		contacts.add(c4);
 		
@@ -69,28 +70,22 @@ public class ContactServiceTest {
         Query mockedQuery2 = mock(Query.class);
         Query mockedQuery3 = mock(Query.class);
         Query mockedQuery4 = mock(Query.class);
-        when(mockedQuery.setParameter("type",1)).thenReturn(mockedQuery2);
-        when(mockedQuery2.setParameter("salesman",u3)).thenReturn(mockedQuery3);
-        when(mockedQuery2.setParameter("country","Suomi")).thenReturn(mockedQuery4);
-        when(mockedQuery3.getResultList()).thenReturn(contacts);
-        when(em.createNamedQuery("seekContacts")).thenReturn(mockedQuery);
+        Query mockedQuery5 = mock(Query.class);
+        
+        List<Integer> types = new ArrayList<Integer>();
+        types.add(1);
+        
+        when(em.createNamedQuery("Contact.findForSearch")).thenReturn(mockedQuery);        
+        when(mockedQuery.setParameter("seekedTypes",types)).thenReturn(mockedQuery2);
+        when(mockedQuery2.setParameter("salesManFirstNamesSearch", "%Raimo%")).thenReturn(mockedQuery3);
+        when(mockedQuery3.setParameter("salesManLastNameSearch", "%Karp%")).thenReturn(mockedQuery4);        
+        when(mockedQuery4.setParameter("countrySearch","%Suomi%")).thenReturn(mockedQuery5);
+        when(mockedQuery5.getResultList()).thenReturn(contacts);
 
         ContactService cs = new ContactService();
         cs.setEm(em);
         
-        Contact seekContact = new Contact();
-        seekContact.setType(1);
-        seekContact.setSalesPerson(u3);
-        seekContact.setCountry("Suomi");
-        
-        List<Contact> wantedResult = new ArrayList();
-        
-        wantedResult.add(c3);
-       
-        assertEquals(cs.seekContacts(seekContact), wantedResult);
-        
-        */
-        
+        assertEquals(cs.seekContacts(types, "Raimo", "Karp", "Suomi").size(), 2);
 	}
 	
 }
