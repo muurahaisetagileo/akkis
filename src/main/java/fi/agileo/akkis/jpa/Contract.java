@@ -43,9 +43,6 @@ public class Contract {
 	@ManyToMany(mappedBy="contracts")
 	private List<Contact> contacts;
 	
-	@OneToMany(mappedBy="contract")
-	private List<Deal> deals;
-	
 	@ManyToOne(optional=false, fetch=FetchType.EAGER)
 	@JoinColumn(name="CONTACTCOMPANYID")
 	private ContactCompany contactCompany;
@@ -116,14 +113,6 @@ public class Contract {
 
 	public void setContacts(List<Contact> contacts) {
 		this.contacts = contacts;
-	}
-
-	public List<Deal> getDeals() {
-		return deals;
-	}
-
-	public void setDeals(List<Deal> deals) {
-		this.deals = deals;
 	}
 
 	public ContactCompany getContactCompany() {

@@ -5,7 +5,6 @@ import org.junit.Test;
 import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.Contract;
-import fi.agileo.akkis.jpa.Deal;
 import fi.agileo.akkis.jpa.User;
 
 import static org.junit.Assert.*;
@@ -41,7 +40,6 @@ public class ContactCompanyTest {
 		List<Contract> contracts = new ArrayList<Contract>();
 		List<Contract> contact2Contracts = new ArrayList<Contract>();
 		List<Contact> contract2contacts = new ArrayList<Contact>();
-		List<Deal> contract2deals = new ArrayList<Deal>();
 		User contact2SalesUser = new User();
 		
 		System.out.println("HERE2");
@@ -65,7 +63,6 @@ public class ContactCompanyTest {
 		
 		Contract contract2 = new Contract();
 		contract2.setSigndate(signDate2);
-		contract2.setDeals(contract2deals);
 		contract2.setContacts(contract2contacts);
 
 		contracts.add(contract1);
@@ -162,7 +159,6 @@ public class ContactCompanyTest {
 			}
 			else /* contract == contract2 */ {
 				assertEquals(contract.getSigndate(), signDate2);
-				assertEquals(contract2deals, contract.getDeals());
 				assertEquals(contract2contacts, contract.getContacts());
 			}
 		}

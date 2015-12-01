@@ -62,9 +62,4 @@ public class ContactCompanyService {
 				"ContactCompany.allAlphabeticallyByName").
 				getResultList();
 	}
-	
-	public ContactCompanyInformation getContactCompanyInformation(ContactCompany contactCompany) {
-		return null;
-	}
-	
 }

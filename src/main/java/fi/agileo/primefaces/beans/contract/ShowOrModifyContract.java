@@ -57,8 +57,8 @@ public class ShowOrModifyContract {
 	}
 	
 	public List<Contact> getContactsInContactCompanyButNotInContract() {
-		List<Contact> notChosenCompanyContacts = 
-			contract.getContactCompany().getCompanyContacts();
+		List<Contact> notChosenCompanyContacts = new ArrayList<Contact>();
+		notChosenCompanyContacts.addAll(contract.getContactCompany().getCompanyContacts());
 		notChosenCompanyContacts.removeAll(contract.getContacts());
 		return notChosenCompanyContacts;
 	}

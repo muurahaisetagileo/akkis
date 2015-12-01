@@ -88,8 +88,6 @@ Väliaikainen CreateContact ContactServiceen?
 	@JoinColumn(name="CONTACTCOMPANYID")
 	private ContactCompany contactCompany;
 
-	@ManyToMany(mappedBy="contacts")
-	private List<Deal> deals;
 	
 	// Public methods
 
@@ -193,14 +191,6 @@ Väliaikainen CreateContact ContactServiceen?
 
 	public void setContactCompany(ContactCompany contactCompany) {
 		this.contactCompany = contactCompany;
-	}
-
-	public List<Deal> getDeals() {
-		return deals;
-	}
-
-	public void setDeals(List<Deal> deals) {
-		this.deals = deals;
 	}
 
 	@Override

@@ -56,9 +56,6 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private List<Contract> contracts;
 	
-	@OneToMany(mappedBy="user")
-	private List<Deal> deals;
-	
 	@OneToMany(mappedBy="salesPerson")
 	private List<Contact> contacts;	
 	
@@ -133,14 +130,6 @@ public class User {
 
 	public void setContracts(List<Contract> contracts) {
 		this.contracts = contracts;
-	}
-
-	public List<Deal> getDeals() {
-		return deals;
-	}
-
-	public void setDeals(List<Deal> deals) {
-		this.deals = deals;
 	}
 
 	public List<Contact> getContacts() {
