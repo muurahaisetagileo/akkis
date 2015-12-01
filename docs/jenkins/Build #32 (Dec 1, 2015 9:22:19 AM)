@@ -1,0 +1,38 @@
+Build #32 (Dec 1, 2015 9:22:19 AM)
+add description
+	Changes
+
+    Käyttäjien listaus (commit: cfca7de84b683ecebfdde89ab7196f110584f184) (detail / githubweb)
+    new tasks added, real hour evaluation still lacking because no at least (commit: a3a1c9cf8d8e67c2701fedc496d5246f028120a0) (detail / githubweb)
+    contract showing got visible and linked to contact company page, contact (commit: c666b76af998c6b14a590bbcb5b5945292773248) (detail / githubweb)
+    some code changes reflected on uml (commit: affd1ded10d7b12016da156991c6f979a93421da) (detail / githubweb)
+    Temporary deleting UML (commit: e8adaeb987698a577be8add87865106e80f5aafe) (detail / githubweb)
+    test data (commit: 1024f9ec25c11147313a2b5d7bebe75e877bb34b) (detail / githubweb)
+    whole name and type removed removed from user (both user entity and (commit: c1722a306729dbd8400fc63089d68b8cdaceefeb) (detail / githubweb)
+    one contract showing fixed (commit: ee9f397b6177564962f3ae00f8162dfa47717f18) (detail / githubweb)
+    Navigointimenu (commit: f5cd1e6a614f42e328250a603bde8102112d8fb0) (detail / githubweb)
+    contact company basic info modification implemented, back to main page (commit: c3f12c836dda3e979797b0a24aed7290685f98ee) (detail / githubweb)
+    Navigointipalkit ja ulkoasun muokkausta (commit: 5c6df34fbf5ae3e881d7d1dcc83940433e4fbcb9) (detail / githubweb)
+    adding new contacts to contact company implemented (commit: cff20e114423354d431cf5a2886342a42db5c04d) (detail / githubweb)
+    saving of modified basic contract info implemented (commit: 272a3fa49486eef00a7e863aed4d6e6626f597e1) (detail / githubweb)
+    add contacts to existing contract implemented (commit: 8a6497c047561a4241167cced881ce5856377b22) (detail / githubweb)
+    tasks modified and ordered more properly, hour added (commit: 294858d6dc7685bc799954feb520c8ccddc8ec07) (detail / githubweb)
+    Salasanojen kryptaus ja testikäyttäjät (commit: fd614887428bd1ea6b2fc2a23012cb149d9384d4) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: fd614887428bd1ea6b2fc2a23012cb149d9384d4
+
+    refs/remotes/origin/master
+
+	Test Result (5 failures / +5)
+
+    fi.agileo.akkis.test.jpa.UserTest.testBasicUserCreation
+    fi.agileo.akkis.test.service.UserServiceTest.testLoginFail_error_username
+    fi.agileo.akkis.test.service.UserServiceTest.testLoginSuccess
+    fi.agileo.akkis.test.service.UserServiceTest.testLoginFail_duplicate_identical_user_and_password
+    fi.agileo.akkis.test.service.UserServiceTest.testLoginFail_error_password
+
+Module Builds
+Unstable Akkis muurahaiset	17 sec
