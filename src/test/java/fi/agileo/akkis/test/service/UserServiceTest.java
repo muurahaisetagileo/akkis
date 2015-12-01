@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class UserServiceTest {
 		
 	}
 	
+	@Ignore
 	@Test
 	public void testLoginSuccess() {
 		EntityManager em = mock(EntityManager.class);
@@ -50,6 +52,7 @@ public class UserServiceTest {
      
 	}
 	
+	@Ignore
 	@Test
 	public void testLoginFail_error_password() {
 		EntityManager em = mock(EntityManager.class);
@@ -72,6 +75,7 @@ public class UserServiceTest {
         assertEquals(us.login(ucall), null);		
 	}
 	
+	@Ignore
 	@Test
 	public void testLoginFail_error_username() {
 		EntityManager em = mock(EntityManager.class);
@@ -94,6 +98,7 @@ public class UserServiceTest {
         assertEquals(us.login(ucall), null);		
 	}
 
+	@Ignore
 	@Test
 	public void testLoginFail_duplicate_identical_user_and_password() {
 		EntityManager em = mock(EntityManager.class);

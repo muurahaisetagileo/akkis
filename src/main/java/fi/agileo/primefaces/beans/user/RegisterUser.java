@@ -64,16 +64,8 @@ public class RegisterUser {
 		this.roles = roles;
 	}
 
-	public String register() {
-		String decodedPassword = "";
-		try {
-			byte[] bytesPW =  Base64.getDecoder().decode(user.getPassword());
-			decodedPassword = new String(bytesPW, "utf-8");
-		} catch(UnsupportedEncodingException e) {
-			System.out.println("Error :" + e.getMessage());
-		}
-		
-		if(!decodedPassword.equals(user.getConfirmPassword())) {
+	public String register() {		
+		if(!user.getDecodedPassword().equals(user.getConfirmPassword())) {
 			// Message: Username must be at least 4 characters
 			FacesContext.getCurrentInstance().addMessage(null, 
 					new FacesMessage("Passwords don't match"));	
@@ -99,7 +91,6 @@ public class RegisterUser {
 						this.user.getUsername()+
 						msg));
 		}
-		
 		return "";
 	}
 }

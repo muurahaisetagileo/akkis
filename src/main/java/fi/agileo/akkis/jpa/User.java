@@ -2,6 +2,7 @@ package fi.agileo.akkis.jpa;
 
 import javax.persistence.Transient;
 import java.util.List;
+import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 
 import javax.persistence.Column;
@@ -82,14 +83,24 @@ public class User {
 		this.username = username;
 	}
 
-	public String getPassword() {		
+	public String getPassword() {	
 		return password;
 	}
 
-	public void setPassword(String password) {
-		byte[] passwordBytes = password.getBytes();
-		String encodedPassword = Base64.getEncoder().encodeToString(passwordBytes);
-		this.password = encodedPassword;
+	public void setPassword(String password) {		
+		this.password = password;
+	}
+	
+	@Transient
+	public String getDecodedPassword() {
+		String decodedPassword ="";
+		try {
+			byte[] bytesPW =  Base64.getDecoder().decode(this.password);
+			decodedPassword = new String(bytesPW, "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			System.out.println("Error :" + e.getMessage());
+		}	
+		return decodedPassword;
 	}
 
 	public String getRole() {

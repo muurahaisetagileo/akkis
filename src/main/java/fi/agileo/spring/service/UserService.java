@@ -1,6 +1,7 @@
 package fi.agileo.spring.service;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -34,6 +35,8 @@ public class UserService {
 		if (oldUsersBySameUsername.size() > 0)
 			return -1;
 		
+		// Encrypt password
+		user.setPassword(encryptPassword(user.getPassword()));
 		// Save user
 		this.em.persist(user);
 		
@@ -45,11 +48,16 @@ public class UserService {
 		return 0;
 	}
 	
+	public String encryptPassword(String pw) {
+		byte[] passwordBytes = pw.getBytes();
+		return Base64.getEncoder().encodeToString(passwordBytes);			
+	}
+	
 	public User login(User user) {
 		System.out.println("login");
 		List<User> loginUsers = (List<User>)em.createNamedQuery("login").
 				setParameter("username", user.getUsername()).
-				setParameter("password", user.getPassword()).getResultList();
+				setParameter("password", encryptPassword(user.getPassword())).getResultList();
 		System.out.println("user count " + loginUsers.size());
 		if (loginUsers.size() == 1)
 			return loginUsers.get(0);
