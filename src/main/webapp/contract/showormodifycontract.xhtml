@@ -35,7 +35,7 @@
 				<h:form id="basicinfo">
 					<h4>Show or modify basic contract information</h4>
 					<p:panelGrid columns="2">
-						<h:outputText value="Signdate:"></h:outputText>
+						<h:outputText value="Sign date:"></h:outputText>
 						<p:calendar 
 							value="#{showOrModifyContract.contract.signdate}" 
 							rendered="#{showOrModifyContract.modifyBasics}">
@@ -45,7 +45,7 @@
 							rendered="#{not showOrModifyContract.modifyBasics}">
 						</h:outputText>
 					
-						<h:outputText value="Enddate:"></h:outputText>
+						<h:outputText value="End date:"></h:outputText>
 						<p:calendar 
 							value="#{showOrModifyContract.contract.enddate}"
 							rendered="#{showOrModifyContract.modifyBasics}">
@@ -56,10 +56,10 @@
 						</h:outputText>
 					
 						<h:outputText value="Status:"></h:outputText>
-						<h:inputText 
-							value="#{showOrModifyContract.contract.contractstatus}"
+						<p:selectOneRadio value="#{showOrModifyContract.contract.contractstatus}"
 							rendered="#{showOrModifyContract.modifyBasics}">
-						</h:inputText>
+							<f:selectItems value="#{showOrModifyContract.statusOptions}"/>
+						</p:selectOneRadio>
 						<h:outputText 
 							value="#{showOrModifyContract.contract.contractstatus}"
 							rendered="#{not showOrModifyContract.modifyBasics}">
@@ -72,6 +72,36 @@
 						</h:inputText>
 						<h:outputText 
 							value="#{showOrModifyContract.contract.price}"
+							rendered="#{not showOrModifyContract.modifyBasics}">
+						</h:outputText>
+						
+						<h:outputText value="Price period:"></h:outputText>
+						<p:selectOneRadio value="#{showOrModifyContract.contract.pricePeriodType}"
+							rendered="#{showOrModifyContract.modifyBasics}">
+							<f:selectItems value="#{showOrModifyContract.pricePeriodTypeOptions}"/>
+						</p:selectOneRadio>
+						<h:outputText 
+							value="#{showOrModifyContract.pricePeriodText}"
+							rendered="#{not showOrModifyContract.modifyBasics}">
+						</h:outputText>
+						
+						<h:outputText value="Value added tax percent:"></h:outputText>
+						<h:inputText 
+							value="#{showOrModifyContract.contract.valueAddedTaxPercent}"
+							rendered="#{showOrModifyContract.modifyBasics}">
+						</h:inputText>
+						<h:outputText 
+							value="#{showOrModifyContract.contract.valueAddedTaxPercent}"
+							rendered="#{not showOrModifyContract.modifyBasics}">
+						</h:outputText>
+
+						<h:outputText value="Technication user:"/>
+						<p:selectOneMenu value="#{showOrModifyContract.selectedTechnicationUser}" 
+							rendered="#{showOrModifyContract.modifyBasics}">
+							<f:selectItems value="#{showOrModifyContract.technicationUsers}"/>
+						</p:selectOneMenu>
+						<h:outputText 
+							value="#{showOrModifyContract.technicationUserName}"
 							rendered="#{not showOrModifyContract.modifyBasics}">
 						</h:outputText>
 						<p:commandButton 
@@ -92,8 +122,6 @@
 								target="#{showOrModifyContract.modifyBasics}"
 								value="false"/>
 						</p:commandButton>
-						
-						
 					</p:panelGrid>
 				</h:form>
 				<h:form id="contractcontacts">

@@ -10,4 +10,5 @@ aspalvelija	apPassu1	CUSTOMERSERVICE	Antti		Avulias
 sihteeri	sihteerinpassu1	SECRETARY	Sanna		Sihteerikkö
 laskuttaja	laskutusPassu1	BILLER		Lasse		Laatunen
 juuseri		userPassu1	USER		Pekka		Peruskäyttäjä
+kalle           nT5v            TECHNICIAN      Kalle           Teknikko
 

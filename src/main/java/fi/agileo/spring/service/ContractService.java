@@ -28,12 +28,14 @@ public class ContractService {
 	@Transactional
 	public void createContract(
 			Contract contract,
-			User contractMakerUser, 
+			User contractMakerUser,
+			User technicianUser,
 			ContactCompany contactCompany, 
 			List<Contact> contractMakerContacts) {
 			contract.setContactCompany(contactCompany);
 			contract.setContacts(contractMakerContacts);
 			contract.setUser(contractMakerUser);
+			contract.setTechnicianUser(technicianUser);
 			contractMakerUser.getContracts().add(contract);
 			contactCompany.getContracts().add(contract);
 			em.persist(contract);

@@ -65,7 +65,7 @@ public class RegisterUser {
 	}
 
 	public String register() {		
-		if(!user.getDecodedPassword().equals(user.getConfirmPassword())) {
+		if(!user.getPassword().equals(user.getConfirmPassword())) {
 			// Message: Username must be at least 4 characters
 			FacesContext.getCurrentInstance().addMessage(null, 
 					new FacesMessage("Passwords don't match"));	
