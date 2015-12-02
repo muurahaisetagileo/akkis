@@ -14,29 +14,93 @@
 			<ui:define name="content">
 			
 				<h:form>
-					<p:growl id="messages"></p:growl>
+				 	<p:growl id="messages"></p:growl>
 					<h3>Fill User Information</h3>
-					<p:panelGrid columns="2">
-						<p:outputLabel value="Firstname:"></p:outputLabel>
-						<p:inputText value="#{registerUser.user.firstNames}"></p:inputText>
-						<p:outputLabel value="Lastname:"></p:outputLabel>
-						<p:inputText value="#{registerUser.user.lastName}"></p:inputText>
-						<p:outputLabel value="Username:"></p:outputLabel>
-						<p:inputText value="#{registerUser.user.username}"></p:inputText>						
-						<p:outputLabel value="Password:"></p:outputLabel>
-						<p:password value="#{registerUser.user.password}"></p:password>
-						<p:outputLabel value="Confirm password:"></p:outputLabel>
-						<p:password value="#{registerUser.user.confirmPassword}"></p:password>						
+					<p:panelGrid columns="2">				
+					
+	 					<p:outputLabel value="*Firstname:" />
+						<p:inputText value="#{registerUser.user.firstNames}" label="fname" required="true" 
+						requiredMessage="Please enter firstname"
+						validatorMessage="Firstname must be 2 to 30 characters" >
+							<f:validateLength minimum="2" maximum="30"/>
+						</p:inputText>		
+						
+						<p:outputLabel value="*Lastname:" />
+						<p:inputText value="#{registerUser.user.lastName}" required="true" 
+						requiredMessage="Please enter lastname"
+						validatorMessage="Lastname must be 2 to 30 characters" >
+							<f:validateLength minimum="2" maximum="30"/>
+						</p:inputText>	
+						
+						<p:outputLabel value="*Username:" />
+						<p:inputText id="uname" value="#{registerUser.user.username}" required="true" 
+						requiredMessage="Please enter username"
+						validatorMessage="Username must be 4 to 15 characters" >
+							<f:validateLength minimum="4" maximum="15"/>
+						</p:inputText>	
+						
+						<p:outputLabel for="pwd1" value="*Password:" />
+						<p:password id="pwd1" value="#{registerUser.user.password}" feedback="false" match="pwd2" label="pwd1" required="true" 
+						requiredMessage="Please enter password" validatorMessage="Passwords are not equal" />
+
+						<p:outputLabel for="pwd2" value="*Confirm password:" />
+						<p:password id="pwd2" value="#{registerUser.user.password}" feedback="false" label="pwd2" required="true"
+						requiredMessage="Please enter Confirm password" 
+						validatorMessage="Password must be 6-20 characters including uppercase, lowercase and alphanumeric characters.">	
+							<f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})" />
+						</p:password>					
+						
+		<!-- 			
+					
+ 						<p:outputLabel for="fname" value="Firstname:" />
+						<p:inputText id="fname" value="#{registerUser.user.firstNames}" label="fname" required="true" 
+						requiredMessage="Please enter firstname" >
+							<f:validateLength minimum="2" maximum="30"/>
+						</p:inputText>
+						<p:message for="fname" />
+						
+						<p:outputLabel for="lname" value="Lastname:" />
+						<p:inputText id="lname" value="#{registerUser.user.lastName}" label="lname" required="true" 
+						requiredMessage="Please enter lastname" >
+							<f:validateLength minimum="2" maximum="30"/>
+						</p:inputText>	
+						<p:message for="lname" /> 
+						
+						<p:outputLabel for="uname" value="Username:" />
+						<p:inputText id="uname" value="#{registerUser.user.username}" label="uname" required="true" 
+						requiredMessage="Please enter username" >
+							<f:validateLength minimum="4" maximum="20" />
+						</p:inputText>	
+						<p:message for="uname" />
+											
+				 		<p:outputLabel for="pw" value="Password:" />
+						<p:password id="pw" binding="#{passwordComponent}" value="#{registerUser.user.password}" label="pw" required="true" 
+						requiredMessage="Please enter password" >
+							<f:validateRegex pattern="((?=.*\d)(?=.*[a-z]).{6,20})" />
+						</p:password>	
+						<p:message for="pw" />
+						
+ 						<p:outputLabel for="cpw" value="Confirm password:" />
+						<p:password id="cpw" value="#{registerUser.user.confirmPassword}" label="cpw" required="true" 
+						requiredMessage="Please confirm password" validatorMessage="Passwords are not equal">
+							<f:validator validatorId="equalsValidator" />
+							<f:attribute name="otherValue" value="#{passwordComponent.value}" />
+						</p:password>	
+						<p:message for="cpw" />	  --> 				
 					</p:panelGrid>
-					<h3>Select user role</h3>
-    
-				    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-				        <p:outputLabel for="role" value="" />
-				        <p:selectOneRadio id="role" value="#{registerUser.user.role}"  layout="grid" columns="3">
+					
+					<h3>Select user role</h3> 
+				   <!--  <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5"> -->
+				        <p:outputLabel for="r" value="" />
+				        <p:selectOneRadio id="r" value="#{registerUser.user.role}"  layout="grid" columns="3" required="true" 
+						requiredMessage="Please select user role" >
 				            <f:selectItems value="#{registerUser.roles}" var="c" itemLabel="#{role}" itemValue="#{role}"/>
 				        </p:selectOneRadio>
-				    </h:panelGrid>    
-					<p:commandButton value="Add user" action="#{registerUser.register}" update="messages"></p:commandButton>
+				        
+				   <!--  </h:panelGrid>  -->   
+				    <p:message for="r" /><br/>
+					<!-- <p:commandButton value="Add user" action="#{registerUser.register}" validateClient="true"/> -->
+					<p:commandButton value="Add user" action="#{registerUser.register}" update="messages" />
 					<br/><br/>
 					
 				</h:form>

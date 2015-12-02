@@ -64,33 +64,21 @@ public class RegisterUser {
 		this.roles = roles;
 	}
 
-	public String register() {		
-		if(!user.getDecodedPassword().equals(user.getConfirmPassword())) {
-			// Message: Username must be at least 4 characters
-			FacesContext.getCurrentInstance().addMessage(null, 
-					new FacesMessage("Passwords don't match"));	
-		} else if(user.getUsername().length()<4) {
-			FacesContext.getCurrentInstance().addMessage(null, 
-					new FacesMessage("Username length must be at least 4 characters"));	
+	public void register() {		
+		// Calling Business Service
+		int i = userService.register(user);
+		String msg = " could not be registered";
+		
+		if (i == 1) {
+			msg = " is registered successfully";
+		} else if (i == -1){
+			msg = " already exists";
 		}
 		
-		else {
-			// Calling Business Service
-			int i = userService.register(user);
-			String msg = " could not be registered";
-			
-			if (i == 1) {
-				msg = " is registered successfully";
-			} else if (i == -1){
-				msg = " already exists";
-			}
-			
-			// Add message
-			FacesContext.getCurrentInstance().addMessage(null, 
-					new FacesMessage("The user " + 
-						this.user.getUsername()+
-						msg));
-		}
-		return "";
+		// Add message
+		FacesContext.getCurrentInstance().addMessage(null, 
+				new FacesMessage("The user " + 
+					this.user.getUsername()+
+					msg));
 	}
 }
