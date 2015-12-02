@@ -71,5 +71,10 @@ public class UserService {
 		return allUsers;
 	}
 
+	public List<User> getUserByRolesInNameOrder(List<String> roles) {
+		return (List<User>)em.createNamedQuery("User.rolesByName").
+					setParameter("roles", roles).
+					getResultList();
+	}
 
 }
