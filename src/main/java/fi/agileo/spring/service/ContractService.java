@@ -43,6 +43,8 @@ public class ContractService {
 			em.merge(contractMakerUser);
 			for(Contact c : contractMakerContacts) {
 				c.getContracts().add(contract);
+				if (c.getType() < 2)
+					c.setType(2);
 				em.merge(c);
 			}
 	}
