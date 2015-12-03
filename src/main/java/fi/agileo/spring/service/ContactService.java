@@ -60,6 +60,11 @@ public class ContactService {
 		 return 0;
 	 }
 	
+	@Transactional
+	public void modifyBasics(Contact contact) {
+		em.merge(contact);
+	}
+	
 	public List<Contact> getContactsWithoutCompany(){
 		List<Contact> contactsWithoutCompany = (List<Contact>)em.createNamedQuery("Contact.findContactsWithoutCompany")
 				.getResultList();
