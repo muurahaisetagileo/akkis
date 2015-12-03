@@ -55,6 +55,8 @@ public class ShowOrModifyContract {
 	}
 	
 	public String toShowContract() {
+		if (this.contract == null)
+			return "/contactcompany/showormodifycontactcompany";
 		return "/contract/showormodifycontract";
 	}
 

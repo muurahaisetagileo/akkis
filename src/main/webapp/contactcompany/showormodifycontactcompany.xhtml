@@ -77,10 +77,13 @@
 				</h:form>
 
 				<br/><br/><br/>
-				
+				<h:form>				
 				<p:dataTable 
 					value="#{showOrModifyContactCompany.contactCompany.companyContacts}" 
-					id="contact" var="c">
+					id="contact" var="c"
+					rowKey="#{c.contactId}"
+					selection="#{showOrModifyContactView.selectedContact}"
+					selectionMode="single">
 					<f:facet name="header">
                    		Contacts of contact company
                		</f:facet>
@@ -88,9 +91,15 @@
 					<p:column headerText="Phone">#{c.phone}</p:column>
 					<p:column headerText="Address">#{c.address}</p:column>
 					<p:column headerText="Country">#{c.country}</p:column>
-					<f:facet name="footer"></f:facet>
+					<f:facet name="footer">
+						<p:commandButton value="Show or modify"
+							action="#{showOrModifyContactView.toShowOrModifyContact}">
+							<f:setPropertyActionListener target="#{showOrModifyContactView.backPage}"
+				    			value="/contactcompany/showormodifycontactcompany"/>
+						</p:commandButton>
+					</f:facet>
 				</p:dataTable>
-				
+				</h:form>
 				<br/>
 				<h:form>
 					<p:commandButton value="Add contacts to contact company" action="#{addContactsToContactCompany.toAddContacts}">
