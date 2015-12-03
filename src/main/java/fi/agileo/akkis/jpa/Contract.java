@@ -40,6 +40,14 @@ public class Contract {
 	@Column(name = "PRICE")
 	private double price;
 	
+	/* pricePeriodType values:
+	   0 = only once, 1 = per month, 2 = per year */
+	@Column(name = "PRICEPERIODTYPE")
+	private int pricePeriodType;
+
+	@Column(name = "VALUEADDEDTAXPERCENT")
+	private double valueAddedTaxPercent;
+	
 	@ManyToMany(mappedBy="contracts")
 	private List<Contact> contacts;
 	
@@ -50,6 +58,10 @@ public class Contract {
 	@ManyToOne(optional=false, fetch=FetchType.EAGER)
 	@JoinColumn(name="USERID")
 	private User user;
+	
+	@ManyToOne(optional=true, fetch=FetchType.EAGER)
+	@JoinColumn(name="TECHNICIANUSERID")
+	private User technicianUser;
 	
 	public long getContractId() {
 		return contractId;
@@ -107,6 +119,41 @@ public class Contract {
 		this.price = price;
 	}
 
+	
+
+
+	public int getPricePeriodType() {
+		return pricePeriodType;
+	}
+
+	public void setPricePeriodType(int pricePeriodType) {
+		this.pricePeriodType = pricePeriodType;
+	}
+
+	public double getValueAddedTaxPercent() {
+		return valueAddedTaxPercent;
+	}
+
+	public void setValueAddedTaxPercent(double valueAddedTaxPercent) {
+		this.valueAddedTaxPercent = valueAddedTaxPercent;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	public User getTechnicianUser() {
+		return technicianUser;
+	}
+
+	public void setTechnicianUser(User technicianUser) {
+		this.technicianUser = technicianUser;
+	}
+	
 	public List<Contact> getContacts() {
 		return contacts;
 	}
@@ -122,7 +169,7 @@ public class Contract {
 	public void setContactCompany(ContactCompany contactCompany) {
 		this.contactCompany = contactCompany;
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof Contract))
@@ -135,15 +182,9 @@ public class Contract {
 
 	@Override
 	public String toString() {
-		return "Contract [contractId=" + contractId + ", signdate=" + signdate + ", enddate="
-				+ enddate + ", contractstatus=" + contractstatus + ", price=" + price + "]";
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
+		return "Contract [contractId=" + contractId + ", signdate=" + signdate + 
+				", enddate=" + enddate + ", contractstatus=" + contractstatus + 
+				", price=" + price + ", pricePeriodType=" + pricePeriodType + 
+				", valueAddedTaxPercent=" + valueAddedTaxPercent + "]";
 	}
 }
