@@ -24,53 +24,48 @@ public class ContractService {
 	public void setEm(EntityManager em) {
 		this.em = em;
 	}
-	
-	@Transactional
-	public void createContract(
-			Contract contract,
-			User contractMakerUser,
-			User technicianUser,
-			ContactCompany contactCompany, 
-			List<Contact> contractMakerContacts) {
-			contract.setContactCompany(contactCompany);
-			contract.setContacts(contractMakerContacts);
-			contract.setUser(contractMakerUser);
-			contract.setTechnicianUser(technicianUser);
-			contractMakerUser.getContracts().add(contract);
-			contactCompany.getContracts().add(contract);
-			em.persist(contract);
-			em.merge(contactCompany);
-			em.merge(contractMakerUser);
-			for(Contact c : contractMakerContacts) {
-				c.getContracts().add(contract);
-				if (c.getType() < 2)
-					c.setType(2);
-				em.merge(c);
-			}
-	}
-	
 
 	@Transactional
-	public void addContactsToContract(Contract contract,
-			List<Contact> contactsToBeAdded) {
-			List<Contact> existingcontacts=contract.getContacts();
-			
-			// Loop through list contactsToBeAdded to check and remove existing contacts
-			for (int i = 0; i < contactsToBeAdded.size(); i++) {
-				Contact c = contactsToBeAdded.get(i);
-				if (existingcontacts.contains(c))
-					contactsToBeAdded.remove(c);
-			}
-			// Set customers to the contract
-			// existingcontacts.addAll(contactsToBeAdded);
-			contract.getContacts().addAll(contactsToBeAdded);
-			for(Contact c : contactsToBeAdded) {
-				c.getContracts().add(contract);
-				em.merge(c);
-			}
-			em.merge(contract);
+	public void createContract(Contract contract, User contractMakerUser, User technicianUser,
+			ContactCompany contactCompany, List<Contact> contractMakerContacts) {
+		contract.setContactCompany(contactCompany);
+		contract.setContacts(contractMakerContacts);
+		contract.setUser(contractMakerUser);
+		contract.setTechnicianUser(technicianUser);
+		contractMakerUser.getContracts().add(contract);
+		contactCompany.getContracts().add(contract);
+		em.persist(contract);
+		em.merge(contactCompany);
+		em.merge(contractMakerUser);
+		for (Contact c : contractMakerContacts)
+			c.getContracts().add(contract);
+		for (Contact c : contract.getContactCompany().getCompanyContacts()) {
+			if (c.getType() < 2)
+				c.setType(2);
+			em.merge(c);
+		}
 	}
-	
+
+	@Transactional
+	public void addContactsToContract(Contract contract, List<Contact> contactsToBeAdded) {
+		List<Contact> existingcontacts = contract.getContacts();
+
+		// Loop through list contactsToBeAdded to check and remove existing
+		// contacts
+		for (int i = 0; i < contactsToBeAdded.size(); i++) {
+			Contact c = contactsToBeAdded.get(i);
+			if (existingcontacts.contains(c))
+				contactsToBeAdded.remove(c);
+		}
+		// Set customers to the contract
+		// existingcontacts.addAll(contactsToBeAdded);
+		contract.getContacts().addAll(contactsToBeAdded);
+		for (Contact c : contactsToBeAdded) {
+			c.getContracts().add(contract);
+			em.merge(c);
+		}
+		em.merge(contract);
+	}
 
 	@Transactional
 	public Contract getContractPropertiesForView(Contract contract) {
@@ -82,15 +77,17 @@ public class ContractService {
 		contract.getUser();
 		return contract;
 	}
-	
-	/* A method that gets contract information. 
-	Also a way to get contacts of contract.*/
-	
+
+	/*
+	 * A method that gets contract information. Also a way to get contacts of
+	 * contract.
+	 */
+
 	public Contract getContacts(Contract contract) {
 		contract.getContacts();
-	    return contract;		
+		return contract;
 	}
-	
+
 	@Transactional
 	public void modifyContractBasicInfo(Contract contract) {
 		em.merge(contract);
