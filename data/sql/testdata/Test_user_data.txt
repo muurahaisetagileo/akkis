@@ -1,14 +1,14 @@
 Testikäyttäjiä:
-USERNAME 	PASSWORD	ROLE		FIRSTNAME	LASTNAME	ID	ENCRYPY_PW
-hamaenpaa	harrinPassu1	ADMIN		Harri		Mäenpää		3	aGFycmluUGFzc3Ux
-admin		adminPassu1	ADMIN		Kalle		Muittari	4	YWRtaW5QYXNzdTE=
-uusik		uusiK1				Uusi		Käyttäjä	5	dXVzaUsx
-pomo		pomonPassu1	BOSS		Bruce		Springsteen
+USERNAME 	PASSWORD		ROLE			FIRSTNAME	LASTNAME	ID	ENCRYPY_PW
+hamaenpaa	harrinPassu1	ADMIN			Harri		Mäenpää		3	aGFycmluUGFzc3Ux
+admin		adminPassu1		DMIN			Kalle		Muittari	4	YWRtaW5QYXNzdTE=
+uusik		uusiK1							Uusi		Käyttäjä	5	dXVzaUsx
+pomo		pomonPassu1		BOSS			Bruce		Springsteen
 myyjä		myyjanPassu1	SALESPERSON 	Jethro		Rostedt	
-teknikko	teknikonPassu1 	TECHNICIAN	Timo 		Terävä
-aspalvelija	apPassu1	CUSTOMERSERVICE	Antti		Avulias
-sihteeri	sihteerinpassu1	SECRETARY	Sanna		Sihteerikkö
-laskuttaja	laskutusPassu1	BILLER		Lasse		Laatunen
-juuseri		userPassu1	USER		Pekka		Peruskäyttäjä
-kalle           nT5v            TECHNICIAN      Kalle           Teknikko
+teknikko	teknikonPassu1 	TECHNICIAN		Timo 		Terävä
+aspalvelija	apPassu1		CUSTOMERSERVICE	Antti		Avulias
+sihteeri	sihteerinpassu1	SECRETARY		Sanna		Sihteerikkö
+laskuttaja	laskutusPassu1	BILLER			Lasse		Laatunen
+juuseri		userPassu1		USER			Pekka		Peruskäyttäjä
+kalle       nT5v   		    TECHNICIAN  	Kalle       Teknikko
 

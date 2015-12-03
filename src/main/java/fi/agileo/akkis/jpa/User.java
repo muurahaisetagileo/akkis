@@ -63,9 +63,7 @@ public class User {
 	
 	@OneToMany(mappedBy="salesPerson")
 	private List<Contact> contacts;	
-	
-	@Transient 
-	private String confirmPassword;
+
 	
 	// Public methods
 
@@ -143,14 +141,6 @@ public class User {
 
 	public void setContacts(List<Contact> contacts) {
 		this.contacts = contacts;
-	}
-	
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
 	}
 
 	@Override
