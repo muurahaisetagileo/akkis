@@ -14,7 +14,7 @@
 			<ui:define name="content">
 
 			<h:form>
-				<p:growl id="messages"></p:growl>
+				<!-- <p:growl id="messages"></p:growl> -->
 				<p:panelGrid columns="2">
 				<f:facet name="header">Search criteria</f:facet>
  					<p:outputLabel value="Firstname:"></p:outputLabel>
@@ -27,18 +27,18 @@
 					<p:selectManyCheckbox value="#{userSearch.filterUserRoles}" layout="grid" columns="3">
 						<f:selectItems value="#{userSearch.userRoles}" />
 					</p:selectManyCheckbox>		 
-
            			<p:commandButton value="Show all users" action="#{userSearch.allUsers}" update="userList" />
 					<p:commandButton value="Search" action="#{userSearch.filteredUsers}" update="userList"  icon="ui-icon-search" />					
 											
 				</p:panelGrid>
 				<br/>
 	
+	<!-- selection="#{userSearch.selectedUsers}" -->
 
 			<p:dataTable value="#{userSearch.searchedUsers}" id="userList"
 				var="u" rowKey="#{u.userId}"
-				selection="#{userSearch.selectedUsers}"
-				selectionMode="multiple">
+				selection="#{userView.user}"	
+				selectionMode="single">
 				<f:facet name="header">Search result </f:facet>
 					<p:column style="width:18px" />
 					<p:column headerText="Username">
@@ -53,11 +53,15 @@
 					<p:column headerText="User Role">
 					    #{u.role}  
 					</p:column>					
-				<f:facet name="footer"></f:facet>
+				<f:facet name="footer">
+					<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+					<p:commandButton value="Show user information" action="#{userView.toUserPage}" >
+						<f:setPropertyActionListener target="#{userView.backPage}"
+				    	value="/user/user_search"/>					
+					</p:commandButton>
+				</f:facet> 
 			</p:dataTable>
-			<p:commandButton value="Submit"
-				update="userList">
-			</p:commandButton>
+				
 			</h:form>
 		</ui:define>
 		</ui:composition>

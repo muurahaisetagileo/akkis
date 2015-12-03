@@ -112,7 +112,7 @@ public class UserSearch {
 			System.out.println("User: " + u);		
 	}
 	
-	public String filteredUsers() {
+	public void filteredUsers() {
 		List<String> searchedUserList = new ArrayList<String>();
 		for(String userRole: filterUserRoles) {
 			searchedUserList.add(userRole);
@@ -127,26 +127,7 @@ public class UserSearch {
 		
 		System.out.println("Searhed users: ");
 		for(User u: searchedUsers)
-			System.out.println(u);	
-		
-		return "";
-		
+			System.out.println(u);			
 	}
-	
-/*	public String seekContacts() {
-		List<Integer> listSeekedContactTypes = new ArrayList<Integer>();
-		for(Integer seekedContactType: seekedContactTypes)
-			listSeekedContactTypes.add(seekedContactType);
-		this.searchedContacts = 
-				contactService.seekContacts(
-						listSeekedContactTypes, 
-						this.getSearchSalesmanFirstNames(),
-						this.getSearchSalesmanLastName(),
-						this.getCountrySearch());
-		System.out.println("SEEKED CONTACTS");
-		for(Contact c: searchedContacts)
-			System.out.println(c);
-		return "";
-	}  */	
-	
+
 }

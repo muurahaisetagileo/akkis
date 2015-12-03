@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.User;
 
 @Component
@@ -24,6 +25,11 @@ public class UserService {
 	public void setEm(EntityManager em) {
 		this.em = em;
 	}
+	
+	@Transactional
+	public void updateUser(User user) {
+		em.merge(user);
+	}	
 
 	@Transactional
 	public int register(User user) {
@@ -80,11 +86,6 @@ public class UserService {
 				
 		if (roles == null || roles.size() == 0)
 			return new ArrayList<User>();	
-		
-//		String firstnameSearchExpr = getQueryLikeString(firstname);
-//		String lastnameSearchExpr = getQueryLikeString(lastname);
-//		String usernameSearchExpr = getQueryLikeString(username);
-		
 		
 		List<User> userList = new ArrayList<User>();
 		userList = (List<User>)em.createNamedQuery("User.search").
