@@ -5,12 +5,12 @@
 		xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<script name="jquery/jquery.js" library="primefaces"></script>
-		<title>Akkis - Search contacts to set them lead</title>
+		<title>Akkis - Search contacts to show and modify them</title>
 	</h:head>
 
 	<h:body>
 		<ui:composition template="../templates/template_action.xhtml">
-		<ui:param name="title" value="Search contacts to set them lead" />
+		<ui:param name="title" value="Search contacts to show and modify them" />
 			<ui:define name="content">
 
 			<h:form>
@@ -31,32 +31,33 @@
 						action="#{listContacts.seekContacts}"
 						update="contacts"></p:commandButton>
 				</p:panelGrid>
-			<p:dataTable value="#{listContacts.contactList}" id="contacts"
+				<p:dataTable value="#{listContacts.contactList}" id="contacts"
 					var="c" rowKey="#{c.contactId}"
-					selection="#{listContacts.selectedContacts}"
-					selectionMode="multiple">
+					selection="#{showOrModifyContactView.selectedContact}"
+					selectionMode="single">
 					<f:facet name="header">
-                   Seeked contacts, select contacts to be set to lead
-               </f:facet>
+                   		Seeked contacts, select contacts to be set to show or modify them
+               		</f:facet>
 					<p:column style="width:18px" />
 					<p:column headerText="Name">
-                   #{c.name}  
-               </p:column>
+                   		#{c.name}  
+               		</p:column>
 					<p:column headerText="Phone">
-                   #{c.phone}  
-               </p:column>
+                   		#{c.phone}  
+               		</p:column>
 					<p:column headerText="Address">
-                   #{c.address}  
-               </p:column>
+                   		#{c.address}  
+               		</p:column>
 					<p:column headerText="Country">
-                   #{c.country}  
-               </p:column>
+                   		#{c.country}  
+               		</p:column>
 					<f:facet name="footer"></f:facet>
-			</p:dataTable>
-			<p:commandButton value="Submit"
-				action="#{listContacts.setContactsToLead}"
-				update="contacts">
-			</p:commandButton>
+				</p:dataTable>
+				<p:commandButton value="Submit"
+					action="#{showOrModifyContactView.toShowOrModifyContact}">
+					<f:setPropertyActionListener target="#{showOrModifyContactView.backPage}"
+				    	value="/contact/contact_list_for_single_show_or_modif"/>
+				</p:commandButton>
 			</h:form>
 		</ui:define>
 		</ui:composition>
