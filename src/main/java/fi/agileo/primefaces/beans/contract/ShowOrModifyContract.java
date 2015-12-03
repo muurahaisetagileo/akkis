@@ -150,6 +150,13 @@ public class ShowOrModifyContract {
 		return null;
 	}
 
+	public String getContractUserName() {
+		if (contract != null && contract.getUser() != null)
+			return contract.getUser().getLastName() + " " +
+				contract.getUser().getFirstNames();
+		return "";
+	}
+	
 	public List<Contact> getContactsToBeAdded() {
 		return contactsToBeAdded;
 	}
