@@ -70,6 +70,38 @@ public class UserService {
 		
 		return allUsers;
 	}
+	
+	public List<User> findFilteredUsers(
+			List<String> roles,
+			String firstname,
+			String lastname,
+			String username
+			) {
+				
+		if (roles == null || roles.size() == 0)
+			return new ArrayList<User>();	
+		
+//		String firstnameSearchExpr = getQueryLikeString(firstname);
+//		String lastnameSearchExpr = getQueryLikeString(lastname);
+//		String usernameSearchExpr = getQueryLikeString(username);
+		
+		
+		List<User> userList = new ArrayList<User>();
+		userList = (List<User>)em.createNamedQuery("User.search").
+				setParameter("firstNames", getQueryLikeString(firstname)).
+				setParameter("lastName", getQueryLikeString(lastname)).
+				setParameter("username", getQueryLikeString(username)).
+				setParameter("roles", roles).
+				getResultList();
+		
+		return userList;
+	}
+	
+	private String getQueryLikeString(String fieldString) {
+		if (fieldString == "")
+			return "%";
+		return "%" + fieldString + "%";
+	}			
 
 	public List<User> getUserByRolesInNameOrder(List<String> roles) {
 		return (List<User>)em.createNamedQuery("User.rolesByName").

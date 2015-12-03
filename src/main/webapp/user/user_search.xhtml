@@ -15,10 +15,25 @@
 
 			<h:form>
 				<p:growl id="messages"></p:growl>
-					<p:commandButton value="Search"
-						action="#{userSearch.allUsers}"
-						update="userList"></p:commandButton>
+				<p:panelGrid columns="2">
+				<f:facet name="header">Search criteria</f:facet>
+ 					<p:outputLabel value="Firstname:"></p:outputLabel>
+					<p:inputText value="#{userSearch.filterFirstname}"></p:inputText>
+					<p:outputLabel value="Lastname:"></p:outputLabel>
+					<p:inputText value="#{userSearch.filterLastname}"></p:inputText>
+					<p:outputLabel value="Username:"></p:outputLabel>
+					<p:inputText value="#{userSearch.filterUsername}"></p:inputText>
+					<p:outputLabel value="User roles:"></p:outputLabel>
+					<p:selectManyCheckbox value="#{userSearch.filterUserRoles}" layout="grid" columns="3">
+						<f:selectItems value="#{userSearch.userRoles}" />
+					</p:selectManyCheckbox>		 
 
+           			<p:commandButton value="Show all users" action="#{userSearch.allUsers}" update="userList" />
+					<p:commandButton value="Search" action="#{userSearch.filteredUsers}" update="userList"  icon="ui-icon-search" />					
+											
+				</p:panelGrid>
+				<br/>
+	
 
 			<p:dataTable value="#{userSearch.searchedUsers}" id="userList"
 				var="u" rowKey="#{u.userId}"

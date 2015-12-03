@@ -25,8 +25,8 @@ import javax.persistence.Table;
 	@NamedQuery(name="User.findAll", 
 	query="SELECT u FROM User u"),
 	@NamedQuery(name="User.search",
-	query="SELECT u FROM User u WHERE u.firstNames = :firstNames AND u.lastName = :lastName" +
-	" AND u.username = :username AND u.role IN :roles"),
+	query="SELECT u FROM User u WHERE u.firstNames LIKE :firstNames AND u.lastName LIKE :lastName" +
+	" AND u.username LIKE :username AND u.role IN :roles"),
 	@NamedQuery(name="User.rolesByName",
 	query="SELECT u FROM User u WHERE u.role IN :roles"
 			+ " ORDER BY u.lastName, u.firstNames")

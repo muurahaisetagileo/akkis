@@ -6,6 +6,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.model.SelectItem;
 
 import fi.agileo.akkis.jpa.Contact;
 import fi.agileo.akkis.jpa.User;
@@ -21,9 +22,33 @@ public class UserSearch {
 	private List<User> searchedUsers = new ArrayList<User>();
 	private List<User> selectedUsers = new ArrayList<User>();
 	
-	private String searchFirstname;
-	private String searchLastname;
-	private String searchUsername;
+	private String filterFirstname;
+	private String filterLastname;
+	private String filterUsername;
+	private String[] filterUserRoles;
+	
+	
+	public UserSearch() {
+		initializeRoles();
+	}
+	
+	public void initializeRoles() {
+		String defaultRoles[] = {"USER", "SALESPERSON", "SECRETARY", "BILLER", "CUSTOMERSERVICE", "TECHNICIAN", "BOSS", "ADMIN"};
+		this.filterUserRoles = defaultRoles;		
+	}
+
+	public SelectItem[] getUserRoles() {
+		SelectItem[] userRoles = new SelectItem[8];
+		userRoles[0] = new SelectItem("USER", "User");	
+		userRoles[1] = new SelectItem("SALESPERSON", "Salesperson");
+		userRoles[2] = new SelectItem("SECRETARY", "Secretary");
+		userRoles[3] = new SelectItem("BILLER", "Invoicing");
+		userRoles[4] = new SelectItem("CUSTOMERSERVICE", "Customer service");
+		userRoles[5] = new SelectItem("TECHNICIAN", "Technician");
+		userRoles[6] = new SelectItem("BOSS", "Boss");
+		userRoles[7] = new SelectItem("ADMIN", "Admin");
+		return userRoles;
+	}
 	
 	public UserService getUserService() {
 		return userService;
@@ -49,34 +74,79 @@ public class UserSearch {
 		this.selectedUsers = selectedUsers;
 	}
 	
-	public String getSearchFirstname() {
-		return searchFirstname;
+	public String getFilterFirstname() {
+		return filterFirstname;
+	}
+
+	public void setFilterFirstname(String filterFirstname) {
+		this.filterFirstname = filterFirstname;
+	}
+
+	public String getFilterLastname() {
+		return filterLastname;
+	}
+
+	public void setFilterLastname(String filterLastname) {
+		this.filterLastname = filterLastname;
+	}
+
+	public String getFilterUsername() {
+		return filterUsername;
+	}
+
+	public void setFilterUsername(String filterUsername) {
+		this.filterUsername = filterUsername;
 	}
 	
-	public void setSearchFirstname(String searchFirstname) {
-		this.searchFirstname = searchFirstname;
+	public String[] getFilterUserRoles() {
+		return filterUserRoles;
 	}
-	
-	public String getSearchLastname() {
-		return searchLastname;
+
+	public void setFilterUserRoles(String[] filterUserRoles) {
+		this.filterUserRoles = filterUserRoles;
 	}
-	
-	public void setSearchLastname(String searchLastname) {
-		this.searchLastname = searchLastname;
-	}
-	
-	public String getSearchUsername() {
-		return searchUsername;
-	}
-	
-	public void setSearchUsername(String searchUsername) {
-		this.searchUsername = searchUsername;
-	}
-	
+
 	public void allUsers() {
 		this.searchedUsers = userService.findAllUsers();
 		for(User u: searchedUsers)
 			System.out.println("User: " + u);		
 	}
+	
+	public String filteredUsers() {
+		List<String> searchedUserList = new ArrayList<String>();
+		for(String userRole: filterUserRoles) {
+			searchedUserList.add(userRole);
+		}
+		
+		this.searchedUsers = userService.findFilteredUsers(
+				searchedUserList ,
+				this.getFilterFirstname(),
+				this.getFilterLastname(),
+				this.getFilterUsername()
+				);	
+		
+		System.out.println("Searhed users: ");
+		for(User u: searchedUsers)
+			System.out.println(u);	
+		
+		return "";
+		
+	}
+	
+/*	public String seekContacts() {
+		List<Integer> listSeekedContactTypes = new ArrayList<Integer>();
+		for(Integer seekedContactType: seekedContactTypes)
+			listSeekedContactTypes.add(seekedContactType);
+		this.searchedContacts = 
+				contactService.seekContacts(
+						listSeekedContactTypes, 
+						this.getSearchSalesmanFirstNames(),
+						this.getSearchSalesmanLastName(),
+						this.getCountrySearch());
+		System.out.println("SEEKED CONTACTS");
+		for(Contact c: searchedContacts)
+			System.out.println(c);
+		return "";
+	}  */	
 	
 }
