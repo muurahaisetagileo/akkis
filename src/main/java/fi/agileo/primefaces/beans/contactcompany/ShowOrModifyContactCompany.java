@@ -25,6 +25,7 @@ public class ShowOrModifyContactCompany {
 	
 	public String toShowContactCompany() {
 		System.out.println("toShowContactCompany");
+		modifyBasics = false;
 		return "/contactcompany/showormodifycontactcompany";
 	}
 
