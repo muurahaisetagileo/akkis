@@ -1,0 +1,48 @@
+Build #6 (Dec 4, 2015 5:18:30 PM)
+add description
+	Changes
+
+    jenkins build with some test failures (commit: 1fcefde3585b69bb6bf96bdf774ae7497f601e25) (detail / githubweb)
+    Salausmuutoksia (commit: 945b9a9e87c862e5b2d376df81312db65db6b14f) (detail / githubweb)
+    tests fixed except for user registration test which is hard (commit: 1f9b9b3157b813d267db525bf98b39ab9677beec) (detail / githubweb)
+    deal removed (commit: d4d332c54b3f406a32c1fa055a502e55492263c8) (detail / githubweb)
+    test data, data containing deal removed (commit: fd5ae5a9b388033bfbeb6d0939a37382d38f0e21) (detail / githubweb)
+    hours updated, deal implementation rejected, more contract fields added (commit: b3ff4f70d25393b8fd30a6796fdc8aa1df72d801) (detail / githubweb)
+    query and access method for getting users in name order for given roles (commit: a035969b5fafd6c6969b8794fb326033ce8e94a6) (detail / githubweb)
+    contract new fields, creation and modifications, related test data, fix (commit: f8dba0b8c387f909ed8f5d275655cb7fdb042356) (detail / githubweb)
+    Käyttäjän lisäyksen validoinnit (commit: b788749935a0fdd1e68e1f269327a774e3d572f3) (detail / githubweb)
+    ConfirmPassword poistettu (commit: 33eca47e55bc409a02897c839b01ccb19c2727e1) (detail / githubweb)
+    Ulkonäkömuokkausta (commit: dc53c12768f929a2b313cda3828a51a4d2e5747f) (detail / githubweb)
+    initial version of presentation video description (commit: e15ee1ad1585442b94315cb1fcf913cad688cad2) (detail / githubweb)
+    contract type set to customer when it is attached to contract if smaller (commit: 9fad42372380c335fa4a6ec3afd568fd9617ac94) (detail / githubweb)
+    return to main page button removed since that functionality in menu (commit: 795df6557c5381ae62a4ed440574d2363aea78cf) (detail / githubweb)
+    all contacts of company making contract must be set customers (commit: 7d5df24f459b6dbe2504d9b2574acbd314e773e9) (detail / githubweb)
+    customer type set for contacts having contract (commit: cdd99d6a7cba0d127e221c4935fdd4ab92d2baa4) (detail / githubweb)
+    situation got back to unmodified when next getting to page (commit: 29e765d07af535e2d14832d495158957158396a2) (detail / githubweb)
+    updating basic features of contact (commit: ecb748b4803f7bc855990d2711fe9c4ecc7ae991) (detail / githubweb)
+    single contact view and update implemented (commit: 91234cabab8a4458da2f4c59846ea8c907e206c1) (detail / githubweb)
+    linking contact company and contract contacts listings to contact detail (commit: c4a1157546408a1af9b4d6fdb1f23e73de1ecf4b) (detail / githubweb)
+    User search (commit: 543f36203a5f300d6408ef6b1e10429fde15cd4c) (detail / githubweb)
+    one title added for contract creation. User that created the contract (commit: 26987cb88b3905a696d1c71794a125f5d60bc469) (detail / githubweb)
+    video plan got content to functionalities shown (commit: 107d80358f58f83eb289e765e7dcd68472d7a4da) (detail / githubweb)
+    video codecs mentioned (commit: c3b0ec3d39100e0f67a2744590ff258fdaa6bb45) (detail / githubweb)
+    Harris hours and tasks states updated (commit: 89982f47b8256bb3cf68cd63bbbcab47fceaf61a) (detail / githubweb)
+    User modifying (commit: a74e35fa067e481849c2a8c6f2e260e91fb5acdc) (detail / githubweb)
+    page initializations of contactcompany and contact lists and adds fixed (commit: 27e9a2a0118d1b7d2c1f99909660cf6370c98fe3) (detail / githubweb)
+    also contract initialization when created ensured (commit: 49213c66a37f302891792aa57940156c3620831d) (detail / githubweb)
+    User role modifying (commit: 4438fb423fed894aed237c43fe489b8c3743bb9c) (detail / githubweb)
+    improved and shorter sentences, some changes to presented (commit: 931d0f7a75d29d10cfb496b4231a7282033e1049) (detail / githubweb)
+    small typo fix (commit: 9a00e40ff60297a78f352ed890f568315eec49bc) (detail / githubweb)
+    password change passed forward (commit: f3c0e0c865215eddd9d038e28d3c43049e64c851) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: f3c0e0c865215eddd9d038e28d3c43049e64c851
+
+    refs/remotes/origin/master
+
+	Test Result (no failures)
+
+Module Builds
+Success Akkis muurahaiset	18 sec
