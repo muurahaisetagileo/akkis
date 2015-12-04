@@ -60,6 +60,7 @@ public class CreateContractWhenCompanyPreSelected {
 	
 	public String toCreateContract() {
 		System.out.println("toCreateContract, contactCompany " + contactCompany);
+		contract = new Contract();
 		return "/contract/create_contract_when_company_selected";
 	}
 	
