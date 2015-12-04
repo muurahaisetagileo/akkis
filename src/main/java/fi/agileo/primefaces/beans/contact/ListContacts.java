@@ -27,6 +27,27 @@ public class ListContacts {
 	private String countrySearch;
 	private Integer[] seekedContactTypes;
 	
+	public String toContactList() {
+		System.out.println("toContactList");
+		initializeFields();
+		return "/contact/contact_list";
+	}
+	
+	public String toContactListToShowOrModifySingle() {
+		System.out.println("toContactListToShowOrModifySingle");
+		initializeFields();
+		return "/contact/contact_list_for_single_show_or_modif";
+	}
+	
+	public void initializeFields() {
+		searchSalesmanLastName = "";
+		searchSalesmanFirstNames = "";
+		seekedContactTypes = new Integer[3];
+		seekedContactTypes[0] = new Integer(0);
+		seekedContactTypes[1] = new Integer(1);
+		seekedContactTypes[2] = new Integer(2);
+	}
+	
 	public SelectItem[] getContactTypeOptions() {
 		SelectItem[] contactTypeOptions = new SelectItem[3];
 		contactTypeOptions[0] = new SelectItem(0, "Contact");

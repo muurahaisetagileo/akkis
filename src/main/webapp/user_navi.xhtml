@@ -16,15 +16,32 @@ xmlns:p="http://primefaces.org/ui">
         </p:submenu>   
         
          <p:submenu label="Contact Companies" icon="ui-icon-contact">
-            <p:menuitem icon="ui-icon-search" value="Contact Company Search" outcome="/contactcompany/contactcompany_list" />
-            <p:menuitem icon="ui-icon-plus" value="Add New Company" outcome="/contactcompany/create_contactcompany" />
-        </p:submenu>                
- 
+            <p:menuitem 
+            	icon="ui-icon-search" 
+            	value="Company Search" 
+            	action="#{listContactCompanies.toListContactCompanies}"	/>
+            <p:menuitem 
+            	icon="ui-icon-plus" 
+            	value="Add New Company" 
+            	action="#{createContactCompany.toCreateContactCompany}" />
+         </p:submenu>                
          <p:submenu label="Contacts" icon="ui-icon-person">
-            <p:menuitem icon="ui-icon-search" value="Contact Search and set them lead" outcome="/contact/contact_list" />
-            <p:menuitem icon="ui-icon-search" value="Contact Search and show and modify single" outcome="/contact/contact_list_for_single_show_or_modif" />
-            <p:menuitem icon="ui-icon-plus" value="Add New Contact" outcome="/contact/create_contact" />
-        </p:submenu>       -->        
+            <p:menuitem 
+            	icon="ui-icon-search" 
+            	value="Contact Search and set them lead"
+            	action="#{listContacts.toContactList}"/>
+            <p:menuitem 
+            	icon="ui-icon-search" 
+            	value="Contact Search and show and modify single" 
+            	action="#{listContacts.toContactListToShowOrModifySingle}" />
+            <p:menuitem 
+            	icon="ui-icon-plus" 
+            	value="Add New Contact" 
+            	action="#{createContact.toCreateContact}" />
+        </p:submenu>              
+
+        
+        -->        
  
         <f:facet name="options">
             <p:commandButton value="Logout" action="#{loginUser.logout}" icon="ui-icon-power" style="height:30px; font-size:12px" />

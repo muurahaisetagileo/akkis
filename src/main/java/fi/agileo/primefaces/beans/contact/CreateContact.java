@@ -18,7 +18,7 @@ public class CreateContact {
 	@ManagedProperty("#{contactService}")
 	private ContactService contactService;
 
-	private Contact contact = new Contact();
+	private Contact contact = null;
 
 	public ContactService getContactService() {
 		return contactService;
@@ -28,6 +28,17 @@ public class CreateContact {
 		this.contactService = contactService;
 	}
 
+	public String toCreateContact() {
+		System.out.println("toCreateContact");
+		initializeFields();
+		return "/contact/create_contact";
+	}
+	
+	public void initializeFields() {
+		contact = new Contact();
+	}
+	
+	
 	public Contact getContact() {
 		return contact;
 	}
@@ -35,6 +46,9 @@ public class CreateContact {
 	public void setContact(Contact contact) {
 		this.contact = contact;
 	}
+	
+	
+	
 
 	public String saveContact() {
 		LoginUser lu = (LoginUser)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUser");

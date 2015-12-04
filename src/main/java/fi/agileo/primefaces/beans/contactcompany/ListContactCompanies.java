@@ -20,11 +20,20 @@ import fi.agileo.spring.service.ContactService;
 public class ListContactCompanies {
 	@ManagedProperty("#{contactCompanyService}")
 	private ContactCompanyService contactCompanyService;
-	private List<ContactCompany> contactCompanies;
 	
 	private ContactCompany contactCompany = new ContactCompany();
 	private ContactCompany selectedContactCompany = new ContactCompany();
 
+	public String toListContactCompanies() {
+		System.out.println("toListContactCompanies");
+		initializeFields();
+		return "/contactcompany/contactcompany_list";
+	}
+	
+	public void initializeFields() {
+		
+	}
+	
 	public ContactCompany getSelectedContactCompany() {
 		return selectedContactCompany;
 	}
@@ -49,10 +58,6 @@ public class ListContactCompanies {
 		this.contactCompany = contactCompany;
 	}
 	
-	public void setContactCompanies(List<ContactCompany>contactCompanies) {
-		this.contactCompanies = contactCompanies;
-	}
-	
 	public List<ContactCompany> getContactCompanies () {
 		return this.contactCompanyService.getAllContactCompanies();
 	}
@@ -60,5 +65,4 @@ public class ListContactCompanies {
 	public String showSelectedContactCompany() {
 		return "showcontactcompany";
 	}
-	
 }

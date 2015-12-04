@@ -23,12 +23,18 @@ public class CreateContactCompany {
 	@ManagedProperty("#{contactService}")
 	private ContactService contactService;
 	
-	private ContactCompany contactCompany = new ContactCompany();
+	private ContactCompany contactCompany = null;
 	private List<Contact> contactsToSetForContactCompany;
 	private List<Contact> contactsWithoutContactCompany;
 
 	public String toCreateContactCompany() {
-		return "";
+		System.out.println("toCreateContactCompany");
+		initializeFields();
+		return "/contactcompany/create_contactcompany";
+	}
+	
+	public void initializeFields() {
+		contactCompany = new ContactCompany();
 	}
 	
 	public String doCreateContactCompany() {
