@@ -62,7 +62,7 @@ public class UserView {
 	}
 	
 	public String toUserPage() {
-		System.out.println("toShowContactCompany");
+		System.out.println("KÄYTTÄJÄN SIVULLE");
 		modifyBasics = false;
 		if (user == null) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "No user selected!"));

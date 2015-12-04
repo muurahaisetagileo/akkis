@@ -9,8 +9,6 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import fi.agileo.akkis.jpa.Contact;
-import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.User;
 
 @Component
@@ -28,6 +26,8 @@ public class UserService {
 	
 	@Transactional
 	public void updateUser(User user) {
+		// Encrypt password
+		//user.setPassword(encryptPassword(user.getPassword()));		
 		em.merge(user);
 	}	
 

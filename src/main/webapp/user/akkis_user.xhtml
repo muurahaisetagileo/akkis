@@ -15,7 +15,7 @@
 			
 				<h:form id="userInfo">
 					<p:growl id="messages"></p:growl>
-					<p:panel id="basic" header="User Information" footer="User details" style="margin-bottom:20px">
+					<p:panel id="basic" header="User Information" style="margin-bottom:20px">
 					<p:panelGrid columns="2">
 						<h:outputText value="Firstname:"></h:outputText>
 						<h:inputText 
@@ -59,41 +59,84 @@
 							rendered="#{not userView.modifyBasics}">
 						</h:outputText>
 						
-<!--  						<h:outputText value="Password:" rendered="#{userView.modifyBasics}" />
-						<h:inputText 
+						<h:outputText value="User role:"/>
+				        <p:selectOneRadio id="r" value="#{userView.user.role}" 
+				        	rendered="#{userView.modifyBasics}" 
+				        	layout="grid" columns="3" 
+				        	required="true" 
+							requiredMessage="Please select user role" >
+				            <f:selectItems value="#{registerUser.roles}" var="c" itemLabel="#{role}" itemValue="#{role}"/>
+				        </p:selectOneRadio>
+				        <h:outputText 
+							value="#{userView.user.role}"
+							rendered="#{not userView.modifyBasics}">
+						</h:outputText>					
+						
+						
+						
+<!--   						<h:outputText value="Password:" rendered="#{userView.modifyBasics}" />
+						<h:inputSecret 
+							id="pwd1" 
+							value="#{userView.user.password}" 
+							rendered="#{userView.modifyBasics}"
+							 
+							label="pwd1" 
+							required="true" 
+							requiredMessage="Please enter password" 
+							validatorMessage="Passwords are not equal" /> -->	
+							
+							<!-- feedback="false" match="pwd2" -->
+							
+<!-- 						<p:outputLabel for="pwd2" value="Confirm password:" rendered="#{userView.modifyBasics}" />
+						<p:password 
+							id="pwd2" 
+							value="#{registerUser.user.password}" 
+							rendered="#{userView.modifyBasics}"
+							feedback="false" label="pwd2" required="true"
+							requiredMessage="Please enter Confirm password" 
+							validatorMessage="Password must be 6-20 characters including uppercase, lowercase and alphanumeric characters.">	
+							<f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})" />
+						</p:password>	
+											 -->							  						
+<!-- 						<h:password>
 							value="#{userView.user.password}"
 							rendered="#{userView.modifyBasics}">
-						</h:inputText> -->
+						</h:password> -->
 						
 	<!--					<h:outputText 
 							value="#{userView.user.password}"
 							rendered="#{not userView.modifyBasics}">
 						</h:outputText>		 -->
 						
- 						<p:commandButton 
-							value="Edit user" 
-							action="#{userView.toModifyBasics}"
-							rendered="#{not userView.modifyBasics}"
-							update="userInfo">
-							<f:setPropertyActionListener  
-								target="#{userView.modifyBasics}"
-								value="true"/>
-						</p:commandButton>	
-						<p:commandButton 
-							value="Cancel"
-							rendered="#{userView.modifyBasics}"
-							update="userInfo">
-							<f:setPropertyActionListener target="#{userView.modifyBasics}" value="false"/>
-						</p:commandButton> 								
-						<p:commandButton 
-							value="Save" 
-							action="#{userView.saveModifiedUser}"
-							rendered="#{userView.modifyBasics}"
-							update="userInfo">
-							<f:setPropertyActionListener target="#{userView.modifyBasics}" value="false"/>
-						</p:commandButton> 
+ 								
 					</p:panelGrid>
-					
+
+					<f:facet name="footer">
+					    <p:row>
+							<p:commandButton 
+								value="Cancel"
+								rendered="#{userView.modifyBasics}"
+								update="userInfo">
+								<f:setPropertyActionListener target="#{userView.modifyBasics}" value="false"/>
+							</p:commandButton> 								
+							<p:commandButton 
+								value="Save" 
+								action="#{userView.saveModifiedUser}"
+								rendered="#{userView.modifyBasics}"
+								update="userInfo">
+								<f:setPropertyActionListener target="#{userView.modifyBasics}" value="false"/>
+							</p:commandButton> 					    
+							<p:commandButton 
+									value="Edit user" 
+									action="#{userView.toModifyBasics}"
+									rendered="#{not userView.modifyBasics}"
+									update="userInfo">
+									<f:setPropertyActionListener  
+										target="#{userView.modifyBasics}"
+										value="true"/>
+							</p:commandButton>    
+					    </p:row>
+					</f:facet>																				
 					</p:panel>
 				</h:form>		
 				
@@ -126,7 +169,7 @@
 						</p:inputText>	
 						
 						<p:outputLabel for="pwd1" value="Password:" />
-						<p:password id="pwd1" value="#{registerUser.user.password}" feedback="false" match="pwd2" label="pwd1" required="true" 
+					<p:password id="pwd1" value="#{registerUser.user.password}" feedback="false" match="pwd2" label="pwd1" required="true" 
 						requiredMessage="Please enter password" validatorMessage="Passwords are not equal" />
 
 						<p:outputLabel for="pwd2" value="Confirm password:" />
