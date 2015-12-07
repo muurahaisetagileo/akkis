@@ -26,8 +26,7 @@ public class UserService {
 	
 	@Transactional
 	public void updateUser(User user) {
-		// Encrypt password
-		//user.setPassword(encryptPassword(user.getPassword()));		
+		System.out.println("Saved user: " + user);		
 		em.merge(user);
 	}	
 

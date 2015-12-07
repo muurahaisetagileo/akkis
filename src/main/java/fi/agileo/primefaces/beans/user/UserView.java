@@ -1,5 +1,8 @@
 package fi.agileo.primefaces.beans.user;
 
+import java.util.Base64;
+
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -18,7 +21,14 @@ public class UserView {
 
 	private User user;
 	private boolean modifyBasics = false;
+	private boolean modifyPassword = false;
 	private String backPage = "";
+	private User unmodifiedUser; 
+	
+	@PostConstruct
+    private void init() {
+		unmodifiedUser = new User();
+	}
 	
 	public User getUser() {
 		return user;
@@ -27,8 +37,17 @@ public class UserView {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	public String getBackPage() {
+
+	public User getUnmodifiedUser() {
+		return unmodifiedUser;
+	}
+
+	public void setUnmodifiedUser(User unmodifiedUser) {
+		this.unmodifiedUser = unmodifiedUser;
+	}
+
+	public String toBackPage() {;
+		this.modifyBasics = false;
 		return backPage;
 	}
 
@@ -44,13 +63,56 @@ public class UserView {
 		this.modifyBasics = modifyBasics;
 	}
 	
-	public String toModifyBasics() {
+	public boolean isModifyPassword() {
+		return modifyPassword;
+	}
+
+	public void setModifyPassword(boolean modifyPassword) {
+		this.modifyPassword = modifyPassword;
+	}
+
+	public void toModifyBasics() {
+		unmodifiedUser.setFirstNames(user.getFirstNames());
+		unmodifiedUser.setLastName(user.getLastName());
+		unmodifiedUser.setRole(user.getRole());
+		unmodifiedUser.setPassword(user.getDecodedPassword());
+		//return null;
+	}	
+	
+	public void toModifyPassword() {
+		// Ei tehdä mitään muutokset tehdään xhtml -dokumentissa akkis_user.xhtml
+		//return null;
+	}
+	
+	public String saveModifiedUser() {
+		if (this.modifyPassword) {	
+			String decoderPW = this.getUser().getPassword();
+			this.getUser().setPassword(encryptPassword(decoderPW));		
+		}
+		userService.updateUser(this.getUser());
+		this.modifyPassword = false;
 		return null;
 	}	
 	
-	public String saveModifiedUser() {
-		userService.updateUser(this.getUser());
-		return null;
+	public void cancelChanges() {	
+System.out.println("Vanhat tiedot: " + this.user);		
+		user.setFirstNames(unmodifiedUser.getFirstNames());
+		user.setLastName(unmodifiedUser.getLastName());
+		user.setRole(unmodifiedUser.getRole());
+		if(modifyPassword) {
+			user.setPassword(unmodifiedUser.getDecodedPassword());
+		}
+		user.setPassword(encryptPassword(unmodifiedUser.getPassword()));
+
+		modifyBasics = false;
+		modifyPassword = false;
+System.out.println("Käyttäjän tiedot peruutuksen jälkeen: " + this.user);
+
+	}
+	
+	public String encryptPassword(String pw) {
+		byte[] passwordBytes = pw.getBytes();
+		return Base64.getEncoder().encodeToString(passwordBytes);			
 	}	
 
 	public UserService getUserService() {
@@ -62,10 +124,9 @@ public class UserView {
 	}
 	
 	public String toUserPage() {
-		System.out.println("KÄYTTÄJÄN SIVULLE");
 		modifyBasics = false;
 		if (user == null) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "No user selected!"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "No user selected!", "At first select user."));
 			return "/user/user_search";
 		}
 		return "/user/akkis_user";
