@@ -12,7 +12,7 @@
 		<ui:composition template="../templates/template_action.xhtml">
 		<ui:param name="title" value="User search" />
 			<ui:define name="content">
-
+<h:panelGroup id="testi">
 			<h:form>
 				<!-- <p:growl id="messages"></p:growl> -->
 				<p:panelGrid columns="2">
@@ -27,7 +27,7 @@
 					<p:selectManyCheckbox value="#{userSearch.filterUserRoles}" layout="grid" columns="3">
 						<f:selectItems value="#{userSearch.userRoles}" />
 					</p:selectManyCheckbox>		 
-           			<p:commandButton value="Show all users" action="#{userSearch.allUsers}" update="userList" />
+           			<p:commandButton value="Show all users" action="#{userSearch.allUsers}" update="testi" />
 					<p:commandButton value="Search" action="#{userSearch.filteredUsers}" update="userList"  icon="ui-icon-search" />					
 											
 				</p:panelGrid>
@@ -63,6 +63,7 @@
 			</p:dataTable>
 				
 			</h:form>
+</h:panelGroup>			
 		</ui:define>
 		</ui:composition>
 	</h:body>

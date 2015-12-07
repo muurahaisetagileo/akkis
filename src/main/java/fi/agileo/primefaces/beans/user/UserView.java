@@ -76,12 +76,10 @@ public class UserView {
 		unmodifiedUser.setLastName(user.getLastName());
 		unmodifiedUser.setRole(user.getRole());
 		unmodifiedUser.setPassword(user.getDecodedPassword());
-		//return null;
 	}	
 	
 	public void toModifyPassword() {
 		// Ei tehdä mitään muutokset tehdään xhtml -dokumentissa akkis_user.xhtml
-		//return null;
 	}
 	
 	public String saveModifiedUser() {
@@ -90,12 +88,14 @@ public class UserView {
 			this.getUser().setPassword(encryptPassword(decoderPW));		
 		}
 		userService.updateUser(this.getUser());
+		FacesContext.getCurrentInstance().addMessage(null, 
+				new FacesMessage("Your changes have been saved successfully."));		
+		
 		this.modifyPassword = false;
 		return null;
 	}	
 	
-	public void cancelChanges() {	
-System.out.println("Vanhat tiedot: " + this.user);		
+	public void cancelChanges() {		
 		user.setFirstNames(unmodifiedUser.getFirstNames());
 		user.setLastName(unmodifiedUser.getLastName());
 		user.setRole(unmodifiedUser.getRole());
@@ -103,11 +103,8 @@ System.out.println("Vanhat tiedot: " + this.user);
 			user.setPassword(unmodifiedUser.getDecodedPassword());
 		}
 		user.setPassword(encryptPassword(unmodifiedUser.getPassword()));
-
 		modifyBasics = false;
 		modifyPassword = false;
-System.out.println("Käyttäjän tiedot peruutuksen jälkeen: " + this.user);
-
 	}
 	
 	public String encryptPassword(String pw) {

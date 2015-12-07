@@ -26,10 +26,23 @@ public class UserSearch {
 	private String filterLastname;
 	private String filterUsername;
 	private String[] filterUserRoles;
+
 	
+//	public UserSearch() {
+//		initializeRoles();
+//	}
 	
-	public UserSearch() {
+	public String toUserSearch() {
+		allUsers();
+		return "/user/user_search";
+	}
+	
+	public void initializeFields() {
 		initializeRoles();
+		filterFirstname = "";
+		filterLastname = "";
+		filterUsername = "";		
+		
 	}
 	
 	public void initializeRoles() {
@@ -109,7 +122,8 @@ public class UserSearch {
 	public void allUsers() {
 		this.searchedUsers = userService.findAllUsers();
 		for(User u: searchedUsers)
-			System.out.println("User: " + u);		
+			System.out.println("User: " + u);	
+		initializeFields();
 	}
 	
 	public void filteredUsers() {
