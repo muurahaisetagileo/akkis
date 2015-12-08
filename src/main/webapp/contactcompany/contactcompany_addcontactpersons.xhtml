@@ -5,41 +5,41 @@
 		xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<script name="jquery/jquery.js" library="primefaces"></script>
-		<title>Akkis - Add contacts to contact company</title>
+		<title>Akkis - Add contact persons to contact company</title>
 	</h:head>
 
 	<h:body>
 		<ui:composition template="../templates/template_action.xhtml">
 		<ui:param name="title" value="Add contacts to contact company" />
 			<ui:define name="content">
-				<h4>Add contacts to contact company information with</h4>
+				<h4>Add contact persons to contact company information with</h4>
 				<p:panelGrid columns="2">
 					<h:outputText value="Company name:"></h:outputText>
 					<h:outputText 
-						value="#{addContactsToContactCompany.contactCompany.name}">
+						value="#{addContactPersonsToContactCompanyView.contactCompany.name}">
 					</h:outputText>
 					<h:outputText value="Company address:"></h:outputText>
 					<h:outputText 
-						value="#{addContactsToContactCompany.contactCompany.address}">
+						value="#{addContactPersonsToContactCompanyView.contactCompany.address}">
 					</h:outputText>
 					<h:outputText value="Company internetaddress:"></h:outputText>
 					<h:outputText 
-						value="#{addContactsToContactCompany.contactCompany.internetAddress}">
+						value="#{addContactPersonsToContactCompanyView.contactCompany.internetAddress}">
 					</h:outputText>
 					<h:outputText value="Company identifier:"></h:outputText>
 					<h:outputText 
-						value="#{addContactsToContactCompany.contactCompany.companyIdentifier}">
+						value="#{addContactPersonsToContactCompanyView.contactCompany.companyIdentifier}">
 					</h:outputText>
 				</p:panelGrid>
 
 				<br/><br/>
 				
-				<h:form id="contactsadding">
+				<h:form id="contactpersonsadding">
 					<p:dataTable 
-						value="#{addContactsToContactCompany.contactCompany.companyContacts}" 
+						value="#{addContactPersonsToContactCompanyView.contactCompany.contactPersons}" 
 						id="contacts" var="c">
 						<f:facet name="header">
-                   			Current contacts of contact company
+                   			Current contact persons of contact company
                			</f:facet>
 						<p:column headerText="Name">#{c.name}</p:column>
 						<p:column headerText="Phone">#{c.phone}</p:column>
@@ -51,14 +51,14 @@
 					<br/>
 				
 	 				<p:dataTable 
-	 					value="#{addContactsToContactCompany.contactsWithoutCompany}" 
-	 					id="contactsWithoutCompany"
+	 					value="#{addContactPersonsToContactCompanyView.contactPersonsWithoutCompany}" 
+	 					id="contactPersonsWithoutCompany"
 						var="c" 
-						rowKey="#{c.contactId}" 
-						selection="#{addContactsToContactCompany.contactsToBeAdded}"
+						rowKey="#{c.contactPersonId}" 
+						selection="#{addContactPersonsToContactCompanyView.contactPersonsToBeAdded}"
 						selectionMode="multiple" >
 						<f:facet name="header">
-                   			List of contacts without contact company
+                   			List of contact persons without contact company
     	            	</f:facet>
     	            	
 						<p:column headerText="Name">#{c.name}</p:column>
@@ -68,9 +68,9 @@
 						
 	 					<f:facet name="footer">
 							<p:commandButton 
-								value="Add to contact company" 
-								action="#{addContactsToContactCompany.toAddContactsToContactCompany}"
-								update="contactsadding">
+								value="Add to contact persons company" 
+								action="#{addContactPersonsToContactCompanyView.toAddContactPersonsToContactCompany}"
+								update="contactpersonsadding">
 							</p:commandButton>
 						</f:facet> 
 					</p:dataTable>
@@ -80,7 +80,7 @@
 				
 				<h:form>
 					<p:commandButton value="Back to company information"
-					 	action="/contactcompany/showormodifycontactcompany"/>
+					 	action="/contactcompany/contactcompany_showormodify"/>
 				</h:form>
 			</ui:define>
 		</ui:composition>

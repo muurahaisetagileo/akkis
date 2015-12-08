@@ -12,7 +12,7 @@ import fi.agileo.spring.service.UserService;
 
 @ManagedBean
 @SessionScoped
-public class LoginUser {
+public class LoginUserView {
 	@ManagedProperty("#{userService}")
 	private UserService userService;
 
@@ -75,7 +75,9 @@ public class LoginUser {
 
 	public String login() {
 		System.out.println("managed bean 1ogin");
+		System.out.println("user " + user);
 		User foundUser = this.userService.login(user);
+		System.out.println("foundUser " + foundUser);
 		if (foundUser != null) {
 			System.out.println("Logged user: " + foundUser);
 			this.user = foundUser;

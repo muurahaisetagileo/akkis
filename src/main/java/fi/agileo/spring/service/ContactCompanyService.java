@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactPerson;
 import fi.agileo.akkis.jpa.ContactCompany;
 
 
@@ -28,11 +28,11 @@ public class ContactCompanyService {
 	@Transactional
 	public void createContactCompanyAndContactsToIt(
 			ContactCompany contactCompany, 
-			List<Contact> contacts) {
+			List<ContactPerson> contactPersons) {
 		
-		contactCompany.setCompanyContacts(contacts);
+		contactCompany.setContactPersons(contactPersons);
 		
-		for (Contact c : contacts) {
+		for (ContactPerson c : contactPersons) {
 			c.setContactCompany(contactCompany);
 			em.merge(c);
 		}
@@ -48,11 +48,11 @@ public class ContactCompanyService {
 	@Transactional
 	public void addContactsToContactCompany(
 			ContactCompany contactCompany,
-			List<Contact> contacts) {
-		contactCompany.getCompanyContacts().addAll(contacts);
-		for(Contact contact : contacts) {
-			contact.setContactCompany(contactCompany);
-			em.merge(contact);
+			List<ContactPerson> contactPersons) {
+		contactCompany.getContactPersons().addAll(contactPersons);
+		for(ContactPerson contactPerson : contactPersons) {
+			contactPerson.setContactCompany(contactCompany);
+			em.merge(contactPerson);
 		}
 		em.merge(contactCompany);
 	}

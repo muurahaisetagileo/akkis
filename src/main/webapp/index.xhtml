@@ -19,13 +19,13 @@
 
 				<p:panelGrid columns="2">
 					<p:outputLabel value="Username:"></p:outputLabel>
-					<p:inputText value="#{loginUser.user.username}"></p:inputText>
+					<p:inputText value="#{loginUserView.user.username}"></p:inputText>
 					<p:outputLabel value="Password:"></p:outputLabel>
-					<p:password value="#{loginUser.user.password}"></p:password>
+					<p:password value="#{loginUserView.user.password}"></p:password>
 				</p:panelGrid>
 				<br/>
 
-				<p:commandButton value="Sign in" action="#{loginUser.login}"
+				<p:commandButton value="Sign in" action="#{loginUserView.login}"
 					update="messages" icon="ui-icon-person" />
 			</h:form>
 			</p:panel>

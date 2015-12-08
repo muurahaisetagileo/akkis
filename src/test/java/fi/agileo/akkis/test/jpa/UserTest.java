@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import fi.agileo.akkis.jpa.User;
-import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactPerson;
 import fi.agileo.akkis.jpa.Contract;
 
 import static org.junit.Assert.*;
@@ -30,13 +30,13 @@ public class UserTest {
 	@Test
 	public void testRelationShips() {
 		User u = new User();
-		List<Contact> contacts = new ArrayList<Contact>();
+		List<ContactPerson> contacts = new ArrayList<ContactPerson>();
 		List<Contract> contracts = new ArrayList<Contract>();
 		
-		u.setContacts(contacts);
+		u.setContactPersons(contacts);
 		u.setContracts(contracts);
 		
-		assertEquals(u.getContacts(), contacts);
+		assertEquals(u.getContactPersons(), contacts);
 		assertEquals(u.getContracts(), contracts);
 	}
 }

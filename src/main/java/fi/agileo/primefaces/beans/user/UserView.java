@@ -126,7 +126,7 @@ public class UserView {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "No user selected!", "At first select user."));
 			return "/user/user_search";
 		}
-		return "/user/akkis_user";
+		return "/user/user_showormodify";
 	}	
 	
 	

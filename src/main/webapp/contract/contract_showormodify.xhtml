@@ -1,0 +1,193 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+		<title>Akkis - Show or modify contract</title>
+	</h:head>
+
+	<h:body>
+		<ui:composition template="../templates/template_action.xhtml">
+		<ui:param name="title" value="Show or modify contract" />
+			<ui:define name="content">
+				<h4>Contact company that has made contract</h4>
+				<p:panelGrid columns="2">
+					<h:outputText value="Company name:"></h:outputText>
+					<h:outputText 
+						value="#{showOrModifyContractView.contract.contactCompany.name}">
+					</h:outputText>
+					<h:outputText value="Company address:"></h:outputText>
+					<h:outputText 
+						value="#{showOrModifyContractView.contract.contactCompany.address}">
+					</h:outputText>
+					<h:outputText value="Company internetaddress:"></h:outputText>
+					<h:outputText 
+						value="#{showOrModifyContractView.contract.contactCompany.internetAddress}">
+					</h:outputText>
+					<h:outputText value="Company identifier:"></h:outputText>
+					<h:outputText 
+						value="#{showOrModifyContractView.contract.contactCompany.companyIdentifier}">
+					</h:outputText>
+				</p:panelGrid>
+				<br/>
+				<br/>
+				<h4>User that created the contract</h4>
+				<h:outputText value="#{showOrModifyContractView.contractUserName}" />
+				<br/>
+			
+				<h:form id="basicinfo">
+					<h4>Show or modify basic contract information</h4>
+					<p:panelGrid columns="2">
+						<h:outputText value="Sign date:"></h:outputText>
+						<p:calendar 
+							value="#{showOrModifyContractView.contract.signdate}" 
+							rendered="#{showOrModifyContractView.modifyBasics}">
+						</p:calendar>
+						<h:outputText 
+							value="#{showOrModifyContractView.contract.signdate}" 
+							rendered="#{not showOrModifyContractView.modifyBasics}">
+						</h:outputText>
+					
+						<h:outputText value="End date:"></h:outputText>
+						<p:calendar 
+							value="#{showOrModifyContractView.contract.enddate}"
+							rendered="#{showOrModifyContractView.modifyBasics}">
+						</p:calendar>
+						<h:outputText 
+							value="#{showOrModifyContractView.contract.enddate}" 
+							rendered="#{not showOrModifyContractView.modifyBasics}">
+						</h:outputText>
+					
+						<h:outputText value="Status:"></h:outputText>
+						<p:selectOneRadio value="#{showOrModifyContractView.contract.contractstatus}"
+							rendered="#{showOrModifyContractView.modifyBasics}">
+							<f:selectItems value="#{showOrModifyContractView.statusOptions}"/>
+						</p:selectOneRadio>
+						<h:outputText 
+							value="#{showOrModifyContractView.contract.contractstatus}"
+							rendered="#{not showOrModifyContractView.modifyBasics}">
+						</h:outputText>
+					
+						<h:outputText value="Price:"></h:outputText>
+						<h:inputText 
+							value="#{showOrModifyContractView.contract.price}"
+							rendered="#{showOrModifyContractView.modifyBasics}">
+						</h:inputText>
+						<h:outputText 
+							value="#{showOrModifyContractView.contract.price}"
+							rendered="#{not showOrModifyContractView.modifyBasics}">
+						</h:outputText>
+						
+						<h:outputText value="Price period:"></h:outputText>
+						<p:selectOneRadio value="#{showOrModifyContractView.contract.pricePeriodType}"
+							rendered="#{showOrModifyContractView.modifyBasics}">
+							<f:selectItems value="#{showOrModifyContractView.pricePeriodTypeOptions}"/>
+						</p:selectOneRadio>
+						<h:outputText 
+							value="#{showOrModifyContractView.pricePeriodText}"
+							rendered="#{not showOrModifyContractView.modifyBasics}">
+						</h:outputText>
+						
+						<h:outputText value="Value added tax percent:"></h:outputText>
+						<h:inputText 
+							value="#{showOrModifyContractView.contract.valueAddedTaxPercent}"
+							rendered="#{showOrModifyContractView.modifyBasics}">
+						</h:inputText>
+						<h:outputText 
+							value="#{showOrModifyContractView.contract.valueAddedTaxPercent}"
+							rendered="#{not showOrModifyContractView.modifyBasics}">
+						</h:outputText>
+
+						<h:outputText value="Technication user:"/>
+						<p:selectOneMenu value="#{showOrModifyContractView.selectedTechnicationUser}" 
+							rendered="#{showOrModifyContractView.modifyBasics}">
+							<f:selectItems value="#{showOrModifyContractView.technicationUsers}"/>
+						</p:selectOneMenu>
+						<h:outputText 
+							value="#{showOrModifyContractView.technicationUserName}"
+							rendered="#{not showOrModifyContractView.modifyBasics}">
+						</h:outputText>
+						<p:commandButton 
+							value="Modify contract" 
+							action="#{showOrModifyContractView.toModifyBasics}"
+							rendered="#{not showOrModifyContractView.modifyBasics}"
+							update="basicinfo">
+							<f:setPropertyActionListener  
+								target="#{showOrModifyContractView.modifyBasics}"
+								value="true"/>
+						</p:commandButton>			
+						<p:commandButton 
+							value="Save contract" 
+							action="#{showOrModifyContractView.saveModifiedContract}"
+							rendered="#{showOrModifyContractView.modifyBasics}"
+							update="basicinfo">
+							<f:setPropertyActionListener  
+								target="#{showOrModifyContractView.modifyBasics}"
+								value="false"/>
+						</p:commandButton>
+					</p:panelGrid>
+				</h:form>
+				<h:form id="contractContactPersons">
+					<p:dataTable value="#{showOrModifyContractView.contract.contactPersons}" 
+						id="contact"	
+						var="c"
+						rowKey="#{c.contactPersonId}"
+						selection="#{showOrModifyContactPersonView.selectedContactPerson}"
+						selectionMode="single">
+						<f:facet name="header">
+                   			Customer persons that have participated contract
+               			</f:facet>
+						<p:column style="width:18px" />
+						<p:column headerText="Name">
+                   			#{c.name}  
+               			</p:column>
+						<p:column headerText="Phone">
+                   			#{c.phone}  
+               			</p:column>
+						<p:column headerText="Address">
+                   			#{c.address}  
+               			</p:column>
+						<p:column headerText="Country">
+                   			#{c.country}  
+               			</p:column>
+						<f:facet name="footer">
+							<p:commandButton value="Show or modify"
+								action="#{showOrModifyContactPersonView.toShowOrModifyContactPerson}">
+								<f:setPropertyActionListener target="#{showOrModifyContactPersonView.backPage}"
+					    			value="/contract/contract_showormodify"/>
+							</p:commandButton>
+						</f:facet>
+					</p:dataTable>
+				
+					<h4>Add contact persons to contracts</h4>
+	 				<p:dataTable 
+	 					value="#{showOrModifyContractView.contactPersonsInContactCompanyButNotInContract}" 
+	 					id="contactPersonsOfCompanyNotInContract"
+						var="c" 
+						rowKey="#{c.contactPersonId}" 
+						selection="#{showOrModifyContractView.contactPersonsToBeAdded}"
+						selectionMode="multiple" >
+						<f:facet name="header">
+                   			List of contact persons in contact company but not in contract
+    	            	</f:facet>
+    	            	
+						<p:column headerText="Name">#{c.name}</p:column>
+						<p:column headerText="Phone">#{c.phone}</p:column>
+						<p:column headerText="Address">#{c.address}</p:column>
+						<p:column headerText="Country">#{c.country}</p:column>
+						
+	 					<f:facet name="footer">
+							<p:commandButton 
+								value="Add to contract" 
+								action="#{showOrModifyContractView.toAddContactPersonsToContract}"
+								update="contractContactPersons">
+							</p:commandButton>
+						</f:facet> 
+					</p:dataTable>
+				</h:form>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+</html>

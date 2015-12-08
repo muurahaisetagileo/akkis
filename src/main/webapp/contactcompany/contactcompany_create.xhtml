@@ -18,20 +18,20 @@
 
 				<p:panelGrid columns="2">
 					<p:outputLabel value="Enter name:"></p:outputLabel>
-					<p:inputText value="#{createContactCompany.contactCompany.name}"></p:inputText>
+					<p:inputText value="#{createContactCompanyView.contactCompany.name}"></p:inputText>
 					<p:outputLabel value="Enter address:"></p:outputLabel>
-					<p:inputText value="#{createContactCompany.contactCompany.address}"></p:inputText>
+					<p:inputText value="#{createContactCompanyView.contactCompany.address}"></p:inputText>
 					<p:outputLabel value="Enter web page:"></p:outputLabel>
-					<p:inputText value="#{createContactCompany.contactCompany.internetAddress}"></p:inputText>
+					<p:inputText value="#{createContactCompanyView.contactCompany.internetAddress}"></p:inputText>
 					<p:outputLabel value="Enter company identifier:"></p:outputLabel>
-					<p:inputText value="#{createContactCompany.contactCompany.companyIdentifier}"></p:inputText>
+					<p:inputText value="#{createContactCompanyView.contactCompany.companyIdentifier}"></p:inputText>
 				</p:panelGrid>
 
 				<p />
 
-				<p:dataTable value="#{createContactCompany.contactsWithoutContactCompany}" id="contacts"
-					var="c" rowKey="#{c.contactId}"
-					selection="#{createContactCompany.contactsToSetForContactCompany}"
+				<p:dataTable value="#{createContactCompanyView.contactPersonsWithoutContactCompany}" id="contacts"
+					var="c" rowKey="#{c.contactPersonId}"
+					selection="#{createContactCompanyView.contactPersonsToSetForContactCompany}"
 					selectionMode="multiple">
 					<f:facet name="header">
                    Select contacts for this company
@@ -51,8 +51,8 @@
 					<f:facet name="footer"></f:facet>
 				</p:dataTable>
 
-				<p:commandButton value="Submit"
-					action="#{createContactCompany.saveContactCompany}"
+				<p:commandButton value="Create company"
+					action="#{createContactCompanyView.saveContactCompany}"
 					update="messages"></p:commandButton>
 
 			</h:form>

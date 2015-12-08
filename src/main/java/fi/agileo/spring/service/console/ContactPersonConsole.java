@@ -3,17 +3,17 @@ package fi.agileo.spring.service.console;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactPerson;
 import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.akkis.jpa.User;
 
-import fi.agileo.spring.service.ContactService;
-import fi.agileo.primefaces.beans.user.LoginUser;
-import fi.agileo.primefaces.beans.user.RegisterUser;
+import fi.agileo.spring.service.ContactPersonService;
+import fi.agileo.primefaces.beans.user.LoginUserView;
+import fi.agileo.primefaces.beans.user.RegisterUserView;
 
 @Component
-public class ContactConsole {
+public class ContactPersonConsole {
 
 	public static void main(String[] args) {
 		
@@ -22,7 +22,7 @@ public class ContactConsole {
 		
 		// Create test contact
 		
-		Contact c = new Contact();
+		ContactPerson c = new ContactPerson();
 		
 		c.setName("Pekka Vieru");
 		c.setAddress("Tulitie 4");
@@ -44,9 +44,9 @@ public class ContactConsole {
 		
 		// Create test UserService
 		
-		ContactService cs = new ContactService();
+		ContactPersonService cs = new ContactPersonService();
 		
-		int result = cs.createContact(u, c);
+		int result = cs.createContactPerson(u, c);
 		
 		if (result == 1) {
 			System.out.println("Registration successful");

@@ -65,7 +65,7 @@
 				        	layout="grid" columns="3" 
 				        	required="true" 
 							requiredMessage="Please select user role" >
-				            <f:selectItems value="#{registerUser.roles}" var="c" itemLabel="#{role}" itemValue="#{role}"/>
+				            <f:selectItems value="#{registerUserView.roles}" var="c" itemLabel="#{role}" itemValue="#{role}"/>
 				        </p:selectOneRadio>
 				        <h:outputText 
 							value="#{userView.user.role}"
@@ -86,10 +86,11 @@
 							validatorMessage="Passwords are not equal" />	
 							
  						<p:outputLabel for="pwd2" value="Confirm password:" rendered="#{userView.modifyPassword}" />
+						<!-- value="#{userView.user.password}"   -->
+						
 						<p:password 
 							id="pwd2" 
-							value="#{registerUser.user.password}" 
-							rendered="#{userView.modifyPassword}"
+							rendered="#{userView.modifyPassword}" 
 							feedback="false" label="pwd2" required="true"
 							requiredMessage="Please enter Confirm password" 
 							validatorMessage="Password must be 6-20 characters including uppercase, lowercase and alphanumeric characters.">	

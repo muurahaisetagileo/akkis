@@ -17,60 +17,60 @@
 					<p:panelGrid columns="2">
 						<h:outputText value="Company name:"></h:outputText>
 						<h:inputText 
-							value="#{showOrModifyContactCompany.contactCompany.name}"
-							rendered="#{showOrModifyContactCompany.modifyBasics}">
+							value="#{showOrModifyContactCompanyView.contactCompany.name}"
+							rendered="#{showOrModifyContactCompanyView.modifyBasics}">
 						</h:inputText>
 						<h:outputText 
-							value="#{showOrModifyContactCompany.contactCompany.name}"
-					 		rendered="#{not showOrModifyContactCompany.modifyBasics}">
+							value="#{showOrModifyContactCompanyView.contactCompany.name}"
+					 		rendered="#{not showOrModifyContactCompanyView.modifyBasics}">
 						</h:outputText>
 						
 						<h:outputText value="Company address:"></h:outputText>
 						<h:inputText 
-							value="#{showOrModifyContactCompany.contactCompany.address}"
-							rendered="#{showOrModifyContactCompany.modifyBasics}">
+							value="#{showOrModifyContactCompanyView.contactCompany.address}"
+							rendered="#{showOrModifyContactCompanyView.modifyBasics}">
 						</h:inputText>
 						<h:outputText 
-							value="#{showOrModifyContactCompany.contactCompany.address}"
-							rendered="#{not showOrModifyContactCompany.modifyBasics}">
+							value="#{showOrModifyContactCompanyView.contactCompany.address}"
+							rendered="#{not showOrModifyContactCompanyView.modifyBasics}">
 						</h:outputText>
 						
 						<h:outputText value="Company internetaddress:"></h:outputText>
 						<h:inputText 
-							value="#{showOrModifyContactCompany.contactCompany.internetAddress}"
-							rendered="#{showOrModifyContactCompany.modifyBasics}">
+							value="#{showOrModifyContactCompanyView.contactCompany.internetAddress}"
+							rendered="#{showOrModifyContactCompanyView.modifyBasics}">
 						</h:inputText>
 						<h:outputText 
-							value="#{showOrModifyContactCompany.contactCompany.internetAddress}"
-							rendered="#{not showOrModifyContactCompany.modifyBasics}">
+							value="#{showOrModifyContactCompanyView.contactCompany.internetAddress}"
+							rendered="#{not showOrModifyContactCompanyView.modifyBasics}">
 						</h:outputText>
 						
 						<h:outputText value="Company identifier:"></h:outputText>
 						<h:inputText 
-							value="#{showOrModifyContactCompany.contactCompany.companyIdentifier}"
-							rendered="#{showOrModifyContactCompany.modifyBasics}">
+							value="#{showOrModifyContactCompanyView.contactCompany.companyIdentifier}"
+							rendered="#{showOrModifyContactCompanyView.modifyBasics}">
 						</h:inputText>
 						<h:outputText 
-							value="#{showOrModifyContactCompany.contactCompany.companyIdentifier}"
-							rendered="#{not showOrModifyContactCompany.modifyBasics}">
+							value="#{showOrModifyContactCompanyView.contactCompany.companyIdentifier}"
+							rendered="#{not showOrModifyContactCompanyView.modifyBasics}">
 						</h:outputText>
 						
 						<p:commandButton 
 							value="Modify contact company" 
-							action="#{showOrModifyContactCompany.toModifyBasics}"
-							rendered="#{not showOrModifyContactCompany.modifyBasics}"
+							action="#{showOrModifyContactCompanyView.toModifyBasics}"
+							rendered="#{not showOrModifyContactCompanyView.modifyBasics}"
 							update="basicinfo">
 							<f:setPropertyActionListener  
-								target="#{showOrModifyContactCompany.modifyBasics}"
+								target="#{showOrModifyContactCompanyView.modifyBasics}"
 								value="true"/>
 						</p:commandButton>			
 						<p:commandButton 
 							value="Save contact company" 
-							action="#{showOrModifyContactCompany.saveModifiedContactCompany}"
-							rendered="#{showOrModifyContactCompany.modifyBasics}"
+							action="#{showOrModifyContactCompanyView.saveModifiedContactCompany}"
+							rendered="#{showOrModifyContactCompanyView.modifyBasics}"
 							update="basicinfo">
 							<f:setPropertyActionListener  
-								target="#{showOrModifyContactCompany.modifyBasics}"
+								target="#{showOrModifyContactCompanyView.modifyBasics}"
 								value="false"/>
 						</p:commandButton>
 					</p:panelGrid>
@@ -79,13 +79,13 @@
 				<br/><br/><br/>
 				<h:form>				
 				<p:dataTable 
-					value="#{showOrModifyContactCompany.contactCompany.companyContacts}" 
+					value="#{showOrModifyContactCompanyView.contactCompany.contactPersons}" 
 					id="contact" var="c"
-					rowKey="#{c.contactId}"
-					selection="#{showOrModifyContactView.selectedContact}"
+					rowKey="#{c.contactPersonId}"
+					selection="#{showOrModifyContactPersonView.selectedContactPerson}"
 					selectionMode="single">
 					<f:facet name="header">
-                   		Contacts of contact company
+                   		Contact persons of contact company
                		</f:facet>
 					<p:column headerText="Name">#{c.name}</p:column>
 					<p:column headerText="Phone">#{c.phone}</p:column>
@@ -93,28 +93,28 @@
 					<p:column headerText="Country">#{c.country}</p:column>
 					<f:facet name="footer">
 						<p:commandButton value="Show or modify"
-							action="#{showOrModifyContactView.toShowOrModifyContact}">
-							<f:setPropertyActionListener target="#{showOrModifyContactView.backPage}"
-				    			value="/contactcompany/showormodifycontactcompany"/>
+							action="#{showOrModifyContactPersonView.toShowOrModifyContactPerson}">
+							<f:setPropertyActionListener target="#{showOrModifyContactPersonView.backPage}"
+				    			value="/contactcompany/contactcompany_showormodify"/>
 						</p:commandButton>
 					</f:facet>
 				</p:dataTable>
 				</h:form>
 				<br/>
 				<h:form>
-					<p:commandButton value="Add contacts to contact company" action="#{addContactsToContactCompany.toAddContacts}">
+					<p:commandButton value="Add contact persons to contact company" action="#{addContactPersonsToContactCompanyView.toAddContactPersons}">
 						<f:setPropertyActionListener 
-							target="#{addContactsToContactCompany.contactCompany}" 
-							value="#{showOrModifyContactCompany.contactCompany}" />
+							target="#{addContactPersonsToContactCompanyView.contactCompany}" 
+							value="#{showOrModifyContactCompanyView.contactCompany}" />
 					</p:commandButton>
 				</h:form>
 				<br/>
 				
 				<h:form>
-	 				<p:dataTable value="#{showOrModifyContactCompany.contactCompany.contracts}" id="contracts"
+	 				<p:dataTable value="#{showOrModifyContactCompanyView.contactCompany.contracts}" id="contracts"
 						var="contract" 
 						rowKey="#{contract.contractId}" 
-						selection="#{showOrModifyContract.contract}"
+						selection="#{showOrModifyContractView.contract}"
 						selectionMode="single" >
 						<f:facet name="header">
                    		List of contracts of contact company
@@ -134,7 +134,7 @@
 	 					<f:facet name="footer">
 							<p:commandButton 
 								value="Show or modify contract" 
-								action="#{showOrModifyContract.toShowContract}">
+								action="#{showOrModifyContractView.toShowContract}">
 							</p:commandButton>
 						</f:facet> 
 					</p:dataTable>
@@ -143,10 +143,10 @@
 				<br/><br/>
 				
 				<h:form>
-					<p:commandButton value="Add contract" action="#{createContractWhenCompanyPreSelected.toCreateContract}">
+					<p:commandButton value="Add contract" action="#{createContractView.toCreateContract}">
 						<f:setPropertyActionListener 
-							target="#{createContractWhenCompanyPreSelected.contactCompany}" 
-							value="#{showOrModifyContactCompany.contactCompany}" />
+						target="#{createContractView.contactCompany}" 
+							value="#{showOrModifyContactCompanyView.contactCompany}" />
 					</p:commandButton>
 				</h:form>
 			</ui:define>

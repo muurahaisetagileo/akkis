@@ -2,7 +2,7 @@ package fi.agileo.akkis.test.jpa;
 
 import org.junit.Test;
 
-import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactPerson;
 import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.akkis.jpa.User;
@@ -38,11 +38,9 @@ public class ContactCompanyTest {
 		
 		ContactCompany cc = new ContactCompany();
 		List<Contract> contracts = new ArrayList<Contract>();
-		List<Contract> contact2Contracts = new ArrayList<Contract>();
-		List<Contact> contract2contacts = new ArrayList<Contact>();
+		List<Contract> contactPerson2Contracts = new ArrayList<Contract>();
+		List<ContactPerson> contract2contactPersons = new ArrayList<ContactPerson>();
 		User contact2SalesUser = new User();
-		
-		System.out.println("HERE2");
 		
 		Date today = new Date();
 		GregorianCalendar cal = new GregorianCalendar();
@@ -63,46 +61,45 @@ public class ContactCompanyTest {
 		
 		Contract contract2 = new Contract();
 		contract2.setSigndate(signDate2);
-		contract2.setContacts(contract2contacts);
+		contract2.setContactPersons(contract2contactPersons);
 
 		contracts.add(contract1);
 		contracts.add(contract2);
 		
-		contact2Contracts.add(contract2);
+		contactPerson2Contracts.add(contract2);
 		
 		/* 2 contacts to list of company contacts */
-		List<Contact> contacts = new ArrayList<Contact>();
+		List<ContactPerson> contactPersons = new ArrayList<ContactPerson>();
 		
-		Contact contact1 = new Contact();
-		contact1.setAddress("osoite");
-		contact1.setName("Heikki Mattila");
-		contact1.setPhone("014343211");
+		ContactPerson contactPerson1 = new ContactPerson();
+		contactPerson1.setAddress("osoite");
+		contactPerson1.setName("Heikki Mattila");
+		contactPerson1.setPhone("014343211");
 		
-		Contact contact2 = new Contact();
-		contact2.setEmail("s-posti");
-		contact2.setContactId(17);
-		contact2.setPublicAvailability(true);
-		contact2.setContactCompany(cc);
-		contact2.setContracts(contact2Contracts);
-		contact2.setSalesPerson(contact2SalesUser);
+		ContactPerson contactPerson2 = new ContactPerson();
+		contactPerson2.setEmail("s-posti");
+		contactPerson2.setContactPersonId(17);
+		contactPerson2.setPublicAvailability(true);
+		contactPerson2.setContactCompany(cc);
+		contactPerson2.setContracts(contactPerson2Contracts);
+		contactPerson2.setSalesPerson(contact2SalesUser);
 		
-		Contact contact3 = new Contact();
-		contact3.setCountry("Suomi");
+		ContactPerson contactPerson3 = new ContactPerson();
+		contactPerson3.setCountry("Suomi");
 		
 
-		contacts.add(contact1);
-		contacts.add(contact2);
-		contacts.add(contact3);
+		contactPersons.add(contactPerson1);
+		contactPersons.add(contactPerson2);
+		contactPersons.add(contactPerson3);
 		
 		cc.setContracts(contracts);
-		cc.setCompanyContacts(contacts);
+		cc.setContactPersons(contactPersons);
 		
 		/* asserts */
 		// Basic collection members
 		
-		System.out.println("HERE3");
 		assertEquals(cc.getContracts(), contracts);
-		assertEquals(cc.getCompanyContacts(), contacts);
+		assertEquals(cc.getContactPersons(), contactPersons);
 		
 		/*
 		 *  Collection member contacts properties
@@ -110,44 +107,37 @@ public class ContactCompanyTest {
 		
 		// Members exists in list
 		System.out.println("HERE4");
-		assertEquals(cc.getCompanyContacts().contains(contact1), true);
-		assertEquals(cc.getCompanyContacts().contains(contact2), true);
-		assertEquals(cc.getCompanyContacts().contains(contact3), true);
-		assertEquals(cc.getCompanyContacts().size(), 3);
+		assertEquals(cc.getContactPersons().contains(contactPerson1), true);
+		assertEquals(cc.getContactPersons().contains(contactPerson2), true);
+		assertEquals(cc.getContactPersons().contains(contactPerson3), true);
+		assertEquals(cc.getContactPersons().size(), 3);
 
 		// Member basic properties are the same
 		System.out.println("HERE5");
-		List<Contact> gotContacts = cc.getCompanyContacts();
-		for(Contact contact : gotContacts) {
-			if (contact == contact1) {
-				assertEquals("osoite", contact.getAddress());
-				assertEquals("Heikki Mattila", contact.getName());
-				assertEquals("014343211", contact.getPhone());
+		List<ContactPerson> gotContactPersons = cc.getContactPersons();
+		for(ContactPerson contactPerson : gotContactPersons) {
+			if (contactPerson == contactPerson1) {
+				assertEquals("osoite", contactPerson.getAddress());
+				assertEquals("Heikki Mattila", contactPerson.getName());
+				assertEquals("014343211", contactPerson.getPhone());
 			}
-			else if (contact == contact2) {
-				System.out.println("contact == contact2 begin");
-				assertEquals("s-posti", contact.getEmail());
-				assertEquals(17, contact.getContactId());
-				assertEquals(true, contact.isPublicAvailability());
-				assertEquals(cc, contact.getContactCompany());
-				System.out.println("contact == contact2 before collections");
-				assertEquals(contact2Contracts, contact.getContracts());
-				System.out.println("contact == contact2, before user");
-				assertEquals(contact2SalesUser, contact.getSalesPerson());
-				System.out.println("contact == contact2 end");
+			else if (contactPerson == contactPerson2) {
+				assertEquals("s-posti", contactPerson.getEmail());
+				assertEquals(17, contactPerson.getContactPersonId());
+				assertEquals(true, contactPerson.isPublicAvailability());
+				assertEquals(cc, contactPerson.getContactCompany());
+				assertEquals(contactPerson2Contracts, contactPerson.getContracts());
+				assertEquals(contact2SalesUser, contactPerson.getSalesPerson());
 			}
-			else /* contact == contact3 */ {
-				assertEquals("Suomi", contact.getCountry());
+			else /* contactPerson == contactPerson3 */ {
+				assertEquals("Suomi", contactPerson.getCountry());
 			}
 		}
 		
 		/* Contracts */
-		System.out.println("HERE6");
 		assertEquals(cc.getContracts().contains(contract1), true);
 		assertEquals(cc.getContracts().contains(contract2), true);
 		assertEquals(cc.getContracts().size(), 2);
-		
-		System.out.println("HERE7");
 		
 		for(Contract contract : cc.getContracts()) {
 			if (contract1 == contract) {
@@ -159,7 +149,7 @@ public class ContactCompanyTest {
 			}
 			else /* contract == contract2 */ {
 				assertEquals(contract.getSigndate(), signDate2);
-				assertEquals(contract2contacts, contract.getContacts());
+				assertEquals(contract2contactPersons, contract.getContactPersons());
 			}
 		}
 	}

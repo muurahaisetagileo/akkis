@@ -19,32 +19,32 @@
 					<p:panelGrid columns="2">				
 					
 	 					<p:outputLabel value="Firstname:" />
-						<p:inputText value="#{registerUser.user.firstNames}" label="fname" required="true" 
+						<p:inputText value="#{registerUserView.user.firstNames}" label="fname" required="true" 
 						requiredMessage="Please enter firstname"
 						validatorMessage="Firstname must be 2 to 30 characters" >
 							<f:validateLength minimum="2" maximum="30"/>
 						</p:inputText>		
 						
 						<p:outputLabel value="Lastname:" />
-						<p:inputText value="#{registerUser.user.lastName}" required="true" 
+						<p:inputText value="#{registerUserView.user.lastName}" required="true" 
 						requiredMessage="Please enter lastname"
 						validatorMessage="Lastname must be 2 to 30 characters" >
 							<f:validateLength minimum="2" maximum="30"/>
 						</p:inputText>	
 						
 						<p:outputLabel value="Username:" />
-						<p:inputText id="uname" value="#{registerUser.user.username}" required="true" 
+						<p:inputText id="uname" value="#{registerUserView.user.username}" required="true" 
 						requiredMessage="Please enter username"
 						validatorMessage="Username must be 4 to 15 characters" >
 							<f:validateLength minimum="4" maximum="15"/>
 						</p:inputText>	
 						
 						<p:outputLabel for="pwd1" value="Password:" />
-						<p:password id="pwd1" value="#{registerUser.user.password}" feedback="false" match="pwd2" label="pwd1" required="true" 
+						<p:password id="pwd1" value="#{registerUserView.user.password}" feedback="false" match="pwd2" label="pwd1" required="true" 
 						requiredMessage="Please enter password" validatorMessage="Passwords are not equal" />
 
 						<p:outputLabel for="pwd2" value="Confirm password:" />
-						<p:password id="pwd2" value="#{registerUser.user.password}" feedback="false" label="pwd2" required="true"
+						<p:password id="pwd2" value="#{registerUserView.user.password}" feedback="false" label="pwd2" required="true"
 						requiredMessage="Please enter Confirm password" 
 						validatorMessage="Password must be 6-20 characters including uppercase, lowercase and alphanumeric characters.">	
 							<f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})" />
@@ -52,14 +52,14 @@
 					</p:panelGrid>
 					
 					<h3>Select user role</h3> 
-				        <p:selectOneRadio id="r" value="#{registerUser.user.role}"  layout="grid" columns="3" required="true" 
+				        <p:selectOneRadio id="r" value="#{registerUserView.user.role}"  layout="grid" columns="3" required="true" 
 						requiredMessage="Please select user role" >
-				            <f:selectItems value="#{registerUser.roles}" var="c" itemLabel="#{role}" itemValue="#{role}"/>
+				            <f:selectItems value="#{registerUserView.roles}" var="c" itemLabel="#{role}" itemValue="#{role}"/>
 				        </p:selectOneRadio>
 				        
 				    <p:message for="r" /><br/>
 					<!-- <p:commandButton value="Add user" action="#{registerUser.register}" validateClient="true"/> -->
-					<p:commandButton value="Add user" action="#{registerUser.register}" update="messages" />
+					<p:commandButton value="Add user" action="#{registerUserView.register}" update="messages" />
 					</p:panel>
 					<br/><br/>
 					

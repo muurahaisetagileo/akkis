@@ -11,40 +11,40 @@ xmlns:p="http://primefaces.org/ui">
          
  <!--        TÄHÄN LISÄTÄÄN USER KÄYTTÄJÄN VALIKKOON LISÄTTÄVÄT TOIMINNOT
  			<p:submenu label="Users" icon="ui-icon-person">
-            <p:menuitem icon="ui-icon-search" value="User Search" outcome="/user/user_search" />
-            <p:menuitem icon="ui-icon-plus" value="Add New User" outcome="/user/register_user" />
+            <p:menuitem icon="ui-icon-search" value="User Search" action="#{userSearchView.toUserSearch}" />
+            <p:menuitem icon="ui-icon-plus" value="Add New User" outcome="/user/user_register" />
         </p:submenu>   
         
          <p:submenu label="Contact Companies" icon="ui-icon-contact">
             <p:menuitem 
             	icon="ui-icon-search" 
             	value="Company Search" 
-            	action="#{listContactCompanies.toListContactCompanies}"	/>
+            	action="#{listContactCompaniesView.toListContactCompanies}"	/>
             <p:menuitem 
             	icon="ui-icon-plus" 
             	value="Add New Company" 
-            	action="#{createContactCompany.toCreateContactCompany}" />
+            	action="#{createContactCompanyView.toCreateContactCompany}" />}" />
          </p:submenu>                
-         <p:submenu label="Contacts" icon="ui-icon-person">
+         <p:submenu label="Contact persons" icon="ui-icon-person">
             <p:menuitem 
             	icon="ui-icon-search" 
-            	value="Contact Search and set them lead"
-            	action="#{listContacts.toContactList}"/>
+            	value="Contact person search and set them lead"
+            	action="#{listContactPersonsView.toContactPersonListForLeads}"/>
             <p:menuitem 
             	icon="ui-icon-search" 
-            	value="Contact Search and show and modify single" 
-            	action="#{listContacts.toContactListToShowOrModifySingle}" />
+            	value="Contact person search to show or modify" 
+            	action="#{listContactPersonsView.toContactListForShowOrModify}" />
             <p:menuitem 
             	icon="ui-icon-plus" 
-            	value="Add New Contact" 
-            	action="#{createContact.toCreateContact}" />
+            	value="Add New Contact person" 
+            	action="#{createContactPersonView.toCreateContactPerson}" />
         </p:submenu>              
 
         
         -->        
  
         <f:facet name="options">
-            <p:commandButton value="Logout" action="#{loginUser.logout}" icon="ui-icon-power" style="height:30px; font-size:12px" />
+            <p:commandButton value="Logout" action="#{loginUserView.logout}" icon="ui-icon-power" style="height:30px; font-size:12px" />
         </f:facet>
     </p:menubar>
 	</h:form>

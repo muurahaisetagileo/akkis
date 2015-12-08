@@ -19,7 +19,7 @@ import fi.agileo.spring.service.UserService;
 
 @ManagedBean
 @SessionScoped
-public class RegisterUser {
+public class RegisterUserView {
 
 	@ManagedProperty("#{userService}")
 	private UserService userService;

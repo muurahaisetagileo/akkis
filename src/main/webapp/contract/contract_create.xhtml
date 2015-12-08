@@ -14,13 +14,13 @@
 			<ui:define name="content">
 				<p:panelGrid columns="2">
 					<h:outputText value="Company name:"></h:outputText>
-					<h:outputText value="#{createContractWhenCompanyPreSelected.contactCompany.name}"></h:outputText>
+					<h:outputText value="#{createContractView.contactCompany.name}"></h:outputText>
 					<h:outputText value="Company address:"></h:outputText>
-					<h:outputText value="#{createContractWhenCompanyPreSelected.contactCompany.address}"></h:outputText>
+					<h:outputText value="#{createContractView.contactCompany.address}"></h:outputText>
 					<h:outputText value="Company internetaddress:"></h:outputText>
-					<h:outputText value="#{createContractWhenCompanyPreSelected.contactCompany.internetAddress}"></h:outputText>
+					<h:outputText value="#{createContractView.contactCompany.internetAddress}"></h:outputText>
 					<h:outputText value="Company identifier:"></h:outputText>
-					<h:outputText value="#{createContractWhenCompanyPreSelected.contactCompany.companyIdentifier}"></h:outputText>
+					<h:outputText value="#{createContractView.contactCompany.companyIdentifier}"></h:outputText>
 				</p:panelGrid>
 				
 				<br/><br/>
@@ -31,39 +31,39 @@
 
 					<p:panelGrid columns="2">
 						<p:outputLabel value="Enter signdate:"></p:outputLabel>
-						<p:calendar value="#{createContractWhenCompanyPreSelected.contract.signdate}"></p:calendar>
+						<p:calendar value="#{createContractView.contract.signdate}"></p:calendar>
 						<p:outputLabel value="Enter enddate:"></p:outputLabel>
-						<p:calendar value="#{createContractWhenCompanyPreSelected.contract.enddate}"></p:calendar>
+						<p:calendar value="#{createContractView.contract.enddate}"></p:calendar>
 						<p:outputLabel value="Enter status:"></p:outputLabel>
-						<p:selectOneRadio value="#{createContractWhenCompanyPreSelected.contract.contractstatus}">
-							<f:selectItems value="#{createContractWhenCompanyPreSelected.statusOptions}"/>
+						<p:selectOneRadio value="#{createContractView.contract.contractstatus}">
+							<f:selectItems value="#{createContractView.statusOptions}"/>
 						</p:selectOneRadio>
 						<p:outputLabel value="Enter price:"></p:outputLabel>
-						<p:inputText value="#{createContractWhenCompanyPreSelected.contract.price}"></p:inputText>
+						<p:inputText value="#{createContractView.contract.price}"></p:inputText>
 						<p:outputLabel value="Enter price period:"></p:outputLabel>
-						<p:selectOneRadio value="#{createContractWhenCompanyPreSelected.contract.pricePeriodType}">
-							<f:selectItems value="#{createContractWhenCompanyPreSelected.pricePeriodTypeOptions}"/>
+						<p:selectOneRadio value="#{createContractView.contract.pricePeriodType}">
+							<f:selectItems value="#{createContractView.pricePeriodTypeOptions}"/>
 						</p:selectOneRadio>
 						<p:outputLabel value="Value added tax percent:"></p:outputLabel>
-						<p:inputText value="#{createContractWhenCompanyPreSelected.contract.valueAddedTaxPercent}"></p:inputText>
+						<p:inputText value="#{createContractView.contract.valueAddedTaxPercent}"></p:inputText>
 					</p:panelGrid>
 
 					<h4>Choose technician user of contract</h4>
 																				   
-					<p:selectOneMenu value="#{createContractWhenCompanyPreSelected.selectedTechnicationUser}">
-						<f:selectItems value="#{createContractWhenCompanyPreSelected.technicationUsers}"/>
+					<p:selectOneMenu value="#{createContractView.selectedTechnicationUser}">
+						<f:selectItems value="#{createContractView.technicationUsers}"/>
 					</p:selectOneMenu>
 
 					<br/><br/>
 				
 					<p:dataTable 
-						value="#{createContractWhenCompanyPreSelected.contactCompany.companyContacts}" 
+						value="#{createContractView.contactCompany.contactPersons}" 
 						id="contacts"
-						var="c" rowKey="#{c.contactId}"
-						selection="#{createContractWhenCompanyPreSelected.selectedContacts}"
+						var="c" rowKey="#{c.contactPersonId}"
+						selection="#{createContractView.selectedContactPersons}"
 						selectionMode="multiple">
 						<f:facet name="header">
-        	                Choose contacts that are making the contract
+        	                Choose contact persons that are making the contract
             	   		</f:facet>
 						<p:column style="width:18px" />
 						<p:column headerText="Name">
@@ -81,7 +81,7 @@
 						<f:facet name="footer"></f:facet>
 					</p:dataTable>
 					<p:commandButton value="Submit"
-						action="#{createContractWhenCompanyPreSelected.saveContract}" update="messages"></p:commandButton>
+						action="#{createContractView.saveContract}" update="messages"></p:commandButton>
 				</h:form>
 			</ui:define>
 		</ui:composition>

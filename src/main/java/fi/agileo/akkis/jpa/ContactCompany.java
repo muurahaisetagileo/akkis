@@ -38,7 +38,7 @@ public class ContactCompany {
 	private String companyIdentifier; // Y-Tunnus
 	
 	@OneToMany(mappedBy="contactCompany")
-	private List<Contact> companyContacts;
+	private List<ContactPerson> contactPersons;
 	
 	@OneToMany(mappedBy="contactCompany")
 	private List<Contract> contracts;
@@ -83,12 +83,12 @@ public class ContactCompany {
 		this.companyIdentifier = companyIdentifier;
 	}
 
-	public List<Contact> getCompanyContacts() {
-		return companyContacts;
+	public List<ContactPerson> getContactPersons() {
+		return contactPersons;
 	}
 
-	public void setCompanyContacts(List<Contact> companyContacts) {
-		this.companyContacts = companyContacts;
+	public void setContactPersons(List<ContactPerson> contactPersons) {
+		this.contactPersons = contactPersons;
 	}
 
 	public List<Contract> getContracts() {

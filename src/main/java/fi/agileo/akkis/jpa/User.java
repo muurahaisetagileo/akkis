@@ -62,7 +62,7 @@ public class User {
 	private List<Contract> contracts;
 	
 	@OneToMany(mappedBy="salesPerson")
-	private List<Contact> contacts;	
+	private List<ContactPerson> contactPersons;	
 
 	
 	// Public methods
@@ -135,12 +135,12 @@ public class User {
 		this.contracts = contracts;
 	}
 
-	public List<Contact> getContacts() {
-		return contacts;
+	public List<ContactPerson> getContactPersons() {
+		return contactPersons;
 	}
 
-	public void setContacts(List<Contact> contacts) {
-		this.contacts = contacts;
+	public void setContactPersons(List<ContactPerson> contactPersons) {
+		this.contactPersons = contactPersons;
 	}
 
 	@Override

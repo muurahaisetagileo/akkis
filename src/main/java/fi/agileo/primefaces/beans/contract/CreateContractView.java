@@ -1,42 +1,43 @@
 package fi.agileo.primefaces.beans.contract;
 
-import java.util.List;
-import java.util.Map;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
-import fi.agileo.akkis.jpa.Contact;
-
+import fi.agileo.akkis.jpa.ContactPerson;
+import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.akkis.jpa.User;
-/* import fi.agileo.akkis.jpa.Deal;
-import fi.agileo.akkis.jpa.User; */
+import fi.agileo.primefaces.beans.user.LoginUserView;
 import fi.agileo.spring.service.ContractService;
 import fi.agileo.spring.service.UserService;
 
 @ManagedBean
 @SessionScoped
-public class ShowOrModifyContract {
+public class CreateContractView {
 	@ManagedProperty("#{contractService}")
 	private ContractService contractService;
 	
 	@ManagedProperty("#{userService}")
 	private UserService userService;
 	
-	private Contract contract;
-	private boolean modifyBasics = false;
-	private List<Contact> contactsToBeAdded = new ArrayList<Contact>();
+	private ContactCompany contactCompany = new ContactCompany();
 
+	private Contract contract = new Contract();
+	
+	private List<ContactPerson> selectedContactPersons;
+	
 	private Long selectedTechnicationUser;
 	private User technicianUser;
 	private List<User> technicianUsers;
 	private Map<Long, User> mapUserIdsToTechnicalUsers;
-	
 	
 	public ContractService getContractService() {
 		return contractService;
@@ -54,12 +55,14 @@ public class ShowOrModifyContract {
 		this.userService = userService;
 	}
 	
-	public String toShowContract() {
-		if (this.contract == null)
-			return "/contactcompany/showormodifycontactcompany";
-		return "/contract/showormodifycontract";
+	
+	public String toCreateContract() {
+		System.out.println("toCreateContract, contactCompany " + contactCompany);
+		contract = new Contract();
+		return "/contract/contract_create";
 	}
-
+	
+						 
 	public List<SelectItem> getTechnicationUsers() {
 		
 		List<String> technicianRoles = new ArrayList<String>();
@@ -89,7 +92,7 @@ public class ShowOrModifyContract {
 		options[3] = new SelectItem("canceled", "Canceled");
 		return options;
 	}
-	
+
 	public SelectItem[] getPricePeriodTypeOptions() {
 		SelectItem[] options = new SelectItem[3];
 		options[0] = new SelectItem(new Integer(0), "Only once");
@@ -98,6 +101,15 @@ public class ShowOrModifyContract {
 		return options;
 	}
 	
+	
+	public ContactCompany getContactCompany() {
+		return contactCompany;
+	}
+
+	public void setContactCompany(ContactCompany contactCompany) {
+		this.contactCompany = contactCompany;
+	}
+
 	public Contract getContract() {
 		return contract;
 	}
@@ -105,71 +117,29 @@ public class ShowOrModifyContract {
 	public void setContract(Contract contract) {
 		this.contract = contract;
 	}
+	
 
-	public boolean isModifyBasics() {
-		return modifyBasics;
+	public List<ContactPerson> getSelectedContactPersons() {
+		return selectedContactPersons;
 	}
 
-	public void setModifyBasics(boolean modifyBasics) {
-		this.modifyBasics = modifyBasics;
+	public void setSelectedContactPersons(List<ContactPerson> selectedContactPersons) {
+		this.selectedContactPersons = selectedContactPersons;
 	}
 	
-	public String toModifyBasics() {
-		return null;
-	}
-	
-	public String getTechnicationUserName() {
-		if (contract.getTechnicianUser() != null)
-			return contract.getTechnicianUser().getLastName() + 
-				   " " + 
-				   contract.getTechnicianUser().getFirstNames();
+	public String saveContract() {
+		System.out.println("saveContract");
+		LoginUserView lu = (LoginUserView)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUserView");
+		System.out.println("TechnicianUser " + technicianUser);
+		contractService.createContract(
+				this.getContract(),
+				lu.getUser(), 
+				technicianUser,
+				this.getContactCompany(), 
+				this.getSelectedContactPersons());		
 		return "";
 	}
-	
-	public String getPricePeriodText() {
-		if (contract != null) {
-			switch(contract.getPricePeriodType()) {
-				case 0 : return "Only once";
-				case 1 : return "Per month";
-				case 2 : return "Per year";
-			}
-		}
-		return "";
-	}
-	
-	public List<Contact> getContactsInContactCompanyButNotInContract() {
-		List<Contact> notChosenCompanyContacts = new ArrayList<Contact>();
-		notChosenCompanyContacts.addAll(contract.getContactCompany().getCompanyContacts());
-		notChosenCompanyContacts.removeAll(contract.getContacts());
-		return notChosenCompanyContacts;
-	}
-	
-	public String saveModifiedContract() {
-		contract.setTechnicianUser(technicianUser);
-		contractService.modifyContractBasicInfo(contract);
-		return null;
-	}
 
-	public String getContractUserName() {
-		if (contract != null && contract.getUser() != null)
-			return contract.getUser().getLastName() + " " +
-				contract.getUser().getFirstNames();
-		return "";
-	}
-	
-	public List<Contact> getContactsToBeAdded() {
-		return contactsToBeAdded;
-	}
-
-	public void setContactsToBeAdded(List<Contact> contactsToBeAdded) {
-		this.contactsToBeAdded = contactsToBeAdded;
-	}
-	
-	public String toAddContactsToContract() {
-		contractService.addContactsToContract(contract, contactsToBeAdded);
-		return null;
-	}
-	
 	public Long getSelectedTechnicationUser() {
 		return this.selectedTechnicationUser;
 		
@@ -187,4 +157,5 @@ public class ShowOrModifyContract {
 	public void setTechnicianUsers(List<User> technicianUsers) {
 		this.technicianUsers = technicianUsers;
 	}
+
 }

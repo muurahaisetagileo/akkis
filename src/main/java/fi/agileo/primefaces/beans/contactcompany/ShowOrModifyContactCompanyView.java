@@ -7,28 +7,29 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactPerson;
 import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.spring.service.ContactCompanyService;
 
 @ManagedBean
 @SessionScoped
-public class ShowOrModifyContactCompany {
+public class ShowOrModifyContactCompanyView {
 	@ManagedProperty("#{contactCompanyService}")
 	private ContactCompanyService contactCompanyService;
 	
 	private ContactCompany contactCompany;
-	private List<Contact> contacts;
+	private List<ContactPerson> contacts;
 	private List<Contract> contracts;
 	private boolean modifyBasics = false;
 	
 	public String toShowContactCompany() {
-		System.out.println("toShowContactCompany");
+		System.out.println("toShowContactCompany !!!");
+		System.out.println("contactCompany " + contactCompany);
 		modifyBasics = false;
 		if (contactCompany == null)
 			return "/contactcompany/contactcompany_list";
-		return "/contactcompany/showormodifycontactcompany";
+		return "/contactcompany/contactcompany_showormodify";
 	}
 
 	public ContactCompanyService getContactCompanyService() {
@@ -45,9 +46,10 @@ public class ShowOrModifyContactCompany {
 
 	public void setContactCompany(ContactCompany contactCompany) {
 		this.contactCompany = contactCompany;
+		System.out.println("setContactCompany " + contactCompany);
 	}
 
-	public List<Contact> getContacts() {
+	public List<ContactPerson> getContacts() {
 		return contacts;
 	}
 

@@ -8,16 +8,16 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactPerson;
 import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.User;
-import fi.agileo.primefaces.beans.user.LoginUser;
+import fi.agileo.primefaces.beans.user.LoginUserView;
 import fi.agileo.spring.service.ContactCompanyService;
-import fi.agileo.spring.service.ContactService;
+import fi.agileo.spring.service.ContactPersonService;
 
 @ManagedBean
 @SessionScoped
-public class ListContactCompanies {
+public class ListContactCompaniesView {
 	@ManagedProperty("#{contactCompanyService}")
 	private ContactCompanyService contactCompanyService;
 	

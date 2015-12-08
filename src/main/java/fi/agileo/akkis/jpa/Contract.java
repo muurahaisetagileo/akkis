@@ -49,7 +49,7 @@ public class Contract {
 	private double valueAddedTaxPercent;
 	
 	@ManyToMany(mappedBy="contracts")
-	private List<Contact> contacts;
+	private List<ContactPerson> contactPersons;
 	
 	@ManyToOne(optional=false, fetch=FetchType.EAGER)
 	@JoinColumn(name="CONTACTCOMPANYID")
@@ -154,12 +154,12 @@ public class Contract {
 		this.technicianUser = technicianUser;
 	}
 	
-	public List<Contact> getContacts() {
-		return contacts;
+	public List<ContactPerson> getContactPersons() {
+		return contactPersons;
 	}
 
-	public void setContacts(List<Contact> contacts) {
-		this.contacts = contacts;
+	public void setContactPersons(List<ContactPerson> contactPersons) {
+		this.contactPersons = contactPersons;
 	}
 
 	public ContactCompany getContactCompany() {

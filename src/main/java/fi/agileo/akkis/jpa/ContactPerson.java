@@ -25,22 +25,21 @@ import javax.persistence.JoinTable;
 /* c.type IN :seekedTypes AND */
 
 @Entity
+@Table(name="CONTACTPERSON")
 @NamedQueries({
-	@NamedQuery(name="Contact.findByType", query="SELECT c FROM Contact c WHERE c.type = :type"),
-	@NamedQuery(name="Contact.findContactsWithoutCompany", query="SELECT c FROM Contact c WHERE c.contactCompany IS NULL"),
-	@NamedQuery(name="Contact.findForSearch", 
-				query="SELECT c FROM Contact c WHERE c.country LIKE :countrySearch AND " +
+	@NamedQuery(name="ContactPerson.findByType", query="SELECT c FROM ContactPerson c WHERE c.type = :type"),
+	@NamedQuery(name="ContactPerson.findContactPersonsWithoutCompany", query="SELECT c FROM ContactPerson c WHERE c.contactCompany IS NULL"),
+	@NamedQuery(name="ContactPerson.findForSearch", 
+				query="SELECT c FROM ContactPerson c WHERE c.country LIKE :countrySearch AND " +
 					  "c.type IN :seekedTypes AND " + 
 					  "c.salesPerson IS NOT NULL AND " +
 					  "c.salesPerson.firstNames LIKE :salesManFirstNamesSearch AND " +
 					  "c.salesPerson.lastName LIKE :salesManLastNameSearch")
 })
-
-@Table(name="CONTACT")
-public class Contact {
+public class ContactPerson {
 
 /* Lisättäviä properteja taskiin 
-"Create persisted entity class and its properties for contact"	
+"Create persisted entity class and its properties for contact person"	
 liittyen: 
 Tämä lienee aika valmis propertien osalta?
 Yhden parametrin transaktiokerros spring kerrokseen, jotta näkee tallentuuko kantaan?
@@ -51,8 +50,8 @@ Väliaikainen CreateContact ContactServiceen?
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="CONTACT_ID")
-	private long contactId;
+	@Column(name="CONTACTPERSON_ID")
+	private long contactPersonId;
 	
 	@Column(name="NAME")
 	private String name;
@@ -91,14 +90,14 @@ Väliaikainen CreateContact ContactServiceen?
 	
 	// Public methods
 
-	public long getContactId()
+	public long getContactPersonId()
 	{
-		return this.contactId;
+		return this.contactPersonId;
 	}
 	
-	public void setContactId(long contactId)
+	public void setContactPersonId(long contactPersonId)
 	{
-		this.contactId = contactId;
+		this.contactPersonId = contactPersonId;
 	}
 	
 	public String getName()
@@ -195,17 +194,17 @@ Väliaikainen CreateContact ContactServiceen?
 
 	@Override
 	public boolean equals(Object o) {
-		if (!(o instanceof Contact))
+		if (!(o instanceof ContactPerson))
 			return false;
-		Contact c = (Contact) o;
-		if (c.getContactId() == this.getContactId())
+		ContactPerson c = (ContactPerson) o;
+		if (c.getContactPersonId() == this.getContactPersonId())
 			return true;
 		return false;
 	}
 	
 	@Override
 	public String toString() {
-		return "Contact [contactId=" + contactId + 
+		return "ContactPerson [contactPersonId=" + contactPersonId + 
 				", name=" + name + ", address=" + address + ", phone=" + phone
 				+ ", email=" + email + ", country=" + country + ", type=" + type + ", publicAvailability="
 				+ publicAvailability + "]";

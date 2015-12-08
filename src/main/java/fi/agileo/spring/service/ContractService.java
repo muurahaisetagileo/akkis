@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactPerson;
 import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.akkis.jpa.User;
@@ -26,10 +26,14 @@ public class ContractService {
 	}
 
 	@Transactional
-	public void createContract(Contract contract, User contractMakerUser, User technicianUser,
-			ContactCompany contactCompany, List<Contact> contractMakerContacts) {
+	public void createContract(
+			Contract contract, 
+			User contractMakerUser, 
+			User technicianUser,
+			ContactCompany contactCompany, 
+			List<ContactPerson> contractMakerContactPersons) {
 		contract.setContactCompany(contactCompany);
-		contract.setContacts(contractMakerContacts);
+		contract.setContactPersons(contractMakerContactPersons);
 		contract.setUser(contractMakerUser);
 		contract.setTechnicianUser(technicianUser);
 		contractMakerUser.getContracts().add(contract);
@@ -37,9 +41,9 @@ public class ContractService {
 		em.persist(contract);
 		em.merge(contactCompany);
 		em.merge(contractMakerUser);
-		for (Contact c : contractMakerContacts)
+		for (ContactPerson c : contractMakerContactPersons)
 			c.getContracts().add(contract);
-		for (Contact c : contract.getContactCompany().getCompanyContacts()) {
+		for (ContactPerson c : contract.getContactCompany().getContactPersons()) {
 			if (c.getType() < 2)
 				c.setType(2);
 			em.merge(c);
@@ -47,20 +51,21 @@ public class ContractService {
 	}
 
 	@Transactional
-	public void addContactsToContract(Contract contract, List<Contact> contactsToBeAdded) {
-		List<Contact> existingcontacts = contract.getContacts();
+	public void addContactsToContract(Contract contract, 
+			List<ContactPerson> contactPersonsToBeAdded) {
+		List<ContactPerson> existingContactPersons = contract.getContactPersons();
 
-		// Loop through list contactsToBeAdded to check and remove existing
-		// contacts
-		for (int i = 0; i < contactsToBeAdded.size(); i++) {
-			Contact c = contactsToBeAdded.get(i);
-			if (existingcontacts.contains(c))
-				contactsToBeAdded.remove(c);
+		// Loop through list contactPersonssToBeAdded to 
+		// check and remove existing contact persons
+		for (int i = 0; i < contactPersonsToBeAdded.size(); i++) {
+			ContactPerson c = contactPersonsToBeAdded.get(i);
+			if (existingContactPersons.contains(c))
+				contactPersonsToBeAdded.remove(c);
 		}
 		// Set customers to the contract
 		// existingcontacts.addAll(contactsToBeAdded);
-		contract.getContacts().addAll(contactsToBeAdded);
-		for (Contact c : contactsToBeAdded) {
+		contract.getContactPersons().addAll(contactPersonsToBeAdded);
+		for (ContactPerson c : contactPersonsToBeAdded) {
 			c.getContracts().add(contract);
 			em.merge(c);
 		}
@@ -72,7 +77,7 @@ public class ContractService {
 		contract = em.find(Contract.class, contract.getContractId());
 		// em.merge(contract);
 		em.refresh(contract);
-		contract.getContacts();
+		contract.getContactPersons();
 		contract.getContactCompany();
 		contract.getUser();
 		return contract;
@@ -83,8 +88,8 @@ public class ContractService {
 	 * contract.
 	 */
 
-	public Contract getContacts(Contract contract) {
-		contract.getContacts();
+	public Contract getContactPersons(Contract contract) {
+		contract.getContactPersons();
 		return contract;
 	}
 

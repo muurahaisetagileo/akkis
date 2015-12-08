@@ -1,16 +1,16 @@
-	<html xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:ui="http://java.sun.com/jsf/facelets"
 		xmlns:h="http://java.sun.com/jsf/html"
 		xmlns:f="http://java.sun.com/jsf/core"
 		xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<script name="jquery/jquery.js" library="primefaces"></script>
-		<title>Akkis - Add new contact</title>
+		<title>Akkis - Add new contact person</title>
 	</h:head>
 
 	<h:body>
 		<ui:composition template="../templates/template_action.xhtml">
-		<ui:param name="title" value="Add new contact" />
+		<ui:param name="title" value="Add new contact person" />
 			<ui:define name="content">
 
 			<h:form>
@@ -18,22 +18,22 @@
 
 				<p:panelGrid columns="2">
 					<p:outputLabel value="Enter name:"></p:outputLabel>
-					<p:inputText value="#{createContact.contact.name}"></p:inputText>
+					<p:inputText value="#{createContactPersonView.contactPerson.name}"></p:inputText>
 					<p:outputLabel value="Enter address:"></p:outputLabel>
-					<p:inputText value="#{createContact.contact.address}"></p:inputText>
+					<p:inputText value="#{createContactPersonView.contactPerson.address}"></p:inputText>
 					<p:outputLabel value="Enter phone number:"></p:outputLabel>
-					<p:inputText value="#{createContact.contact.phone}"></p:inputText>
+					<p:inputText value="#{createContactPersonView.contactPerson.phone}"></p:inputText>
 					<p:outputLabel value="Enter email:"></p:outputLabel>
-					<p:inputText value="#{createContact.contact.email}"></p:inputText>
+					<p:inputText value="#{createContactPersonView.contactPerson.email}"></p:inputText>
 					<p:outputLabel value="Enter country:"></p:outputLabel>
-					<p:inputText value="#{createContact.contact.country}"></p:inputText>
+					<p:inputText value="#{createContactPersonView.contactPerson.country}"></p:inputText>
 				</p:panelGrid>
 
-				<p:commandButton value="Submit"
-					action="#{createContact.saveContact}" update="messages"></p:commandButton>
+				<p:commandButton value="Create contact person"
+					action="#{createContactPersonView.saveContactPerson}" update="messages"></p:commandButton>
 			</h:form>
 		</ui:define>
 		</ui:composition>
 	</h:body>
 
-	</html>
+</html>

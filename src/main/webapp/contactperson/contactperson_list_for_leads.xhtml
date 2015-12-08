@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+		<title>Akkis - Search contact persons to set them lead</title>
+	</h:head>
+
+	<h:body>
+		<ui:composition template="../templates/template_action.xhtml">
+		<ui:param name="title" value="Search contact persons to set them lead" />
+			<ui:define name="content">
+
+				<h:form>
+					<p:growl id="messages"></p:growl>
+
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Search with salesman first names:"></p:outputLabel>
+						<p:inputText value="#{listContactPersonsView.searchSalesmanFirstNames}"></p:inputText>
+						<p:outputLabel value="Search with salesman last name:"></p:outputLabel>
+						<p:inputText value="#{listContactPersonsView.searchSalesmanLastName}"></p:inputText>
+						<p:outputLabel value="Search with contact state:"></p:outputLabel>
+						<p:selectManyCheckbox value="#{listContactPersonsView.seekedContactPersonTypes}">
+							<f:selectItems value="#{listContactPersonsView.contactPersonTypeOptions}"/>
+						</p:selectManyCheckbox>
+						<p:outputLabel value="Search with country"></p:outputLabel>
+						<p:inputText value="#{listContactPersonsView.countrySearch}"></p:inputText>
+						<p:commandButton value="Submit"
+							action="#{listContactPersonsView.seekContactPersons}"
+							update="contactpersons"></p:commandButton>
+					</p:panelGrid>
+					
+					<p:dataTable 
+						value="#{listContactPersonsView.contactPersonList}" 
+						id="contactpersons"
+						var="c" 
+						rowKey="#{c.contactPersonId}"
+						selection="#{listContactPersonsView.selectedContactPersons}"
+						selectionMode="multiple">
+						<f:facet name="header">
+                   			Seeked contact persons, select contact persons to be set to lead
+               			</f:facet>
+						<p:column style="width:18px" />
+						<p:column headerText="Name">
+                   			#{c.name}  
+               			</p:column>
+						<p:column headerText="Phone">
+                   			#{c.phone}  
+               			</p:column>
+						<p:column headerText="Address">
+                   			#{c.address}  
+               			</p:column>
+						<p:column headerText="Country">
+                   			#{c.country}  
+               			</p:column>
+						<f:facet name="footer"></f:facet>
+					</p:dataTable>
+					<p:commandButton value="Set to lead"
+						action="#{listContactPersonsView.setContactPersonsToLead}"
+						update="contactpersons">
+					</p:commandButton>
+				</h:form>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+</html>

@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.*;
-import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactPerson;
 import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.akkis.jpa.User;
 
-public class ContactTest {
+public class ContactPersonTest {
 	public static final double EPSILON = 1e-15;
 
 	@Test
 	public void testBasicContactCreation() {
-		Contact c = new Contact();
+		ContactPerson c = new ContactPerson();
 		
-		c.setContactId(50);
+		c.setContactPersonId(50);
 		c.setName("Rauno Hakola");
 		c.setAddress("Kalliokatu 2B");
 		c.setEmail("ransu@mail.com");
@@ -27,7 +27,7 @@ public class ContactTest {
 		c.setType(2);
 		c.setPublicAvailability(true);
 		
-		assertEquals(c.getContactId(), 50);
+		assertEquals(c.getContactPersonId(), 50);
 		assertEquals(c.getName(), "Rauno Hakola");
 		assertEquals(c.getAddress(), "Kalliokatu 2B");
 		assertEquals(c.getEmail(), "ransu@mail.com");
@@ -40,7 +40,7 @@ public class ContactTest {
 	
 	@Test
 	public void testRelationShips() {
-		Contact c = new Contact();
+		ContactPerson c = new ContactPerson();
 		
 		List<Contract> contracts = new ArrayList<Contract>();
 		User u = new User();

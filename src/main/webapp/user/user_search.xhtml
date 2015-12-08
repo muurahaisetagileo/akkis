@@ -18,24 +18,24 @@
 				<p:panelGrid columns="2">
 				<f:facet name="header">Search criteria</f:facet>
  					<p:outputLabel value="Firstname:"></p:outputLabel>
-					<p:inputText value="#{userSearch.filterFirstname}"></p:inputText>
+					<p:inputText value="#{userSearchView.filterFirstname}"></p:inputText>
 					<p:outputLabel value="Lastname:"></p:outputLabel>
-					<p:inputText value="#{userSearch.filterLastname}"></p:inputText>
+					<p:inputText value="#{userSearchView.filterLastname}"></p:inputText>
 					<p:outputLabel value="Username:"></p:outputLabel>
-					<p:inputText value="#{userSearch.filterUsername}"></p:inputText>
+					<p:inputText value="#{userSearchView.filterUsername}"></p:inputText>
 					<p:outputLabel value="User roles:"></p:outputLabel>
-					<p:selectManyCheckbox value="#{userSearch.filterUserRoles}" layout="grid" columns="3">
-						<f:selectItems value="#{userSearch.userRoles}" />
+					<p:selectManyCheckbox value="#{userSearchView.filterUserRoles}" layout="grid" columns="3">
+						<f:selectItems value="#{userSearchView.userRoles}" />
 					</p:selectManyCheckbox>		 
-           			<p:commandButton value="Show all users" action="#{userSearch.allUsers}" update="testi" />
-					<p:commandButton value="Search" action="#{userSearch.filteredUsers}" update="userList"  icon="ui-icon-search" />					
+           			<p:commandButton value="Show all users" action="#{userSearchView.allUsers}" update="testi" />
+					<p:commandButton value="Search" action="#{userSearchView.filteredUsers}" update="userList"  icon="ui-icon-search" />					
 											
 				</p:panelGrid>
 				<br/>
 	
-	<!-- selection="#{userSearch.selectedUsers}" -->
+	<!-- selection="#{userSearchView.selectedUsers}" -->
 
-			<p:dataTable value="#{userSearch.searchedUsers}" id="userList"
+			<p:dataTable value="#{userSearchView.searchedUsers}" id="userList"
 				var="u" rowKey="#{u.userId}"
 				selection="#{userView.user}"	
 				selectionMode="single">

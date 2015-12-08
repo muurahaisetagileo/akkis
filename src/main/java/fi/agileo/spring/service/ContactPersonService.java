@@ -9,11 +9,11 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactPerson;
 import fi.agileo.akkis.jpa.User;
 
 @Component
-public class ContactService {
+public class ContactPersonService {
 	@PersistenceContext
 	private EntityManager em;
 
@@ -26,25 +26,16 @@ public class ContactService {
 	}
 	
 	@Transactional
-	public void changeToLead(Contact contact){
-		
-	}
-	
-	@Transactional
-	public void changeToLead(List<Contact> contacts) {
-		
-	}
-	
-	@Transactional
-	public int createContact(User user, Contact contact) {
-		List<Contact> userContacts = user.getContacts();
+	public int createContactPerson(User user, 
+			ContactPerson contactPerson) {
+		List<ContactPerson> userContacts = user.getContactPersons();
 		if (userContacts == null)
-			userContacts = new ArrayList<Contact>();
-		userContacts.add(contact);
-		user.setContacts(userContacts);
-		contact.setSalesPerson(user);
+			userContacts = new ArrayList<ContactPerson>();
+		userContacts.add(contactPerson);
+		user.setContactPersons(userContacts);
+		contactPerson.setSalesPerson(user);
 		em.merge(user);
-		this.em.persist(contact);
+		this.em.persist(contactPerson);
 		return 0;
 	}
 	
@@ -55,25 +46,26 @@ public class ContactService {
 	  missä on tuo sisältö, mitä tuossa tämänhetkisessä methodissa on.*/
 	
 	@Transactional
-	 public int createContact(Contact contact) {
-		 this.em.persist(contact);
+	 public int createContact(ContactPerson contactPerson) {
+		 this.em.persist(contactPerson);
 		 return 0;
 	 }
 	
 	@Transactional
-	public void modifyBasics(Contact contact) {
-		em.merge(contact);
+	public void modifyBasics(ContactPerson contactPerson) {
+		em.merge(contactPerson);
 	}
 	
-	public List<Contact> getContactsWithoutCompany(){
-		List<Contact> contactsWithoutCompany = (List<Contact>)em.createNamedQuery("Contact.findContactsWithoutCompany")
+	public List<ContactPerson> getContactPersonsWithoutCompany(){
+		List<ContactPerson> contactPersonsWithoutCompany = 
+				(List<ContactPerson>)em.createNamedQuery("ContactPerson.findContactPersonsWithoutCompany")
 				.getResultList();
-		for (Contact c : contactsWithoutCompany) {
+		for (ContactPerson c : contactPersonsWithoutCompany) {
 			System.out.println(" ***** ");
 			System.out.println(c);
 			System.out.println(" ***** ");
 		}
-		return contactsWithoutCompany;
+		return contactPersonsWithoutCompany;
 	}
 	
 	private String getQueryLikeString(String fieldString) {
@@ -86,7 +78,7 @@ public class ContactService {
 		
 	}*/
 	
-	public List<Contact> seekContacts(
+	public List<ContactPerson> seekContactPersons(
 			List<Integer> types, 
 			String salesManFirstNamesSearch, 
 			String salesManLastNameSearch, 
@@ -97,7 +89,7 @@ public class ContactService {
 		String countrySearchExpr;
 		
 		if (types == null || types.size() == 0)
-			return new ArrayList<Contact>();
+			return new ArrayList<ContactPerson>();
 		
 		salesManFirstNameSearchExpr = 
 				getQueryLikeString(salesManFirstNamesSearch);
@@ -106,9 +98,9 @@ public class ContactService {
 		countrySearchExpr = 
 				getQueryLikeString(countrySearch);
 
-		List<Contact> seekedContacts = 
-			(List<Contact>)em.createNamedQuery(
-					"Contact.findForSearch").
+		List<ContactPerson> seekedContactPersons = 
+			(List<ContactPerson>)em.createNamedQuery(
+					"ContactPerson.findForSearch").
 				setParameter("seekedTypes", types).
 				setParameter("salesManFirstNamesSearch", 
 						salesManFirstNameSearchExpr).
@@ -117,15 +109,16 @@ public class ContactService {
 				setParameter("countrySearch", 
 						countrySearchExpr).getResultList();
 		
-		return seekedContacts;
+		return seekedContactPersons;
 	}
 	
 	@Transactional
-	public void setContactsToType(List<Contact> contacts, int type) {
-		for(Contact c: contacts) {
+	public void setContactPersonsToType(List<ContactPerson> contactPersons, int type) {
+		for(ContactPerson c: contactPersons) {
 			if (c.getType() >= type)
 				continue;
-			System.out.println("Setting type " + type + " to contact " + c);
+			System.out.println("Setting type " + type + 
+					" to contact person " + c);
 			c.setType(type);
 			em.merge(c);
 		}

@@ -11,9 +11,9 @@ import org.junit.Test;
 
 import javax.persistence.*;
 
-import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactPerson;
 import fi.agileo.akkis.jpa.User;
-import fi.agileo.spring.service.ContactService;
+import fi.agileo.spring.service.ContactPersonService;
 
 public class ContactServiceTest {
 	
@@ -29,7 +29,7 @@ public class ContactServiceTest {
 		
 		EntityManager em = mock(EntityManager.class);
 		
-		List<Contact> contacts = new ArrayList<Contact>();
+		List<ContactPerson> contacts = new ArrayList<ContactPerson>();
 		
 		User u1 = new User();
 		u1.setFirstNames("Matti");
@@ -43,22 +43,22 @@ public class ContactServiceTest {
 		u3.setFirstNames("Raimo");
 		u3.setLastName("Karppinen");
 		
-		Contact c1 = new Contact();
+		ContactPerson c1 = new ContactPerson();
 		c1.setType(5);
 		c1.setSalesPerson(u1);
 		c1.setCountry("Espanja");
 		
-		Contact c2 = new Contact();
+		ContactPerson c2 = new ContactPerson();
 		c2.setType(1);
 		c2.setSalesPerson(u2);
 		c2.setCountry("Ruotsi");
 		
-		Contact c3 = new Contact();
+		ContactPerson c3 = new ContactPerson();
 		c3.setType(1);
 		c3.setSalesPerson(u3);
 		c3.setCountry("Suomi");
 		
-		Contact c4 = new Contact();
+		ContactPerson c4 = new ContactPerson();
 		c4.setType(2);
 		c4.setSalesPerson(u3);
 		c4.setCountry("Suomi");
@@ -75,17 +75,17 @@ public class ContactServiceTest {
         List<Integer> types = new ArrayList<Integer>();
         types.add(1);
         
-        when(em.createNamedQuery("Contact.findForSearch")).thenReturn(mockedQuery);        
+        when(em.createNamedQuery("ContactPerson.findForSearch")).thenReturn(mockedQuery);        
         when(mockedQuery.setParameter("seekedTypes",types)).thenReturn(mockedQuery2);
         when(mockedQuery2.setParameter("salesManFirstNamesSearch", "%Raimo%")).thenReturn(mockedQuery3);
         when(mockedQuery3.setParameter("salesManLastNameSearch", "%Karp%")).thenReturn(mockedQuery4);        
         when(mockedQuery4.setParameter("countrySearch","%Suomi%")).thenReturn(mockedQuery5);
         when(mockedQuery5.getResultList()).thenReturn(contacts);
 
-        ContactService cs = new ContactService();
+        ContactPersonService cs = new ContactPersonService();
         cs.setEm(em);
         
-        assertEquals(cs.seekContacts(types, "Raimo", "Karp", "Suomi").size(), 2);
+        assertEquals(cs.seekContactPersons(types, "Raimo", "Karp", "Suomi").size(), 2);
 	}
 	
 }

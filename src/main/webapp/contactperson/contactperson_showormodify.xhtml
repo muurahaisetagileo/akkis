@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+		<title>Akkis - Show or modify contact person</title>
+	</h:head>
+
+	<h:body>
+		<ui:composition template="../templates/template_action.xhtml">
+			<ui:param name="title" value="Show or modify contact" />
+			<ui:define name="content">
+				<h:form id="basicinfo">
+					<p:growl id="messages"></p:growl>
+
+					<p:panelGrid columns="2">						
+						<p:outputLabel value="Name:"></p:outputLabel>
+						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.name}"
+							rendered="#{not showOrModifyContactPersonView.modifyBasics}"/>
+						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.name}"
+							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
+						
+						<p:outputLabel value="Address:"></p:outputLabel>
+						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.address}"
+							rendered="#{not showOrModifyContactPersonView.modifyBasics}"/>
+						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.address}"
+							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
+
+						<p:outputLabel value="Phone:"></p:outputLabel>
+						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.phone}"
+							rendered="#{not showOrModifyContactPersonView.modifyBasics}"/>
+						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.phone}"
+							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
+						
+						<p:outputLabel value="Email:"></p:outputLabel>
+						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.email}"
+							rendered="#{not showOrModifyContactPersonView.modifyBasics}"/>
+						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.email}"
+							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
+
+						<p:outputLabel value="Country:"></p:outputLabel>
+						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.country}"
+							rendered="#{not showOrModifyContactPersonView.modifyBasics}"/>
+						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.country}"
+							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
+
+						<p:outputLabel value="Type:"></p:outputLabel>
+						<h:outputText value="#{showOrModifyContactPersonView.contactPersonTypeForView}"
+							rendered="#{not showOrModifyContactPersonView.contactPersonTypeUpdateable}"/>
+						<p:selectOneRadio value="#{showOrModifyContactPersonView.selectedContactPerson.type}"
+							rendered="#{showOrModifyContactPersonView.contactPersonTypeUpdateable}">
+							<f:selectItems value="#{showOrModifyContactPersonView.contactPersonTypeOptions}"/>
+						</p:selectOneRadio>
+					</p:panelGrid>
+
+								
+					<h4>Sales person that created the contact person</h4>
+					
+					<h:outputText value="#{showOrModifyContactPersonView.salesPersonName}"/>
+					<br/><br/>
+					
+			
+					<h:panelGroup rendered="#{showOrModifyContactPersonView.selectedContactPerson.contactCompany != NULL}">
+						<h4>Company from which the contact person is from</h4>
+			
+						<p:panelGrid columns="2">
+							<h:outputText value="Company name:"></h:outputText>
+							<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.contactCompany.name}"></h:outputText>
+							<h:outputText value="Company address:"></h:outputText>
+							<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.contactCompany.address}"></h:outputText>
+							<h:outputText value="Company internetaddress:"></h:outputText>
+							<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.contactCompany.internetAddress}"></h:outputText>
+							<h:outputText value="Company identifier:"></h:outputText>
+							<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.contactCompany.companyIdentifier}"></h:outputText>
+						</p:panelGrid>
+					</h:panelGroup>
+				
+					<p:commandButton 
+						value="Modify contact person" 
+						action="#{showOrModifyContactPersonView.toModifyBasics}"
+						rendered="#{not showOrModifyContactPersonView.modifyBasics}"
+						update="basicinfo">
+						<f:setPropertyActionListener  
+							target="#{showOrModifyContactPersonView.modifyBasics}"
+							value="true"/>
+					</p:commandButton>			
+					<p:commandButton 
+						value="Save contact person" 
+						action="#{showOrModifyContactPersonView.saveModifiedContactPerson}"
+						rendered="#{showOrModifyContactPersonView.modifyBasics}"
+						update="basicinfo">
+						<f:setPropertyActionListener  
+							target="#{showOrModifyContactPersonView.modifyBasics}"
+							value="false"/>
+					</p:commandButton>
+ 				</h:form>
+				<h:form>
+					<p:commandButton 
+						value="Back to where you came from"
+						action="#{showOrModifyContactPersonView.toBackPage}"/>
+				</h:form>
+				
+			</ui:define>
+		</ui:composition>
+	</h:body>
+</html>

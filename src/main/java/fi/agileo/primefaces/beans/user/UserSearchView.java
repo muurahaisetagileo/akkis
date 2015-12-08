@@ -8,13 +8,13 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 
-import fi.agileo.akkis.jpa.Contact;
+import fi.agileo.akkis.jpa.ContactPerson;
 import fi.agileo.akkis.jpa.User;
 import fi.agileo.spring.service.UserService;
 
 @ManagedBean
 @SessionScoped
-public class UserSearch {
+public class UserSearchView {
 	
 	@ManagedProperty("#{userService}")
 	private UserService userService;	
