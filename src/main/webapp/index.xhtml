@@ -10,9 +10,8 @@
 
 	<h:body>
 		<ui:composition template="templates/template_login.xhtml">
-		<ui:param name="title" value="Login" />
 			<ui:define name="content">
-			
+			<h:panelGroup id="loginform">
 			<p:panel header="Login Form" style="margin-bottom:20px; width:410px">
 			<h:form>
 				<p:growl id="messages"></p:growl>
@@ -26,9 +25,10 @@
 				<br/>
 
 				<p:commandButton value="Sign in" action="#{loginUserView.login}"
-					update="messages" icon="ui-icon-person" />
+					update="loginform" icon="fa fa-user" />
 			</h:form>
 			</p:panel>
+			</h:panelGroup>
 
 		</ui:define>
 		</ui:composition>

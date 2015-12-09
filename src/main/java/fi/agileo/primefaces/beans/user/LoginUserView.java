@@ -84,6 +84,7 @@ public class LoginUserView {
 			return mainPage(this.user.getRole());
 		}
 		System.out.println("login failed -> message");
+		this.user.setPassword("");
 		FacesContext.getCurrentInstance().addMessage(null, 
 				new FacesMessage("Login failed!"));
 		System.out.println("Login failed return");
