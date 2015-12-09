@@ -34,9 +34,9 @@ public class Note {
 	@Column(name = "NOTETEXT")
 	private String noteText;
 	
-	@Column(name = "ATTACHMENT")
-	@Lob
-	private byte[] attachment;
+//	@Column(name = "ATTACHMENT")
+//	@Lob
+//	private byte[] attachment;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="UPDATE_TIME")	
