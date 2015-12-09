@@ -1,0 +1,21 @@
+Build #8 (Dec 9, 2015 10:17:41 AM)
+add description
+	Changes
+
+    Note ja task jpa ja service luokat (commit: fe114525a15fe05904780bae6e99a03d277530ad) (detail / githubweb)
+    View in the end of managed bean names, contact to contactperson (commit: fc5ec61d6317e37c24fd3deba0b8b63de1a9d67f) (detail / githubweb)
+    Contact to ContactPerson (commit: 6b40801a3cbe59f2d572ccdf369fe2816765171d) (detail / githubweb)
+    todays jenkins build and UML automatic changes (commit: 922349899d750fd4bd9206573aedbda4f3704352) (detail / githubweb)
+    test data after changing to contact person (commit: f9e1a817dcc6ce8974085a3b0b07cbd7a2cadf63) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: f9e1a817dcc6ce8974085a3b0b07cbd7a2cadf63
+
+    refs/remotes/origin/master
+
+	Test Result (no failures)
+
+Module Builds
+Success Akkis muurahaiset	44 sec
