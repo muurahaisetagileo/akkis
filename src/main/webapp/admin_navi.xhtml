@@ -7,40 +7,40 @@ xmlns:p="http://primefaces.org/ui">
     <p:growl id="messages"/>
  
     <p:menubar style="height:32px">
-    	<p:menuitem value="Main Page" outcome="/admin_index" icon="ui-icon-home" />     
+    	<p:menuitem value="Main Page" outcome="/admin_index" icon="fa fa-home" />     
          
-         <p:submenu label="Users" icon="ui-icon-person">
-            <p:menuitem icon="ui-icon-search" value="User Search" action="#{userSearchView.toUserSearch}"	 />
-            <p:menuitem icon="ui-icon-plus" value="Add New User" outcome="/user/user_register" />
+         <p:submenu label="Users" icon="fa fa-user">
+            <p:menuitem icon="fa fa-search" value="User Search" action="#{userSearchView.toUserSearch}"	 />
+            <p:menuitem icon="fa fa-user-plus" value="Add User" outcome="/user/user_register" />
         </p:submenu>   
         
-         <p:submenu label="Contact Companies" icon="ui-icon-contact">
+         <p:submenu icon="fa fa-hospital-o" label=" Contact Companies" >
             <p:menuitem 
-            	icon="ui-icon-search" 
+            	icon="fa fa-search" 
             	value="Company Search" 
             	action="#{listContactCompaniesView.toListContactCompanies}"	/>
             <p:menuitem 
-            	icon="ui-icon-plus" 
-            	value="Add New Company" 
+            	icon="fa fa-plus" 
+            	value="Add Company" 
             	action="#{createContactCompanyView.toCreateContactCompany}" />
          </p:submenu>                
-         <p:submenu label="Contact Persons" icon="ui-icon-person">
+         <p:submenu label="Contact Persons" icon="fa fa-user-md">
             <p:menuitem 
-            	icon="ui-icon-search" 
-            	value="Contact person search and set them lead"
+            	icon="fa fa-search-plus" 
+            	value="Set to lead"
             	action="#{listContactPersonsView.toContactPersonListForLeads}"/>
             <p:menuitem 
-            	icon="ui-icon-search" 
-            	value="Contact Search to show or modify" 
+            	icon="fa fa-search" 
+            	value="Search" 
             	action="#{listContactPersonsView.toContactListForShowOrModify}" />
             <p:menuitem 
-            	icon="ui-icon-plus" 
-            	value="Add New Contact person" 
+            	icon="fa fa-user-plus" 
+            	value="Add Contact Person" 
             	action="#{createContactPersonView.toCreateContactPerson}" />
         </p:submenu>              
  
         <f:facet name="options">
-            <p:commandButton value="Logout" action="#{loginUserView.logout}" icon="ui-icon-power" style="height:30px; font-size:12px" />
+            <p:commandButton value="Logout" action="#{loginUserView.logout}" icon="ui-icon-power" style="height:32px; font-size:14px" />
         </f:facet>
     </p:menubar>
 	</h:form>
