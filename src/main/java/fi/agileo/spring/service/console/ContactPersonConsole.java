@@ -24,8 +24,11 @@ public class ContactPersonConsole {
 		
 		ContactPerson c = new ContactPerson();
 		
-		c.setName("Pekka Vieru");
+		c.setFirstNames("Pekka");
+		c.setLastName("Vieru");
 		c.setAddress("Tulitie 4");
+		c.setZipCode("40700");
+		c.setCity("Jyväskylä");
 		c.setPhone("0403242345");
 		c.setEmail("pevi@mail.com");
 		c.setCountry("Finland");

@@ -21,8 +21,6 @@ public class ShowOrModifyContactPersonView {
 	
 	private boolean modifyBasics = false;
 	
-	private int originalContactPersonType = 0;
-	
 	public ContactPersonService getContactPersonService() {
 		return contactPersonService;
 	}
@@ -45,25 +43,20 @@ public class ShowOrModifyContactPersonView {
 
 	public void setSelectedContactPerson(ContactPerson selectedContactPerson) {
 		this.selectedContactPerson = selectedContactPerson;
+		System.out.println("setSelectedContactPerson " + selectedContactPerson);
 	}
 	
-	public SelectItem[] getContactPersonTypeOptions() {
+	public SelectItem[] getContactPersonStateOptions() {
 		SelectItem[] options = new SelectItem[2];
-		options[0] = new SelectItem(0, "Contact");
-		options[1] = new SelectItem(1, "Lead");
+		options[0] = new SelectItem("Contact", "Contact");
+		options[1] = new SelectItem("Lead", "Lead");
 		return options;
 	}
 	
-	public String getContactPersonTypeForView() {
+	public String getContactPersonStateForView() {
 		if (selectedContactPerson == null)
 			return "";
-		originalContactPersonType = selectedContactPerson.getType();
-		switch(originalContactPersonType) {
-			case 0 : return "Contact";
-			case 1 : return "Lead";
-			case 2 : return "Customer";
-		}
-		return "";
+		return selectedContactPerson.getState();
 	}
 	
 	public String getSalesPersonName() {
@@ -97,10 +90,13 @@ public class ShowOrModifyContactPersonView {
 	public void setModifyBasics(boolean modifyBasics) {
 		this.modifyBasics = modifyBasics;
 	}
-	
-	public boolean getContactPersonTypeUpdateable() {
+					 
+	public boolean isContactPersonStateUpdateable() {
+		if (this.selectedContactPerson != null && 
+				this.selectedContactPerson.getState() == null)
+			return true;
 		return modifyBasics && this.selectedContactPerson != null &&
-				this.selectedContactPerson.getType() != 2;
+			!this.selectedContactPerson.getState().equals("Customer");
 	}
 	
 	public String toModifyBasics() {

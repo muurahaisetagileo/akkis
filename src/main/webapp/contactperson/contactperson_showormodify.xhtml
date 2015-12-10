@@ -16,10 +16,16 @@
 					<p:growl id="messages"></p:growl>
 
 					<p:panelGrid columns="2">						
-						<p:outputLabel value="Name:"></p:outputLabel>
-						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.name}"
+						<p:outputLabel value="First names:"></p:outputLabel>
+						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.firstNames}"
 							rendered="#{not showOrModifyContactPersonView.modifyBasics}"/>
-						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.name}"
+						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.firstNames}"
+							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
+
+						<p:outputLabel value="Last name:"></p:outputLabel>
+						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.lastName}"
+							rendered="#{not showOrModifyContactPersonView.modifyBasics}"/>
+						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.lastName}"
 							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
 						
 						<p:outputLabel value="Address:"></p:outputLabel>
@@ -28,10 +34,28 @@
 						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.address}"
 							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
 
+						<p:outputLabel value="Zip code:"></p:outputLabel>
+						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.zipCode}"
+							rendered="#{not showOrModifyContactPersonView.modifyBasics}"/>
+						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.zipCode}"
+							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
+
+						<p:outputLabel value="City:"></p:outputLabel>
+						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.city}"
+							rendered="#{not showOrModifyContactPersonView.modifyBasics}"/>
+						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.city}"
+							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
+
 						<p:outputLabel value="Phone:"></p:outputLabel>
 						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.phone}"
 							rendered="#{not showOrModifyContactPersonView.modifyBasics}"/>
 						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.phone}"
+							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
+
+						<p:outputLabel value="Country:"></p:outputLabel>
+						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.country}"
+							rendered="#{not showOrModifyContactPersonView.modifyBasics}"/>
+						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.country}"
 							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
 						
 						<p:outputLabel value="Email:"></p:outputLabel>
@@ -40,19 +64,17 @@
 						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.email}"
 							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
 
-						<p:outputLabel value="Country:"></p:outputLabel>
-						<h:outputText value="#{showOrModifyContactPersonView.selectedContactPerson.country}"
-							rendered="#{not showOrModifyContactPersonView.modifyBasics}"/>
-						<h:inputText value="#{showOrModifyContactPersonView.selectedContactPerson.country}"
-							rendered="#{showOrModifyContactPersonView.modifyBasics}"/>
-
-						<p:outputLabel value="Type:"></p:outputLabel>
-						<h:outputText value="#{showOrModifyContactPersonView.contactPersonTypeForView}"
-							rendered="#{not showOrModifyContactPersonView.contactPersonTypeUpdateable}"/>
-						<p:selectOneRadio value="#{showOrModifyContactPersonView.selectedContactPerson.type}"
-							rendered="#{showOrModifyContactPersonView.contactPersonTypeUpdateable}">
-							<f:selectItems value="#{showOrModifyContactPersonView.contactPersonTypeOptions}"/>
+						<p:outputLabel value="State:"></p:outputLabel>
+						<h:outputText value="#{showOrModifyContactPersonView.contactPersonStateForView}"
+							rendered="#{not showOrModifyContactPersonView.contactPersonStateUpdateable}"/>
+						<p:selectOneRadio value="#{showOrModifyContactPersonView.selectedContactPerson.state}"
+							rendered="#{showOrModifyContactPersonView.contactPersonStateUpdateable}">
+							<f:selectItems value="#{showOrModifyContactPersonView.contactPersonStateOptions}"/>
 						</p:selectOneRadio>
+						
+						<p:outputLabel value="Public:"></p:outputLabel>
+						<p:selectBooleanCheckbox value="#{showOrModifyContactPersonView.selectedContactPerson.publicAvailability}"
+							diabled="#{not showOrModifyContactPersonView.contactPersonStateUpdateable}" />
 					</p:panelGrid>
 
 								

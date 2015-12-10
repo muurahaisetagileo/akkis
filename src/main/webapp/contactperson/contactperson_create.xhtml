@@ -17,16 +17,28 @@
 				<p:growl id="messages"></p:growl>
 
 				<p:panelGrid columns="2">
-					<p:outputLabel value="Enter name:"></p:outputLabel>
-					<p:inputText value="#{createContactPersonView.contactPerson.name}"></p:inputText>
-					<p:outputLabel value="Enter address:"></p:outputLabel>
+					<p:outputLabel value="First names:"></p:outputLabel>
+					<p:inputText value="#{createContactPersonView.contactPerson.firstNames}"></p:inputText>
+					<p:outputLabel value="Last name:"></p:outputLabel>
+					<p:inputText value="#{createContactPersonView.contactPerson.lastName}"></p:inputText>
+					
+					
+					<p:outputLabel value="Address:"></p:outputLabel>
 					<p:inputText value="#{createContactPersonView.contactPerson.address}"></p:inputText>
-					<p:outputLabel value="Enter phone number:"></p:outputLabel>
-					<p:inputText value="#{createContactPersonView.contactPerson.phone}"></p:inputText>
-					<p:outputLabel value="Enter email:"></p:outputLabel>
-					<p:inputText value="#{createContactPersonView.contactPerson.email}"></p:inputText>
-					<p:outputLabel value="Enter country:"></p:outputLabel>
+					<p:outputLabel value="Zip code:"></p:outputLabel>
+					<p:inputText value="#{createContactPersonView.contactPerson.zipCode}"></p:inputText>
+					<p:outputLabel value="City:"></p:outputLabel>
+					<p:inputText value="#{createContactPersonView.contactPerson.city}"></p:inputText>
+					<p:outputLabel value="Country:"></p:outputLabel>
 					<p:inputText value="#{createContactPersonView.contactPerson.country}"></p:inputText>
+					
+					<p:outputLabel value="Phone number:"></p:outputLabel>
+					<p:inputText value="#{createContactPersonView.contactPerson.phone}"></p:inputText>
+					<p:outputLabel value="Email:"></p:outputLabel>
+					<p:inputText value="#{createContactPersonView.contactPerson.email}"></p:inputText>
+					
+					<p:outputLabel value="Public:"></p:outputLabel>
+					<p:selectBooleanCheckbox value="#{createContactPersonView.contactPerson.publicAvailability}"/>
 				</p:panelGrid>
 
 				<p:commandButton value="Create contact person"

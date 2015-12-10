@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @NamedQueries({
 	@NamedQuery(
 			name="ContactCompany.allAlphabeticallyByName",
-			query="SELECT cc FROM ContactCompany cc ORDER BY cc.name")
+			query="SELECT cc FROM ContactCompany cc ORDER BY cc.name"),
 })
 public class ContactCompany {
 	@Id

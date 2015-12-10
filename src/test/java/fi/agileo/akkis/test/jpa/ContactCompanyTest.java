@@ -73,7 +73,8 @@ public class ContactCompanyTest {
 		
 		ContactPerson contactPerson1 = new ContactPerson();
 		contactPerson1.setAddress("osoite");
-		contactPerson1.setName("Heikki Mattila");
+		contactPerson1.setFirstNames("Heikki");
+		contactPerson1.setLastName("Mattila");
 		contactPerson1.setPhone("014343211");
 		
 		ContactPerson contactPerson2 = new ContactPerson();
@@ -118,7 +119,8 @@ public class ContactCompanyTest {
 		for(ContactPerson contactPerson : gotContactPersons) {
 			if (contactPerson == contactPerson1) {
 				assertEquals("osoite", contactPerson.getAddress());
-				assertEquals("Heikki Mattila", contactPerson.getName());
+				assertEquals("Heikki", contactPerson.getFirstNames());
+				assertEquals("Mattila", contactPerson.getLastName());
 				assertEquals("014343211", contactPerson.getPhone());
 			}
 			else if (contactPerson == contactPerson2) {

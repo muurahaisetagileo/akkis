@@ -27,8 +27,12 @@ public class CreateContactCompanyView {
 	private List<ContactPerson> contactPersonsToSetForContactCompany;
 	private List<ContactPerson> contactPersonsWithoutContactCompany;
 
+	private User currentUser;
+	
 	public String toCreateContactCompany() {
 		System.out.println("toCreateContactCompany");
+		LoginUserView lu = (LoginUserView)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUserView");
+		currentUser = lu.getUser();
 		initializeFields();
 		return "/contactcompany/contactcompany_create";
 	}
@@ -74,7 +78,7 @@ public class CreateContactCompanyView {
 	}
 
 	public List<ContactPerson> getContactPersonsWithoutContactCompany() {
-		contactPersonsWithoutContactCompany = contactPersonService.getContactPersonsWithoutCompany();
+		contactPersonsWithoutContactCompany = contactPersonService.getContactPersonsWithoutCompany(currentUser);
 		return contactPersonsWithoutContactCompany;
 	}
 

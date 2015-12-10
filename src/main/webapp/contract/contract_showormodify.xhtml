@@ -130,7 +130,7 @@
 					</p:panelGrid>
 				</h:form>
 				<h:form id="contractContactPersons">
-					<p:dataTable value="#{showOrModifyContractView.contract.contactPersons}" 
+					<p:dataTable value="#{showOrModifyContractView.contactPersons}" 
 						id="contact"	
 						var="c"
 						rowKey="#{c.contactPersonId}"
@@ -140,17 +140,23 @@
                    			Customer persons that have participated contract
                			</f:facet>
 						<p:column style="width:18px" />
-						<p:column headerText="Name">
-                   			#{c.name}  
+						<p:column headerText="First names">
+                   			#{c.firstNames}  
                			</p:column>
-						<p:column headerText="Phone">
-                   			#{c.phone}  
+						<p:column headerText="Last name">
+                   			#{c.lastName}  
                			</p:column>
-						<p:column headerText="Address">
-                   			#{c.address}  
+						<p:column headerText="City">
+                   			#{c.city}  
                			</p:column>
 						<p:column headerText="Country">
                    			#{c.country}  
+               			</p:column>
+						<p:column headerText="Company name">
+                   			#{c.contactCompany.name}  
+               			</p:column>
+						<p:column headerText="Salesman">
+                   			#{c.salesPerson.wholeName}  
                			</p:column>
 						<f:facet name="footer">
 							<p:commandButton value="Show or modify"
@@ -173,10 +179,24 @@
                    			List of contact persons in contact company but not in contract
     	            	</f:facet>
     	            	
-						<p:column headerText="Name">#{c.name}</p:column>
-						<p:column headerText="Phone">#{c.phone}</p:column>
-						<p:column headerText="Address">#{c.address}</p:column>
-						<p:column headerText="Country">#{c.country}</p:column>
+						<p:column headerText="First names">
+                   			#{c.firstNames}  
+               			</p:column>
+						<p:column headerText="Last name">
+                   			#{c.lastName}  
+               			</p:column>
+						<p:column headerText="City">
+                   			#{c.city}  
+               			</p:column>
+						<p:column headerText="Country">
+                   			#{c.country}  
+               			</p:column>
+						<p:column headerText="Company name">
+                   			#{c.contactCompany.name}  
+               			</p:column>
+						<p:column headerText="Salesman">
+                   			#{c.salesPerson.wholeName}  
+               			</p:column>
 						
 	 					<f:facet name="footer">
 							<p:commandButton 

@@ -16,6 +16,7 @@ import fi.agileo.akkis.jpa.ContactCompany;
 import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.akkis.jpa.User;
 import fi.agileo.primefaces.beans.user.LoginUserView;
+import fi.agileo.spring.service.ContactPersonService;
 import fi.agileo.spring.service.ContractService;
 import fi.agileo.spring.service.UserService;
 
@@ -28,6 +29,9 @@ public class CreateContractView {
 	@ManagedProperty("#{userService}")
 	private UserService userService;
 	
+	@ManagedProperty("#{contactPersonService}")
+	private ContactPersonService contactPersonService;
+	
 	private ContactCompany contactCompany = new ContactCompany();
 
 	private Contract contract = new Contract();
@@ -38,6 +42,8 @@ public class CreateContractView {
 	private User technicianUser;
 	private List<User> technicianUsers;
 	private Map<Long, User> mapUserIdsToTechnicalUsers;
+	
+	private User currentUser;
 	
 	public ContractService getContractService() {
 		return contractService;
@@ -58,10 +64,15 @@ public class CreateContractView {
 	
 	public String toCreateContract() {
 		System.out.println("toCreateContract, contactCompany " + contactCompany);
+		LoginUserView lu = (LoginUserView)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUserView");
+		currentUser = lu.getUser();
 		contract = new Contract();
 		return "/contract/contract_create";
 	}
 	
+	public List<ContactPerson> getContactPersons() {
+		return (List<ContactPerson>)(contactPersonService.getContactPersonsOfCompany(currentUser, contactCompany));
+	}
 						 
 	public List<SelectItem> getTechnicationUsers() {
 		
@@ -156,6 +167,14 @@ public class CreateContractView {
 
 	public void setTechnicianUsers(List<User> technicianUsers) {
 		this.technicianUsers = technicianUsers;
+	}
+
+	public ContactPersonService getContactPersonService() {
+		return contactPersonService;
+	}
+
+	public void setContactPersonService(ContactPersonService contactPersonService) {
+		this.contactPersonService = contactPersonService;
 	}
 
 }

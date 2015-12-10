@@ -44,8 +44,9 @@ public class ContractService {
 		for (ContactPerson c : contractMakerContactPersons)
 			c.getContracts().add(contract);
 		for (ContactPerson c : contract.getContactCompany().getContactPersons()) {
-			if (c.getType() < 2)
-				c.setType(2);
+			if (c.getState().equals("Contact") ||
+				c.getState().equals("Lead"))
+				c.setState("Customer");
 			em.merge(c);
 		}
 	}
@@ -81,6 +82,16 @@ public class ContractService {
 		contract.getContactCompany();
 		contract.getUser();
 		return contract;
+	}
+
+	public List<ContactPerson> getContactPersons(User currentUser, Contract contract) {
+		if (currentUser.getRole().equals("SALESMAN"))
+			return (List<ContactPerson>)(
+					em.createNamedQuery(
+							"ContactPerson.contactsOfContractForSalesman")
+					.setParameter("user", currentUser)
+					.setParameter("contract", contract));
+		return contract.getContactPersons();
 	}
 
 	/*

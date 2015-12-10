@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import fi.agileo.akkis.jpa.ContactPerson;
+import fi.agileo.akkis.jpa.User;
 import fi.agileo.akkis.jpa.ContactCompany;
 
 
@@ -39,6 +40,16 @@ public class ContactCompanyService {
 		
 		em.persist(contactCompany);
 	}
+	
+	public List<ContactPerson> seekContactsOfCompanyForSalesman(
+			ContactCompany contactCompany,
+			User salesManUser) {
+		return (List<ContactPerson>)
+				(em.createNamedQuery("ContactPerson.contactsOfCompanyForSalesman")
+						.setParameter("user", salesManUser)
+						.setParameter("company", contactCompany));
+	}
+	
 	
 	@Transactional
 	public void modifyBasicContactCompanyProperties(ContactCompany contactCompany) {

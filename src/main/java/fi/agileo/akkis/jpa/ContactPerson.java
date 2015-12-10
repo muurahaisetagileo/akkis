@@ -18,23 +18,75 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.JoinTable;
 
-/* problems: */
-/* c.salesPerson IS NOT NULL AND c.salesPerson.wholename LIKE :salesManSearch */
-
-/* to be checked */	
-/* c.type IN :seekedTypes AND */
-
 @Entity
 @Table(name="CONTACTPERSON")
 @NamedQueries({
-	@NamedQuery(name="ContactPerson.findByType", query="SELECT c FROM ContactPerson c WHERE c.type = :type"),
-	@NamedQuery(name="ContactPerson.findContactPersonsWithoutCompany", query="SELECT c FROM ContactPerson c WHERE c.contactCompany IS NULL"),
+	@NamedQuery(name="ContactPerson.findAllWithoutCompany",
+			query="SELECT c FROM ContactPerson c WHERE " +
+					"c.salesPerson IS NOT NULL AND " +
+					"(:companyNameSearch = '%' OR (c.contactCompany IS NOT NULL AND " +
+					 "c.contactCompany.name LIKE :companyNameSearch))"
+			),
+	@NamedQuery(name="ContactPerson.findByState", query="SELECT c FROM ContactPerson c WHERE c.state = :state"),
+	@NamedQuery(name="ContactPerson.findContactPersonsWithoutCompany", 
+		query="SELECT c FROM ContactPerson c WHERE " + 
+			  "c.contactCompany IS NULL AND " +
+			  "c.salesPerson IS NOT NULL AND " +
+			  "(c.publicAvailability = TRUE OR c.salesPerson = :user)"),
 	@NamedQuery(name="ContactPerson.findForSearch", 
-				query="SELECT c FROM ContactPerson c WHERE c.country LIKE :countrySearch AND " +
-					  "c.type IN :seekedTypes AND " + 
+				query="SELECT c FROM ContactPerson c WHERE " +
+					  "c.firstNames LIKE :firstNameSearch AND " +
+					  "c.lastName LIKE :lastNameSearch AND " +	
+					  "c.country LIKE :countrySearch AND " +
 					  "c.salesPerson IS NOT NULL AND " +
 					  "c.salesPerson.firstNames LIKE :salesManFirstNamesSearch AND " +
-					  "c.salesPerson.lastName LIKE :salesManLastNameSearch")
+					  "c.salesPerson.lastName LIKE :salesManLastNameSearch AND " + 
+					  "c.state IN :seekedStates AND " +
+					  "c.contactCompany IS NOT NULL AND " +
+					  "c.contactCompany.name LIKE :companyNameSearch" 
+			),
+	@NamedQuery(name="ContactPerson.findForSearchCompanyFree", 
+		query="SELECT c FROM ContactPerson c WHERE " +
+		  "c.firstNames LIKE :firstNameSearch AND " +
+		  "c.lastName LIKE :lastNameSearch AND " +	
+		  "c.country LIKE :countrySearch AND " +
+		  "c.salesPerson IS NOT NULL AND " +
+		  "c.salesPerson.firstNames LIKE :salesManFirstNamesSearch AND " +
+		  "c.salesPerson.lastName LIKE :salesManLastNameSearch AND " + 
+		  "c.state IN :seekedStates" 
+		),
+	@NamedQuery(name="ContactPerson.findForSearchSalesman", 
+				query="SELECT c FROM ContactPerson c WHERE " +
+					  "c.firstNames LIKE :firstNameSearch AND " +
+					  "c.lastName LIKE :lastNameSearch AND " +	
+					  "c.country LIKE :countrySearch AND " +
+					  "c.state IN :seekedStates AND " +
+					  "c.salesPerson IS NOT NULL AND " +
+					  "c.salesPerson.firstNames LIKE :salesManFirstNamesSearch AND " +
+					  "c.salesPerson.lastName LIKE :salesManLastNameSearch AND " + 
+					  "(c.publicAvailability = TRUE OR c.salesPerson = :user) AND " +
+					  "c.contactCompany IS NOT NULL AND " +
+					  "c.contactCompany.name LIKE :companyNameSearch" 
+			),
+	@NamedQuery(name="ContactPerson.findForSearchSalesmanCompanyFree", 
+	query="SELECT c FROM ContactPerson c WHERE " +
+		  "c.firstNames LIKE :firstNameSearch AND " +
+		  "c.lastName LIKE :lastNameSearch AND " +	
+		  "c.country LIKE :countrySearch AND " +
+		  "c.state IN :seekedStates AND " +
+		  "c.salesPerson IS NOT NULL AND " +
+		  "c.salesPerson.firstNames LIKE :salesManFirstNamesSearch AND " +
+		  "c.salesPerson.lastName LIKE :salesManLastNameSearch AND " + 
+		  "(c.publicAvailability = TRUE OR c.salesPerson = :user)"
+	),
+	@NamedQuery(name="ContactPerson.contactsOfCompanyForSalesman",
+				query="SELECT c FROM ContactPerson c WHERE " +
+	                  "c.contactCompany = :company AND " +
+					  "(c.publicAvailability = TRUE OR c.salesPerson = :user)"),
+	@NamedQuery(name="ContactPerson.contactsOfContractForSalesman",
+				query="SELECT c FROM ContactPerson c WHERE " +
+					  ":contract MEMBER c.contracts"
+			)
 })
 public class ContactPerson {
 
@@ -53,11 +105,20 @@ Väliaikainen CreateContact ContactServiceen?
 	@Column(name="CONTACTPERSON_ID")
 	private long contactPersonId;
 	
-	@Column(name="NAME")
-	private String name;
+	@Column(name="FIRSTNAMES")
+	private String firstNames;
+	
+	@Column(name="LASTNAME")
+	private String lastName;
 	
 	@Column(name="ADDRESS")
 	private String address;
+	
+	@Column(name="ZIPCODE")
+	private String zipCode;
+	
+	@Column(name="CITY")
+	private String city;
 	
 	@Column(name="PHONE")
 	private String phone;
@@ -68,8 +129,8 @@ Väliaikainen CreateContact ContactServiceen?
 	@Column(name="COUNTRY")
 	private String country;
 	
-	@Column(name="TYPE")
-	private int type;
+	@Column(name="STATE")
+	private String state;
 	
 	@Column(name="PUBLICAVAILABILITY")
 	private boolean publicAvailability;
@@ -78,7 +139,7 @@ Väliaikainen CreateContact ContactServiceen?
 	@ManyToMany
 	@JoinTable(name="CONTRACTS_CONTACTS")
 	private List<Contract> contracts;
-	
+						   
 	@ManyToOne(optional=false, fetch=FetchType.EAGER)
 	@JoinColumn(name="USERID")
 	private User salesPerson;
@@ -98,16 +159,6 @@ Väliaikainen CreateContact ContactServiceen?
 	public void setContactPersonId(long contactPersonId)
 	{
 		this.contactPersonId = contactPersonId;
-	}
-	
-	public String getName()
-	{
-		return this.name;
-	}
-	
-	public void setName(String name)
-	{
-		this.name = name;
 	}
 	
 	public String getAddress()
@@ -150,14 +201,14 @@ Väliaikainen CreateContact ContactServiceen?
 		this.country = country;
 	}
 	
-	public int getType()
+	public String getState()
 	{
-		return this.type;
+		return this.state;
 	}
 	
-	public void setType(int type)
+	public void setState(String state)
 	{
-		this.type = type;
+		this.state = state;
 	}
 	
 	public User getSalesPerson() {
@@ -204,9 +255,50 @@ Väliaikainen CreateContact ContactServiceen?
 	
 	@Override
 	public String toString() {
-		return "ContactPerson [contactPersonId=" + contactPersonId + 
-				", name=" + name + ", address=" + address + ", phone=" + phone
-				+ ", email=" + email + ", country=" + country + ", type=" + type + ", publicAvailability="
-				+ publicAvailability + "]";
+		return "ContactPerson [" + 
+				"contactPersonId=" + contactPersonId + 
+				", firstNames=" + firstNames +
+				", lastName=" + lastName +
+				", address=" + address + 
+				", zipCode=" + zipCode +
+				", city=" + city +
+				", phone=" + phone +
+				", country=" + country +
+				", email=" + email +  
+				", state=" + state + 
+				", publicAvailability=" + publicAvailability + 
+				"]";
+	}
+
+	public String getFirstNames() {
+		return firstNames;
+	}
+
+	public void setFirstNames(String firstNames) {
+		this.firstNames = firstNames;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 }

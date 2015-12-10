@@ -126,6 +126,11 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
+	@Transient
+	public String getWholeName() {
+		return this.lastName + " " + this.firstNames;
+	}
 
 	public List<Contract> getContracts() {
 		return contracts;

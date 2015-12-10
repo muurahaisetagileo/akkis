@@ -19,21 +19,23 @@ public class ContactPersonTest {
 		ContactPerson c = new ContactPerson();
 		
 		c.setContactPersonId(50);
-		c.setName("Rauno Hakola");
+		c.setFirstNames("Rauno");
+		c.setLastName("Hakola");
 		c.setAddress("Kalliokatu 2B");
 		c.setEmail("ransu@mail.com");
 		c.setPhone("0402342345");
 		c.setCountry("Finland");
-		c.setType(2);
+		c.setState("Customer");
 		c.setPublicAvailability(true);
 		
 		assertEquals(c.getContactPersonId(), 50);
-		assertEquals(c.getName(), "Rauno Hakola");
+		assertEquals(c.getFirstNames(), "Rauno");
+		assertEquals(c.getLastName(), "Hakola");
 		assertEquals(c.getAddress(), "Kalliokatu 2B");
 		assertEquals(c.getEmail(), "ransu@mail.com");
 		assertEquals(c.getPhone(), "0402342345" );
 		assertEquals(c.getCountry(), "Finland");
-		assertEquals(c.getType(), 2);
+		assertEquals(c.getState(), "Customer");
 		assertEquals(c.isPublicAvailability(), true);
 		
 	}

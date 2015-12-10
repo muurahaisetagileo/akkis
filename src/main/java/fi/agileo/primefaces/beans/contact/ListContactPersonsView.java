@@ -6,9 +6,12 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 import fi.agileo.akkis.jpa.ContactPerson;
+import fi.agileo.akkis.jpa.User;
+import fi.agileo.primefaces.beans.user.LoginUserView;
 import fi.agileo.spring.service.ContactPersonService;
 
 @ManagedBean
@@ -21,11 +24,17 @@ public class ListContactPersonsView {
 	private List<ContactPerson> searchedContactPersons = new ArrayList<ContactPerson>();
 	private List<ContactPerson> selectedContactPersons = new ArrayList<ContactPerson>();
 
+	private String firstNameSearch;
+	private String lastNameSearch;
+	private String companyNameSearch;
+	
 	private String searchSalesmanFirstNames;
 	private String searchSalesmanLastName;
 	
 	private String countrySearch;
-	private Integer[] seekedContactPersonTypes;
+	private String[] seekedContactPersonStates;
+	
+	private User currentUser;
 	
 	public String toContactPersonListForLeads() {
 		System.out.println("toContactPersonListForLeads");
@@ -42,18 +51,21 @@ public class ListContactPersonsView {
 	public void initializeFields() {
 		searchSalesmanLastName = "";
 		searchSalesmanFirstNames = "";
-		seekedContactPersonTypes = new Integer[3];
-		seekedContactPersonTypes[0] = new Integer(0);
-		seekedContactPersonTypes[1] = new Integer(1);
-		seekedContactPersonTypes[2] = new Integer(2);
+		seekedContactPersonStates = new String[3];
+		seekedContactPersonStates[0] = "Contact";
+		seekedContactPersonStates[1] = "Lead";
+		seekedContactPersonStates[2] = "Customer";
+		
+		LoginUserView lu = (LoginUserView)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUserView");
+		currentUser = lu.getUser();
 	}
 	
-	public SelectItem[] getContactPersonTypeOptions() {
-		SelectItem[] contactPersonTypeOptions = new SelectItem[3];
-		contactPersonTypeOptions[0] = new SelectItem(0, "Contact");
-		contactPersonTypeOptions[1] = new SelectItem(1, "Lead");
-		contactPersonTypeOptions[2] = new SelectItem(2, "Customer");
-		return contactPersonTypeOptions;
+	public SelectItem[] getContactPersonStateOptions() {
+		SelectItem[] contactPersonStateOptions = new SelectItem[3];
+		contactPersonStateOptions[0] = new SelectItem("Contact", "Contact");
+		contactPersonStateOptions[1] = new SelectItem("Lead", "Lead");
+		contactPersonStateOptions[2] = new SelectItem("Customer", "Customer");
+		return contactPersonStateOptions;
 	}
 	
 	public ContactPersonService getContactPersonService() {
@@ -103,24 +115,40 @@ public class ListContactPersonsView {
 		this.countrySearch = countrySearch;
 	}
 
-	public Integer[] getSeekedContactPersonTypes() {
-		return this.seekedContactPersonTypes;
+	public String[] getSeekedContactPersonStates() {
+		return this.seekedContactPersonStates;
 	}
 	
-	public void setSeekedContactPersonTypes(Integer[] seekedContactPersonTypes) {
-		this.seekedContactPersonTypes = seekedContactPersonTypes;
+	public void setSeekedContactPersonStates(String[] seekedContactPersonStates) {
+		this.seekedContactPersonStates = seekedContactPersonStates;
 	}
 	
 	public String seekContactPersons() {
-		List<Integer> listSeekedContactPersonTypes = new ArrayList<Integer>();
-		for(Integer seekedContactPersonType: seekedContactPersonTypes)
-			listSeekedContactPersonTypes.add(seekedContactPersonType);
-		this.searchedContactPersons = 
-				contactPersonService.seekContactPersons(
-						listSeekedContactPersonTypes, 
-						this.getSearchSalesmanFirstNames(),
-						this.getSearchSalesmanLastName(),
-						this.getCountrySearch());
+		List<String> listSeekedContactPersonStates = new ArrayList<String>();
+		for(String seekedContactPersonState: seekedContactPersonStates)
+			listSeekedContactPersonStates.add(seekedContactPersonState);
+		if (currentUser.getRole().equals("SALESMAN")) 
+			this.searchedContactPersons = 
+					contactPersonService.seekContactPersonsForSalesman(
+							this.currentUser,
+							listSeekedContactPersonStates,
+							this.getFirstNameSearch(),
+							this.getLastNameSearch(),
+							this.getCompanyNameSearch(),
+							this.getSearchSalesmanFirstNames(),
+							this.getSearchSalesmanLastName(),
+							this.getCountrySearch());
+		else 
+			this.searchedContactPersons = 
+					contactPersonService.seekContactPersons(
+							listSeekedContactPersonStates, 
+							this.getFirstNameSearch(),
+							this.getLastNameSearch(),
+							this.getCompanyNameSearch(),
+							this.getSearchSalesmanFirstNames(),
+							this.getSearchSalesmanLastName(),
+							this.getCountrySearch());
+
 		System.out.println("SEEKED CONTACT PERSONS");
 		for(ContactPerson c: searchedContactPersons)
 			System.out.println(c);
@@ -132,18 +160,66 @@ public class ListContactPersonsView {
 		for(ContactPerson scp : this.selectedContactPersons)
 			System.out.println("selectedContactPerson " + scp);
 		
-		contactPersonService.setContactPersonsToType(this.getSelectedContactPersons(), 1);
+		contactPersonService.setContactPersonsToState(this.getSelectedContactPersons(), "Lead");
 		
-		List<Integer> listSeekedContactPersonTypes = new ArrayList<Integer>();
-		for(Integer seekedContactType: seekedContactPersonTypes)
-			listSeekedContactPersonTypes.add(seekedContactType);
-		this.searchedContactPersons = 
-				contactPersonService.seekContactPersons(
-						listSeekedContactPersonTypes, 
-						this.getSearchSalesmanFirstNames(),
-						this.getSearchSalesmanLastName(),
-						this.getCountrySearch());
+		List<String> listSeekedContactPersonStates = new ArrayList<String>();
+		for(String seekedContactState: seekedContactPersonStates)
+			listSeekedContactPersonStates.add(seekedContactState);
+		
+		if (currentUser.getRole().equals("SALESMAN")) 
+			this.searchedContactPersons = 
+					contactPersonService.seekContactPersonsForSalesman(
+							this.currentUser,
+							listSeekedContactPersonStates,
+							this.getFirstNameSearch(),
+							this.getLastNameSearch(),
+							this.getCompanyNameSearch(),
+							this.getSearchSalesmanFirstNames(),
+							this.getSearchSalesmanLastName(),
+							this.getCountrySearch());
+		else 
+			this.searchedContactPersons = 
+					contactPersonService.seekContactPersons(
+							listSeekedContactPersonStates, 
+							this.getFirstNameSearch(),
+							this.getLastNameSearch(),
+							this.getCompanyNameSearch(),
+							this.getSearchSalesmanFirstNames(),
+							this.getSearchSalesmanLastName(),
+							this.getCountrySearch());
 		return "";
+	}
+
+	public List<ContactPerson> getSearchedContactPersons() {
+		return searchedContactPersons;
+	}
+
+	public void setSearchedContactPersons(List<ContactPerson> searchedContactPersons) {
+		this.searchedContactPersons = searchedContactPersons;
+	}
+
+	public String getFirstNameSearch() {
+		return firstNameSearch;
+	}
+
+	public void setFirstNameSearch(String firstNameSearch) {
+		this.firstNameSearch = firstNameSearch;
+	}
+
+	public String getLastNameSearch() {
+		return lastNameSearch;
+	}
+
+	public void setLastNameSearch(String lastNameSearch) {
+		this.lastNameSearch = lastNameSearch;
+	}
+
+	public String getCompanyNameSearch() {
+		return companyNameSearch;
+	}
+
+	public void setCompanyNameSearch(String companyNameSearch) {
+		this.companyNameSearch = companyNameSearch;
 	}
 	
 }

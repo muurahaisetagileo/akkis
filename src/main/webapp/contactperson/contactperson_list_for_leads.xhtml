@@ -17,16 +17,25 @@
 					<p:growl id="messages"></p:growl>
 					<p:panel header="Find contact persons" style="margin-bottom:20px; width:470px">
 					<p:panelGrid columns="2">
-						<p:outputLabel value="Firstnames:"></p:outputLabel>
-						<p:inputText value="#{listContactPersonsView.searchSalesmanFirstNames}"></p:inputText>
-						<p:outputLabel value="Lastname:"></p:outputLabel>
-						<p:inputText value="#{listContactPersonsView.searchSalesmanLastName}"></p:inputText>
-						<p:outputLabel value="State:"></p:outputLabel>
-						<p:selectManyCheckbox value="#{listContactPersonsView.seekedContactPersonTypes}">
-							<f:selectItems value="#{listContactPersonsView.contactPersonTypeOptions}"/>
-						</p:selectManyCheckbox>
+						<p:outputLabel value="First names"></p:outputLabel>
+						<p:inputText value="#{listContactPersonsView.firstNameSearch}"></p:inputText>
+						<p:outputLabel value="Last name"></p:outputLabel>
+						<p:inputText value="#{listContactPersonsView.lastNameSearch}"></p:inputText>
 						<p:outputLabel value="Country"></p:outputLabel>
 						<p:inputText value="#{listContactPersonsView.countrySearch}"></p:inputText>
+
+						<p:outputLabel value="Company name"></p:outputLabel>
+						<p:inputText value="#{listContactPersonsView.companyNameSearch}"></p:inputText>
+					
+						<p:outputLabel value="Salesman firstnames:"></p:outputLabel>
+						<p:inputText value="#{listContactPersonsView.searchSalesmanFirstNames}"></p:inputText>
+						<p:outputLabel value="Salesman lastname:"></p:outputLabel>
+						<p:inputText value="#{listContactPersonsView.searchSalesmanLastName}"></p:inputText>
+
+						<p:outputLabel value="State:"></p:outputLabel>
+						<p:selectManyCheckbox value="#{listContactPersonsView.seekedContactPersonStates}">
+							<f:selectItems value="#{listContactPersonsView.contactPersonStateOptions}"/>
+						</p:selectManyCheckbox>
 
 						<f:facet name="footer">
 						   <h:panelGroup style="display:block; text-align:center; background-color:white;">						
@@ -50,17 +59,23 @@
                    			Select contact persons
                			</f:facet>
 						<p:column style="width:18px" />
-						<p:column headerText="Name">
-                   			#{c.name}  
+						<p:column headerText="First names">
+                   			#{c.firstNames}  
                			</p:column>
-						<p:column headerText="Phone">
-                   			#{c.phone}  
+						<p:column headerText="Last name">
+                   			#{c.lastName}  
                			</p:column>
-						<p:column headerText="Address">
-                   			#{c.address}  
+						<p:column headerText="City">
+                   			#{c.city}  
                			</p:column>
 						<p:column headerText="Country">
                    			#{c.country}  
+               			</p:column>
+						<p:column headerText="Company name">
+                   			#{c.contactCompany.name}  
+               			</p:column>
+						<p:column headerText="Salesman">
+                   			#{c.salesPerson.wholeName}  
                			</p:column>
 						<f:facet name="footer"></f:facet>
 					</p:dataTable>

@@ -8,12 +8,15 @@ import java.util.HashMap;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
 import fi.agileo.akkis.jpa.ContactPerson;
 
 import fi.agileo.akkis.jpa.Contract;
 import fi.agileo.akkis.jpa.User;
+import fi.agileo.primefaces.beans.user.LoginUserView;
+import fi.agileo.spring.service.ContactPersonService;
 /* import fi.agileo.akkis.jpa.Deal;
 import fi.agileo.akkis.jpa.User; */
 import fi.agileo.spring.service.ContractService;
@@ -27,6 +30,11 @@ public class ShowOrModifyContractView {
 	
 	@ManagedProperty("#{userService}")
 	private UserService userService;
+	
+	@ManagedProperty("#{contactPersonService}")
+	private ContactPersonService contactPersonService;
+	
+	private User currentUser;
 	
 	private Contract contract;
 	private boolean modifyBasics = false;
@@ -57,9 +65,15 @@ public class ShowOrModifyContractView {
 	public String toShowContract() {
 		if (this.contract == null)
 			return "/contactcompany/contactcompany_showormodify";
+		LoginUserView lu = (LoginUserView)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUserView");
+		currentUser = lu.getUser();
 		return "/contract/contract_showormodify";
 	}
 
+	public List<ContactPerson> getContactPersons() {
+		return contractService.getContactPersons(currentUser, contract);
+	}
+	
 	public List<SelectItem> getTechnicationUsers() {
 		
 		List<String> technicianRoles = new ArrayList<String>();
@@ -139,7 +153,9 @@ public class ShowOrModifyContractView {
 	
 	public List<ContactPerson> getContactPersonsInContactCompanyButNotInContract() {
 		List<ContactPerson> notChosenContactPersons = new ArrayList<ContactPerson>();
-		notChosenContactPersons.addAll(contract.getContactCompany().getContactPersons());
+		notChosenContactPersons.addAll(
+				contactPersonService.getContactPersonsOfCompany(currentUser, 
+						contract.getContactCompany()));
 		notChosenContactPersons.removeAll(contract.getContactPersons());
 		return notChosenContactPersons;
 	}
@@ -186,5 +202,13 @@ public class ShowOrModifyContractView {
 
 	public void setTechnicianUsers(List<User> technicianUsers) {
 		this.technicianUsers = technicianUsers;
+	}
+
+	public ContactPersonService getContactPersonService() {
+		return contactPersonService;
+	}
+
+	public void setContactPersonService(ContactPersonService contactPersonService) {
+		this.contactPersonService = contactPersonService;
 	}
 }
