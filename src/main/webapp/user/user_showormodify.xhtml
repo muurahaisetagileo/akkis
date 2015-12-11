@@ -17,6 +17,11 @@
 					<p:growl id="messages"></p:growl>
 					<p:panel id="basic" header="User Information" style="margin-bottom:20px">
 					<p:panelGrid columns="2">
+					
+					<h:outputText 
+							value="#{user.lastName}"
+							rendered="#{userView.modifyBasics}" />		
+					
 						<h:outputText value="Firstname:"></h:outputText>
 						<h:inputText 
 							value="#{userView.user.firstNames}"
@@ -128,16 +133,16 @@
 								rendered="#{userView.modifyBasics}"
 								update="userInfo">
 								<f:setPropertyActionListener target="#{userView.modifyBasics}" value="false"/>
-							</p:commandButton> 					    
-							<p:commandButton 
-									value="Edit user" 
-									action="#{userView.toModifyBasics}"
-									rendered="#{not userView.modifyBasics}"
-									update="userInfo">
-									<f:setPropertyActionListener  
-										target="#{userView.modifyBasics}"
-										value="true"/>
-							</p:commandButton>    
+							</p:commandButton>
+								<p:commandButton 
+										value="Edit user" 
+										action="#{userView.toModifyBasics}"
+										rendered="#{not userView.modifyBasics and userView.currentUserRole == 'BOSS' or userView.currentUserRole == 'ADMIN'}"
+										update="userInfo">
+										<f:setPropertyActionListener  
+											target="#{userView.modifyBasics}"
+											value="true"/>
+								</p:commandButton>   
 					    </p:row>
 					</f:facet>																				
 					</p:panel>	

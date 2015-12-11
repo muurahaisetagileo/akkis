@@ -24,10 +24,13 @@ public class UserView {
 	private boolean modifyPassword = false;
 	private String backPage = "";
 	private User unmodifiedUser; 
+	private String currentUserRole;
 	
 	@PostConstruct
     private void init() {
 		unmodifiedUser = new User();
+		LoginUserView lu = (LoginUserView)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loginUserView");
+		currentUserRole = lu.getUser().getRole();		
 	}
 	
 	public User getUser() {
@@ -44,6 +47,14 @@ public class UserView {
 
 	public void setUnmodifiedUser(User unmodifiedUser) {
 		this.unmodifiedUser = unmodifiedUser;
+	}
+
+	public String getCurrentUserRole() {
+		return currentUserRole;
+	}
+
+	public void setCurrentUserRole(String currentUserRole) {
+		this.currentUserRole = currentUserRole;
 	}
 
 	public String toBackPage() {;
