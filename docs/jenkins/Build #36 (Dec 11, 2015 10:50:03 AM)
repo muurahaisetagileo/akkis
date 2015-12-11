@@ -1,0 +1,30 @@
+Build #36 (Dec 11, 2015 10:50:03 AM)
+add description
+	Changes
+
+    Font awsome and UI design (commit: 7d1617df79d62acb40627d7c81034c7cb54f66e0) (detail / githubweb)
+    daily jenkins build results (commit: 79ed3867035f2b3a73387417ea2f595678ce8ad1) (detail / githubweb)
+    Scrum dokumentti (commit: 1629239fb7e667211824b8c15e253ef833f09eb5) (detail / githubweb)
+    Harris last day hours (commit: 7a39de7fc5d66dbcc09f3b1590cc20821b07d0ac) (detail / githubweb)
+    tasks shared, hour evaluations, scrum plan tasks that dont fit removed (commit: 380a45bedcd432b9464bde8894e6b6127af6f198) (detail / githubweb)
+    Scrum update (commit: b2d7865e7bd5f353a58e2821b010ec3912116e36) (detail / githubweb)
+    Login form, secretary and boss menu changes (commit: 7556baad461419905ab75a8d31933a731e8a995a) (detail / githubweb)
+    New icons to menu (commit: 21b56f494c6887e64a111b86cd69920f927c1557) (detail / githubweb)
+    more contact fields, contact type -> state, publicAvailability handled, (commit: 0aceaeab9384e99ac32b3ac59306cdac2afcff0b) (detail / githubweb)
+    testdata for changed contact person (commit: 5368d2e1bcbfea12cf3981e44ce52f2af774f14d) (detail / githubweb)
+    Harris hours updated (commit: 6e85d006f589aec7706f343ebe55f04a8bb21af1) (detail / githubweb)
+    Harris hours added (commit: d93bc75f1c29c992cc915e9c40bae6db819a43d0) (detail / githubweb)
+
+	
+
+Started by anonymous user
+	Revision: d93bc75f1c29c992cc915e9c40bae6db819a43d0
+
+    refs/remotes/origin/master
+
+	Test Result (1 failure / +1)
+
+    fi.agileo.akkis.test.service.ContactServiceTest.testSeeking
+
+Module Builds
+Unstable Akkis muurahaiset	1 min 3 sec

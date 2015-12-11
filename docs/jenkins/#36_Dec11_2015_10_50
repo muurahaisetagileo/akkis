@@ -1,0 +1,169 @@
+Console Output
+
+Started by user anonymous
+Building in workspace /var/lib/jenkins/jobs/akkis/workspace
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/muurahaisetagileo/akkis.git # timeout=10
+Fetching upstream changes from https://github.com/muurahaisetagileo/akkis.git
+ > git --version # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/muurahaisetagileo/akkis.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision d93bc75f1c29c992cc915e9c40bae6db819a43d0 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f d93bc75f1c29c992cc915e9c40bae6db819a43d0
+ > git rev-list f9e1a817dcc6ce8974085a3b0b07cbd7a2cadf63 # timeout=10
+Parsing POMs
+[workspace] $ /usr/lib/jvm/java-8-oracle/bin/java -cp /var/lib/jenkins/plugins/maven-plugin/WEB-INF/lib/maven31-agent-1.5.jar:/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven/boot/plexus-classworlds-2.5.2.jar:/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven/conf/logging jenkins.maven3.agent.Maven31Main /var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/Maven /var/cache/jenkins/war/WEB-INF/lib/remoting-2.52.jar /var/lib/jenkins/plugins/maven-plugin/WEB-INF/lib/maven31-interceptor-1.5.jar /var/lib/jenkins/plugins/maven-plugin/WEB-INF/lib/maven3-interceptor-commons-1.5.jar 38633
+<===[JENKINS REMOTING CAPACITY]===>channel started
+Executing Maven:  -B -f /var/lib/jenkins/jobs/akkis/workspace/pom.xml install
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Akkis muurahaiset 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ Akkis.muurahaiset ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ Akkis.muurahaiset ---
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 18 source files to /var/lib/jenkins/jobs/akkis/workspace/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ Akkis.muurahaiset ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/jobs/akkis/workspace/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:testCompile (default-testCompile) @ Akkis.muurahaiset ---
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 3 source files to /var/lib/jenkins/jobs/akkis/workspace/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ Akkis.muurahaiset ---
+[INFO] Surefire report directory: /var/lib/jenkins/jobs/akkis/workspace/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running fi.agileo.akkis.test.Test2
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.299 sec
+Running fi.agileo.akkis.test.service.ContactServiceTest
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.759 sec <<< FAILURE!
+testSeeking(fi.agileo.akkis.test.service.ContactServiceTest)  Time elapsed: 0.757 sec  <<< ERROR!
+java.lang.NoSuchMethodError: fi.agileo.akkis.jpa.ContactPerson.setType(I)V
+	at fi.agileo.akkis.test.service.ContactServiceTest.testSeeking(ContactServiceTest.java:47)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+Running fi.agileo.akkis.test.service.UserServiceTest
+login
+user count 0
+login
+user count 1
+login
+user count 2
+login
+user count 0
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.709 sec
+Running fi.agileo.akkis.test.service.DealServiceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+Running fi.agileo.akkis.test.service.ContactCompanyServiceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+Running fi.agileo.akkis.test.service.ContactPersonServiceTest
+seekContactPersonsForSalesman
+states [Lead]
+firstNameSearch 
+lastNameSearch 
+salesManFirstNamesSearch Karp
+salesManLastNameSearch Karp
+countrySearch Suomi
+salesManFirstNameSearchExpr %Raimo%
+salesManLastNameSearchExpr %Karp%
+countrySearchExpr %Suomi%
+firstNameSearchExpr %
+lastNameSearchExpr %
+companyNameSearchExpr %Yritys%
+seekedContactPersons:
+ContactPerson [contactPersonId=0, firstNames=null, lastName=null, address=null, zipCode=null, city=null, phone=null, country=Suomi, email=null, state=Lead, publicAvailability=false]
+ContactPerson [contactPersonId=0, firstNames=null, lastName=null, address=null, zipCode=null, city=null, phone=null, country=Suomi, email=null, state=Customer, publicAvailability=false]
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Running fi.agileo.akkis.test.jpa.ContactCompanyTest
+HERE1
+HERE4
+HERE5
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.613 sec
+Running fi.agileo.akkis.test.jpa.ContactTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec
+Running fi.agileo.akkis.test.jpa.UserTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running fi.agileo.akkis.test.jpa.ContactPersonTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+Running fi.agileo.akkis.test.jpa.DealTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+Running fi.agileo.akkis.test.Test
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.001 sec
+Running fi.agileo.akkis.test.managedbeans.TestLoginUser
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
+
+Results :
+
+Tests in error: 
+  testSeeking(fi.agileo.akkis.test.service.ContactServiceTest): fi.agileo.akkis.jpa.ContactPerson.setType(I)V
+
+Tests run: 26, Failures: 0, Errors: 1, Skipped: 4
+
+[ERROR] There are test failures.
+
+Please refer to /var/lib/jenkins/jobs/akkis/workspace/target/surefire-reports for the individual test results.
+[JENKINS] Recording test results
+[INFO] 
+[INFO] --- maven-war-plugin:2.4:war (default-war) @ Akkis.muurahaiset ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [Akkis.muurahaiset] in [/var/lib/jenkins/jobs/akkis/workspace/target/Akkis.muurahaiset]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/var/lib/jenkins/jobs/akkis/workspace/src/main/webapp]
+[INFO] Webapp assembled in [1688 msecs]
+[INFO] Building war: /var/lib/jenkins/jobs/akkis/workspace/target/akkis.war
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ Akkis.muurahaiset ---
+[INFO] Installing /var/lib/jenkins/jobs/akkis/workspace/target/akkis.war to /var/lib/jenkins/.m2/repository/fi/agileo/akkis/Akkis.muurahaiset/0.0.1-SNAPSHOT/Akkis.muurahaiset-0.0.1-SNAPSHOT.war
+[INFO] Installing /var/lib/jenkins/jobs/akkis/workspace/pom.xml to /var/lib/jenkins/.m2/repository/fi/agileo/akkis/Akkis.muurahaiset/0.0.1-SNAPSHOT/Akkis.muurahaiset-0.0.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:05 min
+[INFO] Finished at: 2015-12-11T10:51:53+02:00
+[INFO] Final Memory: 21M/69M
+[INFO] ------------------------------------------------------------------------
+[JENKINS] Archiving /var/lib/jenkins/jobs/akkis/workspace/pom.xml to fi.agileo.akkis/Akkis.muurahaiset/0.0.1-SNAPSHOT/Akkis.muurahaiset-0.0.1-SNAPSHOT.pom
+[JENKINS] Archiving /var/lib/jenkins/jobs/akkis/workspace/target/akkis.war to fi.agileo.akkis/Akkis.muurahaiset/0.0.1-SNAPSHOT/Akkis.muurahaiset-0.0.1-SNAPSHOT.war
+channel stopped
+Finished: UNSTABLE
