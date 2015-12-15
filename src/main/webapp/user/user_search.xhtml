@@ -12,7 +12,7 @@
 		<ui:composition template="../templates/template_action.xhtml">
 		<ui:param name="title" value="User search" />
 			<ui:define name="content">
-<h:panelGroup id="form_and_userlist">
+			<h:panelGroup id="form_and_userlist">
 			<h:form>
 				<!-- <p:growl id="messages"></p:growl> -->
 				<p:panelGrid columns="2">
@@ -27,8 +27,16 @@
 					<p:selectManyCheckbox value="#{userSearchView.filterUserRoles}" layout="grid" columns="3">
 						<f:selectItems value="#{userSearchView.userRoles}" />
 					</p:selectManyCheckbox>		 
-           			<p:commandButton value="Show all users" action="#{userSearchView.allUsers}" update="form_and_userlist" />
-					<p:commandButton value="Search" action="#{userSearchView.filteredUsers}" update="userList"  icon="ui-icon-search" />					
+           			<p:commandButton 
+           				value="Show all users" 
+           				action="#{userSearchView.allUsers}" 
+           				update="form_and_userlist"
+           				icon="fa fa-users" />
+					<p:commandButton 
+						value="Search" 
+						action="#{userSearchView.filteredUsers}" 
+						update="userList"  
+						icon="ui-icon-search" />					
 											
 				</p:panelGrid>
 				<br/>
@@ -55,7 +63,10 @@
 					</p:column>					
 				<f:facet name="footer">
 					<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-					<p:commandButton value="Show user information" action="#{userView.toUserPage}" >
+					<p:commandButton 
+						value="Show user information" 
+						action="#{userView.toUserPage}"
+						icon="fa fa-info-circle">
 						<f:setPropertyActionListener target="#{userView.backPage}"
 				    	value="/user/user_search"/>					
 					</p:commandButton>
@@ -63,7 +74,7 @@
 			</p:dataTable>
 				
 			</h:form>
-</h:panelGroup>			
+		</h:panelGroup>			
 		</ui:define>
 		</ui:composition>
 	</h:body>

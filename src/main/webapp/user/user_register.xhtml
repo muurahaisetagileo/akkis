@@ -15,7 +15,11 @@
 			
 				<h:form>
 				 	<p:growl id="messages"></p:growl>
-				 	<p:panel id="basic" header="Fill User Information" footer="User registration" style="margin-bottom:20px">
+				 	<p:panel 
+				 		id="basic" 
+				 		header="Fill User Information" 
+				 		footer="User registration" 
+				 		style="margin-bottom:20px; width:500px">
 					<p:panelGrid columns="2">				
 					
 	 					<p:outputLabel value="Firstname:" />
@@ -58,12 +62,14 @@
 				        </p:selectOneRadio>
 				        
 				    <p:message for="r" /><br/>
-					<!-- <p:commandButton value="Add user" action="#{registerUser.register}" validateClient="true"/> -->
+					
+					<f:facet name="footer">
 					<p:commandButton 
 						value="Add user" 
 						action="#{registerUserView.register}" 
 						update="messages"
 						icon="fa fa-user-plus" />
+					</f:facet>
 					</p:panel>
 					<br/><br/>
 					

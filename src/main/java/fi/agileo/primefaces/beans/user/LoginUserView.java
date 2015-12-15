@@ -79,6 +79,9 @@ public class LoginUserView {
 		User foundUser = this.userService.login(user);
 		System.out.println("foundUser " + foundUser);
 		if (foundUser != null) {
+//TESTI
+FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("username", foundUser.getUsername());
+			
 			System.out.println("Logged user: " + foundUser);
 			this.user = foundUser;
 			return mainPage(this.user.getRole());

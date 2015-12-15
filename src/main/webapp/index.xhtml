@@ -4,34 +4,43 @@
 		xmlns:f="http://java.sun.com/jsf/core"
 		xmlns:p="http://primefaces.org/ui">
 	<h:head>
+		 <META HTTP-EQUIV="srefresh" CONTENT="15" />
 		<script name="jquery/jquery.js" library="primefaces"></script>
 		<title>Akkis - Login</title>
+
 	</h:head>
 
 	<h:body>
-		<ui:composition template="templates/template_login.xhtml">
-			<ui:define name="content">
-			<h:panelGroup id="loginform">
-			<p:panel header="Login Form" style="margin-bottom:20px; width:410px">
-			<h:form>
+		<!-- <ui:composition template="templates/template_login.xhtml"> -->
+			<!-- <ui:define name="content"> -->
+			<h:panelGroup >
+			<p:panel header="Login Form" style="margin-bottom:20px; width:380px">
+			<h:form id="loginform">
 				<p:growl id="messages"></p:growl>
-
+<!-- <h:graphicImage library="images" name="user.gif"></h:graphicImage> -->
 				<p:panelGrid columns="2">
-					<p:outputLabel value="Username:"></p:outputLabel>
-					<p:inputText value="#{loginUserView.user.username}"></p:inputText>
-					<p:outputLabel value="Password:"></p:outputLabel>
-					<p:password value="#{loginUserView.user.password}"></p:password>
+					<!-- <p:outputLabel value="Username:"></p:outputLabel> -->
+					<i class="fa fa-user"></i>
+					<p:inputText id="username" value="#{loginUserView.user.username}" >
+						<p:watermark for="username" value="Username" />
+					</p:inputText>
+					
+					<!-- <p:outputLabel value="Password:"></p:outputLabel> -->
+					<i class="fa fa-key"></i>
+					<p:password id="password" value="#{loginUserView.user.password}">
+						<p:watermark for="password" value="Password" />
+					</p:password>
 				</p:panelGrid>
 				<br/>
 
 				<p:commandButton value="Sign in" action="#{loginUserView.login}"
-					update="loginform" icon="fa fa-user" />
+					update="loginform" icon="fa fa-sign-in" />
 			</h:form>
 			</p:panel>
 			</h:panelGroup>
 
-		</ui:define>
-		</ui:composition>
+		<!-- </ui:define> -->
+		<!-- </ui:composition> -->
 	</h:body>
 
 </html>

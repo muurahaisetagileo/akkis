@@ -6,4 +6,8 @@
 <application>
 	<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 </application>
+<!-- <lifecycle>
+	<phase-listener>fi.agileo.security.AuthorizationListener</phase-listener>
+</lifecycle>  -->
+
 </faces-config>

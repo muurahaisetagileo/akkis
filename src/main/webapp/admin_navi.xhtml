@@ -10,8 +10,14 @@ xmlns:p="http://primefaces.org/ui">
     	<p:menuitem value="Main Page" outcome="/admin_index" icon="fa fa-home" />     
          
          <p:submenu label="Users" icon="fa fa-user">
-            <p:menuitem icon="fa fa-search" value="User Search" action="#{userSearchView.toUserSearch}"	 />
-            <p:menuitem icon="fa fa-user-plus" value="Add User" outcome="/user/user_register" />
+            <p:menuitem 
+            	icon="fa fa-search" 
+            	value="User Search" 
+            	action="#{userSearchView.toUserSearch}"	 />
+            <p:menuitem 
+            	icon="fa fa-user-plus" 
+            	value="Add User" 
+            	outcome="/user/user_register" />
         </p:submenu>   
         
          <p:submenu icon="fa fa-hospital-o" label=" Contact Companies" >
@@ -23,7 +29,8 @@ xmlns:p="http://primefaces.org/ui">
             	icon="fa fa-plus" 
             	value="Add Company" 
             	action="#{createContactCompanyView.toCreateContactCompany}" />
-         </p:submenu>                
+         </p:submenu>  
+                       
          <p:submenu label="Contact Persons" icon="fa fa-user-md">
             <p:menuitem 
             	icon="fa fa-search-plus" 
@@ -40,7 +47,11 @@ xmlns:p="http://primefaces.org/ui">
         </p:submenu>              
  
         <f:facet name="options">
-            <p:commandButton value="Logout" action="#{loginUserView.logout}" icon="ui-icon-power" style="height:32px; font-size:14px" />
+            <p:commandButton 
+            	value="Logout" 
+            	action="#{loginUserView.logout}" 
+            	icon="fa fa-power-off" 
+            	style="height:32px; font-size:14px" />
         </f:facet>
     </p:menubar>
 	</h:form>

@@ -9,18 +9,19 @@
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<servlet-mapping>
+<!--  	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> -->
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
+		<!-- Muutettu clientista serveriksi -->	
 	<context-param>
 		<description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
 		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-		<param-value>client</param-value>
+		<param-value>server</param-value>
 	</context-param>
 	<context-param>
 	    <param-name>facelets.SKIP_COMMENTS</param-name>
@@ -33,14 +34,39 @@
 	<context-param>
 	   <param-name>primefaces.FONT_AWESOME</param-name>
 	   <param-value>true</param-value>
-	</context-param>		
+	</context-param>
 	<welcome-file-list>
 		<welcome-file>index.xhtml</welcome-file>
 	</welcome-file-list>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	<listener>
+  	<listener>
 		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 	</listener>
+<!-- 	<error-page>
+		<exception-type>javax.faces.application.ViewExpiredException</exception-type>
+		<location>/faces/index.xhtml</location>
+	</error-page>  -->
+	<session-config>
+		<session-timeout>
+		1
+		</session-timeout>
+	</session-config>
+	
+ <filter>
+    <filter-name>SessionFilter</filter-name>
+    <filter-class>
+        fi.agileo.akkis.util.SessionFilter
+    </filter-class>
+    <init-param>
+        <param-name>avoid-urls</param-name>
+        <param-value>index.xhtml</param-value>
+    </init-param>
+</filter>
+<filter-mapping>
+    <filter-name>SessionFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>	 
+			
 </web-app>

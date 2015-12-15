@@ -16,11 +16,7 @@
 				<h:form id="userInfo">
 					<p:growl id="messages"></p:growl>
 					<p:panel id="basic" header="User Information" style="margin-bottom:20px">
-					<p:panelGrid columns="2">
-					
-					<h:outputText 
-							value="#{user.lastName}"
-							rendered="#{userView.modifyBasics}" />		
+					<p:panelGrid columns="2">	
 					
 						<h:outputText value="Firstname:"></h:outputText>
 						<h:inputText 
@@ -79,7 +75,7 @@
 						
 						<!-- modifyPassword -->
 						
-  						<h:outputText value="Password:" rendered="#{userView.modifyPassword}" />
+  						<h:outputText value="Password: *" rendered="#{userView.modifyPassword}" />
 						<p:password 
 							id="pwd1" 
 							value="#{userView.user.password}" 
@@ -111,7 +107,8 @@
 								immediate="true"
 								action="#{userView.cancelChanges}"
 								update="userInfo"
-								rendered="#{userView.modifyBasics}" >
+								rendered="#{userView.modifyBasics}"
+								icon="fa fa-times-circle" >
 			 					<f:setPropertyActionListener  
 									target="#{userView.modifyPassword}"
 									value="false"/> 
@@ -121,7 +118,8 @@
 									value="Change password" 
 									action="#{userView.toModifyPassword}"
 									rendered="#{userView.modifyBasics and not userView.modifyPassword}"
-									update="userInfo">
+									update="userInfo"
+									icon="fa fa-unlock-alt" >
 									<f:setPropertyActionListener  
 										target="#{userView.modifyPassword}"
 										value="true"/>
@@ -131,18 +129,21 @@
 								value="Save" 
 								action="#{userView.saveModifiedUser}"
 								rendered="#{userView.modifyBasics}"
-								update="userInfo">
+								update="userInfo"
+								icon="fa fa-floppy-o">
 								<f:setPropertyActionListener target="#{userView.modifyBasics}" value="false"/>
 							</p:commandButton>
-								<p:commandButton 
-										value="Edit user" 
-										action="#{userView.toModifyBasics}"
-										rendered="#{not userView.modifyBasics and userView.currentUserRole == 'BOSS' or userView.currentUserRole == 'ADMIN'}"
-										update="userInfo">
-										<f:setPropertyActionListener  
-											target="#{userView.modifyBasics}"
-											value="true"/>
-								</p:commandButton>   
+							<p:commandButton 
+									value="Edit user" 
+									action="#{userView.toModifyBasics}"
+									rendered="#{not userView.modifyBasics and (userView.currentUserRole == 'BOSS' or userView.currentUserRole == 'ADMIN')}"
+									update="userInfo"
+									icon="fa fa-pencil" 
+									style="height:32px; font-size:14px" >
+									<f:setPropertyActionListener  
+										target="#{userView.modifyBasics}"
+										value="true"/>
+							</p:commandButton>   
 					    </p:row>
 					</f:facet>																				
 					</p:panel>	
@@ -150,7 +151,8 @@
 				<p:commandButton 
 					value="Back" 
 					action="#{userView.toBackPage}"
-					rendered="#{not userView.modifyBasics}">
+					rendered="#{not userView.modifyBasics}"
+					icon="fa fa-reply" >
 					<f:setPropertyActionListener  
 						target="#{userView.modifyPassword}"
 						value="false"/>	

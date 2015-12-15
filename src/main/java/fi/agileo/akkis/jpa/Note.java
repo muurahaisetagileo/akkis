@@ -41,7 +41,46 @@ public class Note {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="UPDATE_TIME")	
 	private Date updateTime;
-	
-	
 
+	public long getNoteId() {
+		return noteId;
+	}
+
+	public void setNoteId(long noteId) {
+		this.noteId = noteId;
+	}
+
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
+
+	public String getPublicity() {
+		return publicity;
+	}
+
+	public void setPublicity(String publicity) {
+		this.publicity = publicity;
+	}
+
+	public String getNoteText() {
+		return noteText;
+	}
+
+	public void setNoteText(String noteText) {
+		this.noteText = noteText;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+	
+	
 }
